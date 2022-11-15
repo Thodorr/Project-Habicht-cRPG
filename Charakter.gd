@@ -15,15 +15,20 @@ var may_move = false
 var state = State.IDLE
 var direction = Vector2(0,0)
 
+var movement = Vector2(0,0)
+const ACCELERATION = 50 
+
 func _ready():
 	nav_agent.connect("velocity_computed", self, "_on_velocity_computed")
 	animation_state.start("Idle")
+	state = State.IDLE
 
 func state_handler():
 	if nav_agent.is_navigation_finished():
 		state = State.IDLE
 
 func animation_player():
+
 	if state == State.MOVING:
 		animation_tree.set("parameters/Idle/blend_position", direction)
 		animation_tree.set("parameters/Walk/blend_position", direction)
@@ -33,7 +38,10 @@ func animation_player():
 
 
 func _on_velocity_computed(velocity):
-	state = State.MOVING
+	if(velocity.x <= 5 && velocity.x >= -5 && velocity.y <= 5 && velocity.y >= -5):
+		state = State.IDLE
+	else:
+		state = State.MOVING
 	move_and_slide(velocity)
 
 func set_velocity(): 
@@ -46,13 +54,36 @@ func set_velocity():
 	var velocity: Vector2 = direction * nav_agent.max_speed
 	nav_agent.set_velocity(velocity)
 
+
 func _unhandled_input(_event):
 	if Input.is_action_just_pressed("left_mouse"):
 		may_move = true
 		nav_agent.set_target_location(get_global_mouse_position())
 
+func wsad_input_handler():
+	if Input.is_action_pressed("ui_up"):
+		movement.y = max(movement.y - ACCELERATION, -nav_agent.max_speed)
+	elif Input.is_action_pressed("ui_down"):
+		movement.y = min(movement.y + ACCELERATION, nav_agent.max_speed)
+	else:
+		movement.y = lerp(movement.y, 0, 0.3)
+
+	if Input.is_action_pressed("ui_right"):
+		movement.x = min(movement.x + ACCELERATION, nav_agent.max_speed)
+	elif Input.is_action_pressed("ui_left"):
+		movement.x = max(movement.x - ACCELERATION, -nav_agent.max_speed)
+	else:
+		movement.x = lerp(movement.x, 0, 0.3)
+	
+	direction = movement.normalized()
+	return movement
+
 func _physics_process(_delta):
+	var velocity = wsad_input_handler()
+	print(velocity)
+	if velocity.x >= 0.1 || velocity.x <= -0.1 || velocity.y >= 0.1 || velocity.y <= -0.1:
+		_on_velocity_computed(velocity)
 	if may_move:
 		set_velocity()
-		state_handler()
-		animation_player()
+	state_handler()
+	animation_player()
