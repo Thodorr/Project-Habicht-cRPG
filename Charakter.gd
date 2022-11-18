@@ -11,7 +11,7 @@ onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 onready var animation_tree: AnimationTree = $AnimationTree
 onready var animation_state = animation_tree.get("parameters/playback")
 
-var may_move = false
+var may_navigate = false
 var state = State.IDLE
 var direction = Vector2(0,0)
 
@@ -28,7 +28,6 @@ func state_handler():
 		state = State.IDLE
 
 func animation_player():
-
 	if state == State.MOVING:
 		animation_tree.set("parameters/Idle/blend_position", direction)
 		animation_tree.set("parameters/Walk/blend_position", direction)
@@ -46,7 +45,7 @@ func _on_velocity_computed(velocity):
 
 func set_velocity(): 
 	if nav_agent.is_navigation_finished():
-		may_move = false
+		may_navigate = false
 		return
 	
 	var targetpos: Vector2 = nav_agent.get_next_location()
@@ -56,8 +55,8 @@ func set_velocity():
 
 
 func _unhandled_input(_event):
-	if Input.is_action_just_pressed("left_mouse"):
-		may_move = true
+	if Input.is_action_pressed("left_mouse"):
+		may_navigate = true
 		nav_agent.set_target_location(get_global_mouse_position())
 
 func wsad_input_handler():
@@ -80,10 +79,9 @@ func wsad_input_handler():
 
 func _physics_process(_delta):
 	var velocity = wsad_input_handler()
-	print(velocity)
 	if velocity.x >= 0.1 || velocity.x <= -0.1 || velocity.y >= 0.1 || velocity.y <= -0.1:
 		_on_velocity_computed(velocity)
-	if may_move:
+	if may_navigate:
 		set_velocity()
 	state_handler()
 	animation_player()
