@@ -11,13 +11,17 @@ onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 onready var animation_tree: AnimationTree = $AnimationTree
 onready var animation_state = animation_tree.get("parameters/playback")
 
-var may_move = false
+var may_navigate = false
 var state = State.IDLE
 var direction = Vector2(0,0)
+
+var movement = Vector2(0,0)
+const ACCELERATION = 50 
 
 func _ready():
 	nav_agent.connect("velocity_computed", self, "_on_velocity_computed")
 	animation_state.start("Idle")
+	state = State.IDLE
 
 func state_handler():
 	if nav_agent.is_navigation_finished():
@@ -33,12 +37,15 @@ func animation_player():
 
 
 func _on_velocity_computed(velocity):
-	state = State.MOVING
+	if(velocity.x <= 5 && velocity.x >= -5 && velocity.y <= 5 && velocity.y >= -5):
+		state = State.IDLE
+	else:
+		state = State.MOVING
 	move_and_slide(velocity)
 
 func set_velocity(): 
 	if nav_agent.is_navigation_finished():
-		may_move = false
+		may_navigate = false
 		return
 	
 	var targetpos: Vector2 = nav_agent.get_next_location()
@@ -46,13 +53,35 @@ func set_velocity():
 	var velocity: Vector2 = direction * nav_agent.max_speed
 	nav_agent.set_velocity(velocity)
 
+
 func _unhandled_input(_event):
-	if Input.is_action_just_pressed("left_mouse"):
-		may_move = true
+	if Input.is_action_pressed("left_mouse"):
+		may_navigate = true
 		nav_agent.set_target_location(get_global_mouse_position())
 
+func wsad_input_handler():
+	if Input.is_action_pressed("ui_up"):
+		movement.y = max(movement.y - ACCELERATION, -nav_agent.max_speed)
+	elif Input.is_action_pressed("ui_down"):
+		movement.y = min(movement.y + ACCELERATION, nav_agent.max_speed)
+	else:
+		movement.y = lerp(movement.y, 0, 0.3)
+
+	if Input.is_action_pressed("ui_right"):
+		movement.x = min(movement.x + ACCELERATION, nav_agent.max_speed)
+	elif Input.is_action_pressed("ui_left"):
+		movement.x = max(movement.x - ACCELERATION, -nav_agent.max_speed)
+	else:
+		movement.x = lerp(movement.x, 0, 0.3)
+	
+	direction = movement.normalized()
+	return movement
+
 func _physics_process(_delta):
-	if may_move:
+	var velocity = wsad_input_handler()
+	if velocity.x >= 0.1 || velocity.x <= -0.1 || velocity.y >= 0.1 || velocity.y <= -0.1:
+		_on_velocity_computed(velocity)
+	if may_navigate:
 		set_velocity()
-		state_handler()
-		animation_player()
+	state_handler()
+	animation_player()
