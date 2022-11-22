@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Items/Book.png" type="Texture" id=1]
+[ext_resource path="res://Engine/Components/Interactable.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PickUp.gd" type="Script" id=5]
+
+[node name="PickUp" type="Node2D"]
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Interactable" parent="." instance=ExtResource( 4 )]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[connection signal="interaction_init" from="Interactable" to="." method="_on_interaction_init"]
