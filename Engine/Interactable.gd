@@ -4,7 +4,7 @@ extends CollisionObject2D
 signal interaction_init
 
 onready var interactable : Node = owner
-onready var character : KinematicBody2D = interactable.owner.get_node("Charakter")
+onready var character : KinematicBody2D = interactable.owner.get_node("YSort/Charakter")
 onready var positions = $Positions.get_children()
 
 export(int) var interaction_distance = 10
@@ -45,7 +45,13 @@ func _on_target_reached():
 
 func _on_navigation_finished():
 	if moving_to_target:
-		character.turn(character.get_global_position().direction_to(get_global_position()))
+		print(character.get_global_position(), get_global_position())
+		var character_position = character.get_global_position()
+		print(character_position)
+		var dir = character_position.direction_to(get_global_position()).round()
+		print(dir)
+		character.turn(dir)
+		emit_signal("interaction_init")
 		moving_to_target = false
 
 func _on_path_changed():

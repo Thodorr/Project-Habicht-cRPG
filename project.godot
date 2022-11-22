@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Project Habicht"
-run/main_scene="res://Movement_TestArea.tscn"
+run/main_scene="res://Testarea.tscn"
 config/icon="res://icon.png"
 
 [display]

@@ -7,6 +7,8 @@ enum State {
 	INTERACTING
 }
 
+signal loot_anim_finished
+
 onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 onready var animation_tree: AnimationTree = $AnimationTree
 onready var animation_state = animation_tree.get("parameters/playback")
@@ -15,27 +17,33 @@ onready var timer = $Timer
 
 var may_navigate = false
 var movement_blocked = false
-var state = State.IDLE
-var direction = Vector2(0,0)
 
+var direction = Vector2(0,0)
 var movement = Vector2(0,0)
 const ACCELERATION = 50 
+
+export var state = State.IDLE
 
 func _ready():
 	var _velocity_computed_connect = nav_agent.connect("velocity_computed", self, "_on_velocity_computed")
 	animation_state.start("Idle")
 	state = State.IDLE
+	turn(Vector2(0, 1))
 
 func animation_player():
 	if state == State.MOVING:
 		animation_tree.set("parameters/Idle/blend_position", direction)
 		animation_tree.set("parameters/Walk/blend_position", direction)
+		animation_tree.set("parameters/PickUp/blend_position", direction)
 		animation_state.travel("Walk")
+	elif state == State.LOOTING:
+		animation_state.travel("PickUp")
 	else:
 		animation_state.travel("Idle")
 
 func turn(turn_direction):
-	animation_tree.set("parameters/Idle/blend_position", turn_direction) 
+	animation_tree.set("parameters/Idle/blend_position", turn_direction)
+	animation_tree.set("parameters/PickUp/blend_position", turn_direction)
 
 func _on_navigation_finished():
 	state = State.IDLE
@@ -65,8 +73,10 @@ func set_navigation(target):
 
 func _unhandled_input(_event):
 	if Input.is_action_pressed("left_mouse"):
-		may_navigate = true
-		set_navigation(get_global_mouse_position())
+		var min_dist = get_global_mouse_position().distance_to(position)
+		if min_dist >= 10:
+			may_navigate = true
+			set_navigation(get_global_mouse_position())
 
 func _input(_event):
 	var inventoryScene = ui_layer.get_child(0)
@@ -101,6 +111,9 @@ func wsad_input_handler():
 
 func _on_Timer_timeout():
 	movement_blocked = false
+
+func _pick_up_finished():
+	emit_signal("loot_anim_finished")
 
 func _physics_process(_delta):
 	var velocity = wsad_input_handler()
