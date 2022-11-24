@@ -1,6 +1,8 @@
 extends Resource
 class_name Item
 
+signal item_used
+
 enum ItemAttribute {
 	STRENGTH,
 	ENDURANCE,
@@ -48,3 +50,6 @@ export var item_attributes = {
 
 
 var amount = 1
+
+func use_item():
+	emit_signal("item_used")
