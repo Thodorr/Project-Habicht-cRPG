@@ -1,16 +1,11 @@
-extends Node
+extends Item
+class_name TemporaryItem
 
+var effect_duration = 0
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+func ready():
+	connect("use_item", self, "_on_item_used")
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_item_used():
+	#add effect
+	pass

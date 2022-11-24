@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://Engine/Blueprints/Item.gd"
 }, {
 "base": "Item",
+"class": "TemporaryItem",
+"language": "GDScript",
+"path": "res://Engine/Blueprints/TemporaryItem.gd"
+}, {
+"base": "Item",
 "class": "TextItem",
 "language": "GDScript",
 "path": "res://Engine/Blueprints/TextItem.gd"
@@ -39,6 +44,7 @@ _global_script_class_icons={
 "FoodItem": "",
 "Inventory": "",
 "Item": "",
+"TemporaryItem": "",
 "TextItem": ""
 }
 
