@@ -21,8 +21,9 @@ func _ready():
 	var _pick_up_finished_connect = player.connect("loot_anim_finished", self, "on_loot_anim_finished")
 
 func on_loot_anim_finished():
-	inventory.add_item(item, amount)
-	queue_free()
+	if $Interactable.moving_to_target == self:
+		inventory.add_item(item, amount)
+		queue_free()
 
 func _on_interaction_init():
 	player.state = player.State.LOOTING

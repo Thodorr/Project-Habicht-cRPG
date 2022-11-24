@@ -23,6 +23,7 @@ func add_item(item: Resource, amount):
 				target_item.amount += amount
 				index_counter -= 1
 				emit_signal("items_changed", [index_counter])
+				return true
 			else:
 				var target_item_index = items.find(null)
 				var has_space = target_item_index != -1
@@ -69,4 +70,8 @@ func make_items_unique():
 			 unique_items.append(item.duplicate())
 		else:
 			unique_items.append(null)
-		items = unique_items	
+		items = unique_items
+
+func use_item_at(index):
+	var item = items[index]
+	item._on_item_used()
