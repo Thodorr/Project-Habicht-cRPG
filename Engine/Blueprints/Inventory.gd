@@ -8,6 +8,7 @@ signal item_added(item, amount)
 
 export(Array, Resource) var items = []
 
+var equipped_hat: Resource
 var equipped_clothing: Resource
 var equipped_hand: Resource 
 var equipped_trinket: Resource 
@@ -72,6 +73,17 @@ func make_items_unique():
 			unique_items.append(null)
 		items = unique_items
 
+signal item_equipped
 func use_item_at(index):
 	var item = items[index]
-	item._on_item_used()
+	Attributes.add_item_stats(item)
+	
+	if item is EquipmentItem:
+		emit_signal("item_equipped", item)
+		match item.type:
+			0: equipped_hat = item
+			1: equipped_clothing = item
+			2: equipped_trinket = item
+			3: equipped_hand = item
+	if item.removeable:
+		remove_item_at(index)

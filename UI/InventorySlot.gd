@@ -137,12 +137,10 @@ func drop_data(_position, data):
 #			previous_item = null
 
 
-#func _on_InventorySlotDisplay_gui_input(event):
-#	if event is InputEventMouseButton:
-#		if event.is_action_released("click"):
-#			get_parent().display_item_description(get_index())
-#		elif event.doubleclick:
-#			use_item(get_index())
-#		elif event.is_action_pressed("right_click"):
-#			use_item(get_index())
+func _on_InventorySlotDisplay_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.doubleclick:
+			inventory.use_item_at(get_index())
+		elif event.is_action_pressed("right_mouse"):
+			inventory.use_item_at(get_index())
 

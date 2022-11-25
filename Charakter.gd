@@ -11,6 +11,7 @@ signal loot_anim_finished
 
 onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 onready var animation_tree: AnimationTree = $AnimationTree
+onready var inventory = preload("res://Inventory.tres")
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var ui_layer = $UiLayer
 onready var timer = $Timer
@@ -26,6 +27,7 @@ export var state = State.IDLE
 
 func _ready():
 	var _velocity_computed_connect = nav_agent.connect("velocity_computed", self, "_on_velocity_computed")
+	var _item_equipped_connect = inventory.connect("item_equipped", self,"_on_item_equipped")
 	animation_state.start("Idle")
 	state = State.IDLE
 	turn(Vector2(0, 1))
@@ -114,6 +116,15 @@ func _on_Timer_timeout():
 
 func _pick_up_finished():
 	emit_signal("loot_anim_finished")
+
+func _on_item_equipped(item):
+	print("here")
+	match item.type:
+		item.Type.HAT:
+			$SpriteBundle/Hair.texture = item.sprite_sheet
+		item.Type.CLOTHING:
+			$SpriteBundle/Outfit.texture = item.sprite_sheet
+		
 
 func _physics_process(_delta):
 	var velocity = wsad_input_handler()
