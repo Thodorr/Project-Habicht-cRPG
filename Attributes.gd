@@ -301,6 +301,9 @@ func attribute_math():
 
 signal clothingChanged
 signal hatChanged
+signal effectAdded
+var temp_effects = []
+var current_food = null
 func add_item_stats(item):
 	if item is EquipmentItem:
 		match item.type:
@@ -320,11 +323,25 @@ func add_item_stats(item):
 				for i in attributes_hand:
 					attributes_hand[i] = item.item_attributes[i]
 	elif item is TemporaryItem:
+		var timer = Timer.new()
+		timer.connect("timeout", self, "_on_timeout", [item])
+		add_child(timer)
+		timer.start(item.effect_duration)
+		
 		for i in attributes_temporary:
 			attributes_temporary[i] += item.item_attributes[i]
+		temp_effects.append(item)
+		emit_signal("effectAdded", [item])
 	if item is FoodItem:
+		current_food = item
 		for i in attributes_food:
 			attributes_food[i] = item.item_attributes[i]
+	attribute_math()
+
+func _on_timeout(item):
+	for i in attributes_temporary:
+		attributes_temporary[i] -= item.item_attributes[i]
+	temp_effects.erase(item)
 	attribute_math()
 
 func deequip(usage):

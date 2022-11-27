@@ -118,12 +118,13 @@ func _pick_up_finished():
 	emit_signal("loot_anim_finished")
 
 func _on_item_equipped(item):
-	print("here")
 	match item.type:
 		item.Type.HAT:
-			$SpriteBundle/Hair.texture = item.sprite_sheet
+			$SpriteBundle/Hat.texture = item.sprite_sheet
 		item.Type.CLOTHING:
 			$SpriteBundle/Outfit.texture = item.sprite_sheet
+		item.Type.BACK:
+			$SpriteBundle/Back.texture = item.sprite_sheet
 		
 
 func _physics_process(_delta):

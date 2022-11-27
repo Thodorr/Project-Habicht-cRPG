@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Engine/Blueprints/EquipmentItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/DetectiveHat.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Character/Hair/Accessory_08_Detective_Hat_01.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Deatective Hat"
+texture = ExtResource( 2 )
+description = "It is a detective hat. Wearing it will certainly make you a genius."
+item_attributes = {
+0: 0,
+1: 0,
+2: 0,
+3: 0,
+4: 0,
+5: 0,
+6: 2,
+7: 0,
+8: 1,
+9: 0
+}
+removeable = true
+type = 0
+sprite_sheet = ExtResource( 3 )

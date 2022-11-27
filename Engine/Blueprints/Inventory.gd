@@ -76,14 +76,27 @@ func make_items_unique():
 signal item_equipped
 func use_item_at(index):
 	var item = items[index]
+	if item == null: return
+	if item.removeable:
+		if item.amount >= 2:
+			item.amount -= 1
+		else:
+			remove_item_at(index)
+		emit_signal("items_changed", [index])
 	Attributes.add_item_stats(item)
 	
 	if item is EquipmentItem:
 		emit_signal("item_equipped", item)
 		match item.type:
-			0: equipped_hat = item
-			1: equipped_clothing = item
-			2: equipped_trinket = item
-			3: equipped_hand = item
-	if item.removeable:
-		remove_item_at(index)
+			0: 
+				set_item(index, equipped_hat)
+				equipped_hat = item
+			1: 
+				set_item(index, equipped_clothing)
+				equipped_clothing = item
+			2: 
+				set_item(index, equipped_trinket)
+				equipped_trinket = item
+			3: 
+				set_item(index, equipped_hand)
+				equipped_hand = item

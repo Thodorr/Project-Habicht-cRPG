@@ -1,0 +1,23 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Engine/Blueprints/FoodItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/Cheese.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Cheese"
+texture = ExtResource( 2 )
+description = "jdffd"
+item_attributes = {
+0: 0,
+1: 0,
+2: 0,
+3: 0,
+4: 0,
+5: 0,
+6: 0,
+7: 0,
+8: 0,
+9: 4
+}
+removeable = true
