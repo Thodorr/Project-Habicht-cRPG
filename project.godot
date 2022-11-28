@@ -33,19 +33,13 @@ _global_script_classes=[ {
 "class": "TemporaryItem",
 "language": "GDScript",
 "path": "res://Engine/Blueprints/TemporaryItem.gd"
-}, {
-"base": "Item",
-"class": "TextItem",
-"language": "GDScript",
-"path": "res://Engine/Blueprints/TextItem.gd"
 } ]
 _global_script_class_icons={
 "EquipmentItem": "",
 "FoodItem": "",
 "Inventory": "",
 "Item": "",
-"TemporaryItem": "",
-"TextItem": ""
+"TemporaryItem": ""
 }
 
 [application]

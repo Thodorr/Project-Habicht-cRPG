@@ -30,4 +30,9 @@ export var item_attributes = {
 	Attribute.LUCK: 0,
 }
 export var removeable = true
+export(String, MULTILINE) var text_message = ""
+export(String) var accept_text = "Accept"
+export(String) var decline_text = "Decline"
+
 var amount = 1
+var text_accepted = false

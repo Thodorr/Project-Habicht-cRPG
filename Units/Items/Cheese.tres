@@ -21,3 +21,6 @@ item_attributes = {
 9: 4
 }
 removeable = true
+text_message = "Do you actually want to gooble up this two pounder of a cheese wheel?!"
+accept_text = "Fuck yeah"
+decline_text = "No :("

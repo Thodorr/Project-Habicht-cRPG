@@ -8,7 +8,6 @@ func _ready():
 func _on_effects_changed(effects):
 	var effect = effects[0]
 	var effectUiInstance = effectUI.instance()
-	print(effectUiInstance)
 	effectUiInstance.texture = effect.texture
 	effectUiInstance.get_child(0).text = str(effect.effect_duration)
 	add_child(effectUiInstance)

@@ -312,7 +312,6 @@ func add_item_stats(item):
 					attributes_hat[i] = item.item_attributes[i]
 				emit_signal("hatChanged")
 			item.Type.CLOTHING:
-				print("test")
 				for i in attributes_clothing:
 					attributes_clothing[i] = item.item_attributes[i]
 				emit_signal("clothingChanged")

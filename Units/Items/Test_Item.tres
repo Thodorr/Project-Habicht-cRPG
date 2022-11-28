@@ -21,4 +21,7 @@ item_attributes = {
 9: 0
 }
 removeable = true
+text_message = "This is an incredibly boring book about the entire history of yarn. More like yawn."
+accept_text = "Read"
+decline_text = "Put away"
 effect_duration = 10

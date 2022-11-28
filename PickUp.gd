@@ -22,8 +22,9 @@ func _ready():
 
 func on_loot_anim_finished():
 	if $Interactable.moving_to_target == self:
-		inventory.add_item(item, amount)
-		queue_free()
+		if item is Item:
+			inventory.add_item(item, amount)
+			queue_free()
 
 func _on_interaction_init():
 	player.state = player.State.LOOTING

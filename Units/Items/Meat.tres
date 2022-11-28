@@ -21,3 +21,6 @@ item_attributes = {
 9: 0
 }
 removeable = true
+text_message = ""
+accept_text = "Accept"
+decline_text = "Decline"
