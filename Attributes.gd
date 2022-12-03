@@ -12,7 +12,7 @@ var attribute_groups = {
 	Attribute.PERCEPTION: AttributeGroup.BODY,
 	
 	Attribute.PERSUATION: AttributeGroup.CHARACTER,
-	Attribute.DECEPTION: AttributeGroup.CHARACTER,
+	Attribute.BLUFF: AttributeGroup.CHARACTER,
 	Attribute.INTIMIDATION: AttributeGroup.CHARACTER,
 	
 	Attribute.KNOWLEDGE: AttributeGroup.MIND,
@@ -32,8 +32,8 @@ enum Attribute {
 	PERCEPTION,
 	
 	PERSUATION,
-	INTIMIDATION,
 	BLUFF,
+	INTIMIDATION,
 	
 	KNOWLEDGE,
 	WILL,
@@ -48,8 +48,8 @@ var attributes = {
 	Attribute.PERCEPTION: 0,
 	
 	Attribute.PERSUATION: 0,
-	Attribute.INTIMIDATION: 0,
 	Attribute.BLUFF: 0,
+	Attribute.INTIMIDATION: 0,
 	
 	Attribute.KNOWLEDGE: 0,
 	Attribute.WILL: 0,
@@ -64,8 +64,8 @@ var attributes_base = {
 	Attribute.PERCEPTION: 0,
 	
 	Attribute.PERSUATION: 0,
-	Attribute.INTIMIDATION: 0,
 	Attribute.BLUFF: 0,
+	Attribute.INTIMIDATION: 0,
 	
 	Attribute.KNOWLEDGE: 0,
 	Attribute.WILL: 0,
@@ -80,8 +80,8 @@ var attributes_equipment = {
 	Attribute.PERCEPTION: 0,
 	
 	Attribute.PERSUATION: 0,
-	Attribute.INTIMIDATION: 0,
 	Attribute.BLUFF: 0,
+	Attribute.INTIMIDATION: 0,
 	
 	Attribute.KNOWLEDGE: 0,
 	Attribute.WILL: 0,
@@ -96,8 +96,8 @@ var attributes_hat = {
 	Attribute.PERCEPTION: 0,
 	
 	Attribute.PERSUATION: 0,
-	Attribute.INTIMIDATION: 0,
 	Attribute.BLUFF: 0,
+	Attribute.INTIMIDATION: 0,
 	
 	Attribute.KNOWLEDGE: 0,
 	Attribute.WILL: 0,
@@ -112,8 +112,8 @@ var attributes_clothing = {
 	Attribute.PERCEPTION: 0,
 	
 	Attribute.PERSUATION: 0,
-	Attribute.INTIMIDATION: 0,
 	Attribute.BLUFF: 0,
+	Attribute.INTIMIDATION: 0,
 	
 	Attribute.KNOWLEDGE: 0,
 	Attribute.WILL: 0,
@@ -128,8 +128,8 @@ var attributes_trinket = {
 	Attribute.PERCEPTION: 0,
 	
 	Attribute.PERSUATION: 0,
-	Attribute.INTIMIDATION: 0,
 	Attribute.BLUFF: 0,
+	Attribute.INTIMIDATION: 0,
 	
 	Attribute.KNOWLEDGE: 0,
 	Attribute.WILL: 0,
@@ -144,8 +144,8 @@ var attributes_hand = {
 	Attribute.PERCEPTION: 0,
 	
 	Attribute.PERSUATION: 0,
-	Attribute.INTIMIDATION: 0,
 	Attribute.BLUFF: 0,
+	Attribute.INTIMIDATION: 0,
 	
 	Attribute.KNOWLEDGE: 0,
 	Attribute.WILL: 0,
@@ -160,8 +160,8 @@ var attributes_temporary = {
 	Attribute.PERCEPTION: 0,
 	
 	Attribute.PERSUATION: 0,
-	Attribute.INTIMIDATION: 0,
 	Attribute.BLUFF: 0,
+	Attribute.INTIMIDATION: 0,
 	
 	Attribute.KNOWLEDGE: 0,
 	Attribute.WILL: 0,
@@ -176,8 +176,8 @@ var attributes_food = {
 	Attribute.PERCEPTION: 0,
 	
 	Attribute.PERSUATION: 0,
-	Attribute.INTIMIDATION: 0,
 	Attribute.BLUFF: 0,
+	Attribute.INTIMIDATION: 0,
 	
 	Attribute.KNOWLEDGE: 0,
 	Attribute.WILL: 0,
@@ -192,8 +192,8 @@ var attributes_extra = {
 	Attribute.PERCEPTION: 0,
 	
 	Attribute.PERSUATION: 0,
-	Attribute.INTIMIDATION: 0,
 	Attribute.BLUFF: 0,
+	Attribute.INTIMIDATION: 0,
 	
 	Attribute.KNOWLEDGE: 0,
 	Attribute.WILL: 0,
@@ -260,28 +260,26 @@ func probability_math(skillcheckStr):
 	if probability > 100: probability = 100
 	return probability
 
-signal StatsChanged
+signal attributes_changed
 func attribute_math():
 	var attributegroup_bonus = 0
 	var x = 0
 	
 	for i in attribute_group_value:
 		attribute_group_value[i] = floor((attributes_base[i+x] + attributes_base[i+1+x] + attributes_base[i+2+x] + attributes_base[i+3+x]) / 10 )
-		x += 3
-		if i == 3:
+		x += 2
+		if i == 2:
 			x = 0
 	
 	for i in attributes_equipment:
-		attributes_equipment[i] =  attributes_clothing[i] + attributes_trinket[i] + attributes_hand[i]
+		attributes_equipment[i] = attributes_hat[i] + attributes_clothing[i] + attributes_trinket[i] + attributes_hand[i]
 		
 	for i in attributes:
-		if i >= 0 && i <= 3:
+		if i >= 0 && i <= 2:
 			attributegroup_bonus = attribute_group_value[AttributeGroup.BODY]
-		elif i >= 4 && i <= 7:
-			attributegroup_bonus = attribute_group_value[AttributeGroup.AGILITY]
-		elif i >= 8 && i <= 11:
-			attributegroup_bonus = attribute_group_value[AttributeGroup.SOCIAL]
-		elif i >= 12 && i <= 15:
+		elif i >= 3 && i <= 5:
+			attributegroup_bonus = attribute_group_value[AttributeGroup.CHARACTER]
+		elif i >= 6 && i <= 8:
 			attributegroup_bonus = attribute_group_value[AttributeGroup.MIND]
 		attributes[i] = attributes_base[i] + attributes_equipment[i] + attributes_temporary[i] + attributes_food[i] + attributegroup_bonus + attributes_extra[i]
 		
@@ -299,32 +297,50 @@ func attribute_math():
 	if nerve_damage <= attributes[Attribute.WILL]:
 		attributes_extra[Attribute.WILL] = -nerve_damage
 		
-	emit_signal("StatsChanged")
+	emit_signal("attributes_changed")
 
 signal clothingChanged
 signal hatChanged
+signal effectAdded
+var temp_effects = []
+var current_food = null
 func add_item_stats(item):
-	match item.usage:
-		"hat":
-			for i in attributes_hat:
-				attributes_hat[i] = item.item_attributes[i]
-			emit_signal("hatChanged")
-		"clothing":
-			for i in attributes_clothing:
-				attributes_clothing[i] = item.item_attributes[i]
-			emit_signal("clothingChanged")
-		"trinket":
-			for i in attributes_trinket:
-				attributes_trinket[i] = item.item_attributes[i]
-		"hand":
-			for i in attributes_hand:
-				attributes_hand[i] = item.item_attributes[i]
-		"potion":
-			for i in attributes_temporary:
-				attributes_temporary[i] += item.item_attributes[i]
-		"food":
-			for i in attributes_food:
-				attributes_food[i] = item.item_attributes[i]
+	if item is EquipmentItem:
+		match item.type:
+			item.Type.HAT:
+				for i in attributes_hat:
+					attributes_hat[i] = item.item_attributes[i]
+				emit_signal("hatChanged")
+			item.Type.CLOTHING:
+				for i in attributes_clothing:
+					attributes_clothing[i] = item.item_attributes[i]
+				emit_signal("clothingChanged")
+			item.Type.TRINKET:
+				for i in attributes_trinket:
+					attributes_trinket[i] = item.item_attributes[i]
+			item.Type.HAND:
+				for i in attributes_hand:
+					attributes_hand[i] = item.item_attributes[i]
+	elif item is TemporaryItem:
+		var timer = Timer.new()
+		timer.connect("timeout", self, "_on_timeout", [item])
+		add_child(timer)
+		timer.start(item.effect_duration)
+		
+		for i in attributes_temporary:
+			attributes_temporary[i] += item.item_attributes[i]
+		temp_effects.append(item)
+		emit_signal("effectAdded", [item])
+	if item is FoodItem:
+		current_food = item
+		for i in attributes_food:
+			attributes_food[i] = item.item_attributes[i]
+	attribute_math()
+
+func _on_timeout(item):
+	for i in attributes_temporary:
+		attributes_temporary[i] -= item.item_attributes[i]
+	temp_effects.erase(item)
 	attribute_math()
 
 func deequip(usage):

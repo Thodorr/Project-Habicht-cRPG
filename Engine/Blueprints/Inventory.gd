@@ -8,6 +8,7 @@ signal item_added(item, amount)
 
 export(Array, Resource) var items = []
 
+var equipped_hat: Resource
 var equipped_clothing: Resource
 var equipped_hand: Resource 
 var equipped_trinket: Resource 
@@ -23,14 +24,16 @@ func add_item(item: Resource, amount):
 				target_item.amount += amount
 				index_counter -= 1
 				emit_signal("items_changed", [index_counter])
-			else:
-				var target_item_index = items.find(null)
-				var has_space = target_item_index != -1
-				if has_space:
-					items[target_item_index] = item
-					item.amount += amount - 1
-					emit_signal("items_changed", [target_item_index])
-				return has_space
+				return true
+			
+	var target_item_index = items.find(null)
+	var has_space = target_item_index != -1
+	if has_space:
+		items[target_item_index] = item
+		item.amount += amount - 1
+		emit_signal("items_changed", [target_item_index])
+	return has_space
+	
 
 func set_item(item_index, item):
 	var previous_item = items[item_index]
@@ -69,4 +72,51 @@ func make_items_unique():
 			 unique_items.append(item.duplicate())
 		else:
 			unique_items.append(null)
-		items = unique_items	
+		items = unique_items
+
+func use_item(item):
+	var index = 0
+	for target_item in items:
+		if target_item is Item:
+			if target_item == item:
+				use_item_at(index)
+		index += 1
+
+
+signal item_equipped
+signal open_popup
+
+func use_item_at(index):
+	var item = items[index]
+	if item == null: return
+	
+	if item.text_message != "" && !item.text_accepted:
+		emit_signal("open_popup", item, item.accept_text, item.decline_text)
+		return
+	elif item.text_message != "" && item.text_accepted:
+		item.text_accepted = false
+	
+	if item.removeable:
+		if item.amount >= 2:
+			item.amount -= 1
+		else:
+			remove_item_at(index)
+		emit_signal("items_changed", [index])
+	Attributes.add_item_stats(item)
+	
+	if item is EquipmentItem:
+		emit_signal("item_equipped", item)
+		match item.type:
+			0: 
+				set_item(index, equipped_hat)
+				equipped_hat = item
+			1: 
+				set_item(index, equipped_clothing)
+				equipped_clothing = item
+			2: 
+				set_item(index, equipped_trinket)
+				equipped_trinket = item
+			3: 
+				set_item(index, equipped_hand)
+				equipped_hand = item
+
