@@ -41,7 +41,8 @@ func _input(_event):
 
 func _on_target_reached():
 	if moving_to_target:
-		emit_signal("interaction_init")
+		pass
+		#emit_signal("interaction_init")
 
 func _on_navigation_finished():
 	if moving_to_target:

@@ -88,3 +88,7 @@ func _physics_process(_delta):
 	if may_navigate:
 		set_velocity()
 	animation_player()
+
+func _on_interaction_init():
+	var dialog = Dialogic.start("TestCon")
+	add_child(dialog)
