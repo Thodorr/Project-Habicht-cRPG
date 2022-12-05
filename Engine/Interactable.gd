@@ -49,7 +49,8 @@ func _on_navigation_finished():
 		var dir = character_position.direction_to(get_global_position()).round()
 		character.turn(dir)
 		emit_signal("interaction_init")
-#		moving_to_target = null
+		if get_parent() is KinematicBody2D:
+			get_parent().turn(-dir)
 
 func _on_path_changed():
 	if (hovering): return
