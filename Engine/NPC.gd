@@ -13,6 +13,7 @@ onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 onready var animation_tree: AnimationTree = $AnimationTree
 onready var inventory = preload("res://Inventory.tres")
 onready var animation_state = animation_tree.get("parameters/playback")
+onready var player = owner.get_node("YSort/Charakter")
 
 var may_navigate = false
 var movement_blocked = false
@@ -83,7 +84,6 @@ func set_navigation(target):
 func _pick_up_finished():
 	emit_signal("loot_anim_finished")
 
-
 func _physics_process(_delta):
 	if may_navigate:
 		set_velocity()
@@ -92,3 +92,11 @@ func _physics_process(_delta):
 func _on_interaction_init():
 	var dialog = Dialogic.start("TestCon")
 	add_child(dialog)
+
+
+func _on_Interactable_mouse_entered():
+	player.mouse_mode = player.Mouse.NPC
+
+
+func _on_Interactable_mouse_exited():
+	player.mouse_mode = player.Mouse.REGULAR

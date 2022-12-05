@@ -7,6 +7,12 @@ enum State {
 	INTERACTING
 }
 
+enum Mouse {
+	REGULAR,
+	PICKUP,
+	NPC
+}
+
 signal loot_anim_finished
 
 onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
@@ -16,11 +22,21 @@ onready var animation_state = animation_tree.get("parameters/playback")
 onready var ui_layer = $UiLayer
 onready var timer = $Timer
 
+onready var regular_cursor = preload("res://Assets/Cursors/Arrow.png")
+onready var regular_cursor_clicked = preload("res://Assets/Cursors/Arrow_Clicked.png")
+onready var hand_cursor = preload("res://Assets/Cursors/Hand.png")
+onready var hand_cursor_clicked = preload("res://Assets/Cursors/Hand_Clicked.png")
+onready var speech_cursor = preload("res://Assets/Cursors/Speech.png")
+onready var speech_cursor_clicked = preload("res://Assets/Cursors/Speech_Clicked.png")
+
 var may_navigate = false
 var movement_blocked = false
 
 var direction = Vector2(0,0)
 var movement = Vector2(0,0)
+
+var mouse_mode = Mouse.REGULAR
+
 const ACCELERATION = 50 
 
 export var state = State.IDLE
@@ -80,6 +96,23 @@ func _unhandled_input(_event):
 			may_navigate = true
 			set_navigation(get_global_mouse_position())
 
+func adapt_cursor():
+	match(mouse_mode):
+		Mouse.REGULAR:
+			Input.set_custom_mouse_cursor(regular_cursor)
+		Mouse.PICKUP:
+			Input.set_custom_mouse_cursor(hand_cursor)
+		Mouse.NPC:
+			Input.set_custom_mouse_cursor(speech_cursor)
+	if Input.is_action_pressed("left_mouse"):
+		match(mouse_mode):
+			Mouse.REGULAR:
+				Input.set_custom_mouse_cursor(regular_cursor_clicked)
+			Mouse.PICKUP:
+				Input.set_custom_mouse_cursor(hand_cursor_clicked)
+			Mouse.NPC:
+				Input.set_custom_mouse_cursor(speech_cursor_clicked)
+
 func _input(_event):
 	var inventoryScene = ui_layer.get_child(0)
 	if Input.is_action_just_pressed("inventory"):
@@ -128,6 +161,7 @@ func _on_item_equipped(item):
 		
 
 func _physics_process(_delta):
+	adapt_cursor()
 	var velocity = wsad_input_handler()
 	if velocity.x >= 0.1 || velocity.x <= -0.1 || velocity.y >= 0.1 || velocity.y <= -0.1:
 		_on_velocity_computed(velocity)
