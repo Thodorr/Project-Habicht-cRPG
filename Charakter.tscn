@@ -1189,18 +1189,21 @@ position = Vector2( 0, -15 )
 
 [node name="Body" type="Sprite" parent="SpriteBundle"]
 texture = ExtResource( 3 )
+flip_h = true
 hframes = 58
 vframes = 20
 region_rect = Rect2( 0, 10, 16, 22 )
 
 [node name="Outfit" type="Sprite" parent="SpriteBundle"]
 texture = ExtResource( 1 )
+flip_h = true
 hframes = 58
 vframes = 20
 frame = 2
 
 [node name="Hair" type="Sprite" parent="SpriteBundle"]
 texture = ExtResource( 4 )
+flip_h = true
 hframes = 58
 vframes = 20
 
@@ -1252,6 +1255,12 @@ limit_bottom = 600
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 smoothing_speed = 4.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="SkillTree" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="UiLayer" type="CanvasLayer" parent="."]
 

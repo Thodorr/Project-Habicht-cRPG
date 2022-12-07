@@ -22,6 +22,22 @@ var direction = Vector2(0,0)
 var movement = Vector2(0,0)
 const ACCELERATION = 50 
 
+var skill_1A = true
+var skill_2A = true
+var skill_3A = false
+var skill_3B = false
+var skill_3C = true
+var skill_4A = false
+var skill_4B = false
+var skill_4C = false
+var skill_5A = false
+var skill_5B = false
+var skill_5C = false
+
+var unlockable_skills = []
+
+var semester = 4
+
 export var state = State.IDLE
 
 func _ready():
@@ -29,6 +45,8 @@ func _ready():
 	animation_state.start("Idle")
 	state = State.IDLE
 	turn(Vector2(0, 1))
+	unlockable_skills.append("3A")
+	unlockable_skills.append("4A")
 
 func animation_player():
 	if state == State.MOVING:

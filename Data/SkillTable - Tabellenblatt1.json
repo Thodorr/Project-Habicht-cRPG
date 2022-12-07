@@ -1,0 +1,46 @@
+{
+  "1A": {
+    "SkillUnlock": null,
+    "SkillSemester": 1
+  },
+  "2A": {
+    "SkillUnlock": "1A",
+    "SkillSemester": 2
+  },
+  "3A": {
+    "SkillUnlock": "2A",
+    "SkillSemester": 3
+  },
+  "3B": {
+    "SkillUnlock": "2A",
+    "SkillSemester": 3
+  },
+  "3C": {
+    "SkillUnlock": "2A",
+    "SkillSemester": 3
+  },
+  "4A": {
+    "SkillUnlock": "3A",
+    "SkillSemester": 4
+  },
+  "4B": {
+    "SkillUnlock": "3B",
+    "SkillSemester": 4
+  },
+  "4C": {
+    "SkillUnlock": "3C",
+    "SkillSemester": 4
+  },
+  "5A": {
+    "SkillUnlock": "4A",
+    "SkillSemester": 5
+  },
+  "5B": {
+    "SkillUnlock": "4B",
+    "SkillSemester": 5
+  },
+  "5C": {
+    "SkillUnlock": "4C",
+    "SkillSemester": 5
+  }
+}
