@@ -16,7 +16,7 @@ func _input(event):
 			add_child(character_sheet)
 		else:
 			get_node("CharacterSheet").queue_free()
-			
+
 
 func _ready():
 	pass # Replace with function body.
