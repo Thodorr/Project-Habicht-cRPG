@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://UI/Assets/GUI/SkillIconDummy2.tres" type="Texture" id=1]
 [ext_resource path="res://CharacterSheet.gd" type="Script" id=2]
@@ -24,19 +24,10 @@
 [ext_resource path="res://UI/Assets/GUI/MidLeftToRightLine.png" type="Texture" id=22]
 [ext_resource path="res://UI/Assets/GUI/MidRightToLeft.png" type="Texture" id=23]
 [ext_resource path="res://UI/Assets/GUI/MidStraightLine.png" type="Texture" id=24]
-[ext_resource path="res://UI/Assets/GUI/QuestButton.tres" type="Texture" id=25]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 6 )
 region = Rect2( 133.886, 19.1402, 53.4662, 8.6319 )
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.137255, 0.137255, 0.137255, 1 )
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color( 0.843137, 0.843137, 0.843137, 1 )
 
 [node name="CharacterSheet" type="Control"]
 anchor_right = 0.5625
@@ -2019,99 +2010,6 @@ margin_bottom = -4.0
 visible = false
 margin_right = 40.0
 margin_bottom = 24.0
-
-[node name="Quests" type="VBoxContainer" parent="Screen/Layout/Skills/SkillTree"]
-visible = false
-margin_right = 284.0
-margin_bottom = 403.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Screen/Layout/Skills/SkillTree/Quests"]
-margin_right = 284.0
-margin_bottom = 403.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Questliste" type="VBoxContainer" parent="Screen/Layout/Skills/SkillTree/Quests/ScrollContainer"]
-margin_right = 284.0
-margin_bottom = 403.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="QuestRoot2" type="VBoxContainer" parent="Screen/Layout/Skills/SkillTree/Quests/ScrollContainer/Questliste"]
-margin_right = 284.0
-margin_bottom = 403.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Quest1A" type="TextureButton" parent="Screen/Layout/Skills/SkillTree/Quests/ScrollContainer/Questliste/QuestRoot2"]
-margin_right = 284.0
-margin_bottom = 45.0
-rect_min_size = Vector2( 0, 45 )
-size_flags_horizontal = 3
-texture_normal = ExtResource( 25 )
-expand = true
-
-[node name="Questname" type="Label" parent="Screen/Layout/Skills/SkillTree/Quests/ScrollContainer/Questliste/QuestRoot2/Quest1A"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -36.5
-margin_top = -11.0
-margin_right = 36.5
-margin_bottom = 11.0
-custom_fonts/font = ExtResource( 13 )
-text = "Quest 1"
-
-[node name="Quest1" type="VBoxContainer" parent="Screen/Layout/Skills/SkillTree/Quests/ScrollContainer/Questliste/QuestRoot2"]
-visible = false
-margin_top = 49.0
-margin_right = 284.0
-margin_bottom = 403.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/Quests/ScrollContainer/Questliste/QuestRoot2/Quest1"]
-margin_right = 284.0
-margin_bottom = 354.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Panel" type="Panel" parent="Screen/Layout/Skills/SkillTree/Quests/ScrollContainer/Questliste/QuestRoot2/Quest1/MarginContainer"]
-margin_right = 284.0
-margin_bottom = 354.0
-custom_styles/panel = SubResource( 2 )
-
-[node name="MarginContainer" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/Quests/ScrollContainer/Questliste/QuestRoot2/Quest1/MarginContainer"]
-margin_right = 284.0
-margin_bottom = 354.0
-custom_constants/margin_right = 20
-custom_constants/margin_top = 20
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
-
-[node name="Panel" type="Panel" parent="Screen/Layout/Skills/SkillTree/Quests/ScrollContainer/Questliste/QuestRoot2/Quest1/MarginContainer/MarginContainer"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 264.0
-margin_bottom = 334.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Screen/Layout/Skills/SkillTree/Quests/ScrollContainer/Questliste/QuestRoot2/Quest1/MarginContainer/MarginContainer"]
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 264.0
-margin_bottom = 334.0
-
-[node name="Questinhalt" type="Label" parent="Screen/Layout/Skills/SkillTree/Quests/ScrollContainer/Questliste/QuestRoot2/Quest1/MarginContainer/MarginContainer/HBoxContainer"]
-margin_right = 244.0
-margin_bottom = 314.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-text = "Text hier steht ganz viel Text der sich dann automatisch in die nächste Zeiule über geht."
-autowrap = true
-clip_text = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Screen/Layout/Skills/SkillTree"]
 margin_top = 60.0

@@ -195,7 +195,7 @@ text = "Desktop"
 align = 1
 valign = 1
 
-[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Continue" to="GUI" method="_on_Exit_pressed"]
+[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Continue" to="GUI" method="_on_Continue_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/NewGame" to="GUI" method="_on_NewGame_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Options" to="GUI" method="_on_Options_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/ExitToDesktop" to="GUI" method="_on_ExitToDesktop_pressed"]

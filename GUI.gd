@@ -9,7 +9,12 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _input(event):
 	if event.is_action_pressed("GameMenu"):
-		get_node("GameMenu").show()
+		if get_node("GameMenu").visible == true:
+			get_node("GameMenu").hide()
+			get_tree().paused = false
+		else:
+			get_node("GameMenu").show()
+			get_tree().paused = true
 	if event.is_action_pressed("CharacterSheet"):
 		if not has_node("CharacterSheet"):
 			var character_sheet = load("res://CharacterSheet.tscn").instance()
@@ -19,7 +24,7 @@ func _input(event):
 
 
 func _ready():
-	pass # Replace with function body.
+	pause_mode = Node.PAUSE_MODE_PROCESS
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -35,7 +40,8 @@ func _on_Options_pressed():
 func CloseOptionsMenu():
 	get_node("OptionsMenu").queue_free()
 
-func _on_Exit_pressed():
+func _on_Continue_pressed():
+	get_tree().paused = false
 	get_node("GameMenu").hide()
 
 
