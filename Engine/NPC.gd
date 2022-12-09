@@ -21,6 +21,7 @@ var direction = Vector2(0,0)
 var movement = Vector2(0,0)
 const ACCELERATION = 50 
 
+export (String) var npc_name = ""
 export(Resource) var outfit = null
 export(Resource) var body = null
 export(Resource) var hair = null
