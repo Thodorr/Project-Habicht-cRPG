@@ -14,6 +14,7 @@ export(bool) var item_needed = false
 export (Resource) var quest_item 
 export (Resource) var quest_reward
 export (int) var reward_amount = 0
+export (int) var amound_exp = 0
 
 var state = Queststate.OPEN 
 
