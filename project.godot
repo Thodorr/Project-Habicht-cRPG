@@ -29,11 +29,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Engine/Blueprints/Item.gd"
 }, {
-"base": "Resource",
-"class": "Quest",
-"language": "GDScript",
-"path": "res://Engine/Quests.gd"
-}, {
 "base": "Item",
 "class": "TemporaryItem",
 "language": "GDScript",
@@ -44,14 +39,12 @@ _global_script_class_icons={
 "FoodItem": "",
 "Inventory": "",
 "Item": "",
-"Quest": "",
 "TemporaryItem": ""
 }
 
 [application]
 
 config/name="Project Habicht"
-run/main_scene="res://Testarea.tscn"
 config/icon="res://icon.png"
 
 [autoload]
