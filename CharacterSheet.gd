@@ -3,8 +3,12 @@ extends Control
 onready var player = get_node("../../YSort/Charakter")
 onready var node_stat_points = get_node("Screen/Layout/Attributes/HBoxContainer/AvailablePoints/Label")
 onready var path_main_stats = "Screen/Layout/Attributes/"
+onready var path_active_quest_buttons = "Screen/Layout/Quests/ActiveQuests/QuestButtons/"
+onready var path_done_quest_buttons = "Screen/Layout/Quests/DoneQuests/QuestButtons/"
+onready var Attributes = ResourceLoader.load("res://Attributes.gd").new()
 
-var available_points = 2
+
+var available_points = 0
 var athletics_add = 0
 var dexterity_add = 0
 var perception_add = 0
@@ -17,18 +21,17 @@ var creativity_add = 0
 var luck_add = 0
 
 
-# Get available stat points and Attributes out of the Player Node 
-
 func _ready():
 	LoadStats()
 	LoadSkills()
+	LoadActiveQuests()
+	LoadDoneQuests()
 	node_stat_points.set_text("Points: "+ str(available_points))
 	if available_points == 0:
 		pass
 	else:
 		for button in get_tree().get_nodes_in_group("PlusButtons"):
 			button.set_disabled(false)
-
 # ../.. == get_node Parent of Parent 
 	for button in get_tree().get_nodes_in_group("PlusButtons"):
 		button.connect("pressed", self, "IncreaseStat", [button.get_node("../..").get_name()])
@@ -36,10 +39,21 @@ func _ready():
 		button.connect("pressed", self, "DecreaseStat", [button.get_node("../..").get_name()])
 	for button in get_tree().get_nodes_in_group("SkillButtons"):
 		button.connect("pressed", self, "TakeModul", [button.get_parent().get_name()])
-	
+	for button in get_tree().get_nodes_in_group("QuestButtons"):
+		button.connect("pressed", self, "LoadQuestInfo", [button.get_parent().get_name()])
+
 func LoadStats():
-	# 9 = player.athletics
-	get_node(path_main_stats + "Athletics/StatBackground/Stats/Value").set_text(str(9))
+	get_node(path_main_stats + "Athletics/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(0)))
+	get_node(path_main_stats + "Dexterity/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(1)))
+	get_node(path_main_stats + "Perception/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(2)))
+	get_node(path_main_stats + "Persuasion/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(3)))
+	get_node(path_main_stats + "Bluff/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(4)))
+	get_node(path_main_stats + "Intimidation/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(5)))
+	get_node(path_main_stats + "Knowledge/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(6)))
+	get_node(path_main_stats + "Will/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(7)))
+	get_node(path_main_stats + "Creativity/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(8)))
+	get_node(path_main_stats + "Luck/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(9)))
+	available_points = Attributes.skillpoint
 
 func LoadSkills():
 	for skill in get_tree().get_nodes_in_group("Skills"):
@@ -66,6 +80,7 @@ func LoadSkills():
 				connector.value = 50
 		# load connectors halfway for skills that meet req- to unlock
 
+
 func IncreaseStat(stat):
 	set(stat.to_lower() + "_add", get(stat.to_lower() + "_add") + 1)
 	get_node(path_main_stats + stat + "/StatBackground/Stats/Change").set_text("+" + str(get(stat.to_lower() + "_add")) + " ")
@@ -75,7 +90,7 @@ func IncreaseStat(stat):
 	if available_points == 0:
 		for button in get_tree().get_nodes_in_group("PlusButtons"):
 			button.set_disabled(true)
-	
+
 func DecreaseStat(stat):
 	set(stat.to_lower() + "_add", get(stat.to_lower() + "_add") -1 )
 	if get(stat.to_lower() + "_add") == 0:
@@ -128,12 +143,165 @@ func TakeModul(skill):
 							texture_button.set_disabled(false)
 							texture_button.set_modulate(Color(0.4, 0.4, 0.4, 1))
 
+func LoadActiveQuests():
+	var dir = Directory.new()
+	if dir.open("res://Units/Quests/") == OK:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if !dir.current_is_dir():
+				var quest = load("res://Units/Quests/"+ file_name)
+				if quest.questname == "Intro Der Quest":
+					quest.state = quest.Queststate.STARTED
+				if quest.state == quest.Queststate.STARTED:
+					var margin = MarginContainer.new()
+					margin.name = quest.questname
+					margin.add_constant_override("margin_right", 10)
+					margin.add_constant_override("margin_top", 5)
+					margin.add_constant_override("margin_left", 10)
+					margin.add_constant_override("margin_bottom", 5)
+					margin.rect_size = Vector2(284,55)
+					get_node(path_active_quest_buttons).add_child(margin)
+					
+					var questTrect = TextureRect.new()
+					questTrect.name = quest.questname
+					var texture = ResourceLoader.load("res://UI/Assets/GUI/QuestButton.tres")
+					questTrect.texture = texture
+					questTrect.expand = true
+					questTrect.margin_left = 10
+					questTrect.margin_top = 5
+					questTrect.margin_right = 274
+					questTrect.margin_bottom = 50
+					questTrect.rect_size = Vector2(264,45)
+					questTrect.rect_min_size = Vector2(0,45)
+					questTrect.size_flags_horizontal = SIZE_EXPAND_FILL
+					get_node(path_active_quest_buttons + quest.questname).add_child(questTrect)
+					
+					var questLabel = Label.new()
+					questLabel.name = "QuestName"
+					questLabel.text = quest.questname
+					questLabel.anchor_left = 0.5
+					questLabel.anchor_top = 0.5
+					questLabel.anchor_right = 0.5
+					questLabel.anchor_bottom = 0.5
+					questLabel.margin_left = -120
+					questLabel.margin_top = -20
+					questLabel.margin_right = 120
+					questLabel.margin_bottom = 20
+					questLabel.rect_size = Vector2(240,40)
+					questLabel.align = HALIGN_CENTER
+					questLabel.valign = VALIGN_CENTER
+					questLabel.size_flags_vertical = SIZE_SHRINK_CENTER
+					get_node(path_active_quest_buttons + quest.questname + "/" + quest.questname).add_child(questLabel)
+					
+					var texturebutton = TextureButton.new()
+					texturebutton.size_flags_horizontal = SIZE_EXPAND_FILL
+					texturebutton.name = "TextureButton"
+					texturebutton.add_to_group("QuestButtons", true)
+					texturebutton.anchor_right = 1
+					texturebutton.anchor_bottom = 1
+					get_node(path_active_quest_buttons + quest.questname + "/" + quest.questname).add_child(texturebutton)
+			file_name = dir.get_next()
+
+func LoadDoneQuests():
+	var dir = Directory.new()
+	if dir.open("res://Units/Quests/") == OK:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if !dir.current_is_dir():
+				var quest = load("res://Units/Quests/"+ file_name)
+				if quest.questname == "MainQuest":
+					quest.state = quest.Queststate.DONE
+				if quest.state == quest.Queststate.DONE:
+					var margin = MarginContainer.new()
+					margin.name = quest.questname
+					margin.add_constant_override("margin_right", 10)
+					margin.add_constant_override("margin_top", 5)
+					margin.add_constant_override("margin_left", 10)
+					margin.add_constant_override("margin_bottom", 5)
+					margin.rect_size = Vector2(284,55)
+					get_node(path_done_quest_buttons).add_child(margin)
+					
+					var questTrect = TextureRect.new()
+					questTrect.name = quest.questname
+					var texture = ResourceLoader.load("res://UI/Assets/GUI/QuestButton.tres")
+					questTrect.texture = texture
+					questTrect.expand = true
+					questTrect.margin_left = 10
+					questTrect.margin_top = 5
+					questTrect.margin_right = 274
+					questTrect.margin_bottom = 50
+					questTrect.rect_size = Vector2(264,45)
+					questTrect.rect_min_size = Vector2(0,45)
+					questTrect.size_flags_horizontal = SIZE_EXPAND_FILL
+					get_node(path_done_quest_buttons + quest.questname).add_child(questTrect)
+					
+					var questLabel = Label.new()
+					questLabel.name = "QuestName"
+					questLabel.text = quest.questname
+					questLabel.anchor_left = 0.5
+					questLabel.anchor_top = 0.5
+					questLabel.anchor_right = 0.5
+					questLabel.anchor_bottom = 0.5
+					questLabel.margin_left = -120
+					questLabel.margin_top = -20
+					questLabel.margin_right = 120
+					questLabel.margin_bottom = 20
+					questLabel.rect_size = Vector2(240,40)
+					questLabel.align = HALIGN_CENTER
+					questLabel.valign = VALIGN_CENTER
+					questLabel.size_flags_vertical = SIZE_SHRINK_CENTER
+					get_node(path_done_quest_buttons + quest.questname + "/" + quest.questname).add_child(questLabel)
+					
+					var texturebutton = TextureButton.new()
+					texturebutton.size_flags_horizontal = SIZE_EXPAND_FILL
+					texturebutton.name = "TextureButton"
+					texturebutton.add_to_group("QuestButtons", true)
+					texturebutton.anchor_right = 1
+					texturebutton.anchor_bottom = 1
+					get_node(path_done_quest_buttons + quest.questname + "/" + quest.questname).add_child(texturebutton)
+			file_name = dir.get_next()
+
+func LoadQuestInfo(QuestName):
+	var dir = Directory.new()
+	if dir.open("res://Units/Quests/") == OK:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if !dir.current_is_dir():
+				var quest = load("res://Units/Quests/"+ file_name)
+				if quest.questname == QuestName:
+					get_node("Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer/VBoxContainer/QuestInfo").text = quest.description
+			file_name = dir.get_next()
+	get_node("Screen/Layout/Quests/DoneQuests").hide()
+	get_node("Screen/Layout/Quests/ActiveQuests").hide()
+	get_node("Screen/Layout/Quests/QuestContent").show()
+
 func _on_ConfirmButton_pressed():
 	if athletics_add + dexterity_add + perception_add + persuasion_add + bluff_add + intimidation_add + knowledge_add + will_add + creativity_add  +luck_add == 0:
 		print("Nothing to confirm - maybe add popup button")
 	else: 
-		# player.athletics += athletics_add
-		# athlethic_add = 0
+		Attributes.add_to_attribute(0,athletics_add)
+		Attributes.add_to_attribute(1,dexterity_add)
+		Attributes.add_to_attribute(2,perception_add)
+		Attributes.add_to_attribute(3,persuasion_add)
+		Attributes.add_to_attribute(4,bluff_add)
+		Attributes.add_to_attribute(5,intimidation_add)
+		Attributes.add_to_attribute(6,knowledge_add)
+		Attributes.add_to_attribute(7,will_add)
+		Attributes.add_to_attribute(8,creativity_add)
+		Attributes.add_to_attribute(9,luck_add)
+		athletics_add = 0
+		dexterity_add = 0
+		perception_add = 0
+		persuasion_add = 0
+		bluff_add = 0
+		intimidation_add = 0
+		knowledge_add = 0
+		will_add = 0
+		creativity_add = 0
+		luck_add = 0
 		LoadStats()
 		for button in get_tree().get_nodes_in_group("MinusButtons"):
 			button.set_disabled(true)
@@ -141,10 +309,35 @@ func _on_ConfirmButton_pressed():
 			label.set_text("")
 
 func _on_Stats_pressed():
-	get_node("Screen/Layout/Attributes").show()
 	get_node("Screen/Layout/Skills").hide()
-
+	get_node("Screen/Layout/Inventar").hide()
+	get_node("Screen/Layout/Quests").hide()
+	get_node("Screen/Layout/Attributes").show()
 
 func _on_Skills_pressed():
 	get_node("Screen/Layout/Attributes").hide()
+	get_node("Screen/Layout/Inventar").hide()
+	get_node("Screen/Layout/Quests").hide()
 	get_node("Screen/Layout/Skills").show()
+
+func _on_Inventar_pressed():
+	get_node("Screen/Layout/Attributes").hide()
+	get_node("Screen/Layout/Skills").hide()
+	get_node("Screen/Layout/Quests").hide()
+	get_node("Screen/Layout/Inventar").show()
+
+func _on_ActiveButton_pressed():
+	get_node("Screen/Layout/Quests/QuestContent").hide()
+	get_node("Screen/Layout/Quests/DoneQuests").hide()
+	get_node("Screen/Layout/Quests/ActiveQuests").show()
+
+func _on_DoneButton_pressed():
+	get_node("Screen/Layout/Quests/QuestContent").hide()
+	get_node("Screen/Layout/Quests/ActiveQuests").hide()
+	get_node("Screen/Layout/Quests/DoneQuests").show()
+
+func _on_Quests_pressed():
+	get_node("Screen/Layout/Attributes").hide()
+	get_node("Screen/Layout/Skills").hide()
+	get_node("Screen/Layout/Inventar").hide()
+	get_node("Screen/Layout/Quests").show()

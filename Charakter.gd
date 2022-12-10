@@ -35,7 +35,6 @@ var skill_5B = false
 var skill_5C = false
 
 var unlockable_skills = []
-
 var semester = 4
 
 export var state = State.IDLE
