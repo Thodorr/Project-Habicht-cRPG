@@ -1637,10 +1637,6 @@ margin_top = -25.0
 margin_right = 25.0
 margin_bottom = 25.0
 rect_pivot_offset = Vector2( 25, 25 )
-hint_tooltip = "Projektentwicklung mit Kotlin:
-Erstelle einer RESTful API für ein Issueboard in Kotlin. 
-Dozent: Käsler
-Raum: A10.5.20"
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 16 )
@@ -1658,7 +1654,10 @@ margin_top = -20.0
 margin_right = 20.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 40, 40 )
-hint_tooltip = "IP1 Erstes Semster"
+hint_tooltip = "Projektentwicklung mit Kotlin:
+Erstelle einer RESTful API für ein Issueboard in Kotlin. 
+Dozent: Käsler
+Raum: A10.5.20"
 disabled = true
 texture_normal = ExtResource( 18 )
 texture_disabled = ExtResource( 15 )

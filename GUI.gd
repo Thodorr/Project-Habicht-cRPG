@@ -50,4 +50,5 @@ func _on_ExitToDesktop_pressed():
 
 
 func _on_NewGame_pressed():
+	get_tree().paused = false
 	get_tree().change_scene("res://Testarea.tscn")
