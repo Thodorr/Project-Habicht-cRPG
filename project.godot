@@ -84,11 +84,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Engine/Blueprints/Item.gd"
 }, {
-"base": "Resource",
-"class": "Quest",
-"language": "GDScript",
-"path": "res://Engine/Quests.gd"
-}, {
 "base": "Item",
 "class": "TemporaryItem",
 "language": "GDScript",
@@ -110,7 +105,6 @@ _global_script_class_icons={
 "HistoryRow": "",
 "Inventory": "",
 "Item": "",
-"Quest": "",
 "TemporaryItem": ""
 }
 
