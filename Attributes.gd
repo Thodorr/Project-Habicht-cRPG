@@ -205,8 +205,7 @@ var attributes_extra = {
 var nerve = 0
 var nerve_damage = 0
 
-var skillpoint = 0
-var experience = 0
+var skillpoint = 5
 
 func add_to_attribute(attribute, value):
 	attributes_base[attribute] += value
