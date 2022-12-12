@@ -84,7 +84,7 @@ size_flags_vertical = 3
 [node name="Attributes" type="VBoxContainer" parent="Screen/Layout"]
 visible = false
 margin_right = 284.0
-margin_bottom = 438.0
+margin_bottom = 442.0
 size_flags_vertical = 3
 
 [node name="Athletics" type="Control" parent="Screen/Layout/Attributes"]
@@ -1119,12 +1119,12 @@ text = "0"
 [node name="HBoxContainer" type="HBoxContainer" parent="Screen/Layout/Attributes"]
 margin_top = 390.0
 margin_right = 284.0
-margin_bottom = 438.0
+margin_bottom = 442.0
 size_flags_vertical = 3
 
 [node name="AvailablePoints" type="TextureRect" parent="Screen/Layout/Attributes/HBoxContainer"]
 margin_right = 228.0
-margin_bottom = 48.0
+margin_bottom = 52.0
 size_flags_horizontal = 3
 texture = ExtResource( 14 )
 expand = true
@@ -1144,13 +1144,14 @@ text = "Points: 0"
 [node name="ConfirmButton" type="TextureButton" parent="Screen/Layout/Attributes/HBoxContainer"]
 margin_left = 232.0
 margin_right = 284.0
-margin_bottom = 48.0
+margin_bottom = 52.0
 rect_min_size = Vector2( 52, 0 )
 texture_normal = ExtResource( 4 )
 texture_disabled = ExtResource( 15 )
 expand = true
 
 [node name="Skills" type="Control" parent="Screen/Layout"]
+visible = false
 margin_right = 284.0
 margin_bottom = 442.0
 mouse_filter = 2
@@ -2111,7 +2112,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Quests" type="Control" parent="Screen/Layout"]
-visible = false
 margin_right = 284.0
 margin_bottom = 442.0
 size_flags_horizontal = 3
@@ -2172,6 +2172,7 @@ align = 1
 valign = 1
 
 [node name="ActiveQuests" type="ScrollContainer" parent="Screen/Layout/Quests"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 45.0
@@ -2279,7 +2280,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="QuestContent" type="VBoxContainer" parent="Screen/Layout/Quests"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -2307,13 +2307,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer"]
-margin_right = 264.0
-margin_bottom = 595.0
+margin_right = 252.0
+margin_bottom = 437.0
 size_flags_horizontal = 3
 
 [node name="QuestInfo" type="Label" parent="Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer/VBoxContainer"]
 margin_right = 252.0
-margin_bottom = 595.0
+margin_bottom = 437.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = ExtResource( 26 )

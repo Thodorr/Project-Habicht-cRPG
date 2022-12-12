@@ -24,8 +24,8 @@ var luck_add = 0
 func _ready():
 	LoadStats()
 	LoadSkills()
-	LoadActiveQuests()
-	LoadDoneQuests()
+	LoadActiveOrDoneQuests(1)
+	LoadActiveOrDoneQuests(2)
 	node_stat_points.set_text("Points: "+ str(available_points))
 	if available_points == 0:
 		pass
@@ -79,7 +79,6 @@ func LoadSkills():
 			if player.semester >= DataImport.skill_data[connector.get_name()].SkillSemester:
 				connector.value = 50
 		# load connectors halfway for skills that meet req- to unlock
-
 
 func IncreaseStat(stat):
 	set(stat.to_lower() + "_add", get(stat.to_lower() + "_add") + 1)
@@ -143,7 +142,10 @@ func TakeModul(skill):
 							texture_button.set_disabled(false)
 							texture_button.set_modulate(Color(0.4, 0.4, 0.4, 1))
 
-func LoadActiveQuests():
+func LoadActiveOrDoneQuests(AorD):
+	var path_to_quest_buttons = path_active_quest_buttons
+	if AorD == 2:
+		path_to_quest_buttons = path_done_quest_buttons
 	var dir = Directory.new()
 	if dir.open("res://Units/Quests/") == OK:
 		dir.list_dir_begin()
@@ -153,67 +155,9 @@ func LoadActiveQuests():
 				var quest = load("res://Units/Quests/"+ file_name)
 				if quest.questname == "Intro Der Quest":
 					quest.state = quest.Queststate.STARTED
-				if quest.state == quest.Queststate.STARTED:
-					var margin = MarginContainer.new()
-					margin.name = quest.questname
-					margin.add_constant_override("margin_right", 10)
-					margin.add_constant_override("margin_top", 5)
-					margin.add_constant_override("margin_left", 10)
-					margin.add_constant_override("margin_bottom", 5)
-					margin.rect_size = Vector2(284,55)
-					get_node(path_active_quest_buttons).add_child(margin)
-					
-					var questTrect = TextureRect.new()
-					questTrect.name = quest.questname
-					var texture = ResourceLoader.load("res://UI/Assets/GUI/QuestButton.tres")
-					questTrect.texture = texture
-					questTrect.expand = true
-					questTrect.margin_left = 10
-					questTrect.margin_top = 5
-					questTrect.margin_right = 274
-					questTrect.margin_bottom = 50
-					questTrect.rect_size = Vector2(264,45)
-					questTrect.rect_min_size = Vector2(0,45)
-					questTrect.size_flags_horizontal = SIZE_EXPAND_FILL
-					get_node(path_active_quest_buttons + quest.questname).add_child(questTrect)
-					
-					var questLabel = Label.new()
-					questLabel.name = "QuestName"
-					questLabel.text = quest.questname
-					questLabel.anchor_left = 0.5
-					questLabel.anchor_top = 0.5
-					questLabel.anchor_right = 0.5
-					questLabel.anchor_bottom = 0.5
-					questLabel.margin_left = -120
-					questLabel.margin_top = -20
-					questLabel.margin_right = 120
-					questLabel.margin_bottom = 20
-					questLabel.rect_size = Vector2(240,40)
-					questLabel.align = HALIGN_CENTER
-					questLabel.valign = VALIGN_CENTER
-					questLabel.size_flags_vertical = SIZE_SHRINK_CENTER
-					get_node(path_active_quest_buttons + quest.questname + "/" + quest.questname).add_child(questLabel)
-					
-					var texturebutton = TextureButton.new()
-					texturebutton.size_flags_horizontal = SIZE_EXPAND_FILL
-					texturebutton.name = "TextureButton"
-					texturebutton.add_to_group("QuestButtons", true)
-					texturebutton.anchor_right = 1
-					texturebutton.anchor_bottom = 1
-					get_node(path_active_quest_buttons + quest.questname + "/" + quest.questname).add_child(texturebutton)
-			file_name = dir.get_next()
-
-func LoadDoneQuests():
-	var dir = Directory.new()
-	if dir.open("res://Units/Quests/") == OK:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if !dir.current_is_dir():
-				var quest = load("res://Units/Quests/"+ file_name)
 				if quest.questname == "MainQuest":
 					quest.state = quest.Queststate.DONE
-				if quest.state == quest.Queststate.DONE:
+				if quest.state == AorD:
 					var margin = MarginContainer.new()
 					margin.name = quest.questname
 					margin.add_constant_override("margin_right", 10)
@@ -221,7 +165,7 @@ func LoadDoneQuests():
 					margin.add_constant_override("margin_left", 10)
 					margin.add_constant_override("margin_bottom", 5)
 					margin.rect_size = Vector2(284,55)
-					get_node(path_done_quest_buttons).add_child(margin)
+					get_node(path_to_quest_buttons).add_child(margin)
 					
 					var questTrect = TextureRect.new()
 					questTrect.name = quest.questname
@@ -235,7 +179,7 @@ func LoadDoneQuests():
 					questTrect.rect_size = Vector2(264,45)
 					questTrect.rect_min_size = Vector2(0,45)
 					questTrect.size_flags_horizontal = SIZE_EXPAND_FILL
-					get_node(path_done_quest_buttons + quest.questname).add_child(questTrect)
+					get_node(path_to_quest_buttons + quest.questname).add_child(questTrect)
 					
 					var questLabel = Label.new()
 					questLabel.name = "QuestName"
@@ -252,7 +196,7 @@ func LoadDoneQuests():
 					questLabel.align = HALIGN_CENTER
 					questLabel.valign = VALIGN_CENTER
 					questLabel.size_flags_vertical = SIZE_SHRINK_CENTER
-					get_node(path_done_quest_buttons + quest.questname + "/" + quest.questname).add_child(questLabel)
+					get_node(path_to_quest_buttons + quest.questname + "/" + quest.questname).add_child(questLabel)
 					
 					var texturebutton = TextureButton.new()
 					texturebutton.size_flags_horizontal = SIZE_EXPAND_FILL
@@ -260,7 +204,7 @@ func LoadDoneQuests():
 					texturebutton.add_to_group("QuestButtons", true)
 					texturebutton.anchor_right = 1
 					texturebutton.anchor_bottom = 1
-					get_node(path_done_quest_buttons + quest.questname + "/" + quest.questname).add_child(texturebutton)
+					get_node(path_to_quest_buttons + quest.questname + "/" + quest.questname).add_child(texturebutton)
 			file_name = dir.get_next()
 
 func LoadQuestInfo(QuestName):
