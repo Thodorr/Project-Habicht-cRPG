@@ -5,7 +5,6 @@ onready var node_stat_points = get_node("Screen/Layout/Attributes/HBoxContainer/
 onready var path_main_stats = "Screen/Layout/Attributes/"
 onready var path_active_quest_buttons = "Screen/Layout/Quests/ActiveQuests/QuestButtons/"
 onready var path_done_quest_buttons = "Screen/Layout/Quests/DoneQuests/QuestButtons/"
-onready var Attributes = ResourceLoader.load("res://Attributes.gd").new()
 
 
 var available_points = 0

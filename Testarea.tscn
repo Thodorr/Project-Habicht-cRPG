@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Ressources/floor.tres" type="TileSet" id=1]
 [ext_resource path="res://Ressources/railing.tres" type="TileSet" id=2]
@@ -7,11 +7,6 @@
 [ext_resource path="res://Charakter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Engine/Placeables/PickUp.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Units/Items/Test_Item.tres" type="Resource" id=7]
-[ext_resource path="res://GUI.gd" type="Script" id=8]
-[ext_resource path="res://UI/Font/PixelFont.tres" type="DynamicFont" id=9]
-[ext_resource path="res://UI/Font/PixelFontSmall.tres" type="DynamicFont" id=10]
-[ext_resource path="res://UI/Assets/GUI/MediumPressedButton.tres" type="Texture" id=11]
-[ext_resource path="res://UI/Assets/GUI/MediumNormalButton.tres" type="Texture" id=12]
 [ext_resource path="res://Units/Items/TestEquipment.tres" type="Resource" id=8]
 [ext_resource path="res://Units/Items/Detective_Hat.tres" type="Resource" id=9]
 [ext_resource path="res://Units/Items/Cheese.tres" type="Resource" id=10]
@@ -27,6 +22,7 @@
 [ext_resource path="res://Assets/Effects/ripple_1.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Effects/ripple_3.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Effects/ripple_7.png" type="Texture" id=22]
+[ext_resource path="res://GUI.gd" type="Script" id=23]
 
 [sub_resource type="NavigationPolygon" id=28]
 vertices = PoolVector2Array( 465, 556, 523, 556, 6, 557, 447, 556, 159, 527, 160, 510, 159, 530, 287, 450, 304, 449, 317, 449, 315, 547, 276, 547, 158, 510, 158, 504, 751, 599, 576, 599, 593, 545, 752, 304, 959, 210, 959, 324, 943, 314, 904, 209, 575, 548, 524, 599, 592, 536, 591, 459, 592, 447, 429, 117, 430, 120, 414, 120, 404, 117, 408, 212, 414, 139, 959, 353, 960, 511, 944, 507, 895, 352, 289, 1, 357, 1, 354, 13, 290, 81, 580, 532, 580, 461, 585, 462, 354, 58, 305, 93, 269, 118, 917, 314, 960, 600, 761, 600, 762, 591, 834, 591, 403, 515, 403, 499, 433, 498, 432, 512, 415, 515, 894, 543, 959, 547, 833, 565, 922, 507, 960, 0, 958, 173, 944, 172, 763, 0, 923, 171, 834, 86, 287, 434, 303, 434, 752, 135, 752, 272, 593, 144, 592, 133, 581, 445, 580, 418, 591, 418, 771, 468, 763, 468, 763, 399, 831, 401, 785, 458, 804, 455, 834, 469, 801, 72, 763, 73, 464, 1, 465, 108, 400, 107, 400, 93, 384, 1, 383, 58, 376, 63, 359, 62, 127, 243, 126, 212, 233, 211, 464, 499, 509, 498, 509, 506, 493, 506, 464, 513, 492, 549, 462, 551, 415, 529, 449, 551, 404, 547, 781, 553, 770, 566, 762, 566, 763, 496, 826, 496, 805, 553, 771, 374, 762, 374, 763, 304, 785, 362, 574, 2, 752, 0, 275, 450, 4, 328, 3, 244, 36, 328, 762, 272, 764, 112, 828, 113, 894, 184, 6, 547, 99, 546, 157, 547, 449, 137, 449, 130, 461, 130, 461, 154, 429, 155, 435, 147, 424, 147, 276, 434, 276, 329, 143, 497, 143, 483, 157, 483, 143, 510, 110, 496, 143, 527, 404, 529, 305, 212, 311, 212, 317, 329, 316, 434, 277, 213, 430, 181, 460, 182, 460, 227, 417, 312, 399, 312, 577, 133, 575, 242, 577, 146, 583, 148, 304, 118, 230, 88, 268, 205, 894, 519, 836, 488, 422, 139, 579, 329, 419, 328, 551, 245, 365, 212, 396, 329, 354, 212, 835, 385, 834, 374, 893, 328, 590, 409, 580, 406, 894, 202, 803, 362, 529, 237, 546, 237, 491, 237, 504, 226, 521, 226, 46, 330, 837, 101, 468, 238, 340, 212, 333, 212, 37, 432, 43, 419, 99, 430, 109, 418, 111, 477 )
@@ -40,14 +36,6 @@ animations = [ {
 "name": "ripple",
 "speed": 5.0
 } ]
-
-[sub_resource type="StyleBoxFlat" id=29]
-bg_color = Color( 0.843137, 0.843137, 0.843137, 1 )
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color( 0.137255, 0.137255, 0.137255, 1 )
 
 [node name="Testarea" type="Node2D"]
 
@@ -109,9 +97,10 @@ z_index = -1
 item = ExtResource( 7 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
-script = ExtResource( 8 )
+script = ExtResource( 23 )
 
 [node name="GameMenu" type="Control" parent="GUI"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -124,7 +113,6 @@ margin_bottom = 125.0
 [node name="Panel" type="Panel" parent="GUI/GameMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 29 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/GameMenu"]
 anchor_right = 1.0
@@ -137,101 +125,83 @@ custom_constants/separation = 11
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer"]
 margin_right = 130.0
-margin_bottom = 22.0
-custom_fonts/font = ExtResource( 9 )
+margin_bottom = 14.0
 text = "Game Menu"
 align = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="GUI/GameMenu/VBoxContainer"]
-margin_top = 33.0
+margin_top = 25.0
 margin_right = 130.0
-margin_bottom = 43.0
+margin_bottom = 35.0
 rect_min_size = Vector2( 0, 10 )
 
 [node name="Continue" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
 margin_left = 25.0
-margin_top = 54.0
+margin_top = 46.0
 margin_right = 105.0
-margin_bottom = 79.0
+margin_bottom = 71.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 11 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Continue"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 10 )
 text = "Continue"
 align = 1
 valign = 1
 
 [node name="NewGame" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
 margin_left = 25.0
-margin_top = 90.0
+margin_top = 82.0
 margin_right = 105.0
-margin_bottom = 115.0
+margin_bottom = 107.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 11 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/NewGame"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 10 )
 text = "New Game"
 align = 1
 valign = 1
 
 [node name="Options" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
 margin_left = 25.0
-margin_top = 126.0
+margin_top = 118.0
 margin_right = 105.0
-margin_bottom = 151.0
+margin_bottom = 143.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 11 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Options"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 10 )
 text = "Options"
 align = 1
 valign = 1
 
 [node name="ExitToDesktop" type="TextureButton" parent="GUI/GameMenu/VBoxContainer"]
 margin_left = 25.0
-margin_top = 162.0
+margin_top = 154.0
 margin_right = 105.0
-margin_bottom = 187.0
+margin_bottom = 179.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 11 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/ExitToDesktop"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 10 )
 text = "Desktop"
 align = 1
 valign = 1
-
-[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Continue" to="GUI" method="_on_Continue_pressed"]
-[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/NewGame" to="GUI" method="_on_NewGame_pressed"]
-[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Options" to="GUI" method="_on_Options_pressed"]
-[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/ExitToDesktop" to="GUI" method="_on_ExitToDesktop_pressed"]
 
 [node name="DetectiveHat" parent="." instance=ExtResource( 6 )]
 position = Vector2( 188, 252 )
@@ -252,3 +222,8 @@ item = ExtResource( 10 )
 position = Vector2( 294, 267 )
 z_index = -1
 item = ExtResource( 11 )
+
+[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Continue" to="GUI" method="_on_Continue_pressed"]
+[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/NewGame" to="GUI" method="_on_NewGame_pressed"]
+[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Options" to="GUI" method="_on_Options_pressed"]
+[connection signal="pressed" from="GUI/GameMenu/VBoxContainer/ExitToDesktop" to="GUI" method="_on_ExitToDesktop_pressed"]

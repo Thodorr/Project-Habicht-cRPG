@@ -24,8 +24,8 @@ func set_buttons(accept_text: String, decline_text: String):
 		$DeclineButton.visible = false
 		$AcceptButton.rect_position.x = rect_size.x / 2 - $AcceptButton.rect_size.x
 	
-	$AcceptButton.text = accept_text
-	$DeclineButton.text = decline_text
+	$AcceptButton/Label.text = accept_text
+	$DeclineButton/Label.text = decline_text
 
 #Use this function for setup
 func set_popup(item, accept_text = "Accept", decline_text = "Decline"):

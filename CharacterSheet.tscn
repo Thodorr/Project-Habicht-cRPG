@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://UI/Assets/GUI/SkillIconDummy2.tres" type="Texture" id=1]
 [ext_resource path="res://CharacterSheet.gd" type="Script" id=2]
@@ -25,7 +25,8 @@
 [ext_resource path="res://UI/Assets/GUI/MidRightToLeft.png" type="Texture" id=23]
 [ext_resource path="res://UI/Assets/GUI/MidStraightLine.png" type="Texture" id=24]
 [ext_resource path="res://UI/Assets/GUI/QuestButton.tres" type="Texture" id=25]
-[ext_resource path="res://UI/Font/PixelFontSmall.tres" type="DynamicFont" id=26]
+[ext_resource path="res://UI/Font/PixelFontSlightlyBigger.tres" type="DynamicFont" id=26]
+[ext_resource path="res://UI/InventoryScene.tscn" type="PackedScene" id=27]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 6 )
@@ -42,10 +43,12 @@ border_color = Color( 0.137255, 0.137255, 0.137255, 1 )
 [node name="CharacterSheet" type="Control"]
 anchor_right = 0.5625
 anchor_bottom = 1.77778
+margin_left = 438.0
+margin_right = 438.0
 rect_scale = Vector2( 0.562398, 0.562398 )
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_group_": true
 }
 
 [node name="BackgroundColour" type="NinePatchRect" parent="."]
@@ -2111,6 +2114,12 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="InventoryScene" parent="Screen/Layout/Inventar/MarginContainer" instance=ExtResource( 27 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 284.0
+margin_bottom = 442.0
+
 [node name="Quests" type="Control" parent="Screen/Layout"]
 margin_right = 284.0
 margin_bottom = 442.0
@@ -2308,17 +2317,17 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer"]
 margin_right = 252.0
-margin_bottom = 437.0
+margin_bottom = 396.0
 size_flags_horizontal = 3
 
-[node name="QuestInfo" type="Label" parent="Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer/VBoxContainer"]
+[node name="QuestInfo" type="RichTextLabel" parent="Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer/VBoxContainer"]
 margin_right = 252.0
-margin_bottom = 437.0
+margin_bottom = 396.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_fonts/font = ExtResource( 26 )
-text = "Hier stehtz dann ganz viel Quest Informationen was der Spierler aleles so wissen muss jWas ist wenn hier ganz viel text steht der über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug über denaleles so wissen muss jWas ist wenn hier ganz viel text steht der über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug "
-autowrap = true
+custom_fonts/normal_font = ExtResource( 26 )
+text = "Hier stehtz dann ganz viel Quest Informationen was der Spierler aleles so wissen muss Was ist wenn hier ganz viel text steht der über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug über denaleles so wissen muss jWas ist wenn hier ganz viel text steht der über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug "
+fit_content_height = true
 
 [node name="Buttons" type="HBoxContainer" parent="Screen/Layout"]
 margin_top = 446.0

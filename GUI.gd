@@ -35,7 +35,7 @@ func _ready():
 func _on_Options_pressed():
 	var options_menu = load("res://OptionsMenu.tscn").instance()
 	add_child(options_menu)
-	get_node("OptionsMenu").connect("CloseOptionsMenu", self, "CloseOptionsMenu")
+	var _options_connect = get_node("OptionsMenu").connect("CloseOptionsMenu", self, "CloseOptionsMenu")
 
 func CloseOptionsMenu():
 	get_node("OptionsMenu").queue_free()
@@ -51,4 +51,4 @@ func _on_ExitToDesktop_pressed():
 
 func _on_NewGame_pressed():
 	get_tree().paused = false
-	get_tree().change_scene("res://Testarea.tscn")
+	var _change_scene = get_tree().change_scene("res://Testarea.tscn")
