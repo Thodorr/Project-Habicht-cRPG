@@ -1633,7 +1633,9 @@ parameters/PickUp/blend_position = Vector2( 0.00158477, 0 )
 parameters/Walk/blend_position = Vector2( -0.00371057, 0.00862074 )
 
 [node name="Interactable" parent="." instance=ExtResource( 5 )]
-position = Vector2( 0, -3 )
 interaction_distance = 15
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_finished"]
+[connection signal="interaction_init" from="Interactable" to="." method="_on_interaction_init"]
+[connection signal="mouse_entered" from="Interactable" to="." method="_on_Interactable_mouse_entered"]
+[connection signal="mouse_exited" from="Interactable" to="." method="_on_Interactable_mouse_exited"]
