@@ -2,7 +2,6 @@ extends CenterContainer
 
 var inventory = preload("res://Inventory.tres")
 
-#onready var inventoryPathHolder = owner.owner.get_child(0)
 onready var itemTextureRect = $ItemTextureRect
 onready var itemAmountLabel = $ItemTextureRect/ItemAmountLabel
 
@@ -57,92 +56,10 @@ func drop_data(_position, data):
 		inventory.set_item(my_item_index, data.item)
 	inventory.drag_data = null
 
-#func use_item(item_definer):
-#	var item
-#
-#	if item_definer is Item:
-#		item = item_definer
-#	else:
-#		item = inventory.items[item_definer]
-#
-#	if item is Item:
-#		match item.type:
-#			"equipment":
-#				equip_item(item_definer)
-#				#Stats.add_item_stats(item)
-#			"consumables":
-#				consume_item(item)
-#			"stuff":
-#				pass
-
-#func consume_item(item):
-#	match item.usage:
-#		"food":
-#			if food_eaten <= 0:
-#				food_eaten += 1
-#				food_timer += 100
-#				#Stats.add_item_stats(item)
-#				#Stats.add_to_experience(1000)
-#				inventory.remove_item(item, 1)
-#		"potion":
-#			inventory.remove_item(item, 1)
-#			#Stats.add_item_stats(item)
-#
-
-#func equip_item(item_definer):
-#	var item
-#	var index_check = false
-#	var previous_item = null
-#	var previous_item_target
-#
-#	if item_definer is Item:
-#		item = item_definer
-#		index_check = false
-#		previous_item_target = inventory.equipment_items.find(null)
-#	else:
-#		item = inventory.items[item_definer]
-#		index_check = true
-#		previous_item_target = item_definer
-#
-#	var equipContainer = inventoryPathHolder.equipmentContainer
-#	match item.usage:
-#		"clothing":
-#			var clothing_slot = equipContainer.get_child(2)
-#
-#			if inventory.equipped_clothing != null:
-#				previous_item = inventory.equipped_clothing
-#				inventory.equipment_items[previous_item_target] = previous_item
-#				inventory.emit_signal("items_changed", [previous_item_target])
-#			inventory.equipped_clothing = item
-#			clothing_slot.display_equipment(item)
-#			#Stats.add_item_stats(item)
-#			player_sprite.texture = item.sprite_sheet
-#
-#		"hand":
-#			var hand_slot = equipContainer.get_child(1)
-#
-#			inventory.equipped_hand = item
-#			hand_slot.display_equipment(item)
-#
-#		"trinket":
-#			var trinket_slot = equipContainer.get_child(3)
-#
-#			inventory.equipped_trinket = item
-#			trinket_slot.display_equipment(item)
-#
-#	if index_check == true:
-#		inventory.equipment_items[item_definer] = previous_item
-#		inventory.emit_signal("items_changed", [item_definer])
-#		if previous_item != null:
-#			previous_item = null
-
-
-#func _on_InventorySlotDisplay_gui_input(event):
-#	if event is InputEventMouseButton:
-#		if event.is_action_released("click"):
-#			get_parent().display_item_description(get_index())
-#		elif event.doubleclick:
-#			use_item(get_index())
-#		elif event.is_action_pressed("right_click"):
-#			use_item(get_index())
+func _on_InventorySlotDisplay_gui_input(event):
+	if event is InputEventMouseButton:
+		if event.doubleclick:
+			inventory.use_item_at(get_index())
+		elif event.is_action_pressed("right_mouse"):
+			inventory.use_item_at(get_index())
 

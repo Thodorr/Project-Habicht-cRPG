@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Character/Outfit/Outfit_01_01.png" type="Texture" id=1]
+[ext_resource path="res://Engine/Blueprints/EquipmentItem.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Items/PurpleShirt.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 2 )
+name = "Purple Shirt"
+texture = ExtResource( 3 )
+description = "It's a purple shirt."
+item_attributes = {
+0: 0,
+1: 2,
+2: 0,
+3: 0,
+4: 0,
+5: 0,
+6: 0,
+7: 0,
+8: 0,
+9: 0
+}
+removeable = true
+text_message = ""
+accept_text = "Accept"
+decline_text = "Decline"
+type = 1
+sprite_sheet = ExtResource( 1 )
