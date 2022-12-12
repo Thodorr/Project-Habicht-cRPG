@@ -26,6 +26,7 @@ export(Resource) var outfit = null
 export(Resource) var body = null
 export(Resource) var hair = null
 export(Resource) var hat = null
+export(String) var conversation = ""
 export var state = State.IDLE
 
 func _ready():
@@ -90,7 +91,7 @@ func _physics_process(_delta):
 	animation_player()
 
 func _on_interaction_init():
-	var dialog = Dialogic.start("TestCon")
+	var dialog = Dialogic.start(conversation)
 	add_child(dialog)
 
 
