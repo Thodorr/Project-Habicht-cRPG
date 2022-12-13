@@ -1609,6 +1609,7 @@ avoidance_enabled = true
 radius = 5.0
 neighbor_dist = 25.0
 time_horizon = 50.0
+max_speed = 150.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle_front"
@@ -1668,8 +1669,9 @@ script = ExtResource( 1 )
 visible = false
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.3
 one_shot = true
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_finished"]
+[connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_target_reached"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

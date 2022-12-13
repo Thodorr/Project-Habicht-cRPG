@@ -38,7 +38,7 @@ var movement = Vector2(0,0)
 
 var mouse_mode = Mouse.REGULAR
 
-const ACCELERATION = 50 
+const ACCELERATION = 8
 
 var skill_1A = true
 var skill_2A = true
@@ -84,6 +84,9 @@ func turn(turn_direction):
 func _on_navigation_finished():
 	state = State.IDLE
 
+func _on_NavigationAgent2D_target_reached():
+	build_up = 1
+
 func _on_velocity_computed(velocity):
 	if(velocity.x <= 5 && velocity.x >= -5 && velocity.y <= 5 && velocity.y >= -5):
 		state = State.IDLE
@@ -91,6 +94,8 @@ func _on_velocity_computed(velocity):
 		state = State.MOVING
 	var _motion = move_and_slide(velocity)
 
+var nav_movement = Vector2(0,0)
+var build_up = 1
 func set_velocity(): 
 	if nav_agent.is_navigation_finished():
 		may_navigate = false
@@ -98,8 +103,12 @@ func set_velocity():
 	
 	var targetpos: Vector2 = nav_agent.get_next_location()
 	direction = global_position.direction_to(targetpos)
-	var velocity: Vector2 = direction * nav_agent.max_speed
-	nav_agent.set_velocity(velocity)
+
+	if build_up <= nav_agent.max_speed:
+		build_up += ACCELERATION - 2.5
+	nav_movement = direction * build_up
+
+	nav_agent.set_velocity(nav_movement)
 
 func set_navigation(target):
 	if movement_blocked: return
@@ -142,7 +151,7 @@ func _input(_event):
 		else:
 			inventoryScene.visible = false
 
-func wsad_input_handler():
+func directional_input_handler():
 	if movement_blocked: return Vector2(0,0)
 	if Input.is_action_pressed("ui_up"):
 		movement.y = max(movement.y - ACCELERATION, -nav_agent.max_speed)
@@ -183,9 +192,10 @@ func _on_item_equipped(item):
 
 func _physics_process(_delta):
 	adapt_cursor()
-	var velocity = wsad_input_handler()
+	var velocity = directional_input_handler()
 	if velocity.x >= 0.1 || velocity.x <= -0.1 || velocity.y >= 0.1 || velocity.y <= -0.1:
 		_on_velocity_computed(velocity)
 	if may_navigate:
 		set_velocity()
 	animation_player()
+
