@@ -40,11 +40,12 @@ var mouse_mode = Mouse.REGULAR
 
 const ACCELERATION = 8
 
-var skill_1A = true
-var skill_2A = true
+var skill_0A = true
+var skill_1A = false
+var skill_2A = false
 var skill_3A = false
 var skill_3B = false
-var skill_3C = true
+var skill_3C = false
 var skill_4A = false
 var skill_4B = false
 var skill_4C = false
@@ -63,8 +64,32 @@ func _ready():
 	animation_state.start("Idle")
 	state = State.IDLE
 	turn(Vector2(0, 1))
+	unlockable_skills.append("1A")
+	unlockable_skills.append("2A")
 	unlockable_skills.append("3A")
 	unlockable_skills.append("4A")
+
+func save():
+	var save_dict = {
+		"filename" : get_filename(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x,
+		"pos_y" : position.y,
+		"semester" : semester,
+		"unlockable_skills" : unlockable_skills,
+		"skill_1A" : skill_1A,
+		"skill_2A" : skill_2A,
+		"skill_3A" : skill_3A,
+		"skill_3B" : skill_3B,
+		"skill_3C" : skill_3C,
+		"skill_4A" : skill_4A,
+		"skill_4B" : skill_4B,
+		"skill_4C" : skill_4C,
+		"skill_5A" : skill_5A,
+		"skill_5B" : skill_5B,
+		"skill_5C" : skill_5C,
+	}
+	return save_dict
 
 func animation_player():
 	if state == State.MOVING:

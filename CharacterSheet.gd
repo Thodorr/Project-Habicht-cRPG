@@ -55,6 +55,7 @@ func LoadStats():
 	available_points = Attributes.skillpoint
 
 func LoadSkills():
+	print(get_node("../../YSort/").get_children())
 	for skill in get_tree().get_nodes_in_group("Skills"):
 		if player.get("skill_" + skill.get_name()) == true:
 			get_node("Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/" 
@@ -105,7 +106,7 @@ func TakeModul(skill):
 		if player.get("skill_" + skill) == true:
 			pass
 		else:
-			# visual feedback / unlock the skill
+				# visual feedback / unlock the skill
 			var unlocking_skill = DataImport.skill_data[skill].SkillUnlock
 			var connector_swimlane = str(unlocking_skill.left(1) + "to" + skill.left(1))
 			var tween1 = get_node("Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/" 
@@ -113,10 +114,12 @@ func TakeModul(skill):
 			var tween2 = get_node("Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/" + skill.left(1) + "/" + skill + "/TextureRect/Tween")
 			# Tween 1 Takes 1 second, Tween 2 Wait 0.7 Second and then expanse over 0.3 seconds. After the 1 Second Tween 1 Takes and tween 2 is expanded
 			# it start to inflate again, Tween 1 is dependent on tween 2 on the timing. 
-			tween1.interpolate_property(tween1.get_parent(), 'value', 50, 100, 1, Tween.TRANS_QUART, Tween.EASE_OUT)
+			if skill != "1A":
+				tween1.interpolate_property(tween1.get_parent(), 'value', 50, 100, 1, Tween.TRANS_QUART, Tween.EASE_OUT)
 			tween2.interpolate_property(tween2.get_parent(), 'rect_scale', Vector2(1,1), Vector2(2.2, 2.2), 0.3, Tween.TRANS_QUART, Tween.EASE_OUT, 0.7)
 			tween2.interpolate_property(tween2.get_parent(), 'rect_scale', Vector2(2.2, 2.2), Vector2(1, 1), 0.3, Tween.TRANS_QUART, Tween.EASE_IN, 1)
-			tween1.start()
+			if skill != "1A":
+				tween1.start()
 			tween2.start()
 			yield(get_tree().create_timer(1.3), "timeout")
 			var texture_button = get_node("Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/" + skill.left(1) + "/" + skill + "/TextureButton")

@@ -30,7 +30,48 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+func saveGame():
+	var save_game = File.new()
+	save_game.open("user://savegame.save", File.WRITE)
+	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	for node in save_nodes:
+		
+		if node.filename.empty():
+			print("persisten node is not an instanced scene, skipped " + node.name)
+			continue
+		
+		if !node.has_method("save"):
+			print("persistent node is missing a save() function, skipped " + node.name)
+			continue
+		
+		var node_data = node.call("save")
+		
+		save_game.store_line(to_json(node_data))
+	save_game.close()
 
+func loadGame():
+	var save_game = File.new()
+	if not save_game.file_exists("user://savegame.save"):
+		print("Error, we dont have a saved Game.")
+		return 
+	
+	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	for i in save_nodes:
+		i.queue_free()
+	
+	save_game.open("user://savegame.save", File.READ)
+	while save_game.get_position() < save_game.get_len():
+		var node_data = parse_json(save_game.get_line())
+		
+		var new_object = load(node_data["filename"]).instance()
+		get_node(node_data["parent"]).add_child(new_object)
+		new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
+		
+		for i in node_data.keys():
+			if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
+				continue
+			new_object.set(i,node_data[i])
+	save_game.close()
 
 func _on_Options_pressed():
 	var options_menu = load("res://OptionsMenu.tscn").instance()
@@ -52,3 +93,11 @@ func _on_ExitToDesktop_pressed():
 func _on_NewGame_pressed():
 	get_tree().paused = false
 	var _change_scene = get_tree().change_scene("res://Testarea.tscn")
+
+
+func _on_Save_pressed():
+	saveGame()
+
+
+func _on_Load_pressed():
+	loadGame()
