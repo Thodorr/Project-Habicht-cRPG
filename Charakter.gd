@@ -36,6 +36,9 @@ var movement_blocked = false
 var direction = Vector2(0,0)
 var movement = Vector2(0,0)
 
+var nav_movement = Vector2(0,0)
+var build_up = 1
+
 var mouse_mode = Mouse.REGULAR
 
 const ACCELERATION = 8
@@ -94,8 +97,6 @@ func _on_velocity_computed(velocity):
 		state = State.MOVING
 	var _motion = move_and_slide(velocity)
 
-var nav_movement = Vector2(0,0)
-var build_up = 1
 func set_velocity(): 
 	if nav_agent.is_navigation_finished():
 		may_navigate = false

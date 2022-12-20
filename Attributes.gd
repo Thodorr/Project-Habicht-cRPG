@@ -205,7 +205,7 @@ var attributes_extra = {
 var nerve = 0
 var nerve_damage = 0
 
-var skillpoint = 5
+var skillpoint = 20
 var experience = 0
 
 func add_to_attribute(attribute, value):
@@ -267,7 +267,7 @@ func attribute_math():
 	var x = 0
 	
 	for i in attribute_group_value:
-		attribute_group_value[i] = floor((attributes_base[i+x] + attributes_base[i+1+x] + attributes_base[i+2+x] + attributes_base[i+3+x]) / 10 )
+		attribute_group_value[i] = floor((attributes_base[i+x] + attributes_base[i+1+x] + attributes_base[i+2+x]) / 5 )
 		x += 2
 		if i == 2:
 			x = 0
@@ -282,6 +282,8 @@ func attribute_math():
 			attributegroup_bonus = attribute_group_value[AttributeGroup.CHARACTER]
 		elif i >= 6 && i <= 8:
 			attributegroup_bonus = attribute_group_value[AttributeGroup.MIND]
+		else:
+			attributegroup_bonus = 0
 		attributes[i] = attributes_base[i] + attributes_equipment[i] + attributes_temporary[i] + attributes_food[i] + attributegroup_bonus + attributes_extra[i]
 		
 		if attributes[i] < 0:
