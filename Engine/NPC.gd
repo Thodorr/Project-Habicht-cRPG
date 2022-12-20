@@ -101,3 +101,10 @@ func _on_Interactable_mouse_entered():
 
 func _on_Interactable_mouse_exited():
 	player.mouse_mode = player.Mouse.REGULAR
+	
+func start_quest(questname):
+	var quest = load("res://Units/Quests/" + str(questname) + ".tres")
+	quest.steps()
+
+func change_dialog(new_conversation):
+	conversation = new_conversation

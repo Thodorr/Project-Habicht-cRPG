@@ -63,7 +63,7 @@ position = Vector2( 226, 240 )
 outfit = ExtResource( 14 )
 body = ExtResource( 16 )
 hair = ExtResource( 15 )
-conversation = "TestCon"
+conversation = "TesttheQuest"
 
 [node name="Floor" type="TileMap" parent="YSort"]
 z_index = -2
