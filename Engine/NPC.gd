@@ -15,6 +15,8 @@ onready var inventory = preload("res://Inventory.tres")
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var player = owner.get_node("YSort/Charakter")
 
+var questhandler = preload("res://Questhandler.tres")
+
 var may_navigate = false
 var movement_blocked = false
 
@@ -91,8 +93,9 @@ func _physics_process(_delta):
 	animation_player()
 
 func _on_interaction_init():
-	var dialog = Dialogic.start(conversation)
-	add_child(dialog)
+	start_quest()
+	#var dialog = Dialogic.start(conversation)
+	#add_child(dialog)
 
 
 func _on_Interactable_mouse_entered():
@@ -102,9 +105,13 @@ func _on_Interactable_mouse_entered():
 func _on_Interactable_mouse_exited():
 	player.mouse_mode = player.Mouse.REGULAR
 	
-func start_quest(questname):
-	var quest = load("res://Units/Quests/" + str(questname) + ".tres")
-	quest.steps()
-
+func start_quest():
+	var questname = "QuestTestarray"
+	questhandler.start_a_quest(questname)
+	
+	
 func change_dialog(new_conversation):
 	conversation = new_conversation
+	
+
+

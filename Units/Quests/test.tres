@@ -8,7 +8,7 @@
 script = ExtResource( 1 )
 questname = "Test"
 item_needed = true
-description = [  ]
+description = [ "Quest1", "Quest2", "Quest3" ]
 quest_item = ExtResource( 2 )
 quest_reward = ExtResource( 3 )
 reward_amount = 1
