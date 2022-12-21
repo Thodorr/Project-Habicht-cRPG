@@ -206,11 +206,8 @@ text = "Desktop"
 align = 1
 valign = 1
 
-[node name="Control" parent="." instance=ExtResource( 24 )]
-margin_left = 77.0
-margin_top = -81.0
-margin_right = 77.0
-margin_bottom = -81.0
+[node name="ChangeLevel" parent="." instance=ExtResource( 24 )]
+position = Vector2( 234, 12 )
 
 [node name="PickUps" type="Node2D" parent="."]
 position = Vector2( 33, 31 )
