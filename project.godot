@@ -124,6 +124,7 @@ config/icon="res://icon.png"
 
 Attributes="*res://Attributes.gd"
 DataImport="*res://Data/DataImport.gd"
+scenechanger="*res://scenechanger.gd"
 
 [display]
 

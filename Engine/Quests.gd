@@ -4,7 +4,6 @@ class_name Quest
 
 var inventory = preload("res://Inventory.tres")
 
-#export(Array, Resource) var quests = []
 
 enum Queststate {
 	OPEN,
@@ -47,21 +46,20 @@ func end_quest():
 				inventory.add_item(quest_reward, reward_amount)
 		else:
 			if quest_item == null:
-				print("Achtung!") 
+				print("No quest item required!")
 			else:
 				if quest_reward == null:
-					print("no request here!")
+					print("no item as reward")
 					add_exp()
 					state = Queststate.DONE
 				else:
 					inventory.add_item(quest_reward, reward_amount)
 					add_exp()
 					state = Queststate.DONE
-		
 
 func start_quest_later():
 	state = Queststate.OPEN
-	
+
 func add_exp():
 	Attributes.add_to_experience(amound_exp)
 	print ("You gained ", amound_exp)
@@ -71,8 +69,6 @@ func steps():
 		state = Queststate.STARTED
 		if step <= description.size():
 			step += 1
-			print (step)
-			print (description[step])
 		else:
 			end_quest()
 	else:
