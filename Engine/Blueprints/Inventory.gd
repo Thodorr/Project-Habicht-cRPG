@@ -8,6 +8,8 @@ signal item_added(item, amount)
 
 export(Array, Resource) var items = []
 
+var hidden_items = []
+
 var equipped_hat: Resource
 var equipped_clothing: Resource
 var equipped_hand: Resource 
@@ -64,7 +66,33 @@ func remove_item_at(item_index):
 	items[item_index] = null
 	emit_signal("items_changed", [item_index])
 	return previous_item
-	
+
+func filter_items(type = Item):
+	add_hidden_items()
+	var items_size = items.size()
+	for i in items_size:
+		if not items[i] is type && items[i] != null:
+			hidden_items.append(items[i])
+			items[i] = null
+			emit_signal("items_changed", [i])
+
+func add_hidden_items():
+	for i in hidden_items.size():
+		add_item(hidden_items[i], 1)
+	hidden_items.clear()
+	print(hidden_items)
+
+#func filter_items(type = Item):
+#	var items_size = items.size()
+#	shown_items.resize(items_size)
+#	for i in items_size:
+#		if not items[i] is type && items[i] != null:
+#			shown_items[i]
+#			emit_signal("items_changed", [i])
+#		if items[i] is type:
+#			shown_items[i] = items[i]
+#			emit_signal("items_changed", [i])
+
 func make_items_unique():
 	var unique_items = []
 	for item in items:

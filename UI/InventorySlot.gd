@@ -5,14 +5,6 @@ var inventory = preload("res://Inventory.tres")
 onready var itemTextureRect = $ItemTextureRect
 onready var itemAmountLabel = $ItemTextureRect/ItemAmountLabel
 
-var food_eaten = 0
-var food_timer = 0
-
-func _process(_delta):
-	if food_eaten >= 1:
-		food_timer -= 1
-		if food_timer <= 0:
-			food_eaten -= 1
 
 func display_item(item):
 	if item is Item:

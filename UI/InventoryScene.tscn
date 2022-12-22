@@ -24,3 +24,35 @@ custom_constants/vseparation = -1
 custom_constants/hseparation = -1
 columns = 4
 script = ExtResource( 2 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Allfilter" type="Button" parent="VBoxContainer"]
+margin_right = 81.0
+margin_bottom = 20.0
+text = "All"
+
+[node name="Equipmentfilter" type="Button" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 81.0
+margin_bottom = 44.0
+text = "Equipment"
+
+[node name="Temporaryfilter" type="Button" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 81.0
+margin_bottom = 68.0
+text = "Temporary"
+
+[node name="Food" type="Button" parent="VBoxContainer"]
+margin_top = 72.0
+margin_right = 81.0
+margin_bottom = 92.0
+text = "Food"
+
+[connection signal="pressed" from="VBoxContainer/Allfilter" to="." method="_on_Allfilter_pressed"]
+[connection signal="pressed" from="VBoxContainer/Equipmentfilter" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Temporaryfilter" to="." method="_on_Temporaryfilter_pressed"]
+[connection signal="pressed" from="VBoxContainer/Food" to="." method="_on_Food_pressed"]
