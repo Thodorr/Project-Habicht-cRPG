@@ -10,17 +10,20 @@ func drop_data(_position, data):
 	inventory.set_item(data.item_index, data.item)
 
 
-func _on_Button_pressed():
-	inventory.filter_items(EquipmentItem)
+func _on_FilterButton_pressed(button_definer):
+	var button_image = get_node("HBoxContainer/" + button_definer + "FilterButton/TextureRect")
+	button_image.rect_position.y += 1
 
-
-func _on_Allfilter_pressed():
-	inventory.filter_items()
-
-
-func _on_Temporaryfilter_pressed():
-	inventory.filter_items(TemporaryItem)
-
-
-func _on_Food_pressed():
-	inventory.filter_items(FoodItem)
+func _on_FilterButton_released(button_definer):
+	var button_image = get_node("HBoxContainer/" + button_definer + "FilterButton/TextureRect")
+	button_image.rect_position.y -= 1
+	
+	match(button_definer):
+		"Equipment":
+			inventory.filter_items(EquipmentItem)
+		"Food":
+			inventory.filter_items(FoodItem)
+		"Temporary":
+			inventory.filter_items(TemporaryItem)
+		_:
+			inventory.filter_items()
