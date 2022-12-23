@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://UI/InventoryScene.gd" type="Script" id=1]
 [ext_resource path="res://UI/InventoryGrid.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Items/Cheese.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Items/DetectiveHat.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Items/PillBottle.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Items/BrownBackpack.png" type="Texture" id=6]
+[ext_resource path="res://UI/Assets/GUI/NormalButton.tres" type="Texture" id=7]
+[ext_resource path="res://UI/Assets/GUI/PressedButton.tres" type="Texture" id=8]
 
 [node name="InventoryScene" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 13.0
+margin_top = 17.0
+margin_right = 13.0
+margin_bottom = 17.0
 mouse_filter = 2
 script = ExtResource( 1 )
 
@@ -24,3 +34,100 @@ custom_constants/vseparation = -1
 custom_constants/hseparation = -1
 columns = 4
 script = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 15.0
+margin_top = 145.0
+margin_right = 118.0
+margin_bottom = 165.0
+custom_constants/separation = 3
+
+[node name="AllFilterButton" type="TextureButton" parent="HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/AllFilterButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -5.0
+margin_right = 2.0
+margin_bottom = 1.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="EquipmentFilterButton" type="TextureButton" parent="HBoxContainer"]
+margin_left = 23.0
+margin_right = 43.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/EquipmentFilterButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 4 )
+
+[node name="FoodFilterButton" type="TextureButton" parent="HBoxContainer"]
+margin_left = 46.0
+margin_right = 66.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/FoodFilterButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -5.5
+margin_top = -7.0
+margin_right = 5.5
+margin_bottom = 5.0
+texture = ExtResource( 3 )
+
+[node name="TemporaryFilterButton" type="TextureButton" parent="HBoxContainer"]
+margin_left = 69.0
+margin_right = 89.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/TemporaryFilterButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.5
+margin_top = -7.5
+margin_right = 2.5
+margin_bottom = 1.5
+rect_scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 5 )
+
+[connection signal="button_down" from="HBoxContainer/AllFilterButton" to="." method="_on_FilterButton_pressed" binds= [ "All" ]]
+[connection signal="button_up" from="HBoxContainer/AllFilterButton" to="." method="_on_FilterButton_released" binds= [ "All" ]]
+[connection signal="button_down" from="HBoxContainer/EquipmentFilterButton" to="." method="_on_FilterButton_pressed" binds= [ "Equipment" ]]
+[connection signal="button_up" from="HBoxContainer/EquipmentFilterButton" to="." method="_on_FilterButton_released" binds= [ "Equipment" ]]
+[connection signal="button_down" from="HBoxContainer/FoodFilterButton" to="." method="_on_FilterButton_pressed" binds= [ "Food" ]]
+[connection signal="button_up" from="HBoxContainer/FoodFilterButton" to="." method="_on_FilterButton_released" binds= [ "Food" ]]
+[connection signal="button_down" from="HBoxContainer/TemporaryFilterButton" to="." method="_on_FilterButton_pressed" binds= [ "Temporary" ]]
+[connection signal="button_up" from="HBoxContainer/TemporaryFilterButton" to="." method="_on_FilterButton_released" binds= [ "Temporary" ]]
