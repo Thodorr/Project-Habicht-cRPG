@@ -35,7 +35,7 @@ func _unhandled_input(event):
 		if inventory.drag_data is Dictionary:
 			var character = owner.owner
 			var drop_position = character.get_global_mouse_position()
-			if drop_position.distance_to(character.position) <= 20:
+			if drop_position.distance_to(character.position) <= 25:
 				var pickup = load("res://Engine/Placeables/PickUp.tscn")
 				pickup = pickup.instance()
 				pickup.set_global_position(character.get_global_mouse_position())

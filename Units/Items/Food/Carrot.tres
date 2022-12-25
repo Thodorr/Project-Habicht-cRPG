@@ -1,17 +1,17 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Engine/Blueprints/FoodItem.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Items/Food/Apple.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Items/Food/Carrot.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
-name = "Apple"
+name = "Carrot"
 texture = ExtResource( 2 )
-description = "A nice red apple."
+description = "A good ol' carrot."
 item_attributes = {
-0: 1,
+0: 0,
 1: 0,
-2: 0,
+2: 1,
 3: 0,
 4: 0,
 5: 0,
