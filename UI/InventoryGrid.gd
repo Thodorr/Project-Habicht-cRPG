@@ -33,8 +33,18 @@ func display_item_description(slot_index):
 func _unhandled_input(event):
 	if event.is_action_released("left_mouse"):
 		if inventory.drag_data is Dictionary:
-			inventory.set_item(inventory.drag_data.item_index, inventory.drag_data.item)
+			var character = owner.owner
+			var drop_position = character.get_global_mouse_position()
+			if drop_position.distance_to(character.position) <= 20:
+				var pickup = load("res://Engine/Placeables/PickUp.tscn")
+				pickup = pickup.instance()
+				pickup.set_global_position(character.get_global_mouse_position())
+				pickup.item = inventory.drag_data.item
+				character.owner.get_node("PickUps").add_child(pickup)
+			else:
+				inventory.set_item(inventory.drag_data.item_index, inventory.drag_data.item)
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			inventory.drag_data = null
 
 func render_slots():
 	for i in inventory.items:

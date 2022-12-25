@@ -2,7 +2,7 @@
 
 [ext_resource path="res://UI/InventoryScene.gd" type="Script" id=1]
 [ext_resource path="res://UI/InventoryGrid.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Items/Cheese.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Items/Food/Cheese.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Items/DetectiveHat.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Items/PillBottle.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Items/BrownBackpack.png" type="Texture" id=6]

@@ -82,16 +82,6 @@ func add_hidden_items():
 	hidden_items.clear()
 	print(hidden_items)
 
-#func filter_items(type = Item):
-#	var items_size = items.size()
-#	shown_items.resize(items_size)
-#	for i in items_size:
-#		if not items[i] is type && items[i] != null:
-#			shown_items[i]
-#			emit_signal("items_changed", [i])
-#		if items[i] is type:
-#			shown_items[i] = items[i]
-#			emit_signal("items_changed", [i])
 
 func make_items_unique():
 	var unique_items = []

@@ -17,7 +17,7 @@ enum Attribute {
 export(String) var name = ""
 export(Texture) var texture
 export(String, MULTILINE) var description =""
-export var item_attributes = {
+export(Dictionary) var item_attributes = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,

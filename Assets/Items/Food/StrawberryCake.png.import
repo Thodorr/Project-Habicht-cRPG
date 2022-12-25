@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cheese.png-f4131b2523ae27280bf7c32b0063dfef.stex"
+path="res://.import/StrawberryCake.png-7fe453b0b8c51a5eb69197db9c754eb5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Items/Cheese.png"
-dest_files=[ "res://.import/Cheese.png-f4131b2523ae27280bf7c32b0063dfef.stex" ]
+source_file="res://Assets/Items/Food/StrawberryCake.png"
+dest_files=[ "res://.import/StrawberryCake.png-7fe453b0b8c51a5eb69197db9c754eb5.stex" ]
 
 [params]
 

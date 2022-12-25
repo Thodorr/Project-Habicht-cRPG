@@ -112,6 +112,7 @@ func set_velocity():
 	nav_agent.set_velocity(nav_movement)
 
 func set_navigation(target):
+	if inventory.drag_data != null: return
 	if movement_blocked: return
 	timer.start()
 	ripple.position = target
