@@ -23,7 +23,10 @@ export(bool) var item_needed = false
 export (Array, String, MULTILINE) var description 
 
 
+
 export (Array, Resource) var quest_item 
+
+#export (bool) var justonereward 
 export (Array, Resource) var quest_reward
 
 export (int) var reward_amount = 1
@@ -69,9 +72,10 @@ func end_quest():
 				add_exp()
 				state = Queststate.DONE
 			else:
+				state = Queststate.DONE
 				get_item_reward()
 				add_exp()
-				state = Queststate.DONE
+				
 
 func start_quest_later():
 	state = Queststate.OPEN
@@ -84,10 +88,8 @@ func steps():
 		state = Queststate.STARTED
 		if step < description.size():
 			if step > 0:
-				step += 1
 				get_item_reward()
 			else:
-				step += 1
 				return
 		else:
 			get_item_reward()
@@ -110,10 +112,8 @@ func bring_quest():
 				return
 			else:
 				if quest_item_step > 0:
-					quest_item_step += 1
 					get_item_reward()
 				else:
-					quest_item_step += 1
 					return
 		else:
 			get_item_reward()
@@ -141,7 +141,6 @@ func get_item_reward():
 			return
 	else: 
 		return
-		
 
 func handle_the_quest(questtype):
 	if questtype == "bring":
@@ -160,3 +159,9 @@ func handle_the_quest(questtype):
 	else:
 		state = Queststate.DONE
 		return 
+
+func goto_npc(questtype):
+	if questtype != "bring":
+		step += 1
+	else:
+		quest_item_step += 1

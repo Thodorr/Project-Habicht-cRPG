@@ -21,3 +21,10 @@ func get_progress(questnamen):
 			return
 		if thequest.questname == questnamen:
 			thequest.get_step()
+
+func intermidiate(questnamen, questtype):
+	for thequest in quests: 
+		if thequest == null: 
+			return
+		if thequest.questname == questnamen:
+			thequest.goto_npc(questtype)

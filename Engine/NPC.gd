@@ -111,6 +111,9 @@ func start_quest(questname, questtype):
 func start_quest_laster():
 	questhandler.start_quest_later()
 
+func quest_intermidate(questname, questtype):
+	questhandler.intermidiate(questname, questtype)
+
 func change_dialog(new_conversation):
 	conversation = new_conversation
 	
