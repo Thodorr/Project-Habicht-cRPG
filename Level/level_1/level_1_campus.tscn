@@ -237,6 +237,11 @@ position = Vector2( 294, 267 )
 z_index = -1
 item = ExtResource( 9 )
 
+[node name="Cheese2" parent="PickUps" instance=ExtResource( 13 )]
+position = Vector2( 328, 277 )
+z_index = -1
+item = ExtResource( 6 )
+
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Continue" to="GUI" method="_on_Continue_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/NewGame" to="GUI" method="_on_NewGame_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Options" to="GUI" method="_on_Options_pressed"]

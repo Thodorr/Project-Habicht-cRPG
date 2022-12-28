@@ -106,8 +106,9 @@ func _on_Interactable_mouse_exited():
 	player.mouse_mode = player.Mouse.REGULAR
 	
 func start_quest():
-	var questname = "QuestTestarray"
+	var questname = "Test"
 	questhandler.start_a_quest(questname)
+
 	
 	
 func change_dialog(new_conversation):
