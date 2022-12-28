@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Engine/Blueprints/FoodItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/Food/Meal6.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Döner"
+texture = ExtResource( 2 )
+description = "An absolute classic of a meal.
+It brings people together. 
+No matter the demographic, people eat it.
+Delicious, finally some good fucking food."
+item_attributes = {
+0: 0,
+1: 0,
+2: 0,
+3: 3,
+4: 0,
+5: 0,
+6: 0,
+7: 0,
+8: 0,
+9: 1
+}
+stress_relief = 1
+removeable = true
+text_message = ""
+accept_text = "Accept"
+decline_text = "Decline"

@@ -65,6 +65,7 @@ func _ready():
 	var _item_equipped_connect = inventory.connect("item_equipped", self,"_on_item_equipped")
 	animation_state.start("Idle")
 	state = State.IDLE
+	nav_agent.set_target_location(position)
 	turn(Vector2(0, 1))
 	unlockable_skills.append("3A")
 	unlockable_skills.append("4A")
@@ -188,8 +189,8 @@ func _on_item_equipped(item):
 			$SpriteBundle/Hat.texture = item.sprite_sheet
 		item.Type.CLOTHING:
 			$SpriteBundle/Outfit.texture = item.sprite_sheet
-		item.Type.BACK:
-			$SpriteBundle/Back.texture = item.sprite_sheet
+		item.Type.FACE:
+			$SpriteBundle/Face.texture = item.sprite_sheet
 
 
 func _physics_process(_delta):

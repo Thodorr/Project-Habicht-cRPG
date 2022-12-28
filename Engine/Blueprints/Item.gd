@@ -29,6 +29,7 @@ export(Dictionary) var item_attributes = {
 	Attribute.CREATIVITY: 0,
 	Attribute.LUCK: 0,
 }
+export var stress_relief = 0
 export var removeable = true
 export(String, MULTILINE) var text_message = ""
 export(String) var accept_text = "Accept"

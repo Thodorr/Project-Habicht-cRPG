@@ -6,8 +6,8 @@ var inventory = preload("res://Inventory.tres")
 func _ready():
 	render_slots()
 	inventory.connect("items_changed", self, "_on_items_changed")
+	inventory.connect("row_added", self, "render_slots")
 	inventory.make_items_unique()
-	update_inventory_display()
 
 func update_inventory_display():
 	for item_index in inventory.items.size():
@@ -38,7 +38,7 @@ func _unhandled_input(event):
 			if drop_position.distance_to(character.position) <= 25:
 				var pickup = load("res://Engine/Placeables/PickUp.tscn")
 				pickup = pickup.instance()
-				pickup.set_global_position(character.get_global_mouse_position())
+				pickup.set_global_position(character.get_global_mouse_position() + Vector2(5, 3))
 				pickup.item = inventory.drag_data.item
 				character.owner.get_node("PickUps").add_child(pickup)
 			else:
@@ -47,6 +47,9 @@ func _unhandled_input(event):
 			inventory.drag_data = null
 
 func render_slots():
+	for child in get_children():
+		remove_child(child)
 	for i in inventory.items:
 		var slot = load("res://UI/InventorySlot.tscn").instance()
 		add_child(slot)
+	update_inventory_display()

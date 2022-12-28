@@ -61,11 +61,15 @@ func _on_InventorySlotDisplay_mouse_entered():
 		hint_tooltip = ''
 	else: 
 		hint_tooltip = item.name + "\n" + item.description + attributes_to_string(item.item_attributes)
+		if item.stress_relief > 0:
+			hint_tooltip += "\n *Reliefs " + str(item.stress_relief) + " points of Stress*"
 
 func attributes_to_string(attributes):
 	var attribute_string = ''
 	for attribute in attributes:
 		if attributes[attribute] != 0:
 			attribute_string += "\n"
-			attribute_string += "+" + str(attributes[attribute]) + " " + Attributes.Attribute.keys()[attribute] 
+			if attributes[attribute] > 0:
+				attribute_string += "+"
+			attribute_string += str(attributes[attribute]) + " " + Attributes.Attribute.keys()[attribute] 
 	return attribute_string

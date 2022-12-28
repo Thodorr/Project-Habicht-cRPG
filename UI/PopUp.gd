@@ -5,6 +5,12 @@ onready var screen_height = ProjectSettings.get_setting("display/window/size/hei
 
 onready var inventory = preload("res://Inventory.tres")
 
+onready var accept_button = $AcceptButton
+onready var decline_button = $DeclineButton
+
+onready var accept_label = $AcceptButton/Label
+onready var decline_label = $DeclineButton/Label
+
 var curr_item = null
 
 func _ready():
@@ -17,15 +23,18 @@ func set_text(text):
 	$RichTextLabel.text = text
 
 func set_buttons(accept_text: String, decline_text: String):
-	if accept_text == "":
-		$AcceptButton.visible = false
-		$DeclineButton.rect_position.x = rect_size.x / 2 - $DeclineButton.rect_size.x
-	if decline_text == "":
-		$DeclineButton.visible = false
-		$AcceptButton.rect_position.x = rect_size.x / 2 - $AcceptButton.rect_size.x
+	accept_label.set_text(accept_text)
+	decline_label.set_text(decline_text)
 	
-	$AcceptButton/Label.text = accept_text
-	$DeclineButton/Label.text = decline_text
+	accept_button.rect_size.x = accept_label.get_font("PixelFontSmall").get_string_size(accept_label.text).x + 2
+	decline_button.rect_size.x = decline_label.get_font("PixelFontSmall").get_string_size(decline_label.text).x + 2
+	
+	if accept_text == "":
+		accept_button.visible = false
+		decline_button.rect_position.x = rect_size.x / 2 - decline_button.rect_size.x / 2
+	if decline_text == "":
+		decline_button.visible = false
+		accept_button.rect_position.x = rect_size.x / 2 - accept_button.rect_size.x / 2
 
 #Use this function for setup
 func set_popup(item, accept_text = "Accept", decline_text = "Decline"):
@@ -43,3 +52,4 @@ func _on_AcceptButton_pressed():
 
 func _on_DeclineButton_pressed():
 	visible = false
+

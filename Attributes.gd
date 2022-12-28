@@ -154,6 +154,22 @@ var attributes_hand = {
 	Attribute.LUCK: 0,
 }
 
+var attributes_face = {
+	Attribute.ATHLETICS: 0,
+	Attribute.DEXTERITY: 0,
+	Attribute.PERCEPTION: 0,
+	
+	Attribute.PERSUATION: 0,
+	Attribute.BLUFF: 0,
+	Attribute.INTIMIDATION: 0,
+	
+	Attribute.KNOWLEDGE: 0,
+	Attribute.WILL: 0,
+	Attribute.CREATIVITY: 0,
+	
+	Attribute.LUCK: 0,
+}
+
 var attributes_temporary = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -221,6 +237,11 @@ func get_attribute_group(attribute_group):
 func add_to_skillpoint(value):
 	skillpoint += value
 
+func remove_stress(value):
+	nerve_damage -= value
+	if nerve_damage < 0:
+		nerve_damage = 0
+
 func remove_skillpoint(value):
 	skillpoint -= value
 
@@ -273,7 +294,7 @@ func attribute_math():
 			x = 0
 	
 	for i in attributes_equipment:
-		attributes_equipment[i] = attributes_hat[i] + attributes_clothing[i] + attributes_trinket[i] + attributes_hand[i]
+		attributes_equipment[i] = attributes_hat[i] + attributes_clothing[i] + attributes_trinket[i] + attributes_hand[i] + attributes_face[i]
 		
 	for i in attributes:
 		if i >= 0 && i <= 2:
@@ -324,6 +345,9 @@ func add_item_stats(item):
 			item.Type.HAND:
 				for i in attributes_hand:
 					attributes_hand[i] = item.item_attributes[i]
+			item.Type.FACE:
+				for i in attributes_face:
+					attributes_face[i] = item.item_attributes[i]
 	elif item is TemporaryItem:
 		var timer = Timer.new()
 		timer.connect("timeout", self, "_on_timeout", [item])

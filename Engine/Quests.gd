@@ -15,4 +15,4 @@ export (Resource) var quest_item
 export (Resource) var quest_reward
 export (int) var reward_amount = 0
 
-var state = Queststate.OPEN 
+var state = Queststate.OPEN

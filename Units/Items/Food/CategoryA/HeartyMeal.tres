@@ -1,0 +1,30 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Engine/Blueprints/FoodItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/Food/Meal5.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Spicy Meal"
+texture = ExtResource( 2 )
+description = "An incredibly spicy meal.
+Why are you torturing yourself like this?
+It is advised to hold vigorous eye
+contact with a stranger while eating this."
+item_attributes = {
+0: 0,
+1: 1,
+2: -1,
+3: 0,
+4: 0,
+5: 4,
+6: -1,
+7: 2,
+8: 0,
+9: 0
+}
+stress_relief = -1
+removeable = true
+text_message = ""
+accept_text = "Accept"
+decline_text = "Decline"

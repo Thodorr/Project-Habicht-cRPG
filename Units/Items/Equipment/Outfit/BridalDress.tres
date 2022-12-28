@@ -1,0 +1,32 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Character/Outfit/BrideDress.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Items/Equipment/Outfit/BrideDress.png" type="Texture" id=2]
+[ext_resource path="res://Engine/Blueprints/EquipmentItem.gd" type="Script" id=3]
+
+[resource]
+script = ExtResource( 3 )
+name = "BridalDress"
+texture = ExtResource( 2 )
+description = "A dress usually worn by the bride at
+a wedding.
+But 'usually' should not stop you. "
+item_attributes = {
+0: -3,
+1: 0,
+2: 0,
+3: 2,
+4: 0,
+5: 0,
+6: 0,
+7: 0,
+8: 0,
+9: 2
+}
+stress_relief = 0
+removeable = true
+text_message = ""
+accept_text = "Accept"
+decline_text = "Decline"
+type = 1
+sprite_sheet = ExtResource( 1 )

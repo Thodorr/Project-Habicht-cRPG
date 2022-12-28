@@ -24,7 +24,8 @@ func on_loot_anim_finished():
 	if $Interactable.moving_to_target == self:
 		if item is Item:
 			inventory.add_item(item, amount)
-			player.mouse_mode = player.Mouse.REGULAR
+			if get_node("Interactable").hovering:
+				player.mouse_mode = player.Mouse.REGULAR
 			queue_free()
 
 func _on_interaction_init():
