@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "Falko has a Question!",
+	"display_name": "",
+	"display_name_bool": true,
+	"id": "character-1672225942.json",
+	"mirror_portraits": false,
+	"name": "Falko",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

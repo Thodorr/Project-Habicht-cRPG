@@ -93,9 +93,9 @@ func _physics_process(_delta):
 	animation_player()
 
 func _on_interaction_init():
-	start_quest()
-	#var dialog = Dialogic.start(conversation)
-	#add_child(dialog)
+	var dialog = Dialogic.start(conversation)
+	add_child(dialog)
+	
 
 
 func _on_Interactable_mouse_entered():
@@ -105,12 +105,12 @@ func _on_Interactable_mouse_entered():
 func _on_Interactable_mouse_exited():
 	player.mouse_mode = player.Mouse.REGULAR
 	
-func start_quest():
-	var questname = "Test"
-	questhandler.start_a_quest(questname)
+func start_quest(questname, questtype):
+	questhandler.start_a_quest(questname, questtype)
+	
+func start_quest_laster():
+	questhandler.start_quest_later()
 
-	
-	
 func change_dialog(new_conversation):
 	conversation = new_conversation
 	

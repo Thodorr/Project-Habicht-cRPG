@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Engine/Quests.gd" type="Script" id=1]
+[ext_resource path="res://Units/Items/Cheese.tres" type="Resource" id=2]
 [ext_resource path="res://Units/Items/Detective_Hat.tres" type="Resource" id=3]
 [ext_resource path="res://Units/Items/Purple_Shirt.tres" type="Resource" id=5]
 
@@ -8,8 +9,8 @@
 script = ExtResource( 1 )
 questname = "Test"
 item_needed = true
-description = [ "Teil 1 der Quest!", "Teil 2 der Quest!" ]
-quest_item = [  ]
+description = [ "Gehe zu Falko" ]
+quest_item = [ ExtResource( 2 ) ]
 quest_reward = [ ExtResource( 3 ), ExtResource( 5 ) ]
 reward_amount = 1
 amound_exp = 5

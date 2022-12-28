@@ -11,6 +11,12 @@ enum Queststate {
 	DONE	
 }
 
+enum Questtype {
+	TODO,
+	BRING,
+	IDLE
+}
+
 export(String) var questname = ""
 #export(String, MULTILINE) var description =""
 export(bool) var item_needed = false
@@ -29,12 +35,12 @@ var reward_item_step = 0
 
 var state = Queststate.OPEN 
 
+var quest_questtype = Questtype.IDLE
+
 
 func start_quest(): 
-	print ("Der State der Quest " , questname , " ist ", state) 
 	if state == Queststate.OPEN: 
 		state = Queststate.STARTED 
-		print ("Der State der Quest " , questname , " ist ", state)
 	if state == Queststate.DONE:
 		print("This Quest can not be reopened!")
 	if state == Queststate.STARTED:
@@ -72,40 +78,45 @@ func start_quest_later():
 
 func add_exp():
 	Attributes.add_to_experience(amound_exp)
-	print ("You gained ", amound_exp)
 
 func steps(): 
 	if description.size() > 0:
 		state = Queststate.STARTED
 		if step < description.size():
-			print (description[step])
-			step += 1
-			get_item_reward()
+			if step > 0:
+				step += 1
+				get_item_reward()
+			else:
+				step += 1
+				return
 		else:
+			get_item_reward()
 			return
 	else:
 		return
 
 func get_step():
 	if step < description.size():
-		print ("Sie befinden sich in Schritt: " , step , " der Quest!")
 		return description[step]
 	else:
 		return step
 
 func bring_quest():
-	print("Bisher gefunden " , quest_item_step)
 	if quest_item.size() > 0:
 		state = Queststate.STARTED
 		if quest_item_step < quest_item.size():
-			print ("Benötigte Items ", quest_item.size(), " Sie haben: " , quest_item_step, " gefunden!")
 			var check_item = inventory.remove_item(quest_item[quest_item_step], 1)
 			if check_item == false:
-				print ("Das Benötigte Item wurde noch nicht gefunden!")
+				return
 			else:
-				quest_item_step += 1
-				get_item_reward()
+				if quest_item_step > 0:
+					quest_item_step += 1
+					get_item_reward()
+				else:
+					quest_item_step += 1
+					return
 		else:
+			get_item_reward()
 			return
 	else: 
 		return
@@ -114,39 +125,38 @@ func bring_quest():
 func get_item_step():
 	if state != Queststate.DONE:
 		if quest_item_step < quest_item.size():
-			print ("Sie befinden sich in Schritt: " , quest_item_step , " der Quest!")
 			return quest_item[quest_item_step]
 		else:
 			return quest_item_step
 	else:
 		var quest_done = "Quest ist beendet!"
-		print (quest_done)
 		return quest_done
 
 func get_item_reward():
 	if quest_reward.size() > 0:
 		if reward_item_step < quest_reward.size(): 
 			inventory.add_item(quest_reward[reward_item_step], reward_amount)
-			print("Item! " , " Sie haben ein ", quest_reward[reward_item_step].name, " bekommen!")
 			reward_item_step += 1 
 		else:
-			print ("Alle Belohnungen erhalten!")
+			return
 	else: 
-		print("No Item required!")
+		return
 		
 
-func handle_the_quest():
+func handle_the_quest(questtype):
+	if questtype == "bring":
+		quest_questtype = Questtype.BRING
+	else:
+		quest_questtype = Questtype.TODO
 	if state != Queststate.DONE:
-		if description.size() > 0:
-			print ("hallo")
-			if step < description.size():
+		if description.size() > 0 && quest_questtype == Questtype.TODO:
+			if step <= description.size():
 				steps()
-		if quest_item.size() > 0: 
-			print("servus")
-			if quest_item_step < quest_item.size():
+		if quest_item.size() > 0 && quest_questtype == Questtype.BRING: 
+			if quest_item_step <= quest_item.size():
 				bring_quest()
 		if description.size() == step && quest_item.size() == quest_item_step:
 			end_quest()
 	else:
-		print ("Quest wurde beendet!")
+		state = Queststate.DONE
 		return 

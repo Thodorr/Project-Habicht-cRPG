@@ -8,12 +8,12 @@ class_name Questhandler
 
 export(Array, Resource) var quests = []
 
-func start_a_quest(questnamen):
+func start_a_quest(questnamen, typeofquest):
 	for thequest in quests: 
 		if thequest == null: 
 			return
 		if thequest.questname == questnamen:
-			thequest.handle_the_quest()
+			thequest.handle_the_quest(typeofquest)
 
 func get_progress(questnamen): 
 	for thequest in quests: 

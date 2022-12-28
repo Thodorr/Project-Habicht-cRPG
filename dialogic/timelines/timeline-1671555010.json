@@ -8,12 +8,18 @@
 		},
 		{
 			"character": "character-1670243735.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Bevor du mir das Item bringen kannst, muss du mir eine Frage beantworte!"
+		},
+		{
+			"character": "character-1670243735.json",
 			"event_id": "dialogic_010",
 			"options": [
 
 			],
 			"portrait": "",
-			"question": "Möchtest du den Quest annehmen?"
+			"question": "Möchtest du mitmachen?"
 		},
 		{
 			"choice": "Ja",
@@ -23,9 +29,32 @@
 			"value": ""
 		},
 		{
+			"character": "character-1670243735.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Welche farben haben Feilchen?"
+		},
+		{
+			"choice": "Blau",
+			"condition": "",
+			"definition": "1672225795-648",
+			"event_id": "dialogic_011",
+			"value": "Blau"
+		},
+		{
+			"character": "character-1670243735.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Gehe zu Falko!"
+		},
+		{
 			"call_node": {
 				"arguments": [
-					"test"
+					"Test",
+					"todo"
 				],
 				"method_name": "start_quest",
 				"target_node_path": "../../"
@@ -43,11 +72,32 @@
 			"event_id": "dialogic_042"
 		},
 		{
+			"choice": "Gelb",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "Rot",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
 			"choice": "Nein",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
 			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
 		},
 		{
 			"event_id": "dialogic_013"

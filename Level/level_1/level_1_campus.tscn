@@ -66,6 +66,13 @@ body = ExtResource( 16 )
 hair = ExtResource( 15 )
 conversation = "TesttheQuest"
 
+[node name="NPC2" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 429, 275 )
+outfit = ExtResource( 14 )
+body = ExtResource( 16 )
+hair = ExtResource( 15 )
+conversation = "Falko"
+
 [node name="Floor" type="TileMap" parent="YSort"]
 z_index = -2
 tile_set = ExtResource( 2 )
