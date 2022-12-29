@@ -1,0 +1,62 @@
+{
+	"events": [
+		{
+			"character": "character-1670243735.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Hast du das Item gefunden?"
+		},
+		{
+			"choice": "Ja",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Vielen Dank! Hier noch etwas modisches!"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Test",
+					"bring"
+				],
+				"method_name": "start_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"END"
+				],
+				"method_name": "change_dialog",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "Nein",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1672224973.json",
+		"name": "Teil3"
+	}
+}

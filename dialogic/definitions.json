@@ -3,6 +3,11 @@
 
 	],
 	"variables": [
-
+		{
+			"id": "1672225795-648",
+			"name": "Question1",
+			"type": 0,
+			"value": "Blau"
+		}
 	]
 }
