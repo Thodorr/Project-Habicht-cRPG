@@ -12,7 +12,7 @@ export var west_deactivated = false
 
 onready var sprite = get_node("Sprite")
 onready var inventory = preload("res://Inventory.tres")
-onready var player = owner.get_node("YSort/Charakter")
+onready var player = get_parent().get_parent().get_node("YSort/Charakter")
 
 var property_names: Array = []
 
@@ -24,7 +24,8 @@ func on_loot_anim_finished():
 	if $Interactable.moving_to_target == self:
 		if item is Item:
 			inventory.add_item(item, amount)
-			player.mouse_mode = player.Mouse.REGULAR
+			if get_node("Interactable").hovering:
+				player.mouse_mode = player.Mouse.REGULAR
 			queue_free()
 
 func _on_interaction_init():

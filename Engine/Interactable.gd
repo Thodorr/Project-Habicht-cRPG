@@ -4,7 +4,7 @@ extends CollisionObject2D
 signal interaction_init
 
 onready var interactable : Node = owner
-onready var character : KinematicBody2D = interactable.owner.get_node("YSort/Charakter")
+onready var character : KinematicBody2D = interactable.get_parent().get_parent().get_node("YSort/Charakter")
 onready var positions = $Positions.get_children()
 
 export(int) var interaction_distance = 10
@@ -21,7 +21,6 @@ func _ready():
 	
 	var _mouse_entered_connect = connect("mouse_entered", self, "_on_mouse_entered")
 	var _mouse_exited_conntect = connect("mouse_exited", self, "_on_mouse_exited")
-	var _target_reached_connect = nav_agent.connect("target_reached", self, "_on_target_reached")
 	var _navigation_finished_connect = nav_agent.connect("navigation_finished", self, "_on_navigation_finished")
 	var _path_changed_connect = nav_agent.connect("path_changed", self, "_on_path_changed")
 	
@@ -38,11 +37,6 @@ func _input(_event):
 	if Input.is_action_just_pressed("left_mouse"):
 		character.set_navigation(get_closest_position())
 		moving_to_target = get_parent()
-
-func _on_target_reached():
-	if moving_to_target:
-		pass
-		#emit_signal("interaction_init")
 
 func _on_navigation_finished():
 	if moving_to_target:

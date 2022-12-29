@@ -36,6 +36,7 @@ var step = 0
 var quest_item_step = 0
 var reward_item_step = 0
 
+
 var state = Queststate.OPEN 
 
 var quest_questtype = Questtype.IDLE

@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Engine/Blueprints/FoodItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/Food/Apple.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Apple"
+texture = ExtResource( 2 )
+description = "A nice red apple."
+item_attributes = {
+0: 2,
+1: 0,
+2: 0,
+3: 0,
+4: 0,
+5: 0,
+6: 0,
+7: 0,
+8: 0,
+9: 0
+}
+stress_relief = 0
+removeable = true
+text_message = ""
+accept_text = "Accept"
+decline_text = "Decline"

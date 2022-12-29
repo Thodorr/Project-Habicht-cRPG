@@ -25,5 +25,7 @@ func _on_FilterButton_released(button_definer):
 			inventory.filter_items(FoodItem)
 		"Temporary":
 			inventory.filter_items(TemporaryItem)
+		"Other":
+			inventory.filter_items(OtherItem)
 		_:
 			inventory.filter_items()

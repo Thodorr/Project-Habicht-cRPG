@@ -1,14 +1,28 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Units/Inventory_Slot.png" type="Texture" id=1]
+[ext_resource path="res://UI/Assets/GUI/Inventory_Slot.png" type="Texture" id=1]
 [ext_resource path="res://UI/InventorySlot.gd" type="Script" id=2]
 [ext_resource path="res://UI/Font/PixelFontSmall.tres" type="DynamicFont" id=3]
+[ext_resource path="res://UI/Font/PixelFontVerySmall.tres" type="DynamicFont" id=4]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.607843, 0.607843, 0.607843, 0.513726 )
+border_color = Color( 0.368627, 0.368627, 0.368627, 1 )
+
+[sub_resource type="Theme" id=1]
+default_font = ExtResource( 3 )
+TooltipLabel/colors/font_color = Color( 1, 1, 1, 1 )
+TooltipLabel/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+TooltipLabel/fonts/font = ExtResource( 4 )
+TooltipPanel/styles/panel = SubResource( 2 )
 
 [node name="InventorySlotDisplay" type="CenterContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+hint_tooltip = "Test"
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme = SubResource( 1 )
 script = ExtResource( 2 )
 
 [node name="SlotTextureRect" type="TextureRect" parent="."]
@@ -28,12 +42,13 @@ texture = ExtResource( 1 )
 stretch_mode = 4
 
 [node name="ItemAmountLabel" type="Label" parent="ItemTextureRect"]
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 17.0
-margin_bottom = 19.0
-custom_fonts/font = ExtResource( 3 )
+margin_left = 5.0
+margin_top = 9.0
+margin_right = 15.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 4 )
 text = "10"
 align = 2
 
 [connection signal="gui_input" from="." to="." method="_on_InventorySlotDisplay_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_InventorySlotDisplay_mouse_entered"]

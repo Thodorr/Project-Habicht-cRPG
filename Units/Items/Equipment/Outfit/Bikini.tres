@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Engine/Blueprints/EquipmentItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/Equipment/Outfit/Bikini.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Character/Outfit/Bikini.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Bikini"
+texture = ExtResource( 2 )
+description = "A blue two piece swimsuit.
+"
+item_attributes = {
+0: 3,
+1: 0,
+2: 0,
+3: 0,
+4: -2,
+5: 0,
+6: 0,
+7: 0,
+8: 0,
+9: 0
+}
+stress_relief = 0
+removeable = true
+text_message = ""
+accept_text = "Accept"
+decline_text = "Decline"
+type = 1
+sprite_sheet = ExtResource( 3 )

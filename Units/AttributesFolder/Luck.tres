@@ -4,7 +4,3 @@
 
 [resource]
 script = ExtResource( 1 )
-attributeName = ""
-attributeDescription = ""
-attributeValue = 0
-maxAttributeValue = 0
