@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Ressources/railing.tres" type="TileSet" id=1]
 [ext_resource path="res://Ressources/floor.tres" type="TileSet" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Assets/Effects/ripple_7.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Effects/ripple_6.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Effects/ripple_4.png" type="Texture" id=23]
+[ext_resource path="res://Engine/ChangeLevel.tscn" type="PackedScene" id=24]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 15, 32, 2, 32, 3, 23, 15, 23, 1615, 311, 1601, 311, 1262, 287, 1262, 268, 513, 352, 512, 529, 494, 391, 494, 385, 14, 512, 40, 528, -17, 527, 3, 512, 1616, 144, 1582, 198, 1582, 189, 1603, 144, 1615, 323, 1615, 473, 1600, 472, 1582, 431, 1580, 402, 1603, 324, 639, 94, 641, 138, 624, 123, 640, 30, 641, 73, 626, 60, 537, 0, 584, 1, 575, 11, 492, 393, -15, 0, 3, 504, 13, 237, 40, 417, 13, 503, -1, 192, 578, 92, 599, 123, 1568, 198, 1213, 254, 1212, 240, 575, 29, 601, 59, 628, 160, 640, 155, 640, 185, 280, 495, 289, 485, 486, 394, 481, 392, 288, 480, 538, 217, 577, 73, 577, 135, 576, 155, 815, 431, 776, 431, 778, 416, 794, 416, 816, 352, 794, 353, 585, 161, 544, 221, 1568, 527, 1535, 527, 1536, 493, 1569, 496, 223, 111, 212, 110, 211, 75, 221, 75, 301, 112, 211, 236, 300, 138, 315, 138, 313, 236, 247, 416, 991, 479, 990, 528, 959, 527, 960, 349, 460, 148, 461, 237, 449, 237, 448, 160, 413, 147, 400, 159, 398, 111, 413, 99, 397, 99, 354, 111, 354, 97, 371, 97, 397, 60, 369, 63, 294, 36, 510, 34, 510, 44, 413, 44, 1553, 1, 1618, 1, 1617, 134, 1601, 135, 1552, 183, 1568, 189, 224, 135, 732, 185, 824, 169, 975, 169, 975, 190, 544, 232, 1027, 242, 1027, 252, 1010, 252, 1616, 481, 1616, 528, 1585, 528, 1584, 489, 1601, 480, 1520, 490, 1520, 432, 1537, 432, 1376, 351, 1376, 479, 1234, 287, 736, 123, 737, 1, 863, 0, 864, 80, 796, 125, 1022, 287, 1022, 255, 975, 80, 976, 159, 818, 162, 795, 137, 314, 46, 316, 111, 223, 67, 14, 1, 15, 35, 12, 44, 1536, 398, 1521, 397, 1521, 351, 413, 56, 353, 46, 1234, 267, 1455, 191, 1522, 185, 210, 137, 271, 35, 210, 65, 210, 46, 245, 36, 13, 178, 1, 180, 274, 23, 288, 24, 1568, 431, 1568, 401, 222, 35, 225, 21, 240, 21, 13, 195, 762, 167, 769, 137, 672, 184, 676, 170, 700, 170, 704, 183, 1494, 170, 1517, 170, 1488, 184, 280, 488, 1010, 287, 481, 386, 258, 477, 739, 168, 258, 486, 264, 488, 265, 495, 247, 528, 1459, 184, 361, 62, 355, 59, 411, 59 )
@@ -64,7 +65,14 @@ position = Vector2( 226, 240 )
 outfit = ExtResource( 14 )
 body = ExtResource( 16 )
 hair = ExtResource( 15 )
-conversation = "TestCon"
+conversation = "TesttheQuest"
+
+[node name="NPC2" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 429, 275 )
+outfit = ExtResource( 14 )
+body = ExtResource( 16 )
+hair = ExtResource( 15 )
+conversation = "Falko"
 
 [node name="Floor" type="TileMap" parent="YSort"]
 z_index = -2
@@ -206,6 +214,9 @@ text = "Desktop"
 align = 1
 valign = 1
 
+[node name="ChangeLevel" parent="." instance=ExtResource( 24 )]
+position = Vector2( 234, 12 )
+
 [node name="PickUps" type="Node2D" parent="."]
 z_index = -1
 
@@ -228,6 +239,11 @@ item = ExtResource( 6 )
 [node name="Meat" parent="PickUps" instance=ExtResource( 13 )]
 position = Vector2( 294, 267 )
 item = ExtResource( 9 )
+
+[node name="Cheese2" parent="PickUps" instance=ExtResource( 13 )]
+position = Vector2( 328, 277 )
+z_index = -1
+item = ExtResource( 6 )
 
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Continue" to="GUI" method="_on_Continue_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/NewGame" to="GUI" method="_on_NewGame_pressed"]
