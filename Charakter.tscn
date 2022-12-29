@@ -1901,19 +1901,16 @@ position = Vector2( 0, -15 )
 texture = ExtResource( 3 )
 hframes = 58
 vframes = 20
-frame = 122
 region_rect = Rect2( 0, 10, 16, 22 )
 
 [node name="Outfit" type="Sprite" parent="SpriteBundle"]
 hframes = 58
 vframes = 20
-frame = 122
 
 [node name="Hair" type="Sprite" parent="SpriteBundle"]
 texture = ExtResource( 4 )
 hframes = 58
 vframes = 20
-frame = 122
 
 [node name="Hat" type="Sprite" parent="SpriteBundle"]
 offset = Vector2( -0.3, 0 )

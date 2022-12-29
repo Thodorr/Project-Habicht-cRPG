@@ -38,9 +38,9 @@ script = ExtResource( 2 )
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 107.0
-margin_top = 178.0
+margin_top = 174.0
 margin_right = 127.0
-margin_bottom = 267.0
+margin_bottom = 286.0
 custom_constants/separation = 3
 
 [node name="AllFilterButton" type="TextureButton" parent="HBoxContainer"]
