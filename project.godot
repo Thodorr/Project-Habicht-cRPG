@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Resource",
+"class": "Check",
+"language": "GDScript",
+"path": "res://Engine/Blueprints/Check.gd"
+}, {
 "base": "Reference",
 "class": "DTS",
 "language": "GDScript",
@@ -105,6 +110,7 @@ _global_script_classes=[ {
 "path": "res://Engine/Blueprints/TemporaryItem.gd"
 } ]
 _global_script_class_icons={
+"Check": "",
 "DTS": "",
 "Dialogic": "",
 "DialogicAnimaPropertiesHelper": "",
