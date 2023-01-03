@@ -11,6 +11,8 @@ func _ready():
 	var player = get_node("YSort/Charakter")
 	player.set_position(Vector2(280,100))
 	
+	
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
