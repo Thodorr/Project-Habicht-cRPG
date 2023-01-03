@@ -29,26 +29,20 @@ func _deferred_goto_scene(path):
 	var s = ResourceLoader.load(path)
 	current_scene = s.instance()
 	
-	var items_on_map = current_scene.get_node("PickUps")
-	current_scene.remove_child(items_on_map)
-	
 	var new_scene = get_tree().get_root()
 	var new_scene_y = current_scene.get_node("YSort")
 	
-	var test = current_scene.get_node("YSort/Charakter")
-	
-	current_scene.remove_child(test)
-
 	new_scene_y.add_child(keep_player)
 	new_scene.add_child(current_scene)
 	
 	if scenes.has(current_scene.name) == true:
+		var items_on_map = current_scene.get_node("PickUps")
+		current_scene.remove_child(items_on_map)
 		print (scenes[current_scene.name])
 		var from_dictionary = scenes[current_scene.name]
 		current_scene.add_child(from_dictionary)
 	else:
 		return
-	
 
 func the_player():
 	player = current_scene.get_node("YSort/Charakter")
@@ -63,5 +57,5 @@ func state_of_scene():
 		var name_of_scene = current_scene.name
 		scenes[name_of_scene] = keep_scene
 		var from_dictionary = scenes[name_of_scene]
-		print(from_dictionary)
+		current_scene.remove_child(current_scene.get_node("PickUps"))
 	
