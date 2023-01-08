@@ -46,10 +46,10 @@ func append_label(text):
 	textLabel.rect_position = Vector2(2,5)
 	textLabel.append_bbcode(text)
 
-	rect_min_size.y = $RichTextLabel.get_font("PixelFontVerySmall").get_string_size(text).x / 20 + 8
-	rect_size.y = $RichTextLabel.get_font("PixelFontVerySmall").get_string_size(text).x / 20 + 8
+	rect_min_size.y = $RichTextLabel.get_font("PixelFontVerySmall").get_string_size(text).x / 15 + 8
+	rect_size.y = $RichTextLabel.get_font("PixelFontVerySmall").get_string_size(text).x / 15 + 8
 	
-	var new_size = $RichTextLabel.get_font("PixelFontVerySmall").get_string_size(text).x /3 + 10
+	var new_size = $RichTextLabel.get_font("PixelFontVerySmall").get_string_size(text).x /2 + 12
 	if new_size > $RichTextLabel.rect_size.x:
 		new_size = $RichTextLabel.rect_size.x
 	
