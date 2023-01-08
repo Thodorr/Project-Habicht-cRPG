@@ -48,7 +48,7 @@ func the_player():
 	player.get_parent().remove_child(player)
 	
 func state_of_scene():
-	if current_scene.get_node("PickUps") == null:
+	if current_scene.get_node_or_null("PickUps") == null:
 		print ("No PickUps here!")
 		return
 	else:
