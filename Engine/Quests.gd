@@ -114,14 +114,9 @@ func bring_quest():
 			else:
 				if quest_item_step > 0:
 					get_item_reward()
-				else:
-					return
 		else:
 			get_item_reward()
 			return
-	else: 
-		return
-
 
 func get_item_step():
 	if state != Queststate.DONE:
@@ -135,13 +130,12 @@ func get_item_step():
 
 func get_item_reward():
 	if quest_reward.size() > 0:
-		if reward_item_step < quest_reward.size(): 
-			inventory.add_item(quest_reward[reward_item_step], reward_amount)
-			reward_item_step += 1 
+		if quest_reward[reward_item_step] == null:
+				print("You have to place an item!")
 		else:
-			return
-	else: 
-		return
+			if reward_item_step < quest_reward.size(): 
+				inventory.add_item(quest_reward[reward_item_step], reward_amount)
+				reward_item_step += 1 
 
 func handle_the_quest(questtype):
 	if questtype == "bring":

@@ -10,7 +10,7 @@
 [ext_resource path="res://Assets/Map/Indoor/Interior/2_LivingRoom_16x16.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Map/Indoor/Interior/16_Grocery_store_16x16.png" type="Texture" id=9]
 [ext_resource path="res://Assets/Map/Indoor/Interior/19_Hospital_16x16.png" type="Texture" id=10]
-[ext_resource path="res://Engine/ChangeLevel.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Engine/Placeables/ChangeLevel.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Effects/ripple_2.png" type="Texture" id=12]
 [ext_resource path="res://Assets/Effects/ripple_3.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Effects/ripple_5.png" type="Texture" id=14]
@@ -31,7 +31,9 @@ script/source = "extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var player = get_node(\"YSort/Charakter\")
+	player.nav_agent.set_target_location(Vector2(280,100))
 	player.set_position(Vector2(280,100))
+	
 	
 	
 	

@@ -38,24 +38,22 @@ func _deferred_goto_scene(path):
 	if scenes.has(current_scene.name) == true:
 		var items_on_map = current_scene.get_node("PickUps")
 		current_scene.remove_child(items_on_map)
-		print (scenes[current_scene.name])
 		var from_dictionary = scenes[current_scene.name]
 		current_scene.add_child(from_dictionary)
-	else:
-		return
+
 
 func the_player():
 	player = current_scene.get_node("YSort/Charakter")
-	keep_player = player.duplicate()
-	current_scene.remove_child(player)
+	keep_player = player
+	player.get_parent().remove_child(player)
 	
 func state_of_scene():
 	if current_scene.get_node("PickUps") == null:
+		print ("No PickUps here!")
 		return
 	else:
-		keep_scene = current_scene.get_node("PickUps").duplicate()
+		keep_scene = current_scene.get_node("PickUps")
 		var name_of_scene = current_scene.name
 		scenes[name_of_scene] = keep_scene
-		var from_dictionary = scenes[name_of_scene]
-		current_scene.remove_child(current_scene.get_node("PickUps"))
+		keep_scene.get_parent().remove_child(current_scene.get_node("PickUps"))
 	

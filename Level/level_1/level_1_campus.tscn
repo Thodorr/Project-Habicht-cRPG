@@ -22,7 +22,7 @@
 [ext_resource path="res://Assets/Effects/ripple_7.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Effects/ripple_6.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Effects/ripple_4.png" type="Texture" id=23]
-[ext_resource path="res://Engine/ChangeLevel.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Engine/Placeables/ChangeLevel.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Level/level_1/level_1_campus.gd" type="Script" id=25]
 
 [sub_resource type="NavigationPolygon" id=1]
