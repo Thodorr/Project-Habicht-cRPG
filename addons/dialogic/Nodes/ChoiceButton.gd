@@ -25,6 +25,7 @@ func _on_mouse_entered():
 		hint_tooltip = ""
 
 func _on_pressed():
+	if check == null: return
 	var checkAnim = get_parent().get_parent().get_parent().get_node('CheckAnim')
 	var animPlayer: AnimationPlayer = checkAnim.get_node('AnimationPlayer')
 	Dialogic.set_variable('Result', Attributes.do_check2(check))
