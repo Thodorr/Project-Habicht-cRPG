@@ -116,9 +116,9 @@ func set_navigation(target):
 	if inventory.drag_data != null: return
 	if movement_blocked: return
 	timer.start()
-	ripple.position = target
-	ripple.frame = 0
-	ripple.play("ripple")
+	#ripple.position = target
+	#ripple.frame = 0
+	#ripple.play("ripple")
 	nav_agent.set_target_location(target)
 	movement_blocked = true
 

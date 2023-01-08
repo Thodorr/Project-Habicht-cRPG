@@ -135,7 +135,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Project Habicht"
-run/main_scene="res://Level/level_1/level_1_campus.tscn"
+run/main_scene="res://Level/level_1/intro_area.tscn"
 config/icon="res://icon.png"
 
 [autoload]

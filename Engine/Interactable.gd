@@ -18,7 +18,6 @@ var moving_to_target = null
 
 func _ready():
 	var nav_agent: NavigationAgent2D = character.get_node("NavigationAgent2D")
-	
 	var _mouse_entered_connect = connect("mouse_entered", self, "_on_mouse_entered")
 	var _mouse_exited_conntect = connect("mouse_exited", self, "_on_mouse_exited")
 	var _navigation_finished_connect = nav_agent.connect("navigation_finished", self, "_on_navigation_finished")
