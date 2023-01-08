@@ -52,7 +52,7 @@ body = ExtResource( 16 )
 hair = ExtResource( 15 )
 conversation = "Falko"
 
-[node name="floor" type="TileMap" parent="YSort"]
+[node name="Floor" type="TileMap" parent="YSort"]
 z_index = -2
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
