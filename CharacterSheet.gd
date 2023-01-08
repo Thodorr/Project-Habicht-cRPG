@@ -42,16 +42,12 @@ func _ready():
 		button.connect("pressed", self, "LoadQuestInfo", [button.get_parent().get_name()])
 
 func LoadStats():
-	get_node(path_main_stats + "Athletics/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(0)))
-	get_node(path_main_stats + "Dexterity/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(1)))
-	get_node(path_main_stats + "Perception/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(2)))
-	get_node(path_main_stats + "Persuasion/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(3)))
-	get_node(path_main_stats + "Bluff/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(4)))
-	get_node(path_main_stats + "Intimidation/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(5)))
-	get_node(path_main_stats + "Knowledge/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(6)))
-	get_node(path_main_stats + "Will/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(7)))
-	get_node(path_main_stats + "Creativity/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(8)))
-	get_node(path_main_stats + "Luck/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(9)))
+	var keys = Attributes.Attribute.keys()
+	var index = 0
+	for key in keys:
+		var key_name = key.capitalize()
+		get_node(path_main_stats + key_name + "/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(index)))
+		index +=1
 	available_points = Attributes.skillpoint
 
 func LoadSkills():
@@ -86,7 +82,18 @@ func IncreaseStat(stat):
 	get_node(path_main_stats + stat + "/StatBackground/Min").set_disabled(false)
 	available_points -= 1
 	node_stat_points.set_text("Points: " + str(available_points))
-	if available_points == 0:
+	var keys = Attributes.Attribute.keys()
+	var index = 0
+	for key in keys:
+		if key.to_lower() == stat.to_lower():
+			 break
+		index += 1
+	var maxScore = Attributes.attributes_base[index] + get(stat.to_lower() + "_add")
+	if (maxScore >9 ):
+		for button in get_tree().get_nodes_in_group("PlusButtons"):
+			if button.get_parent().get_parent().name == stat:
+				button.set_disabled(true)
+	if(available_points == 0):
 		for button in get_tree().get_nodes_in_group("PlusButtons"):
 			button.set_disabled(true)
 
@@ -99,8 +106,30 @@ func DecreaseStat(stat):
 		get_node(path_main_stats + stat + "/StatBackground/Stats/Change").set_text( "+" + str(get(stat.to_lower() + "_add")) + " ")
 	available_points += 1
 	node_stat_points.set_text("Points: " + str(available_points))
+	var keys = Attributes.Attribute.keys()
 	for button in get_tree().get_nodes_in_group("PlusButtons"):
-		button.set_disabled(false)
+		var index = 0
+		for key in keys:
+			if key.to_lower() == button.get_parent().get_parent().name.to_lower():
+				 break
+			index += 1
+		var maxScore = Attributes.attributes_base[index] + get(button.get_parent().get_parent().name.to_lower() + "_add")
+		if(maxScore >9):
+			button.set_disabled(true)
+		else:
+			button.set_disabled(false)
+
+		
+#		var keys = Attributes.Attribute.keys()
+#		var index = 0
+#		for key in keys:
+#			if (key.to_lower() == button.get_parent().get_parent().name):
+#				var maxScore = Attributes.attributes_base[index] + get(button.get_parent().get_parent().name.to_lower() + "_add")
+#				if (maxScore >9 ):
+#					button.set_disabled(true)
+#			index += 1
+
+
 
 func TakeModul(skill):
 		if player.get("skill_" + skill) == true:
@@ -248,6 +277,7 @@ func _on_ConfirmButton_pressed():
 		will_add = 0
 		creativity_add = 0
 		luck_add = 0
+		Attributes.skillpoint = available_points
 		LoadStats()
 		for button in get_tree().get_nodes_in_group("MinusButtons"):
 			button.set_disabled(true)

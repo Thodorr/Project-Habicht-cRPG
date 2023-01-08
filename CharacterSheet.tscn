@@ -2117,6 +2117,8 @@ size_flags_vertical = 3
 [node name="InventoryScene" parent="Screen/Layout/Inventar/MarginContainer" instance=ExtResource( 27 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
 margin_right = 284.0
 margin_bottom = 442.0
 
@@ -2317,12 +2319,12 @@ size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer"]
 margin_right = 252.0
-margin_bottom = 396.0
+margin_bottom = 667.0
 size_flags_horizontal = 3
 
 [node name="QuestInfo" type="RichTextLabel" parent="Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer/VBoxContainer"]
 margin_right = 252.0
-margin_bottom = 396.0
+margin_bottom = 667.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/normal_font = ExtResource( 26 )

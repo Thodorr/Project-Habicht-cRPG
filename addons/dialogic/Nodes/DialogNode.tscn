@@ -29,7 +29,7 @@ bg_color = Color( 1, 1, 1, 0 )
 expand_margin_left = 10.0
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 1196, 480 )
+extents = Vector2( 640, 360 )
 
 [sub_resource type="Animation" id=6]
 resource_name = "CheckFail"

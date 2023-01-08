@@ -43,6 +43,7 @@ outfit = ExtResource( 14 )
 body = ExtResource( 16 )
 hair = ExtResource( 15 )
 conversation = "TesttheQuest"
+looking_dir = 2
 
 [node name="NPC2" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 429, 275 )
