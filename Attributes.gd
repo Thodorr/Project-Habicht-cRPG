@@ -275,7 +275,6 @@ func do_check(checkName):
 
 func do_check2(check: Check):
 	var result = attributes[check.type] + dice_roll()
-	
 	return result >= check.difficulty
 
 func get_probability(check: Check):

@@ -108,12 +108,15 @@ func bring_quest():
 	if quest_item.size() > 0:
 		state = Queststate.STARTED
 		if quest_item_step < quest_item.size():
-			var check_item = inventory.remove_item(quest_item[quest_item_step], 1)
-			if check_item == false:
-				return
+			if quest_item[quest_item_step] == null:
+				print("You have to place an item!")
 			else:
-				if quest_item_step > 0:
-					get_item_reward()
+				var check_item = inventory.remove_item(quest_item[quest_item_step], 1)
+				if check_item == false:
+					return
+				else:
+					if quest_item_step > 0:
+						get_item_reward()
 		else:
 			get_item_reward()
 			return

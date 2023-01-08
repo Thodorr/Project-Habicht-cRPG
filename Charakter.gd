@@ -21,7 +21,7 @@ onready var inventory = preload("res://Inventory.tres")
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var ui_layer = $UiLayer
 onready var timer = $Timer
-onready var ripple = get_node("../Ripple")
+onready var ripple = get_node("UiLayer/Ripple")
 
 onready var regular_cursor = preload("res://Assets/Cursors/Arrow.png")
 onready var regular_cursor_clicked = preload("res://Assets/Cursors/Arrow_Clicked.png")
@@ -141,9 +141,9 @@ func set_navigation(target):
 	if inventory.drag_data != null: return
 	if movement_blocked: return
 	timer.start()
-	#ripple.position = target
-	#ripple.frame = 0
-	#ripple.play("ripple")
+	ripple.position = ripple.get_global_mouse_position()
+	ripple.frame = 0
+	ripple.play("ripple")
 	nav_agent.set_target_location(target)
 	movement_blocked = true
 
