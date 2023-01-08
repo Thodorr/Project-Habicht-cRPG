@@ -76,6 +76,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 2 )
 
+[node name="ChatBubble" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
 [node name="TextContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -86,9 +90,6 @@ margin_bottom = -12.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RichTextLabel" type="RichTextLabel" parent="TextContainer"]
 margin_top = 11.0
@@ -154,7 +155,6 @@ custom_constants/shadow_offset_x = 2
 custom_constants/shadow_offset_y = 2
 custom_fonts/font = ExtResource( 1 )
 custom_styles/normal = SubResource( 6 )
-align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": false

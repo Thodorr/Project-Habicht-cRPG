@@ -21,7 +21,18 @@
 				"1672225795-648"
 			],
 			"folders": {
+				"Check": {
+					"files": [
+						"1672759872-366"
+					],
+					"folders": {
 
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				}
 			},
 			"metadata": {
 				"color": null,
@@ -30,7 +41,8 @@
 		},
 		"Themes": {
 			"files": [
-				"default-theme.cfg"
+				"default-theme.cfg",
+				"theme-1672769907.cfg"
 			],
 			"folders": {
 

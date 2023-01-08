@@ -255,32 +255,34 @@ func level_up():
 	add_to_skillpoint(1)
 	experience -= 100
 	
+signal dice_rolled(dice)
 func dice_roll():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var dice = rng.randi_range(0, 100)
+	var dice = rng.randi_range(1, 20)
+	emit_signal("dice_rolled", dice)
 	return dice
 
-func check_results(dice, probability):
-	var check_success
-	if dice <= probability:
-		check_success = true
-	else:
-		check_success = false
-	return check_success
+func do_check(checkName):
+	var check = load("res://Units/Checks/" + str(checkName) + ".tres")
 
-func probability_math(skillcheckStr):
-	var skillcheck = load("res://Units/Checks/" + str(skillcheckStr) + ".tres")
+	var result = attributes[check.type] + dice_roll()
 	
-	var probability
-	if attributes[skillcheck.type] < skillcheck.difficulty:
-		probability = 100 - ((skillcheck.difficulty - attributes[skillcheck.type]) * 10)
-	elif attributes[skillcheck.type] > skillcheck.difficulty:
-		probability = 100 + ((attributes[skillcheck.type] - skillcheck.difficulty) * 10)
-	for i in skillcheck.influences.values():
-		probability += i
-	if probability > 100: probability = 100
-	return probability
+	if result >= check.difficulty:
+		Dialogic.set_variable('Result', true)
+	else:
+		Dialogic.set_variable('Result', false)
+
+func do_check2(check: Check):
+	var result = attributes[check.type] + dice_roll()
+	
+	return result >= check.difficulty
+
+func get_probability(check: Check):
+	var req_throw: float = check.difficulty - attributes[check.type]
+	if (req_throw <= 0): return 100
+	return (20 - req_throw) / 20 * 100
+
 
 signal attributes_changed
 func attribute_math():
@@ -368,22 +370,4 @@ func _on_timeout(item):
 	for i in attributes_temporary:
 		attributes_temporary[i] -= item.item_attributes[i]
 	temp_effects.erase(item)
-	attribute_math()
-
-func deequip(usage):
-	match usage:
-		"hat":
-			for i in attributes_hat:
-				attributes_hat[i] = 0
-			emit_signal("hatChanged")
-		"clothing":
-			for i in attributes_clothing:
-				attributes_clothing[i] = 0
-			emit_signal("clothingChanged")
-		"trinket":
-			for i in attributes_trinket:
-				attributes_trinket[i] = 0
-		"hand":
-			for i in attributes_hand:
-				attributes_hand[i] = 0
 	attribute_math()

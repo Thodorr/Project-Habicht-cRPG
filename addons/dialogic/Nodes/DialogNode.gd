@@ -344,6 +344,7 @@ func load_theme(filename):
 	button_container.name = 'ButtonContainer'
 	button_container.alignment = 1
 	
+	
 	for n in $Options.get_children():
 		n.queue_free()
 	$Options.add_child(button_container)
