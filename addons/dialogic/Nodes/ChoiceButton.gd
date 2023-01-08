@@ -27,8 +27,12 @@ func _on_mouse_entered():
 func _on_pressed():
 	var checkAnim = get_parent().get_parent().get_parent().get_node('CheckAnim')
 	var animPlayer: AnimationPlayer = checkAnim.get_node('AnimationPlayer')
-	animPlayer.play('Clock')
 	Dialogic.set_variable('Result', Attributes.do_check2(check))
+	var result: String = Dialogic.get_variable('Result')
+	if result == 'True':
+		animPlayer.play('Clock')
+	else:
+		animPlayer.play('CheckFail')
 
 func _change_dice_label(dice):
 	var checkAnim = get_parent().get_parent().get_parent().get_node('CheckAnim')
