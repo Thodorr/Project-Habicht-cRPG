@@ -7,6 +7,13 @@ enum State {
 	INTERACTING
 }
 
+enum Direction {
+	UP,
+	DOWN,
+	LEFT,
+	RIGHT
+}
+
 signal loot_anim_finished
 
 onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
@@ -29,13 +36,14 @@ export(Resource) var body = null
 export(Resource) var hair = null
 export(Resource) var hat = null
 export(String) var conversation = ""
+export(Direction) var looking_dir = Direction.DOWN
 export var state = State.IDLE
 
 func _ready():
 	var _velocity_computed_connect = nav_agent.connect("velocity_computed", self, "_on_velocity_computed")
 	animation_state.start("Idle")
 	state = State.IDLE
-	turn(Vector2(0, 1))
+	set_direction()
 	set_sprites()
 
 func set_sprites():
@@ -84,6 +92,19 @@ func set_navigation(target):
 	nav_agent.set_target_location(target)
 	movement_blocked = true
 
+func set_direction():
+	var dir_vector
+	match looking_dir:
+		Direction.UP:
+			dir_vector = Vector2(0,-1)
+		Direction.DOWN:
+			dir_vector = Vector2(0,1)
+		Direction.LEFT:
+			dir_vector = Vector2(-1,0)
+		Direction.RIGHT:
+			dir_vector = Vector2(1,0)
+	turn(dir_vector)
+
 func _pick_up_finished():
 	emit_signal("loot_anim_finished")
 
@@ -95,8 +116,6 @@ func _physics_process(_delta):
 func _on_interaction_init():
 	var dialog = Dialogic.start(conversation)
 	add_child(dialog)
-	
-
 
 func _on_Interactable_mouse_entered():
 	player.mouse_mode = player.Mouse.NPC
