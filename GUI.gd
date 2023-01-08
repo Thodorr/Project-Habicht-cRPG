@@ -9,6 +9,7 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _input(event):
 	if event.is_action_pressed("GameMenu"):
+		print("im here")
 		if get_node("GameMenu").visible == true:
 			get_node("GameMenu").hide()
 			get_tree().paused = false
@@ -57,13 +58,14 @@ func loadGame():
 	
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
 	for i in save_nodes:
-		i.queue_free()
+		i.get_parent().remove_child(i)
 	
 	save_game.open("user://savegame.save", File.READ)
 	while save_game.get_position() < save_game.get_len():
 		var node_data = parse_json(save_game.get_line())
 		
 		var new_object = load(node_data["filename"]).instance()
+		new_object.add_to_group("Persist")
 		get_node(node_data["parent"]).add_child(new_object)
 		new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
 		
