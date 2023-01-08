@@ -19,14 +19,6 @@
 			"text": "We put in a lot of text here to see how much fits. Long how I waited, but now your coming together is your undoing."
 		},
 		{
-			"definition": "1672763262-192",
-			"event_id": "dialogic_014",
-			"operation": "=",
-			"random_upper_limit": 100,
-			"set_random": false,
-			"set_value": "TestCheck"
-		},
-		{
 			"character": "character-1670243735.json",
 			"event_id": "dialogic_010",
 			"options": [
@@ -121,14 +113,9 @@
 			"value": ""
 		},
 		{
-			"call_node": {
-				"arguments": [
-					"TestCheck"
-				],
-				"method_name": "do_check",
-				"target_node_path": "../../../../../Attributes"
-			},
-			"event_id": "dialogic_042"
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 1
 		},
 		{
 			"condition": "==",

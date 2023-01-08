@@ -5,6 +5,8 @@ var labelText = ''
 
 func _ready():
 	connect("mouse_entered", self, "_on_mouse_entered")
+	connect("button_down", self, "_on_pressed")
+	Attributes.connect("dice_rolled", self, "_change_dice_label")
 	get_check()
 	labelText = text
 	append_label(text)
@@ -18,11 +20,20 @@ func get_check():
 
 func _on_mouse_entered():
 	if "[" in labelText:
-		print("found")
 		hint_tooltip = str(Attributes.get_probability(check))+'%'
 	else:
-		print("noztfound")
 		hint_tooltip = ""
+
+func _on_pressed():
+	var checkAnim = get_parent().get_parent().get_parent().get_node('CheckAnim')
+	var animPlayer: AnimationPlayer = checkAnim.get_node('AnimationPlayer')
+	animPlayer.play('Clock')
+	Dialogic.set_variable('Result', Attributes.do_check2(check))
+
+func _change_dice_label(dice):
+	var checkAnim = get_parent().get_parent().get_parent().get_node('CheckAnim')
+	var dice_label: Label = checkAnim.get_node('TextureRect/Label')
+	dice_label.text = str(dice)
 
 func append_label(text):
 	var textLabel = $RichTextLabel

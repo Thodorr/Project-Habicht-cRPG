@@ -255,10 +255,12 @@ func level_up():
 	add_to_skillpoint(1)
 	experience -= 100
 	
+signal dice_rolled(dice)
 func dice_roll():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
 	var dice = rng.randi_range(1, 20)
+	emit_signal("dice_rolled", dice)
 	return dice
 
 func do_check(checkName):
@@ -270,6 +272,11 @@ func do_check(checkName):
 		Dialogic.set_variable('Result', true)
 	else:
 		Dialogic.set_variable('Result', false)
+
+func do_check2(check: Check):
+	var result = attributes[check.type] + dice_roll()
+	
+	return result >= check.difficulty
 
 func get_probability(check: Check):
 	var req_throw: float = check.difficulty - attributes[check.type]
