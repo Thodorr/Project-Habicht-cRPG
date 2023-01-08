@@ -1796,7 +1796,7 @@ navpoly = SubResource( 151 )
 
 [node name="YSort" type="YSort" parent="."]
 
-[node name="Charakter" parent="YSort" instance=ExtResource( 11 )]
+[node name="Charakter" parent="YSort" groups=["Persist"] instance=ExtResource( 11 )]
 position = Vector2( 93, 97 )
 
 [node name="Ripple" type="AnimatedSprite" parent="YSort"]
