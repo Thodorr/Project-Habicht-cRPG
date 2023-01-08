@@ -6,7 +6,9 @@
 		"Characters": {
 			"files": [
 				"character-1670243735.json",
-				"character-1672225942.json"
+				"character-1672225942.json",
+				"character-1673195716.json",
+				"character-1673201999.json"
 			],
 			"folders": {
 
@@ -57,6 +59,30 @@
 				"timeline-1672227725.json"
 			],
 			"folders": {
+				"Dozent": {
+					"files": [
+						"timeline-1673199460.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Intro": {
+					"files": [
+						"timeline-1673190959.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
 				"Quest1": {
 					"files": [
 						"timeline-1671555010.json",
