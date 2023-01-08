@@ -5,13 +5,17 @@ var drag_data = null
 
 signal items_changed(indexes)
 signal item_added(item, amount)
+signal row_added()
 
 export(Array, Resource) var items = []
+
+var hidden_items = []
 
 var equipped_hat: Resource
 var equipped_clothing: Resource
 var equipped_hand: Resource 
 var equipped_trinket: Resource 
+var equipped_face: Resource
 
 func add_item(item: Resource, amount):
 	var index_counter = 0
@@ -32,8 +36,11 @@ func add_item(item: Resource, amount):
 		items[target_item_index] = item
 		item.amount += amount - 1
 		emit_signal("items_changed", [target_item_index])
-	return has_space
-	
+	else:
+		var row = [null, null, null, null, null]
+		items.append_array(row)
+		emit_signal("row_added")
+		add_item(item, amount)
 
 func set_item(item_index, item):
 	var previous_item = items[item_index]
@@ -64,7 +71,22 @@ func remove_item_at(item_index):
 	items[item_index] = null
 	emit_signal("items_changed", [item_index])
 	return previous_item
-	
+
+func filter_items(type = Item):
+	add_hidden_items()
+	var items_size = items.size()
+	for i in items_size:
+		if not items[i] is type && items[i] != null:
+			hidden_items.append(items[i])
+			items[i] = null
+			emit_signal("items_changed", [i])
+
+func add_hidden_items():
+	for i in hidden_items.size():
+		add_item(hidden_items[i], 1)
+	hidden_items.clear()
+	print(hidden_items)
+
 func make_items_unique():
 	var unique_items = []
 	for item in items:
@@ -81,7 +103,6 @@ func use_item(item):
 			if target_item == item:
 				use_item_at(index)
 		index += 1
-
 
 signal item_equipped
 signal open_popup
@@ -103,20 +124,31 @@ func use_item_at(index):
 			remove_item_at(index)
 		emit_signal("items_changed", [index])
 	Attributes.add_item_stats(item)
+	Attributes.remove_stress(item.stress_relief)
 	
 	if item is EquipmentItem:
 		emit_signal("item_equipped", item)
+		var prev_equip = null
 		match item.type:
 			0: 
-				set_item(index, equipped_hat)
+				prev_equip = equipped_hat
 				equipped_hat = item
 			1: 
-				set_item(index, equipped_clothing)
+				prev_equip = equipped_clothing
 				equipped_clothing = item
 			2: 
-				set_item(index, equipped_trinket)
+				prev_equip = equipped_trinket
 				equipped_trinket = item
 			3: 
-				set_item(index, equipped_hand)
+				prev_equip = equipped_hand
 				equipped_hand = item
+			4:
+				prev_equip = equipped_face
+				equipped_face = item
+
+		if prev_equip != null:
+			if items.find(item) > -1 || items.find(prev_equip) > -1:
+				add_item(prev_equip, 1)
+			else:
+				set_item(index, prev_equip)
 

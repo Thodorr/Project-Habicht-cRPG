@@ -154,6 +154,22 @@ var attributes_hand = {
 	Attribute.LUCK: 0,
 }
 
+var attributes_face = {
+	Attribute.ATHLETICS: 0,
+	Attribute.DEXTERITY: 0,
+	Attribute.PERCEPTION: 0,
+	
+	Attribute.PERSUATION: 0,
+	Attribute.BLUFF: 0,
+	Attribute.INTIMIDATION: 0,
+	
+	Attribute.KNOWLEDGE: 0,
+	Attribute.WILL: 0,
+	Attribute.CREATIVITY: 0,
+	
+	Attribute.LUCK: 0,
+}
+
 var attributes_temporary = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -205,7 +221,7 @@ var attributes_extra = {
 var nerve = 0
 var nerve_damage = 0
 
-var skillpoint = 5
+var skillpoint = 20
 var experience = 0
 
 func add_to_attribute(attribute, value):
@@ -221,6 +237,11 @@ func get_attribute_group(attribute_group):
 func add_to_skillpoint(value):
 	skillpoint += value
 
+func remove_stress(value):
+	nerve_damage -= value
+	if nerve_damage < 0:
+		nerve_damage = 0
+
 func remove_skillpoint(value):
 	skillpoint -= value
 
@@ -234,32 +255,34 @@ func level_up():
 	add_to_skillpoint(1)
 	experience -= 100
 	
+signal dice_rolled(dice)
 func dice_roll():
 	var rng = RandomNumberGenerator.new()
 	rng.randomize()
-	var dice = rng.randi_range(0, 100)
+	var dice = rng.randi_range(1, 20)
+	emit_signal("dice_rolled", dice)
 	return dice
 
-func check_results(dice, probability):
-	var check_success
-	if dice <= probability:
-		check_success = true
-	else:
-		check_success = false
-	return check_success
+func do_check(checkName):
+	var check = load("res://Units/Checks/" + str(checkName) + ".tres")
 
-func probability_math(skillcheckStr):
-	var skillcheck = load("res://Units/Checks/" + str(skillcheckStr) + ".tres")
+	var result = attributes[check.type] + dice_roll()
 	
-	var probability
-	if attributes[skillcheck.type] < skillcheck.difficulty:
-		probability = 100 - ((skillcheck.difficulty - attributes[skillcheck.type]) * 10)
-	elif attributes[skillcheck.type] > skillcheck.difficulty:
-		probability = 100 + ((attributes[skillcheck.type] - skillcheck.difficulty) * 10)
-	for i in skillcheck.influences.values():
-		probability += i
-	if probability > 100: probability = 100
-	return probability
+	if result >= check.difficulty:
+		Dialogic.set_variable('Result', true)
+	else:
+		Dialogic.set_variable('Result', false)
+
+func do_check2(check: Check):
+	var result = attributes[check.type] + dice_roll()
+	
+	return result >= check.difficulty
+
+func get_probability(check: Check):
+	var req_throw: float = check.difficulty - attributes[check.type]
+	if (req_throw <= 0): return 100
+	return (20 - req_throw) / 20 * 100
+
 
 signal attributes_changed
 func attribute_math():
@@ -267,13 +290,13 @@ func attribute_math():
 	var x = 0
 	
 	for i in attribute_group_value:
-		attribute_group_value[i] = floor((attributes_base[i+x] + attributes_base[i+1+x] + attributes_base[i+2+x] + attributes_base[i+3+x]) / 10 )
+		attribute_group_value[i] = floor((attributes_base[i+x] + attributes_base[i+1+x] + attributes_base[i+2+x]) / 5 )
 		x += 2
 		if i == 2:
 			x = 0
 	
 	for i in attributes_equipment:
-		attributes_equipment[i] = attributes_hat[i] + attributes_clothing[i] + attributes_trinket[i] + attributes_hand[i]
+		attributes_equipment[i] = attributes_hat[i] + attributes_clothing[i] + attributes_trinket[i] + attributes_hand[i] + attributes_face[i]
 		
 	for i in attributes:
 		if i >= 0 && i <= 2:
@@ -282,6 +305,8 @@ func attribute_math():
 			attributegroup_bonus = attribute_group_value[AttributeGroup.CHARACTER]
 		elif i >= 6 && i <= 8:
 			attributegroup_bonus = attribute_group_value[AttributeGroup.MIND]
+		else:
+			attributegroup_bonus = 0
 		attributes[i] = attributes_base[i] + attributes_equipment[i] + attributes_temporary[i] + attributes_food[i] + attributegroup_bonus + attributes_extra[i]
 		
 		if attributes[i] < 0:
@@ -322,6 +347,9 @@ func add_item_stats(item):
 			item.Type.HAND:
 				for i in attributes_hand:
 					attributes_hand[i] = item.item_attributes[i]
+			item.Type.FACE:
+				for i in attributes_face:
+					attributes_face[i] = item.item_attributes[i]
 	elif item is TemporaryItem:
 		var timer = Timer.new()
 		timer.connect("timeout", self, "_on_timeout", [item])
@@ -342,22 +370,4 @@ func _on_timeout(item):
 	for i in attributes_temporary:
 		attributes_temporary[i] -= item.item_attributes[i]
 	temp_effects.erase(item)
-	attribute_math()
-
-func deequip(usage):
-	match usage:
-		"hat":
-			for i in attributes_hat:
-				attributes_hat[i] = 0
-			emit_signal("hatChanged")
-		"clothing":
-			for i in attributes_clothing:
-				attributes_clothing[i] = 0
-			emit_signal("clothingChanged")
-		"trinket":
-			for i in attributes_trinket:
-				attributes_trinket[i] = 0
-		"hand":
-			for i in attributes_hand:
-				attributes_hand[i] = 0
 	attribute_math()

@@ -3,7 +3,7 @@
 [ext_resource path="res://UI/Font/pixel-2.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 15
+size = 19
 outline_size = 2
 outline_color = Color( 0.164706, 0.164706, 0.164706, 1 )
 use_mipmaps = true

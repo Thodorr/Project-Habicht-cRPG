@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Engine/Blueprints/EquipmentItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Character/Outfit/Charro.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Items/Equipment/Outfit/Charro.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Charro"
+texture = ExtResource( 3 )
+description = "A style of dress originating in Mexico and based on the charro, a type of horseman.
+They are also often worn by members of a mariachi band."
+item_attributes = {
+0: 1,
+1: 0,
+2: 0,
+3: 0,
+4: 0,
+5: 0,
+6: 0,
+7: 0,
+8: 1,
+9: 0
+}
+stress_relief = 0
+removeable = true
+text_message = ""
+accept_text = "Accept"
+decline_text = "Decline"
+type = 1
+sprite_sheet = ExtResource( 2 )

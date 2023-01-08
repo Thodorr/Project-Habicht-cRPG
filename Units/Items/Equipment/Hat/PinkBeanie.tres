@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Engine/Blueprints/EquipmentItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/Equipment/Hat/PinkBeanie.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Character/Hat/PinkBeanie.png" type="Texture" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = "Pink Beanie"
+texture = ExtResource( 2 )
+description = "A pink beanie. If you need more color
+for your beanie."
+item_attributes = {
+0: 0,
+1: 0,
+2: -1,
+3: 0,
+4: 0,
+5: -1,
+6: 0,
+7: 0,
+8: 2,
+9: 1
+}
+stress_relief = 0
+removeable = true
+text_message = ""
+accept_text = "Accept"
+decline_text = "Decline"
+type = 0
+sprite_sheet = ExtResource( 3 )

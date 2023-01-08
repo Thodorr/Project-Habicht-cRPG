@@ -1,0 +1,29 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Engine/Blueprints/FoodItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/Food/Lemon.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Lemon"
+texture = ExtResource( 2 )
+description = "If life gives you lemons. 
+Eat them whole, that'll show life
+not to mess with you."
+item_attributes = {
+0: 0,
+1: 0,
+2: 0,
+3: 2,
+4: 0,
+5: 1,
+6: 0,
+7: 0,
+8: 0,
+9: -1
+}
+stress_relief = 0
+removeable = true
+text_message = ""
+accept_text = "Accept"
+decline_text = "Decline"

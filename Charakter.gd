@@ -36,6 +36,9 @@ var movement_blocked = false
 var direction = Vector2(0,0)
 var movement = Vector2(0,0)
 
+var nav_movement = Vector2(0,0)
+var build_up = 1
+
 var mouse_mode = Mouse.REGULAR
 
 const ACCELERATION = 8
@@ -63,6 +66,7 @@ func _ready():
 	var _item_equipped_connect = inventory.connect("item_equipped", self,"_on_item_equipped")
 	animation_state.start("Idle")
 	state = State.IDLE
+	nav_agent.set_target_location(position)
 	turn(Vector2(0, 1))
 	unlockable_skills.append("1A")
 	unlockable_skills.append("2A")
@@ -119,8 +123,6 @@ func _on_velocity_computed(velocity):
 		state = State.MOVING
 	var _motion = move_and_slide(velocity)
 
-var nav_movement = Vector2(0,0)
-var build_up = 1
 func set_velocity(): 
 	if nav_agent.is_navigation_finished():
 		may_navigate = false
@@ -136,11 +138,12 @@ func set_velocity():
 	nav_agent.set_velocity(nav_movement)
 
 func set_navigation(target):
+	if inventory.drag_data != null: return
 	if movement_blocked: return
 	timer.start()
-	ripple.position = target
-	ripple.frame = 0
-	ripple.play("ripple")
+	#ripple.position = target
+	#ripple.frame = 0
+	#ripple.play("ripple")
 	nav_agent.set_target_location(target)
 	movement_blocked = true
 
@@ -211,8 +214,8 @@ func _on_item_equipped(item):
 			$SpriteBundle/Hat.texture = item.sprite_sheet
 		item.Type.CLOTHING:
 			$SpriteBundle/Outfit.texture = item.sprite_sheet
-		item.Type.BACK:
-			$SpriteBundle/Back.texture = item.sprite_sheet
+		item.Type.FACE:
+			$SpriteBundle/Face.texture = item.sprite_sheet
 
 
 func _physics_process(_delta):

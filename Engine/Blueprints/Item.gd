@@ -17,7 +17,7 @@ enum Attribute {
 export(String) var name = ""
 export(Texture) var texture
 export(String, MULTILINE) var description =""
-export var item_attributes = {
+export(Dictionary) var item_attributes = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,
@@ -29,6 +29,7 @@ export var item_attributes = {
 	Attribute.CREATIVITY: 0,
 	Attribute.LUCK: 0,
 }
+export var stress_relief = 0
 export var removeable = true
 export(String, MULTILINE) var text_message = ""
 export(String) var accept_text = "Accept"

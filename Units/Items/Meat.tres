@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Engine/Blueprints/FoodItem.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Items/Meat.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Items/Food/Meat.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
@@ -20,6 +20,7 @@ item_attributes = {
 8: 0,
 9: 0
 }
+stress_relief = 0
 removeable = true
 text_message = ""
 accept_text = "Accept"
