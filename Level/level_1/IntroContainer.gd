@@ -23,5 +23,5 @@ func que_end():
 	get_child(0).play("hide_black_screen")
 	var npc_pos1 = get_node("../../YSort/NPC2")
 	npc_pos1.set_position(Vector2(273, 217))
-	var music = get_node("../../Intromusic") 
-	music.play()
+	#var music = get_node("../../Intromusic") 
+	#music.play()
