@@ -1,3 +1,4 @@
+
 extends Control
 
 
@@ -25,3 +26,4 @@ func que_end():
 	npc_pos1.set_position(Vector2(273, 217))
 	#var music = get_node("../../Intromusic") 
 	#music.play()
+
