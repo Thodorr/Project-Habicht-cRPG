@@ -13,10 +13,21 @@
 [ext_resource path="res://Charakter.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Assets/Map/Indoor/Interior/5_Classroom_and_library_16x16.png" type="Texture" id=12]
 [ext_resource path="res://Engine/Placeables/ChangeLevel.tscn" type="PackedScene" id=13]
+<<<<<<< Updated upstream
 [ext_resource path="res://GUI.gd" type="Script" id=14]
 [ext_resource path="res://UI/Assets/GUI/MediumPressedButton.tres" type="Texture" id=15]
 [ext_resource path="res://UI/Assets/GUI/MediumNormalButton.tres" type="Texture" id=16]
 [ext_resource path="res://UI/Font/PixelFont.tres" type="DynamicFont" id=17]
+=======
+[ext_resource path="res://Level/level_1/IntroContainer.gd" type="Script" id=14]
+[ext_resource path="res://Assets/Character/Outfit/Bikini.png" type="Texture" id=15]
+[ext_resource path="res://Engine/Placeables/NPC.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Assets/Character/Body/Body_04.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Character/Hair/Hairstyle_01_02.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Character/Body/Body_01.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Character/Outfit/BlackSuit.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Character/Outfit/BlueApron.png" type="Texture" id=21]
+>>>>>>> Stashed changes
 
 [sub_resource type="NavigationPolygon" id=151]
 vertices = PoolVector2Array( 143, 97, 190, 96, 212, 96, 355, 128, 63, 128, 114, 98, 356, 241, 446, 59, 442, 541, 353, 294, 352, 272, 352, 262, 354, 367, 353, 356, 352, 335, 352, 325, 352, 389, 356, 147, 356, 161, 353, 210, 352, 195, 355, 178, 353, 227, 353, 465, 353, 486, 369, 59, 211, 85, 242, 60, 352, 432, 352, 422, 352, 453, 352, 303, 351, 400, 352, 497, 19, 540, 64, 495, 64, 485, 21, 34, 52, 32, 64, 242, 64, 261, 64, 367, 66, 390, 189, 84, 143, 66, 159, 59, 64, 293, 65, 271, 64, 358, 64, 334, 74, 149, 63, 161, 63, 148, 63, 225, 63, 209, 66, 463, 64, 325, 65, 302, 64, 453, 66, 431, 243, 32, 368, 33, 92, 34, 158, 34, 114, 65, 54, 6, 90, 6, 66, 422, 65, 400, 63, 180, 63, 195 )
@@ -1781,6 +1792,7 @@ points = PoolVector2Array( 2.18317, 11.2102, 15.3, 11.2102, 24.5097, 17.6291, 25
 } ]
 16/z_index = 0
 
+<<<<<<< Updated upstream
 [sub_resource type="StyleBoxFlat" id=156]
 bg_color = Color( 0.843137, 0.843137, 0.843137, 1 )
 border_width_left = 4
@@ -1788,6 +1800,97 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+=======
+[sub_resource type="Animation" id=156]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=157]
+resource_name = "hide_black_screen"
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+>>>>>>> Stashed changes
 
 [node name="intro_area" type="Node2D"]
 
@@ -1828,6 +1931,29 @@ tile_data = PoolIntArray( 16, 6, 0, 23, 0, 0, 65546, 13, 0, 196615, 4, 0, 262156
 [node name="campus" parent="." instance=ExtResource( 13 )]
 position = Vector2( 72, 22 )
 
+<<<<<<< Updated upstream
+=======
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="IntroContainer" type="CanvasLayer" parent="CanvasLayer"]
+script = ExtResource( 14 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/IntroContainer"]
+anims/RESET = SubResource( 156 )
+anims/hide_black_screen = SubResource( 157 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer/IntroContainer"]
+layer = 0
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/IntroContainer/CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.0
+margin_right = 2.0
+color = Color( 0, 0, 0, 1 )
+
+>>>>>>> Stashed changes
 [node name="GUI" type="CanvasLayer" parent="."]
 script = ExtResource( 14 )
 
@@ -1845,7 +1971,6 @@ margin_bottom = 125.0
 [node name="Panel" type="Panel" parent="GUI/GameMenu"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_styles/panel = SubResource( 156 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI/GameMenu"]
 anchor_right = 1.0
@@ -1859,7 +1984,6 @@ custom_constants/separation = 6
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer"]
 margin_right = 130.0
 margin_bottom = 17.0
-custom_fonts/font = ExtResource( 17 )
 text = "Game Menu"
 align = 1
 
@@ -1877,14 +2001,12 @@ margin_bottom = 64.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 16 )
 texture_pressed = ExtResource( 15 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Continue"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 17 )
 text = "Continue"
 align = 1
 valign = 1
@@ -1897,14 +2019,12 @@ margin_bottom = 95.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 16 )
 texture_pressed = ExtResource( 15 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/NewGame"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 17 )
 text = "New Game"
 align = 1
 valign = 1
@@ -1917,14 +2037,12 @@ margin_bottom = 126.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 16 )
 texture_pressed = ExtResource( 15 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Save"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 17 )
 text = "Save"
 align = 1
 valign = 1
@@ -1937,14 +2055,12 @@ margin_bottom = 157.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 16 )
 texture_pressed = ExtResource( 15 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Load"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 17 )
 text = "Load"
 align = 1
 valign = 1
@@ -1957,14 +2073,12 @@ margin_bottom = 188.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 16 )
 texture_pressed = ExtResource( 15 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Options"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 17 )
 text = "Options"
 align = 1
 valign = 1
@@ -1977,14 +2091,12 @@ margin_bottom = 219.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 16 )
 texture_pressed = ExtResource( 15 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/ExitToDesktop"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 17 )
 text = "Desktop"
 align = 1
 valign = 1
