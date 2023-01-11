@@ -1,4 +1,5 @@
-extends CanvasLayer
+
+extends Control
 
 
 func _ready():
@@ -8,7 +9,6 @@ func que_intro():
 	var dialog = Dialogic.start("Intro")
 	dialog.connect('dialogic_signal', self, '_end_intro')
 	add_child(dialog)
-	print(get_children())
 	get_node("CanvasLayer").visible = true
 
 func _end_intro(context):
@@ -24,3 +24,6 @@ func que_end():
 	get_child(0).play("hide_black_screen")
 	var npc_pos1 = get_node("../../YSort/NPC2")
 	npc_pos1.set_position(Vector2(273, 217))
+	#var music = get_node("../../Intromusic") 
+	#music.play()
+
