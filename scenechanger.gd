@@ -38,6 +38,7 @@ func _deferred_goto_scene(path):
 	new_scene_y.add_child(keep_player)
 	new_scene.add_child(current_scene)
 	
+	keep_player.set_camera()
 	spwanswitcher(current_scene.name)
 	
 	if scenes.has(current_scene.name) == true:
