@@ -1,31 +1,17 @@
-[gd_scene load_steps=73 format=2]
+[gd_scene load_steps=66 format=2]
 
 [ext_resource path="res://Assets/Map/Indoor/Floor/Room_Builder_Office_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Map/Indoor/Floor/Room_Builder_16x16.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Map/Indoor/Interior/5_Classroom_and_library_16x16.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Map/Indoor/Interior/13_Conference_Hall_16x16.png" type="Texture" id=4]
 [ext_resource path="res://Engine/Placeables/ChangeLevel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Charakter.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Effects/ripple_2.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Effects/ripple_3.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Effects/ripple_5.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Effects/ripple_1.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Effects/ripple_7.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Effects/ripple_6.png" type="Texture" id=12]
-[ext_resource path="res://Assets/Effects/ripple_4.png" type="Texture" id=13]
+[ext_resource path="res://Musi/music/Track 5 (Slow Ride).wav" type="AudioStream" id=6]
+[ext_resource path="res://Level/level_1/level_1_classroom.gd" type="Script" id=7]
 
 [sub_resource type="NavigationPolygon" id=151]
 vertices = PoolVector2Array( 353, 239, 447, 57, 447, 543, 353, 294, 352, 272, 352, 262, 139, 69, 238, 57, 373, 56, 207, 86, 193, 86, 354, 367, 353, 356, 352, 335, 352, 325, 352, 389, 351, 198, 352, 175, 352, 230, 350, 207, 353, 144, 352, 165, 353, 465, 353, 486, 352, 432, 352, 422, 352, 453, 352, 303, 351, 400, 353, 133, 207, 95, 64, 131, 193, 95, 352, 497, 16, 543, 64, 495, 64, 485, 17, 32, 47, 32, 138, 95, 118, 96, 64, 227, 64, 207, 64, 367, 66, 390, 64, 293, 65, 271, 64, 240, 64, 261, 63, 143, 63, 165, 64, 358, 64, 334, 63, 174, 64, 197, 47, 1, 96, 1, 95, 32, 239, 32, 373, 31, 161, 56, 66, 463, 161, 32, 117, 70, 64, 325, 65, 302, 64, 453, 66, 431, 66, 422, 65, 400 )
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4, 5 ), PoolIntArray( 6, 7, 8, 1, 9, 10 ), PoolIntArray( 3, 2, 11, 12, 13, 14 ), PoolIntArray( 11, 2, 15 ), PoolIntArray( 16, 17, 1, 0, 18 ), PoolIntArray( 19, 16, 18 ), PoolIntArray( 20, 1, 17, 21 ), PoolIntArray( 22, 2, 23 ), PoolIntArray( 2, 22, 24, 25 ), PoolIntArray( 24, 22, 26 ), PoolIntArray( 27, 3, 14 ), PoolIntArray( 28, 15, 2, 25 ), PoolIntArray( 1, 20, 29 ), PoolIntArray( 1, 29, 30, 9 ), PoolIntArray( 30, 29, 31, 32 ), PoolIntArray( 33, 23, 2 ), PoolIntArray( 33, 2, 34, 35 ), PoolIntArray( 36, 35, 34, 37, 38 ), PoolIntArray( 39, 6, 10, 32 ), PoolIntArray( 39, 32, 31, 40 ), PoolIntArray( 19, 18, 41, 42 ), PoolIntArray( 43, 11, 15, 44 ), PoolIntArray( 4, 3, 45, 46 ), PoolIntArray( 47, 0, 5, 48 ), PoolIntArray( 49, 20, 21, 50 ), PoolIntArray( 13, 12, 51, 52 ), PoolIntArray( 53, 17, 16, 54 ), PoolIntArray( 55, 56, 57, 38 ), PoolIntArray( 58, 59, 8, 7 ), PoolIntArray( 60, 7, 6 ), PoolIntArray( 22, 23, 36, 61 ), PoolIntArray( 57, 62, 60, 6, 63 ), PoolIntArray( 27, 14, 64, 65 ), PoolIntArray( 24, 26, 66, 67 ), PoolIntArray( 38, 57, 63, 40, 31 ), PoolIntArray( 28, 25, 68, 69 ), PoolIntArray( 66, 61, 36 ), PoolIntArray( 66, 36, 38 ), PoolIntArray( 68, 67, 66, 38, 69 ), PoolIntArray( 38, 31, 49 ), PoolIntArray( 43, 44, 69 ), PoolIntArray( 43, 69, 38 ), PoolIntArray( 51, 43, 38 ), PoolIntArray( 52, 51, 38 ), PoolIntArray( 64, 52, 38 ), PoolIntArray( 45, 65, 64 ), PoolIntArray( 45, 64, 38 ), PoolIntArray( 48, 46, 45 ), PoolIntArray( 48, 45, 38 ), PoolIntArray( 47, 48, 38 ), PoolIntArray( 41, 47, 38 ), PoolIntArray( 42, 41, 38 ), PoolIntArray( 54, 42, 38, 53 ), PoolIntArray( 50, 53, 38 ), PoolIntArray( 50, 38, 49 ) ]
 outlines = [ PoolVector2Array( 17, 32, 47, 32, 47, 1, 96, 1, 95, 32, 161, 32, 161, 56, 238, 57, 239, 32, 373, 31, 373, 56, 447, 57, 447, 543, 16, 543 ), PoolVector2Array( 64, 131, 63, 143, 353, 144, 353, 133 ), PoolVector2Array( 63, 165, 63, 174, 352, 175, 352, 165 ), PoolVector2Array( 64, 197, 64, 207, 350, 207, 351, 198 ), PoolVector2Array( 64, 227, 64, 240, 353, 239, 352, 230 ), PoolVector2Array( 64, 261, 65, 271, 352, 272, 352, 262 ), PoolVector2Array( 64, 293, 65, 302, 352, 303, 353, 294 ), PoolVector2Array( 64, 325, 64, 334, 352, 335, 352, 325 ), PoolVector2Array( 64, 358, 64, 367, 354, 367, 353, 356 ), PoolVector2Array( 66, 390, 65, 400, 351, 400, 352, 389 ), PoolVector2Array( 66, 422, 66, 431, 352, 432, 352, 422 ), PoolVector2Array( 64, 453, 66, 463, 353, 465, 352, 453 ), PoolVector2Array( 64, 485, 64, 495, 352, 497, 353, 486 ), PoolVector2Array( 193, 86, 207, 86, 207, 95, 193, 95 ), PoolVector2Array( 117, 70, 139, 69, 138, 95, 118, 96 ) ]
-
-[sub_resource type="SpriteFrames" id=152]
-animations = [ {
-"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 11 ) ],
-"loop": false,
-"name": "ripple",
-"speed": 5.0
-} ]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Room_Builder_16x16.png 0"
@@ -1777,22 +1763,16 @@ points = PoolVector2Array( 2.18317, 11.2102, 15.3, 11.2102, 24.5097, 17.6291, 25
 } ]
 16/z_index = 0
 
-[node name="level_1_classroom" type="Node2D"]
+[node name="classroom" type="Node2D"]
+script = ExtResource( 7 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 navpoly = SubResource( 151 )
 
+[node name="Spawn" type="Position2D" parent="."]
+position = Vector2( 72, 61 )
+
 [node name="YSort" type="YSort" parent="."]
-
-[node name="Charakter" parent="YSort" instance=ExtResource( 6 )]
-
-[node name="Ripple" type="AnimatedSprite" parent="YSort"]
-position = Vector2( 128, -53 )
-z_index = 1
-frames = SubResource( 152 )
-animation = "ripple"
-frame = 5
-speed_scale = 5.0
 
 [node name="floor" type="TileMap" parent="YSort"]
 tile_set = SubResource( 1 )
@@ -1812,5 +1792,8 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 16, 6, 0, 23, 0, 0, 65546, 13, 0, 196615, 4, 0, 262156, 16, 0, 524292, 10, 0, 524293, 10, 0, 524294, 10, 0, 524295, 10, 0, 524296, 10, 0, 524297, 10, 0, 524298, 10, 0, 524299, 10, 0, 524300, 10, 0, 524301, 10, 0, 524302, 10, 0, 524303, 10, 0, 524304, 10, 0, 524305, 10, 0, 524306, 10, 0, 524307, 10, 0, 524308, 10, 0, 524309, 10, 0, 655364, 10, 0, 655365, 10, 0, 655366, 10, 0, 655367, 10, 0, 655368, 10, 0, 655369, 10, 0, 655370, 10, 0, 655371, 10, 0, 655372, 10, 0, 655373, 10, 0, 655374, 10, 0, 655375, 10, 0, 655376, 10, 0, 655377, 10, 0, 655378, 10, 0, 655379, 10, 0, 655380, 10, 0, 655381, 10, 0, 786436, 10, 0, 786437, 10, 0, 786438, 10, 0, 786439, 10, 0, 786440, 10, 0, 786441, 10, 0, 786442, 10, 0, 786443, 10, 0, 786444, 10, 0, 786445, 10, 0, 786446, 10, 0, 786447, 10, 0, 786448, 10, 0, 786449, 10, 0, 786450, 10, 0, 786451, 10, 0, 786452, 10, 0, 786453, 10, 0, 917508, 10, 0, 917509, 10, 0, 917510, 10, 0, 917511, 10, 0, 917512, 10, 0, 917513, 10, 0, 917514, 10, 0, 917515, 10, 0, 917516, 10, 0, 917517, 10, 0, 917518, 10, 0, 917519, 10, 0, 917520, 10, 0, 917521, 10, 0, 917522, 10, 0, 917523, 10, 0, 917524, 10, 0, 917525, 10, 0, 1048580, 10, 0, 1048581, 10, 0, 1048582, 10, 0, 1048583, 10, 0, 1048584, 10, 0, 1048585, 10, 0, 1048586, 10, 0, 1048587, 10, 0, 1048588, 10, 0, 1048589, 10, 0, 1048590, 10, 0, 1048591, 10, 0, 1048592, 10, 0, 1048593, 10, 0, 1048594, 10, 0, 1048595, 10, 0, 1048596, 10, 0, 1048597, 10, 0, 1179652, 10, 0, 1179653, 10, 0, 1179654, 10, 0, 1179655, 10, 0, 1179656, 10, 0, 1179657, 10, 0, 1179658, 10, 0, 1179659, 10, 0, 1179660, 10, 0, 1179661, 10, 0, 1179662, 10, 0, 1179663, 10, 0, 1179664, 10, 0, 1179665, 10, 0, 1179666, 10, 0, 1179667, 10, 0, 1179668, 10, 0, 1179669, 10, 0, 1310724, 10, 0, 1310725, 10, 0, 1310726, 10, 0, 1310727, 10, 0, 1310728, 10, 0, 1310729, 10, 0, 1310730, 10, 0, 1310731, 10, 0, 1310732, 10, 0, 1310733, 10, 0, 1310734, 10, 0, 1310735, 10, 0, 1310736, 10, 0, 1310737, 10, 0, 1310738, 10, 0, 1310739, 10, 0, 1310740, 10, 0, 1310741, 10, 0, 1441796, 10, 0, 1441797, 10, 0, 1441798, 10, 0, 1441799, 10, 0, 1441800, 10, 0, 1441801, 10, 0, 1441802, 10, 0, 1441803, 10, 0, 1441804, 10, 0, 1441805, 10, 0, 1441806, 10, 0, 1441807, 10, 0, 1441808, 10, 0, 1441809, 10, 0, 1441810, 10, 0, 1441811, 10, 0, 1441812, 10, 0, 1441813, 10, 0, 1572868, 10, 0, 1572869, 10, 0, 1572870, 10, 0, 1572871, 10, 0, 1572872, 10, 0, 1572873, 10, 0, 1572874, 10, 0, 1572875, 10, 0, 1572876, 10, 0, 1572877, 10, 0, 1572878, 10, 0, 1572879, 10, 0, 1572880, 10, 0, 1572881, 10, 0, 1572882, 10, 0, 1572883, 10, 0, 1572884, 10, 0, 1572885, 10, 0, 1703940, 10, 0, 1703941, 10, 0, 1703942, 10, 0, 1703943, 10, 0, 1703944, 10, 0, 1703945, 10, 0, 1703946, 10, 0, 1703947, 10, 0, 1703948, 10, 0, 1703949, 10, 0, 1703950, 10, 0, 1703951, 10, 0, 1703952, 10, 0, 1703953, 10, 0, 1703954, 10, 0, 1703955, 10, 0, 1703956, 10, 0, 1703957, 10, 0, 1835012, 10, 0, 1835013, 10, 0, 1835014, 10, 0, 1835015, 10, 0, 1835016, 10, 0, 1835017, 10, 0, 1835018, 10, 0, 1835019, 10, 0, 1835020, 10, 0, 1835021, 10, 0, 1835022, 10, 0, 1835023, 10, 0, 1835024, 10, 0, 1835025, 10, 0, 1835026, 10, 0, 1835027, 10, 0, 1835028, 10, 0, 1835029, 10, 0, 1966084, 10, 0, 1966085, 10, 0, 1966086, 10, 0, 1966087, 10, 0, 1966088, 10, 0, 1966089, 10, 0, 1966090, 10, 0, 1966091, 10, 0, 1966092, 10, 0, 1966093, 10, 0, 1966094, 10, 0, 1966095, 10, 0, 1966096, 10, 0, 1966097, 10, 0, 1966098, 10, 0, 1966099, 10, 0, 1966100, 10, 0, 1966101, 10, 0 )
 
-[node name="entrance" parent="." instance=ExtResource( 5 )]
-position = Vector2( 72, 22 )
+[node name="walkway" parent="." instance=ExtResource( 5 )]
+position = Vector2( 72, 16 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )

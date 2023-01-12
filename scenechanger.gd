@@ -5,7 +5,7 @@ var player = null
 var keep_player = null
 var keep_scene = null
 
-var one_or_two = 0
+var the_right_spawn = 0
 
 var scenes = {} 
 
@@ -20,8 +20,9 @@ func goto_scene(path):
 	current_scene = root.get_child(root.get_child_count() - 1)
 	the_player()
 	state_of_scene()
-	var stop = current_scene.get_node("music")
-	stop.stop()
+	var stop = current_scene.get_node_or_null("music")
+	if stop != null:
+		stop.stop()
 	call_deferred("_deferred_goto_scene", path)
 
 
@@ -37,11 +38,7 @@ func _deferred_goto_scene(path):
 	new_scene_y.add_child(keep_player)
 	new_scene.add_child(current_scene)
 	
-	if current_scene.name == "classroom": 
-		one_or_two = 1
-	else:
-		one_or_two = 2
-	
+	spwanswitcher(current_scene.name)
 	
 	if scenes.has(current_scene.name) == true:
 		var items_on_map = current_scene.get_node("PickUps")
@@ -63,4 +60,16 @@ func state_of_scene():
 		var name_of_scene = current_scene.name
 		scenes[name_of_scene] = keep_scene
 		keep_scene.get_parent().remove_child(current_scene.get_node("PickUps"))
-	
+
+func spwanswitcher(name):
+	match name:
+		"campus": 
+			the_right_spawn = 1
+		"entrance":
+			the_right_spawn = 2
+		"walkway":
+			the_right_spawn = 3
+		"classroom":
+			the_right_spawn = 4
+		"examroom":
+			the_right_spawn = 5

@@ -1885,7 +1885,7 @@ extents = Vector2( 230, 273.5 )
 script = ExtResource( 24 )
 
 [node name="Spawn" type="Position2D" parent="."]
-position = Vector2( 237, 58 )
+position = Vector2( 72, 55 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 navpoly = SubResource( 151 )
