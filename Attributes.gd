@@ -377,9 +377,10 @@ func save():
 	var timer_dict = {}
 	for children in get_children(): 
 		var index = 0
+		print(children.get_signal_connection_list("timeout")[0].binds[0].name )
 		var my_dict = {
 			"timeleft" + str(index) : children.time_left,
-			"item" + str(index) : children.get_signal_connection_list("timeout")[0].binds[0]
+			"item" + str(index) : children.get_signal_connection_list("timeout")[0].binds[0].name
 		}
 		timer_dict.merge(my_dict,false)
 		index += 1
@@ -414,7 +415,6 @@ func save():
 
 	var save_dict = {
 		"filename" : "attributes",
-		"parent" : get_parent().get_path(),
 		"skillpoint" : skillpoint,
 		"attributes_base" : attributes_base_array,
 		"attributes_hat" : attributes_hat_array,
@@ -422,7 +422,7 @@ func save():
 		"attributes_trinket" : attributes_trinket_array,
 		"attributes_face" : attributes_face_array,
 		"attributes_hand" : attributes_hand_array,
-		"attributes_temporary" : attributes_temporary_array
+		"attributes_temporary" : attributes_temporary_array,
 	}
 	
 	save_dict.merge(timer_dict, false)
@@ -431,7 +431,6 @@ func save():
 func load(node_data):
 	var index = 0
 	var arrayIndex = 1
-	print(node_data)
 	while index <9:
 		attributes_base[index] = node_data["attributes_base"][arrayIndex]
 		attributes_hat[index] = node_data["attributes_hat"][arrayIndex]
@@ -445,13 +444,31 @@ func load(node_data):
 	skillpoint = node_data["skillpoint"]
 	for i in node_data.keys():
 		if "item" in i:
-			print(node_data["timeleft"+ str(i).trim_prefix("item")])
+			var item = loadItem([node_data[i]])
+			print(item)
+			for k in attributes_temporary:
+				attributes_temporary[k] += item.item_attributes[k]
+			temp_effects.append(item)
 			var timer = Timer.new()
-			timer.connect("timeout", self, "_on_timeout", [node_data[i]])
+			timer.connect("timeout", self, "_on_timeout", [item])
 			timer.one_shot = true
 			add_child(timer)
 			timer.start(node_data["timeleft"+ str(i).trim_prefix("item")])
 	attribute_math()
+
+func loadItem(item):
+	var result
+	var dir = Directory.new() 
+	if dir.open("res://Units/Items/TempItems/") == OK:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if !dir.current_is_dir():
+				var quest = load("res://Units/Items/TempItems/"+ file_name)
+				if quest.name == item[0]:
+					result = quest
+			file_name = dir.get_next()
+	return result
 
 func reset():
 	skillpoint = 0

@@ -226,4 +226,3 @@ func _physics_process(_delta):
 	if may_navigate:
 		set_velocity()
 	animation_player()
-
