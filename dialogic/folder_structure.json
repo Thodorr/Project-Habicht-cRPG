@@ -20,7 +20,8 @@
 		},
 		"Definitions": {
 			"files": [
-				"1672225795-648"
+				"1672225795-648",
+				"1673504863-648"
 			],
 			"folders": {
 				"Check": {
@@ -32,7 +33,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				}
 			},

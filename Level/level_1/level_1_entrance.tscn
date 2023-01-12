@@ -35,15 +35,6 @@ func _ready():
 	player.nav_agent.set_target_location(Vector2(280,100))
 	player.set_position(Vector2(280,100))
 	$music.play()
-	
-	
-	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
 "
 
 [sub_resource type="NavigationPolygon" id=154]
