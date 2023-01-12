@@ -21,6 +21,7 @@ func _input(event):
 			add_child(character_sheet)
 		else:
 			get_node("CharacterSheet").queue_free()
+			get_node("../YSort/Charakter/UiLayer").get_child(0).hide()
 
 
 func _ready():
@@ -150,6 +151,7 @@ func _on_NewGame_pressed():
 	get_tree().paused = false
 	Attributes.reset()
 	resetQuests()
+	get_node("../YSort/Charakter").inventory.reset()
 	var _change_scene = get_tree().change_scene("res://Level/level_1/intro_area.tscn")
 
 

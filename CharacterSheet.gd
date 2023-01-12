@@ -283,24 +283,6 @@ func _on_ConfirmButton_pressed():
 		for label in get_tree().get_nodes_in_group("ChangeLabels"):
 			label.set_text("")
 
-func _on_Stats_pressed():
-	get_node("Screen/Layout/Skills").hide()
-	get_node("Screen/Layout/Inventar").hide()
-	get_node("Screen/Layout/Quests").hide()
-	get_node("Screen/Layout/Attributes").show()
-
-func _on_Skills_pressed():
-	get_node("Screen/Layout/Attributes").hide()
-	get_node("Screen/Layout/Inventar").hide()
-	get_node("Screen/Layout/Quests").hide()
-	get_node("Screen/Layout/Skills").show()
-
-func _on_Inventar_pressed():
-	get_node("Screen/Layout/Attributes").hide()
-	get_node("Screen/Layout/Skills").hide()
-	get_node("Screen/Layout/Quests").hide()
-	get_node("Screen/Layout/Inventar").show()
-
 func _on_ActiveButton_pressed():
 	get_node("Screen/Layout/Quests/QuestContent").hide()
 	get_node("Screen/Layout/Quests/DoneQuests").hide()
@@ -311,8 +293,31 @@ func _on_DoneButton_pressed():
 	get_node("Screen/Layout/Quests/ActiveQuests").hide()
 	get_node("Screen/Layout/Quests/DoneQuests").show()
 
+func _on_Stats_pressed():
+	get_node("Screen/Layout/Skills").hide()
+	get_node("../../YSort/Charakter/UiLayer").get_child(0).hide()
+	get_node("Screen/Layout/Quests").hide()
+	get_node("Screen/Layout/Attributes").show()
+	get_node("Screen/Layout/Inventory").hide()
+
+func _on_Skills_pressed():
+	get_node("Screen/Layout/Attributes").hide()
+	get_node("../../YSort/Charakter/UiLayer").get_child(0).hide()
+	get_node("Screen/Layout/Quests").hide()
+	get_node("Screen/Layout/Skills").show()
+	get_node("Screen/Layout/Inventory").hide()
+
 func _on_Quests_pressed():
 	get_node("Screen/Layout/Attributes").hide()
 	get_node("Screen/Layout/Skills").hide()
-	get_node("Screen/Layout/Inventar").hide()
+	get_node("../../YSort/Charakter/UiLayer").get_child(0).hide()
 	get_node("Screen/Layout/Quests").show()
+	get_node("Screen/Layout/Inventory").hide()
+
+func _on_Inventory_pressed():
+	get_node("Screen/Layout/Attributes").hide()
+	get_node("Screen/Layout/Skills").hide()
+	get_node("Screen/Layout/Quests").hide()
+	get_node("../../YSort/Charakter/UiLayer").get_child(0).show()
+	get_node("Screen/Layout/Inventory").show()
+

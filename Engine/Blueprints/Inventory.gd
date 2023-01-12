@@ -233,5 +233,19 @@ func loadInv(node_data):
 						emit_signal("item_equipped", item)
 				file_name = dir.get_next()
 
+
+func reset():
+	for item in items:
+		var amount = 1
+		if item != null:
+			if item.amount > 1:
+				amount = item.amount
+			remove_item(item,amount)
+	equipped_hat = null
+	equipped_clothing = null
+	equipped_hand = null
+	equipped_trinket = null 
+	equipped_face = null
+
 func get_items():
 	return items
