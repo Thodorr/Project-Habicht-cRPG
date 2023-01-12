@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=87 format=2]
 
 [ext_resource path="res://Assets/Effects/ripple_2.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Effects/ripple_3.png" type="Texture" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Assets/Character/Outfit/BlueApron.png" type="Texture" id=21]
 [ext_resource path="res://Musi/sounds/mixkit-hotel-lobby-crowd-ambience-and-footsteps-365.ogg" type="AudioStream" id=22]
 [ext_resource path="res://Musi/music/Track 1 (Let's Go).wav" type="AudioStream" id=23]
+[ext_resource path="res://Level/level_1/intro_area.gd" type="Script" id=24]
 
 [sub_resource type="NavigationPolygon" id=151]
 vertices = PoolVector2Array( 144, 63, 155, 62, 244, 63, 211, 85, 189, 84, 356, 241, 446, 59, 442, 541, 353, 294, 352, 272, 352, 262, 354, 367, 353, 356, 352, 335, 352, 325, 352, 389, 356, 147, 356, 161, 353, 210, 352, 195, 355, 178, 353, 227, 353, 465, 353, 486, 369, 59, 355, 128, 212, 96, 352, 432, 352, 422, 352, 453, 352, 303, 351, 400, 143, 97, 190, 96, 63, 128, 114, 98, 352, 497, 19, 540, 64, 495, 64, 485, 21, 34, 52, 32, 64, 242, 64, 261, 64, 367, 66, 390, 64, 293, 65, 271, 64, 358, 64, 334, 243, 32, 368, 33, 74, 149, 63, 161, 63, 148, 63, 225, 63, 209, 66, 463, 92, 34, 155, 34, 114, 63, 64, 325, 65, 302, 64, 453, 66, 431, 54, 6, 90, 6, 66, 422, 65, 400, 63, 180, 63, 195 )
@@ -1877,7 +1878,14 @@ tracks/2/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="RectangleShape2D" id=158]
+extents = Vector2( 230, 273.5 )
+
 [node name="intro_area" type="Node2D"]
+script = ExtResource( 24 )
+
+[node name="Spawn" type="Position2D" parent="."]
+position = Vector2( 72, 55 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 navpoly = SubResource( 151 )
@@ -1982,3 +1990,11 @@ stream = ExtResource( 23 )
 volume_db = -20.0
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="camera_area" type="Area2D" parent="."]
+visible = false
+position = Vector2( 48, 95 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="camera_area"]
+position = Vector2( 183, 179.5 )
+shape = SubResource( 158 )

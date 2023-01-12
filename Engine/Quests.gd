@@ -4,13 +4,13 @@ class_name Quest
 
 var inventory = preload("res://Inventory.tres")
 
-
+# State of quest 
 enum Queststate {
 	OPEN,
 	STARTED,
 	DONE	
 }
-
+# Type of task 
 enum Questtype {
 	TODO,
 	BRING,
@@ -18,29 +18,26 @@ enum Questtype {
 }
 
 export(String) var questname = ""
-#export(String, MULTILINE) var description =""
+
 export(bool) var item_needed = false
+
 export (Array, String, MULTILINE) var description 
-
-
 
 export (Array, Resource) var quest_item 
 
-#export (bool) var justonereward 
 export (Array, Resource) var quest_reward
 
+# how much of an item the player gets from the task or quest
 export (int) var reward_amount = 1
+# how much experiance the player gains from the task or quest
 export (int) var amound_exp = 0
 
 var step = 0
 var quest_item_step = 0
 var reward_item_step = 0
 
-
 var state = Queststate.OPEN 
-
 var quest_questtype = Questtype.IDLE
-
 
 func start_quest(): 
 	if state == Queststate.OPEN: 
@@ -54,7 +51,6 @@ func start_quest():
 			state = Queststate.DONE 
 		else:
 			end_quest()
-
 
 func end_quest():
 	if state == Queststate.STARTED:
@@ -76,7 +72,7 @@ func end_quest():
 				state = Queststate.DONE
 				get_item_reward()
 				add_exp()
-				
+
 
 func start_quest_later():
 	state = Queststate.OPEN
@@ -90,13 +86,8 @@ func steps():
 		if step < description.size():
 			if step > 0:
 				get_item_reward()
-			else:
-				return
 		else:
 			get_item_reward()
-			return
-	else:
-		return
 
 func get_step():
 	if step < description.size():
@@ -119,7 +110,6 @@ func bring_quest():
 						get_item_reward()
 		else:
 			get_item_reward()
-			return
 
 func get_item_step():
 	if state != Queststate.DONE:
@@ -156,7 +146,6 @@ func handle_the_quest(questtype):
 			end_quest()
 	else:
 		state = Queststate.DONE
-		return 
 
 func goto_npc(questtype):
 	if questtype != "bring":
