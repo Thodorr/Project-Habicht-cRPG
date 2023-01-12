@@ -1,0 +1,59 @@
+{
+	"events": [
+		{
+			"character": "character-1673376683.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey mein Kind, \nViel Erfolg bei deiner Studi Einführung! \nMama und ich sind sehr Stolz auf dich.\nVergiss nicht genug zu trinken und zu essen. \nDu wirst sicherlich auf ganz viele neue und interessante Menschen treffen. Du wirst sicherlich keine Probleme haben dich zurecht zu finden. \n"
+		},
+		{
+			"character": "character-1673376683.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Liebe Grueße  Mami "
+		},
+		{
+			"choice": "Vielen Dank :-* Ich gebe mein bestes! ;-)",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "Alles klar",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "Ok....",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "(Ignorieren)",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "end_intro",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673190959.json",
+		"name": "Intro"
+	}
+}

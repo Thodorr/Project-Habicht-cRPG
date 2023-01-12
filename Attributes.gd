@@ -11,7 +11,7 @@ var attribute_groups = {
 	Attribute.DEXTERITY: AttributeGroup.BODY,
 	Attribute.PERCEPTION: AttributeGroup.BODY,
 	
-	Attribute.PERSUATION: AttributeGroup.CHARACTER,
+	Attribute.PERSUASION: AttributeGroup.CHARACTER,
 	Attribute.BLUFF: AttributeGroup.CHARACTER,
 	Attribute.INTIMIDATION: AttributeGroup.CHARACTER,
 	
@@ -31,7 +31,7 @@ enum Attribute {
 	DEXTERITY,
 	PERCEPTION,
 	
-	PERSUATION,
+	PERSUASION,
 	BLUFF,
 	INTIMIDATION,
 	
@@ -47,7 +47,7 @@ var attributes = {
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,
 	
-	Attribute.PERSUATION: 0,
+	Attribute.PERSUASION: 0,
 	Attribute.BLUFF: 0,
 	Attribute.INTIMIDATION: 0,
 	
@@ -63,7 +63,7 @@ var attributes_base = {
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,
 	
-	Attribute.PERSUATION: 0,
+	Attribute.PERSUASION: 0,
 	Attribute.BLUFF: 0,
 	Attribute.INTIMIDATION: 0,
 	
@@ -79,7 +79,7 @@ var attributes_equipment = {
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,
 	
-	Attribute.PERSUATION: 0,
+	Attribute.PERSUASION: 0,
 	Attribute.BLUFF: 0,
 	Attribute.INTIMIDATION: 0,
 	
@@ -95,7 +95,7 @@ var attributes_hat = {
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,
 	
-	Attribute.PERSUATION: 0,
+	Attribute.PERSUASION: 0,
 	Attribute.BLUFF: 0,
 	Attribute.INTIMIDATION: 0,
 	
@@ -111,7 +111,7 @@ var attributes_clothing = {
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,
 	
-	Attribute.PERSUATION: 0,
+	Attribute.PERSUASION: 0,
 	Attribute.BLUFF: 0,
 	Attribute.INTIMIDATION: 0,
 	
@@ -127,7 +127,7 @@ var attributes_trinket = {
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,
 	
-	Attribute.PERSUATION: 0,
+	Attribute.PERSUASION: 0,
 	Attribute.BLUFF: 0,
 	Attribute.INTIMIDATION: 0,
 	
@@ -143,7 +143,7 @@ var attributes_hand = {
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,
 	
-	Attribute.PERSUATION: 0,
+	Attribute.PERSUASION: 0,
 	Attribute.BLUFF: 0,
 	Attribute.INTIMIDATION: 0,
 	
@@ -159,7 +159,7 @@ var attributes_face = {
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,
 	
-	Attribute.PERSUATION: 0,
+	Attribute.PERSUASION: 0,
 	Attribute.BLUFF: 0,
 	Attribute.INTIMIDATION: 0,
 	
@@ -175,7 +175,7 @@ var attributes_temporary = {
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,
 	
-	Attribute.PERSUATION: 0,
+	Attribute.PERSUASION: 0,
 	Attribute.BLUFF: 0,
 	Attribute.INTIMIDATION: 0,
 	
@@ -191,7 +191,7 @@ var attributes_food = {
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,
 	
-	Attribute.PERSUATION: 0,
+	Attribute.PERSUASION: 0,
 	Attribute.BLUFF: 0,
 	Attribute.INTIMIDATION: 0,
 	
@@ -207,7 +207,7 @@ var attributes_extra = {
 	Attribute.DEXTERITY: 0,
 	Attribute.PERCEPTION: 0,
 	
-	Attribute.PERSUATION: 0,
+	Attribute.PERSUASION: 0,
 	Attribute.BLUFF: 0,
 	Attribute.INTIMIDATION: 0,
 	

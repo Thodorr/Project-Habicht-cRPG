@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mixkit-hotel-lobby-crowd-ambience-and-footsteps-365.ogg-9ed3892f4a13d040bdd1521a7928e51f.oggstr"
+
+[deps]
+
+source_file="res://Musi/sounds/mixkit-hotel-lobby-crowd-ambience-and-footsteps-365.ogg"
+dest_files=[ "res://.import/mixkit-hotel-lobby-crowd-ambience-and-footsteps-365.ogg-9ed3892f4a13d040bdd1521a7928e51f.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
