@@ -72,6 +72,7 @@ func _ready():
 	unlockable_skills.append("2A")
 	unlockable_skills.append("3A")
 	unlockable_skills.append("4A")
+	set_camera()
 
 func save():
 	var save_dict = {
@@ -217,6 +218,13 @@ func _on_item_equipped(item):
 		item.Type.FACE:
 			$SpriteBundle/Face.texture = item.sprite_sheet
 
+func set_camera():
+	var map = get_parent().get_parent()
+	var camera = get_node("Camera2D")
+	camera.limit_right = map.border_right
+	camera.limit_bottom = map.border_bottom
+	camera.limit_top = map.border_top
+	camera.limit_left = map.border_left
 
 func _physics_process(_delta):
 	adapt_cursor()

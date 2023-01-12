@@ -35,6 +35,8 @@ func _deferred_goto_scene(path):
 	new_scene_y.add_child(keep_player)
 	new_scene.add_child(current_scene)
 	
+	keep_player.set_camera()
+	
 	if scenes.has(current_scene.name) == true:
 		var items_on_map = current_scene.get_node("PickUps")
 		current_scene.remove_child(items_on_map)
