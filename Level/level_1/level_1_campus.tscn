@@ -33,10 +33,10 @@ __meta__ = {
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 navpoly = SubResource( 1 )
 
-[node name="YSort" type="YSort" parent="."]
-
-[node name="Spawn" type="Position2D" parent="YSort"]
+[node name="Spawn" type="Position2D" parent="."]
 position = Vector2( 237, 58 )
+
+[node name="YSort" type="YSort" parent="."]
 
 [node name="NPC" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 226, 240 )

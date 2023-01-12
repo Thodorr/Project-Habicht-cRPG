@@ -24,16 +24,11 @@
 script/source = "extends Node2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = \"text\"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	var spawn = $Spawn.get_position()
 	var player = get_node(\"YSort/Charakter\")
-	player.nav_agent.set_target_location(Vector2(280,100))
-	player.set_position(Vector2(280,100))
+	player.nav_agent.set_target_location(spawn)
+	player.set_position(spawn)
 	$music.play()
 "
 
@@ -3762,6 +3757,9 @@ script = SubResource( 156 )
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 navpoly = SubResource( 154 )
 
+[node name="Spawn" type="Position2D" parent="."]
+position = Vector2( 209, 37 )
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Ripple" type="AnimatedSprite" parent="YSort"]
@@ -3771,9 +3769,6 @@ frames = SubResource( 155 )
 animation = "ripple"
 frame = 5
 speed_scale = 5.0
-
-[node name="Spawn" type="Position2D" parent="YSort"]
-position = Vector2( 237, 58 )
 
 [node name="floor" type="TileMap" parent="YSort"]
 tile_set = SubResource( 1 )

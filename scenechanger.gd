@@ -5,6 +5,8 @@ var player = null
 var keep_player = null
 var keep_scene = null
 
+var one_or_two = 0
+
 var scenes = {} 
 
 
@@ -13,15 +15,12 @@ func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 	
-	
-
 func goto_scene(path):
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 	the_player()
 	state_of_scene()
 	var stop = current_scene.get_node("music")
-	print (stop)
 	stop.stop()
 	call_deferred("_deferred_goto_scene", path)
 
@@ -38,6 +37,12 @@ func _deferred_goto_scene(path):
 	new_scene_y.add_child(keep_player)
 	new_scene.add_child(current_scene)
 	
+	if current_scene.name == "classroom": 
+		one_or_two = 1
+	else:
+		one_or_two = 2
+	
+	
 	if scenes.has(current_scene.name) == true:
 		var items_on_map = current_scene.get_node("PickUps")
 		current_scene.remove_child(items_on_map)
@@ -52,7 +57,6 @@ func the_player():
 	
 func state_of_scene():
 	if current_scene.get_node_or_null("PickUps") == null:
-		print ("No PickUps here!")
 		return
 	else:
 		keep_scene = current_scene.get_node("PickUps")
