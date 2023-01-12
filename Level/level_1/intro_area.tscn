@@ -25,7 +25,6 @@
 [ext_resource path="res://Musi/music/Track 1 (Let's Go).wav" type="AudioStream" id=23]
 [ext_resource path="res://Level/level_1/intro_area.gd" type="Script" id=24]
 
-
 [sub_resource type="NavigationPolygon" id=151]
 vertices = PoolVector2Array( 144, 63, 155, 62, 244, 63, 211, 85, 189, 84, 356, 241, 446, 59, 442, 541, 353, 294, 352, 272, 352, 262, 354, 367, 353, 356, 352, 335, 352, 325, 352, 389, 356, 147, 356, 161, 353, 210, 352, 195, 355, 178, 353, 227, 353, 465, 353, 486, 369, 59, 355, 128, 212, 96, 352, 432, 352, 422, 352, 453, 352, 303, 351, 400, 143, 97, 190, 96, 63, 128, 114, 98, 352, 497, 19, 540, 64, 495, 64, 485, 21, 34, 52, 32, 64, 242, 64, 261, 64, 367, 66, 390, 64, 293, 65, 271, 64, 358, 64, 334, 243, 32, 368, 33, 74, 149, 63, 161, 63, 148, 63, 225, 63, 209, 66, 463, 92, 34, 155, 34, 114, 63, 64, 325, 65, 302, 64, 453, 66, 431, 54, 6, 90, 6, 66, 422, 65, 400, 63, 180, 63, 195 )
 polygons = [ PoolIntArray( 0, 1, 2, 3, 4 ), PoolIntArray( 5, 6, 7, 8, 9, 10 ), PoolIntArray( 8, 7, 11, 12, 13, 14 ), PoolIntArray( 11, 7, 15 ), PoolIntArray( 16, 6, 17 ), PoolIntArray( 6, 5, 18, 19, 20 ), PoolIntArray( 18, 5, 21 ), PoolIntArray( 22, 7, 23 ), PoolIntArray( 24, 6, 25, 26, 3, 2 ), PoolIntArray( 7, 22, 27, 28 ), PoolIntArray( 27, 22, 29 ), PoolIntArray( 30, 8, 14 ), PoolIntArray( 31, 15, 7, 28 ), PoolIntArray( 6, 16, 25 ), PoolIntArray( 32, 33, 26, 25, 34, 35 ), PoolIntArray( 36, 23, 7 ), PoolIntArray( 36, 7, 37, 38 ), PoolIntArray( 39, 38, 37, 40, 41 ), PoolIntArray( 42, 5, 10, 43 ), PoolIntArray( 44, 11, 15, 45 ), PoolIntArray( 9, 8, 46, 47 ), PoolIntArray( 13, 12, 48, 49 ), PoolIntArray( 2, 50, 51, 24 ), PoolIntArray( 32, 0, 4, 33 ), PoolIntArray( 52, 16, 17, 53 ), PoolIntArray( 54, 52, 53 ), PoolIntArray( 18, 21, 55, 56 ), PoolIntArray( 22, 23, 39, 57 ), PoolIntArray( 58, 59, 1, 0, 60 ), PoolIntArray( 30, 14, 61, 62 ), PoolIntArray( 27, 29, 63, 64 ), PoolIntArray( 41, 65, 66, 58, 34 ), PoolIntArray( 60, 35, 34, 58 ), PoolIntArray( 31, 28, 67, 68 ), PoolIntArray( 20, 17, 6 ), PoolIntArray( 69, 20, 19, 70 ), PoolIntArray( 63, 57, 39 ), PoolIntArray( 63, 39, 41 ), PoolIntArray( 64, 63, 41, 68 ), PoolIntArray( 44, 45, 68 ), PoolIntArray( 46, 62, 61 ), PoolIntArray( 43, 47, 46 ), PoolIntArray( 41, 34, 54 ), PoolIntArray( 41, 54, 53 ), PoolIntArray( 41, 53, 69 ), PoolIntArray( 41, 69, 70 ), PoolIntArray( 41, 70, 56 ), PoolIntArray( 41, 56, 55 ), PoolIntArray( 55, 42, 43 ), PoolIntArray( 68, 67, 64 ), PoolIntArray( 44, 68, 41 ), PoolIntArray( 44, 41, 55, 48 ), PoolIntArray( 49, 48, 55 ), PoolIntArray( 61, 49, 55 ), PoolIntArray( 46, 61, 55 ), PoolIntArray( 46, 55, 43 ) ]
@@ -1883,12 +1882,11 @@ tracks/2/keys = {
 extents = Vector2( 230, 273.5 )
 
 [node name="intro_area" type="Node2D"]
-script = ExtResource( 14 )
-border_right = 464
-border_bottom = 548
 script = ExtResource( 24 )
+
 [node name="Spawn" type="Position2D" parent="."]
 position = Vector2( 72, 55 )
+
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
 navpoly = SubResource( 151 )
 
