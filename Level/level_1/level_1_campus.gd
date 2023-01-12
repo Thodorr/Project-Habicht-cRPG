@@ -6,7 +6,3 @@ func _ready():
 	player.nav_agent.set_target_location(spawn)
 	player.set_position(spawn)
 	$music.play()
-
-
-
-
