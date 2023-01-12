@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://EffectContainer.gd" type="Script" id=1]
 [ext_resource path="res://Charakter.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Assets/Effects/ripple_7.png" type="Texture" id=13]
 [ext_resource path="res://Assets/Effects/ripple_2.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Effects/ripple_5.png" type="Texture" id=15]
+[ext_resource path="res://Musi/sounds/indoor-footsteps-6385.mp3" type="AudioStream" id=16]
 
 [sub_resource type="CapsuleShape2D" id=26]
 radius = 6.0
@@ -2020,6 +2021,9 @@ speed_scale = 5.0
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="footstep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 16 )
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_finished"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_target_reached"]

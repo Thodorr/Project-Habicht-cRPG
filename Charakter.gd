@@ -101,10 +101,12 @@ func animation_player():
 		animation_tree.set("parameters/Walk/blend_position", direction)
 		animation_tree.set("parameters/PickUp/blend_position", direction)
 		animation_state.travel("Walk")
+		_play_footsteps()
 	elif state == State.LOOTING:
 		animation_state.travel("PickUp")
 	else:
 		animation_state.travel("Idle")
+		_stop_footsteps()
 
 func turn(turn_direction):
 	animation_tree.set("parameters/Idle/blend_position", turn_direction)
@@ -223,7 +225,15 @@ func _physics_process(_delta):
 	var velocity = directional_input_handler()
 	if velocity.x >= 0.1 || velocity.x <= -0.1 || velocity.y >= 0.1 || velocity.y <= -0.1:
 		_on_velocity_computed(velocity)
+		_play_footsteps()
 	if may_navigate:
 		set_velocity()
 	animation_player()
 
+func _play_footsteps():
+	if $Timer.time_left <= 0:
+		$footstep.play()
+		$Timer.start(0.3)
+
+func _stop_footsteps():
+	$footstep.stop()

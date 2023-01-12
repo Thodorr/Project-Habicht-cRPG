@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Ressources/railing.tres" type="TileSet" id=1]
 [ext_resource path="res://Ressources/floor.tres" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Units/Items/Equipment/Outfit/BlueShirt.tres" type="Resource" id=8]
 [ext_resource path="res://Units/Items/Food/CategoryC/RawSteak.tres" type="Resource" id=9]
 [ext_resource path="res://GUI.gd" type="Script" id=10]
+[ext_resource path="res://Musi/music/Track 3 (Soothing Backyard).wav" type="AudioStream" id=11]
 [ext_resource path="res://Engine/Placeables/NPC.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Engine/Placeables/PickUp.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Assets/Character/Outfit/Outfit_01_01.png" type="Texture" id=14]
@@ -222,6 +223,10 @@ item = ExtResource( 9 )
 position = Vector2( 328, 277 )
 z_index = -1
 item = ExtResource( 6 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -20.0
 
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Continue" to="GUI" method="_on_Continue_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/NewGame" to="GUI" method="_on_NewGame_pressed"]

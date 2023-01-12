@@ -1,4 +1,4 @@
-[gd_scene load_steps=126 format=2]
+[gd_scene load_steps=127 format=2]
 
 [ext_resource path="res://Assets/Map/Indoor/Interior/17_Visibile_Upstairs_System_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Map/Indoor/Interior/12_Kitchen_16x16.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Assets/Effects/ripple_7.png" type="Texture" id=16]
 [ext_resource path="res://Assets/Effects/ripple_6.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Effects/ripple_4.png" type="Texture" id=18]
+[ext_resource path="res://Musi/music/Track 4 (The Cafe).wav" type="AudioStream" id=19]
 
 [sub_resource type="GDScript" id=156]
 script/source = "extends Node2D
@@ -33,16 +34,7 @@ func _ready():
 	var player = get_node(\"YSort/Charakter\")
 	player.nav_agent.set_target_location(Vector2(280,100))
 	player.set_position(Vector2(280,100))
-	
-	
-	
-	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
+	$music.play()
 "
 
 [sub_resource type="NavigationPolygon" id=154]
@@ -3835,3 +3827,7 @@ tile_data = PoolIntArray( 327667, 33, 0, 327668, 33, 0, 393203, 33, 0, 393204, 3
 
 [node name="campus" parent="." instance=ExtResource( 11 )]
 position = Vector2( 343, 5 )
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+volume_db = -20.0

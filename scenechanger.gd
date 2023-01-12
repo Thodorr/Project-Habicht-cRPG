@@ -20,6 +20,9 @@ func goto_scene(path):
 	current_scene = root.get_child(root.get_child_count() - 1)
 	the_player()
 	state_of_scene()
+	var stop = current_scene.get_node("music")
+	print (stop)
+	stop.stop()
 	call_deferred("_deferred_goto_scene", path)
 
 
