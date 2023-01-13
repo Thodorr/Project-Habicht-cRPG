@@ -135,6 +135,6 @@ func quest_intermidate(questname, questtype):
 
 func change_dialog(new_conversation):
 	conversation = new_conversation
-	
 
-
+func check_quest(questname):
+	questhandler.check_quest_item(questname)
