@@ -80,12 +80,18 @@ func save():
 	return save_dict
 
 func loadIt(node_data):
+	var current_node
 	for key in node_data["keys"]:
 		var packed_scene = ResourceLoader.load("res://Saves/" + key + ".scn")
 		var new_node = packed_scene.instance()
 		current_scene.remove_child(current_scene.get_node("PickUps"))
 		current_scene.add_child(new_node)
-
+		scenes[key] = current_scene.get_node("PickUps")
+		if current_scene.name == key:
+			current_node = new_node
+	current_scene.remove_child(current_scene.get_node("PickUps"))
+	current_scene.add_child(current_node)
+	
 func reset():
 	for key in scenes.keys():
 		scenes[key].erase()
