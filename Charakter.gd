@@ -233,7 +233,7 @@ func _physics_process(_delta):
 	var velocity = directional_input_handler()
 	if velocity.x >= 0.1 || velocity.x <= -0.1 || velocity.y >= 0.1 || velocity.y <= -0.1:
 		_on_velocity_computed(velocity)
-		_play_footsteps()
+		#_play_footsteps()
 	if may_navigate:
 		set_velocity()
 	animation_player()
