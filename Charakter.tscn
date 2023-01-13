@@ -191,6 +191,18 @@ tracks/13/keys = {
 "update": 0,
 "values": [ 1 ]
 }
+tracks/14/type = "value"
+tracks/14/path = NodePath("footstep:playing")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
 
 [sub_resource type="Animation" id=4]
 resource_name = "idle_back"
@@ -1426,6 +1438,18 @@ tracks/9/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("footstep:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=17]
 resource_name = "walk_left"
@@ -1550,6 +1574,18 @@ tracks/9/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 116, 117, 118, 119, 120, 121 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("footstep:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -1676,6 +1712,18 @@ tracks/9/keys = {
 "update": 1,
 "values": [ 116, 117, 118, 119, 120, 121 ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("footstep:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=18]
 resource_name = "walk_up"
@@ -1801,6 +1849,18 @@ tracks/9/keys = {
 "update": 1,
 "values": [ false ]
 }
+tracks/10/type = "value"
+tracks/10/path = NodePath("footstep:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="AnimationNodeAnimation" id=9]
 animation = "idle_left"
@@ -1917,27 +1977,30 @@ position = Vector2( 0, -15 )
 texture = ExtResource( 3 )
 hframes = 58
 vframes = 20
+frame = 122
 region_rect = Rect2( 0, 10, 16, 22 )
 
 [node name="Outfit" type="Sprite" parent="SpriteBundle"]
 hframes = 58
 vframes = 20
+frame = 122
 
 [node name="Hair" type="Sprite" parent="SpriteBundle"]
 texture = ExtResource( 4 )
 hframes = 58
 vframes = 20
+frame = 122
 
 [node name="Hat" type="Sprite" parent="SpriteBundle"]
 offset = Vector2( -0.3, 0 )
 hframes = 58
 vframes = 20
-frame = 3
+frame = 122
 
 [node name="Face" type="Sprite" parent="SpriteBundle"]
 hframes = 58
 vframes = 20
-frame = 1
+frame = 122
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -9 )
@@ -1955,6 +2018,7 @@ max_speed = 150.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle_front"
+reset_on_save = false
 anims/RESET = SubResource( 3 )
 anims/idle_back = SubResource( 4 )
 anims/idle_front = SubResource( 5 )
@@ -2024,6 +2088,7 @@ one_shot = true
 
 [node name="footstep" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
+pitch_scale = 2.0
 
 [connection signal="navigation_finished" from="NavigationAgent2D" to="." method="_on_navigation_finished"]
 [connection signal="target_reached" from="NavigationAgent2D" to="." method="_on_NavigationAgent2D_target_reached"]
