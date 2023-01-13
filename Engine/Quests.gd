@@ -158,4 +158,5 @@ func check_item_in_inventory():
 	if check_item == false:
 		Dialogic.set_variable("check_item", "false")
 	else:
+		inventory.add_item(quest_item[quest_item_step], 1)
 		Dialogic.set_variable("check_item", "true")
