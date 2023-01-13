@@ -1,0 +1,78 @@
+{
+	"events": [
+		{
+			"character": "character-1673600632.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hi, ich bin Jesper und studiere Maschinenbau mit Schwerpunkt Thermodynamik. \nZurzeit versuche ich ein Wasserflugzeug zu bauen, leider fehlen dafür noch Berechnungen.\nOh man, ich habe eigentlich alles Zusammen aber es fehlt etwas ganz wichtiges. \nEIN FISCH! \nOhne diesen kann ich es vergessen, eine Strömung zur Wasserung zu berechnen. \nMein Flugzeug wird weniger Stabil als eine Silversterrakete sein. \nIch habe schon extra meine Badehose angezogen, das Wasser im Becken wird schon kalt.\n"
+		},
+		{
+			"character": "character-1673600632.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Wenn ich doch nur die Zeit hätte selbst einen Fisch zu suchen ...\nWenn du einen Fisch siehst, würdest du ihn mit bringen? "
+		},
+		{
+			"choice": "Ja",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673600632.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "DANKE!, das würde mir sehr helfen, ich habe noch etwas übrig von meinem Testaufbau das könnte ich dir überlassen."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"quest_1_jesper",
+					"bring"
+				],
+				"method_name": "start_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"end_quest_1"
+				],
+				"method_name": "change_dialog",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "Nein",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673600632.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Schade, komm gerne noch einmal vorbei!"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673600597.json",
+		"name": "start_quest_1"
+	}
+}
