@@ -174,13 +174,13 @@ func adapt_cursor():
 			Mouse.NPC:
 				Input.set_custom_mouse_cursor(speech_cursor_clicked)
 
-func _input(_event):
-	var inventoryScene = ui_layer.get_child(0)
-	if Input.is_action_just_pressed("inventory"):
-		if !inventoryScene.visible:
-			inventoryScene.visible = true
-		else:
-			inventoryScene.visible = false
+#func _input(_event):
+#	var inventoryScene = ui_layer.get_child(0)
+#	if Input.is_action_just_pressed("inventory"):
+#		if !inventoryScene.visible:
+#			inventoryScene.visible = true
+#		else:
+#			inventoryScene.visible = false
 
 func directional_input_handler():
 	if movement_blocked: return Vector2(0,0)
@@ -245,3 +245,4 @@ func _play_footsteps():
 
 func _stop_footsteps():
 	$footstep.stop()
+
