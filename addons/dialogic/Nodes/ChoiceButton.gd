@@ -20,9 +20,17 @@ func get_check():
 
 func _on_mouse_entered():
 	if "[" in labelText:
-		hint_tooltip = str(Attributes.get_probability(check))+'%'
+		hint_tooltip = 'Probability: ' + str(Attributes.get_probability(check))+'%'
+		hint_tooltip += '\nRequired roll: ' + str(Attributes.get_required_roll(check))
+		hint_tooltip += '\nInfluenced Difficulty: ' + str(check.get_influenced_difficulty())
+		hint_tooltip += '\n\nInfluences: \n' + stringify_influences()
 	else:
 		hint_tooltip = ""
+
+func stringify_influences():
+	var influence_str = str(check.influences).substr(1, str(check.influences).length()-2)
+	influence_str = influence_str.replace(', ', ',\n').replace(':', ': ')
+	return influence_str
 
 func _on_pressed():
 	if check == null: return
