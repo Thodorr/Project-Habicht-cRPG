@@ -21,6 +21,7 @@ export(String) var questname = ""
 
 export(bool) var item_needed = false
 
+#Description of the tasks
 export (Array, String, MULTILINE) var description 
 
 export (Array, Resource) var quest_item 
@@ -55,6 +56,7 @@ func start_quest():
 func end_quest():
 	if state == Queststate.STARTED:
 		if item_needed == true && quest_item_step == quest_item.size(): 
+			print("has it ended?")
 			inventory.add_item(quest_reward[reward_item_step], reward_amount)
 			add_exp()
 			state = Queststate.DONE
@@ -130,7 +132,6 @@ func get_item_reward():
 
 
 func handle_the_quest(questtype):
-	print (quest_reward)
 	if questtype == "bring":
 		quest_questtype = Questtype.BRING
 	elif questtype == "todo":

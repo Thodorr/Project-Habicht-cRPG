@@ -25,7 +25,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"quest_1_jesper",
+					"Jespers Fisch",
 					"bring"
 				],
 				"method_name": "start_quest",
