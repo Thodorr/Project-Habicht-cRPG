@@ -23,12 +23,6 @@
 [sub_resource type="GDScript" id=156]
 script/source = "extends Node2D
 
-export var border_left = -560
-export var border_right = 1088
-export var border_top = 0
-export var border_bottom = 369
-
-# Called when the node enters the scene tree for the first time.
 var spawn
 
 func _ready():
@@ -3787,7 +3781,6 @@ speed_scale = 5.0
 
 [node name="Spawn" type="Position2D" parent="YSort"]
 position = Vector2( 344, 25 )
-
 
 [node name="floor" type="TileMap" parent="YSort"]
 tile_set = SubResource( 1 )

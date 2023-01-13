@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Ressources/railing.tres" type="TileSet" id=1]
 [ext_resource path="res://Ressources/floor.tres" type="TileSet" id=2]
@@ -16,6 +16,9 @@
 [ext_resource path="res://Assets/Character/Outfit/Outfit_01_01.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Character/Hair/Hairstyle_01_02.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Character/Body/Body_04.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Character/Hair/Hairstyle_01_01.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Character/Outfit/SwimmingTrunks.png" type="Texture" id=18]
+[ext_resource path="res://Units/Items/Food/CategoryB/Fish.tres" type="Resource" id=19]
 [ext_resource path="res://Engine/Placeables/ChangeLevel.tscn" type="PackedScene" id=24]
 [ext_resource path="res://Level/level_1/level_1_campus.gd" type="Script" id=25]
 
@@ -52,6 +55,13 @@ outfit = ExtResource( 14 )
 body = ExtResource( 16 )
 hair = ExtResource( 15 )
 conversation = "Falko"
+
+[node name="NPC3" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 454, 382 )
+outfit = ExtResource( 18 )
+body = ExtResource( 16 )
+hair = ExtResource( 17 )
+conversation = "start_quest_1"
 
 [node name="floor" type="TileMap" parent="YSort"]
 z_index = -2
@@ -218,6 +228,10 @@ item = ExtResource( 6 )
 [node name="Meat" parent="PickUps" instance=ExtResource( 13 )]
 position = Vector2( 294, 267 )
 item = ExtResource( 9 )
+
+[node name="Fisch_quest_1" parent="PickUps" instance=ExtResource( 13 )]
+position = Vector2( 828, 55 )
+item = ExtResource( 19 )
 
 [node name="Cheese2" parent="PickUps" instance=ExtResource( 13 )]
 position = Vector2( 328, 277 )

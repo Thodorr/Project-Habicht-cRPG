@@ -9,10 +9,12 @@ class_name Questhandler
 export(Array, Resource) var quests = []
 
 func start_a_quest(questnamen, typeofquest):
+	print ("in questhandler")
 	for thequest in quests: 
 		if thequest == null: 
 			return
 		if thequest.questname == questnamen:
+			print (questnamen)
 			thequest.handle_the_quest(typeofquest)
 
 func get_progress(questnamen): 
