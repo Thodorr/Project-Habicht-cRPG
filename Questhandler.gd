@@ -28,3 +28,10 @@ func intermidiate(questnamen, questtype):
 			return
 		if thequest.questname == questnamen:
 			thequest.goto_npc(questtype)
+
+func check_quest_item(questnamen):
+	for thequest in quests: 
+		if thequest == null: 
+			return
+		if thequest.questname == questnamen:
+			thequest.check_item_in_inventory()

@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/mixkit-street-ambience-with-walking-people-375.wav-542e7c5bc07b6c35104f37b96f131102.sample"
+
+[deps]
+
+source_file="res://Musi/sounds/mixkit-street-ambience-with-walking-people-375.wav"
+dest_files=[ "res://.import/mixkit-street-ambience-with-walking-people-375.wav-542e7c5bc07b6c35104f37b96f131102.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

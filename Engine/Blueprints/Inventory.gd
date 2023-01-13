@@ -17,9 +17,10 @@ var equipped_hand: Resource
 var equipped_trinket: Resource 
 var equipped_face: Resource
 
-func add_item(item: Resource, amount):
+func add_item(item: Resource, amount, readd = false):
 	var index_counter = 0
-	emit_signal("item_added", item, amount)
+	if !readd:
+		emit_signal("item_added", item, amount)
 	
 	for target_item in items:
 		index_counter += 1
@@ -83,7 +84,7 @@ func filter_items(type = Item):
 
 func add_hidden_items():
 	for i in hidden_items.size():
-		add_item(hidden_items[i], 1)
+		add_item(hidden_items[i], 1, true)
 	hidden_items.clear()
 	print(hidden_items)
 

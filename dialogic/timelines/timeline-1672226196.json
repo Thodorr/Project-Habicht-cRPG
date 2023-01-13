@@ -59,6 +59,14 @@
 			"text": "Jawoll! Schaue mal hier www.wikipedia.de/banana"
 		},
 		{
+			"definition": "1673504863-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "true"
+		},
+		{
 			"call_node": {
 				"arguments": [
 					"Test",

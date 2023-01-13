@@ -4,13 +4,13 @@ class_name Quest
 
 var inventory = preload("res://Inventory.tres")
 
-
+# State of quest 
 enum Queststate {
 	OPEN,
 	STARTED,
 	DONE	
 }
-
+# Type of task 
 enum Questtype {
 	TODO,
 	BRING,
@@ -18,29 +18,27 @@ enum Questtype {
 }
 
 export(String) var questname = ""
-#export(String, MULTILINE) var description =""
+
 export(bool) var item_needed = false
+
+#Description of the tasks
 export (Array, String, MULTILINE) var description 
-
-
 
 export (Array, Resource) var quest_item 
 
-#export (bool) var justonereward 
 export (Array, Resource) var quest_reward
 
+# how much of an item the player gets from the task or quest
 export (int) var reward_amount = 1
+# how much experiance the player gains from the task or quest
 export (int) var amound_exp = 0
 
 var step = 0
 var quest_item_step = 0
 var reward_item_step = 0
 
-
 var state = Queststate.OPEN 
-
 var quest_questtype = Questtype.IDLE
-
 
 func start_quest(): 
 	if state == Queststate.OPEN: 
@@ -55,11 +53,10 @@ func start_quest():
 		else:
 			end_quest()
 
-
 func end_quest():
 	if state == Queststate.STARTED:
 		if item_needed == true && quest_item_step == quest_item.size(): 
-			get_item_reward()
+			inventory.add_item(quest_reward[reward_item_step], reward_amount)
 			add_exp()
 			state = Queststate.DONE
 		else:
@@ -76,7 +73,7 @@ func end_quest():
 				state = Queststate.DONE
 				get_item_reward()
 				add_exp()
-				
+
 
 func start_quest_later():
 	state = Queststate.OPEN
@@ -90,13 +87,8 @@ func steps():
 		if step < description.size():
 			if step > 0:
 				get_item_reward()
-			else:
-				return
 		else:
 			get_item_reward()
-			return
-	else:
-		return
 
 func get_step():
 	if step < description.size():
@@ -108,15 +100,19 @@ func bring_quest():
 	if quest_item.size() > 0:
 		state = Queststate.STARTED
 		if quest_item_step < quest_item.size():
-			var check_item = inventory.remove_item(quest_item[quest_item_step], 1)
-			if check_item == false:
-				return
+			if quest_item[quest_item_step] == null:
+				print("You have to place an item!")
 			else:
-				if quest_item_step > 0:
-					get_item_reward()
-		else:
-			get_item_reward()
-			return
+				var check_item = inventory.remove_item(quest_item[quest_item_step], 1)
+				if check_item == false:
+					#Dialogic.set_variable("check_item", false)
+					return
+				else:
+					quest_item_step += 1
+					#Dialogic.set_variable("check_item", true)
+					if quest_item_step > 0:
+						if step + quest_item_step != quest_reward.size():
+							get_item_reward()
 
 func get_item_step():
 	if state != Queststate.DONE:
@@ -130,12 +126,9 @@ func get_item_step():
 
 func get_item_reward():
 	if quest_reward.size() > 0:
-		if quest_reward[reward_item_step] == null:
-				print("You have to place an item!")
-		else:
-			if reward_item_step < quest_reward.size(): 
-				inventory.add_item(quest_reward[reward_item_step], reward_amount)
-				reward_item_step += 1 
+			inventory.add_item(quest_reward[reward_item_step], reward_amount)
+			reward_item_step += 1
+
 
 func handle_the_quest(questtype):
 	if questtype == "bring":
@@ -149,14 +142,21 @@ func handle_the_quest(questtype):
 		if quest_item.size() > 0 && quest_questtype == Questtype.BRING: 
 			if quest_item_step <= quest_item.size():
 				bring_quest()
-		if description.size() == step && quest_item.size() == quest_item_step:
+		if description.size() == step && quest_item.size() == quest_item_step: 
 			end_quest()
 	else:
 		state = Queststate.DONE
-		return 
 
 func goto_npc(questtype):
 	if questtype != "bring":
 		step += 1
 	else:
 		quest_item_step += 1
+
+func check_item_in_inventory():
+	var check_item = inventory.remove_item(quest_item[quest_item_step], 1)
+	if check_item == false:
+		Dialogic.set_variable("check_item", "false")
+	else:
+		inventory.add_item(quest_item[quest_item_step], 1)
+		Dialogic.set_variable("check_item", "true")

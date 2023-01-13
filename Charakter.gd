@@ -21,7 +21,7 @@ onready var inventory = preload("res://Inventory.tres")
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var ui_layer = $UiLayer
 onready var timer = $Timer
-onready var ripple = get_node("Ripple")
+onready var ripple = get_node("UiLayer/Ripple")
 
 onready var regular_cursor = preload("res://Assets/Cursors/Arrow.png")
 onready var regular_cursor_clicked = preload("res://Assets/Cursors/Arrow_Clicked.png")
@@ -72,6 +72,7 @@ func _ready():
 	unlockable_skills.append("2A")
 	unlockable_skills.append("3A")
 	unlockable_skills.append("4A")
+	set_camera()
 
 func save():
 	var save_dict = {
@@ -101,10 +102,12 @@ func animation_player():
 		animation_tree.set("parameters/Walk/blend_position", direction)
 		animation_tree.set("parameters/PickUp/blend_position", direction)
 		animation_state.travel("Walk")
+		_play_footsteps()
 	elif state == State.LOOTING:
 		animation_state.travel("PickUp")
 	else:
 		animation_state.travel("Idle")
+		_stop_footsteps()
 
 func turn(turn_direction):
 	animation_tree.set("parameters/Idle/blend_position", turn_direction)
@@ -141,7 +144,7 @@ func set_navigation(target):
 	if inventory.drag_data != null: return
 	if movement_blocked: return
 	timer.start()
-	ripple.position = target - position
+	ripple.position = ripple.get_global_mouse_position()
 	ripple.frame = 0
 	ripple.play("ripple")
 	nav_agent.set_target_location(target)
@@ -217,12 +220,29 @@ func _on_item_equipped(item):
 		item.Type.FACE:
 			$SpriteBundle/Face.texture = item.sprite_sheet
 
+func set_camera():
+	var map = get_parent().get_parent()
+	var camera = get_node("Camera2D")
+	camera.limit_right = map.border_right
+	camera.limit_bottom = map.border_bottom
+	camera.limit_top = map.border_top
+	camera.limit_left = map.border_left
 
 func _physics_process(_delta):
 	adapt_cursor()
 	var velocity = directional_input_handler()
 	if velocity.x >= 0.1 || velocity.x <= -0.1 || velocity.y >= 0.1 || velocity.y <= -0.1:
 		_on_velocity_computed(velocity)
+		#_play_footsteps()
 	if may_navigate:
 		set_velocity()
 	animation_player()
+
+func _play_footsteps():
+	if $Timer.time_left <= 0:
+		$footstep.play()
+		$Timer.start(0.3)
+
+func _stop_footsteps():
+	$footstep.stop()
+

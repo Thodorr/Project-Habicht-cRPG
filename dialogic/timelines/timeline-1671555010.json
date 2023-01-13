@@ -1,13 +1,13 @@
 {
 	"events": [
 		{
-			"character": "character-1670243735.json",
+			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Hallo, willkommen zum Test Quest!"
 		},
 		{
-			"character": "character-1670243735.json",
+			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Bevor du mir das Item bringen kannst, muss du mir eine Frage beantworte!"
@@ -55,6 +55,14 @@
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Gehe zu Falko!"
+		},
+		{
+			"definition": "1673504863-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "false"
 		},
 		{
 			"call_node": {
