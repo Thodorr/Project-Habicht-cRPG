@@ -8,7 +8,7 @@
 script = ExtResource( 1 )
 questname = "Jespers Fisch"
 item_needed = true
-description = [ "Jesper braucht für seinen Prtototyp eines Wasserflugzeugs einen Fisch im die optimale Strömung im Wasser zu berechnen ." ]
+description = [  ]
 quest_item = [ ExtResource( 3 ) ]
 quest_reward = [ ExtResource( 2 ) ]
 reward_amount = 1
