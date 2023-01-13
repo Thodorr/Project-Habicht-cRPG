@@ -1,6 +1,7 @@
 extends Control
 
-onready var player = get_node("../../YSort/Charakter")
+onready var inventory = preload("res://Inventory.tres")
+onready var player = get_node_or_null("../../YSort/Charakter")
 onready var node_stat_points = get_node("Screen/Layout/Attributes/HBoxContainer/AvailablePoints/Label")
 onready var path_main_stats = "Screen/Layout/Attributes/"
 onready var path_active_quest_buttons = "Screen/Layout/Quests/ActiveQuests/QuestButtons/"
@@ -21,6 +22,7 @@ var luck_add = 0
 
 
 func _ready():
+	var _item_equipped_connect = inventory.connect("item_equipped", self,"_on_item_equipped")
 	LoadStats()
 	LoadSkills()
 	LoadActiveOrDoneQuests(1)
@@ -31,7 +33,6 @@ func _ready():
 	else:
 		for button in get_tree().get_nodes_in_group("PlusButtons"):
 			button.set_disabled(false)
-# ../.. == get_node Parent of Parent 
 	for button in get_tree().get_nodes_in_group("PlusButtons"):
 		button.connect("pressed", self, "IncreaseStat", [button.get_node("../..").get_name()])
 	for button in get_tree().get_nodes_in_group("MinusButtons"):
@@ -117,18 +118,6 @@ func DecreaseStat(stat):
 			button.set_disabled(true)
 		else:
 			button.set_disabled(false)
-
-		
-#		var keys = Attributes.Attribute.keys()
-#		var index = 0
-#		for key in keys:
-#			if (key.to_lower() == button.get_parent().get_parent().name):
-#				var maxScore = Attributes.attributes_base[index] + get(button.get_parent().get_parent().name.to_lower() + "_add")
-#				if (maxScore >9 ):
-#					button.set_disabled(true)
-#			index += 1
-
-
 
 func TakeModul(skill):
 		if player.get("skill_" + skill) == true:
@@ -252,6 +241,17 @@ func LoadQuestInfo(QuestName):
 	get_node("Screen/Layout/Quests/ActiveQuests").hide()
 	get_node("Screen/Layout/Quests/QuestContent").show()
 
+func reparent(child: Node, new_parent: Node):
+	if child and new_parent:
+		var old_parent = child.get_parent()
+		old_parent.remove_child(child)
+		new_parent.add_child(child)
+
+func checkInv():
+	if get_node_or_null("Screen/Layout/UiLayer") != null:
+		get_node("Screen/Layout/UiLayer").get_child(0).hide()
+		reparent(get_node_or_null("Screen/Layout/UiLayer"), player)
+
 func _on_ConfirmButton_pressed():
 	if athletics_add + dexterity_add + perception_add + persuasion_add + bluff_add + intimidation_add + knowledge_add + will_add + creativity_add  +luck_add == 0:
 		print("Nothing to confirm - maybe add popup button")
@@ -295,29 +295,30 @@ func _on_DoneButton_pressed():
 
 func _on_Stats_pressed():
 	get_node("Screen/Layout/Skills").hide()
-	get_node("../../YSort/Charakter/UiLayer").get_child(0).hide()
 	get_node("Screen/Layout/Quests").hide()
 	get_node("Screen/Layout/Attributes").show()
 	get_node("Screen/Layout/Inventory").hide()
+	checkInv()
 
 func _on_Skills_pressed():
 	get_node("Screen/Layout/Attributes").hide()
-	get_node("../../YSort/Charakter/UiLayer").get_child(0).hide()
 	get_node("Screen/Layout/Quests").hide()
 	get_node("Screen/Layout/Skills").show()
 	get_node("Screen/Layout/Inventory").hide()
+	checkInv()
 
 func _on_Quests_pressed():
 	get_node("Screen/Layout/Attributes").hide()
 	get_node("Screen/Layout/Skills").hide()
-	get_node("../../YSort/Charakter/UiLayer").get_child(0).hide()
 	get_node("Screen/Layout/Quests").show()
 	get_node("Screen/Layout/Inventory").hide()
+	checkInv()
 
 func _on_Inventory_pressed():
 	get_node("Screen/Layout/Attributes").hide()
 	get_node("Screen/Layout/Skills").hide()
 	get_node("Screen/Layout/Quests").hide()
-	get_node("../../YSort/Charakter/UiLayer").get_child(0).show()
+	reparent(get_node_or_null("../../YSort/Charakter/UiLayer"), get_node_or_null("Screen/Layout"))
+	get_node("Screen/Layout/UiLayer").get_child(0).show()
 	get_node("Screen/Layout/Inventory").show()
 

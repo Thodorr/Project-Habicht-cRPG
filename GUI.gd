@@ -20,8 +20,9 @@ func _input(event):
 			var character_sheet = load("res://CharacterSheet.tscn").instance()
 			add_child(character_sheet)
 		else:
+			get_node("CharacterSheet").checkInv()
 			get_node("CharacterSheet").queue_free()
-			get_node("../YSort/Charakter/UiLayer").get_child(0).hide()
+
 
 
 func _ready():
@@ -49,6 +50,8 @@ func saveGame():
 		var node_data = node.call("save")
 		
 		save_game.store_line(to_json(node_data))
+	if get_node("CharacterSheet"):
+		get_node("CharacterSheet").checkInv()
 	save_game.store_line(to_json(get_node("../YSort/Charakter").inventory.saveInv()))
 	save_game.store_line(to_json(scenechanger.save()))
 	save_game.close()
@@ -142,6 +145,7 @@ func CloseOptionsMenu():
 
 func _on_Continue_pressed():
 	get_tree().paused = false
+	get_tree().get_root().print_tree()
 	get_node("GameMenu").hide()
 
 

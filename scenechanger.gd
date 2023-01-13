@@ -16,6 +16,9 @@ func _ready():
 	
 
 func goto_scene(path):
+	var characterSheet = get_tree().get_root().get_child(get_tree().get_root().get_child_count()-1).get_node("GUI").get_node("CharacterSheet")
+	if characterSheet != null:
+		characterSheet.checkInv()
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
 	the_player()
