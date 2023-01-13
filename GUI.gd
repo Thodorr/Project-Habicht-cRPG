@@ -50,6 +50,7 @@ func saveGame():
 		
 		save_game.store_line(to_json(node_data))
 	save_game.store_line(to_json(get_node("../YSort/Charakter").inventory.saveInv()))
+	save_game.store_line(to_json(scenechanger.save()))
 	save_game.close()
 
 func loadGame():
@@ -65,25 +66,26 @@ func loadGame():
 	save_game.open("user://savegame.save", File.READ)
 	while save_game.get_position() < save_game.get_len():
 		var node_data = parse_json(save_game.get_line())
-		#if  != "attributes":
-		match node_data["filename"]:
-			"attributes":
-				Attributes.load(node_data)
-			"quests":
-				loadQuests(node_data)
-			"inventory":
-				get_node("../YSort/Charakter").inventory.loadInv(node_data)
-			_:
-				print(node_data["filename"])
-				var new_object = load(node_data["filename"]).instance()
-				new_object.add_to_group("Persist")
-				get_node(node_data["parent"]).add_child(new_object)
-				new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
-				
-				for i in node_data.keys():
-					if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
-						continue
-					new_object.set(i,node_data[i])
+		if node_data != null:
+			match node_data["filename"]:
+				"attributes":
+					Attributes.load(node_data)
+				"quests":
+					loadQuests(node_data)
+				"inventory":
+					get_node("../YSort/Charakter").inventory.loadInv(node_data)
+				"sceneChanger":
+					scenechanger.loadIt(node_data)
+				_:
+					var new_object = load(node_data["filename"]).instance()
+					new_object.add_to_group("Persist")
+					get_node(node_data["parent"]).add_child(new_object)
+					new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
+					
+					for i in node_data.keys():
+						if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
+							continue
+						new_object.set(i,node_data[i])
 	save_game.close()
 
 func saveQuests():
@@ -151,6 +153,7 @@ func _on_NewGame_pressed():
 	get_tree().paused = false
 	Attributes.reset()
 	resetQuests()
+	scenechanger.reset()
 	get_node("../YSort/Charakter").inventory.reset()
 	var _change_scene = get_tree().change_scene("res://Level/level_1/intro_area.tscn")
 

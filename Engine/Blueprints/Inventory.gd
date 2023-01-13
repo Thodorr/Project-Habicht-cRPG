@@ -161,13 +161,13 @@ func saveInv():
 	if equipped_hat != null:
 		hat = equipped_hat.name
 	if equipped_clothing != null:
-		hat = equipped_clothing.name
+		clothing = equipped_clothing.name
 	if equipped_hand != null:
-		hat = equipped_hand.name
+		hand = equipped_hand.name
 	if equipped_trinket != null:
-		hat = equipped_trinket.name
+		trinket = equipped_trinket.name
 	if equipped_face != null:
-		hat = equipped_face.name
+		face = equipped_face.name
 	var save_dict = {
 		"filename" : "inventory",
 		"equipped_hat" : hat,
@@ -179,14 +179,12 @@ func saveInv():
 	for item in items:
 		if item != null:
 			var amount = 1
-			print(item)
 			if item.amount > 1:
 				amount = item.amount
 			var inventory_dict = {
 				item.name : amount
 			}
 			save_dict.merge(inventory_dict, false)
-	print(save_dict)
 	return save_dict
 
 func loadInv(node_data):

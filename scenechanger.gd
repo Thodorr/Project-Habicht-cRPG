@@ -57,3 +57,36 @@ func state_of_scene():
 		scenes[name_of_scene] = keep_scene
 		keep_scene.get_parent().remove_child(current_scene.get_node("PickUps"))
 	
+
+func save():
+	if current_scene.get_node_or_null("PickUps") == null:
+		print ("No PickUps here!")
+	else:
+		keep_scene = current_scene.get_node("PickUps")
+		var name_of_scene = current_scene.name
+		scenes[name_of_scene] = keep_scene
+	for key in scenes.keys():
+		var packed_scene = PackedScene.new()
+		current_scene.remove_child(current_scene.get_node("PickUps"))
+		current_scene.add_child(scenes[key])
+		for child in current_scene.get_node("PickUps").get_children():
+			child.owner = current_scene.get_node("PickUps")
+		packed_scene.pack(current_scene.get_node("PickUps"))
+		ResourceSaver.save("res://Saves/" + key + ".scn", packed_scene)
+	var save_dict = {
+		"filename" : "sceneChanger",
+		"keys" : scenes.keys()
+	}
+	return save_dict
+
+func loadIt(node_data):
+	for key in node_data["keys"]:
+		var packed_scene = ResourceLoader.load("res://Saves/" + key + ".scn")
+		var new_node = packed_scene.instance()
+		current_scene.remove_child(current_scene.get_node("PickUps"))
+		current_scene.add_child(new_node)
+
+func reset():
+	for key in scenes.keys():
+		scenes[key].erase()
+
