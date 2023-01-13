@@ -1,6 +1,22 @@
 {
 	"events": [
 		{
+			"call_node": {
+				"arguments": [
+					"Jespers Fisch"
+				],
+				"method_name": "check_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"character": "character-1673600632.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Willkommen zurück!"
+		},
+		{
 			"character": "character-1673600632.json",
 			"event_id": "dialogic_010",
 			"options": [
@@ -12,9 +28,9 @@
 		{
 			"choice": "Ja",
 			"condition": "",
-			"definition": "",
+			"definition": "1673602740-186",
 			"event_id": "dialogic_011",
-			"value": ""
+			"value": "true"
 		},
 		{
 			"character": "character-1673600632.json",
@@ -46,9 +62,9 @@
 		{
 			"choice": "Nein",
 			"condition": "",
-			"definition": "",
+			"definition": "1673602740-186",
 			"event_id": "dialogic_011",
-			"value": ""
+			"value": "false"
 		},
 		{
 			"character": "character-1673600632.json",

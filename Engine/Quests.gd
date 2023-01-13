@@ -56,7 +56,6 @@ func start_quest():
 func end_quest():
 	if state == Queststate.STARTED:
 		if item_needed == true && quest_item_step == quest_item.size(): 
-			print("has it ended?")
 			inventory.add_item(quest_reward[reward_item_step], reward_amount)
 			add_exp()
 			state = Queststate.DONE
@@ -134,10 +133,8 @@ func get_item_reward():
 func handle_the_quest(questtype):
 	if questtype == "bring":
 		quest_questtype = Questtype.BRING
-	elif questtype == "todo":
-		quest_questtype = Questtype.TODO
 	else:
-		quest_questtype = Questtype.DELIVERED
+		quest_questtype = Questtype.TODO
 	if state != Queststate.DONE:
 		if description.size() > 0 && quest_questtype == Questtype.TODO:
 			if step <= description.size():
@@ -155,3 +152,10 @@ func goto_npc(questtype):
 		step += 1
 	else:
 		quest_item_step += 1
+
+func check_item_in_inventory():
+	var check_item = inventory.remove_item(quest_item[quest_item_step], 1)
+	if check_item == false:
+		Dialogic.set_variable("check_item", "false")
+	else:
+		Dialogic.set_variable("check_item", "true")
