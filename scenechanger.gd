@@ -14,11 +14,12 @@ var scenes = {}
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
-	
+	print(current_scene)
+
 func goto_scene(path):
 	var characterSheet = null
-	if get_tree().get_root().get_child(get_tree().get_root().get_child_count()-1).get_node("GUI").get_node_or_null("CharacterSheet"):
-		characterSheet = get_tree().get_root().get_child(get_tree().get_root().get_child_count()-1).get_node("GUI").get_node_or_null("CharacterSheet")
+	if  get_parent().get_child(get_parent().get_child_count()-1).get_node_or_null("GUI/CharacterSheet"):
+		characterSheet =  get_parent().get_child(get_parent().get_child_count()-1).get_node_or_null("GUI/CharacterSheet")
 	if characterSheet:
 		characterSheet.checkInv()
 	var root = get_tree().get_root()
@@ -40,10 +41,12 @@ func _deferred_goto_scene(path):
 	var new_scene = get_tree().get_root()
 	var new_scene_y = current_scene.get_node("YSort")
 	
-	new_scene_y.add_child(keep_player)
+	if keep_player:
+		new_scene_y.add_child(keep_player)
 	new_scene.add_child(current_scene)
 	
-	keep_player.set_camera()
+	if keep_player:
+		keep_player.set_camera()
 	spwanswitcher(current_scene.name)
 	
 	if scenes.has(current_scene.name) == true:
@@ -54,9 +57,10 @@ func _deferred_goto_scene(path):
 
 
 func the_player():
-	player = current_scene.get_node("YSort/Charakter")
-	keep_player = player
-	player.get_parent().remove_child(player)
+	if current_scene.get_node_or_null("YSort/Charakter"):
+		player = current_scene.get_node("YSort/Charakter")
+		keep_player = player
+		player.get_parent().remove_child(player)
 	
 func state_of_scene():
 	if current_scene.get_node_or_null("PickUps") == null:
@@ -86,11 +90,18 @@ func save():
 		ResourceSaver.save("res://Saves/" + key + ".scn", packed_scene)
 	var save_dict = {
 		"filename" : "sceneChanger",
-		"keys" : scenes.keys()
+		"keys" : scenes.keys(),
+		"currentScene" : current_scene.name
 	}
 	return save_dict
 
 func loadIt(node_data):
+	if node_data["currentScene"] != null:
+		var level = str ("res://Level/level_1/level_1_" , node_data["currentScene"] , ".tscn")
+		if node_data["currentScene"] == "intro_area":
+			level = "res://Level/level_1/intro_area.tscn"
+		print(level)
+		scenechanger.goto_scene(level)
 	var current_node
 	for key in node_data["keys"]:
 		var packed_scene = ResourceLoader.load("res://Saves/" + key + ".scn")
