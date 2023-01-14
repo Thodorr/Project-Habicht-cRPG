@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/indoor-footsteps-6385.mp3-d1464367d6b7ee8d24fd145fbb5b0a91.mp3str"
+
+[deps]
+
+source_file="res://Musi/sounds/indoor-footsteps-6385.mp3"
+dest_files=[ "res://.import/indoor-footsteps-6385.mp3-d1464367d6b7ee8d24fd145fbb5b0a91.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

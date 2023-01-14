@@ -119,6 +119,7 @@ func DecreaseStat(stat):
 		else:
 			button.set_disabled(false)
 
+
 func TakeModul(skill):
 		if player.get("skill_" + skill) == true:
 			pass

@@ -20,9 +20,17 @@ func get_check():
 
 func _on_mouse_entered():
 	if "[" in labelText:
-		hint_tooltip = str(Attributes.get_probability(check))+'%'
+		hint_tooltip = 'Probability: ' + str(Attributes.get_probability(check))+'%'
+		hint_tooltip += '\nRequired roll: ' + str(Attributes.get_required_roll(check))
+		hint_tooltip += '\nInfluenced Difficulty: ' + str(check.get_influenced_difficulty())
+		hint_tooltip += '\n\nInfluences: \n' + stringify_influences()
 	else:
 		hint_tooltip = ""
+
+func stringify_influences():
+	var influence_str = str(check.influences).substr(1, str(check.influences).length()-2)
+	influence_str = influence_str.replace(', ', ',\n').replace(':', ': ')
+	return influence_str
 
 func _on_pressed():
 	if check == null: return
@@ -46,15 +54,15 @@ func append_label(text):
 	textLabel.rect_position = Vector2(2,5)
 	textLabel.append_bbcode(text)
 
-	rect_min_size.y = $RichTextLabel.get_font("PixelFontVerySmall").get_string_size(text).x / 15 + 8
-	rect_size.y = $RichTextLabel.get_font("PixelFontVerySmall").get_string_size(text).x / 15 + 8
+	rect_min_size.y = $RichTextLabel.get_font("PixelFontVerySmall").get_string_size(text).x / 18 + 8
+	rect_size.y = $RichTextLabel.get_font("PixelFontVerySmall").get_string_size(text).x / 18 + 8
 	
-	var new_size = $RichTextLabel.get_font("PixelFontVerySmall").get_string_size(text).x /2 + 12
+	var new_size = $RichTextLabel.get_font("PixelFontVerySmall").get_string_size(text).x / 2 + 10
 	if new_size > $RichTextLabel.rect_size.x:
 		new_size = $RichTextLabel.rect_size.x
 	
-	rect_min_size.x = new_size
-	rect_size.x = new_size
+	rect_min_size.x = new_size + 3
+	rect_size.x = new_size + 3
 
 func _process(delta):
 	if (rect_position.x != 0): rect_position.x = 0

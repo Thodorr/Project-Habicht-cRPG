@@ -40,7 +40,14 @@ func _unhandled_input(event):
 				pickup = pickup.instance()
 				pickup.set_global_position(character.get_global_mouse_position() + Vector2(5, 3))
 				pickup.item = inventory.drag_data.item
-				character.owner.get_node("PickUps").add_child(pickup)
+				var map =  character.get_parent().get_parent()
+				var pickup_container = map.get_node_or_null('PickUps')
+				if pickup_container == null:
+					var new_pickup_container = Node2D.new()
+					new_pickup_container.add_child(pickup)
+					map.add_child(new_pickup_container)
+				else:
+					map.get_node("PickUps").add_child(pickup)
 			else:
 				inventory.set_item(inventory.drag_data.item_index, inventory.drag_data.item)
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)

@@ -268,21 +268,22 @@ func do_check(checkName):
 
 	var result = attributes[check.type] + dice_roll()
 	
-	if result >= check.difficulty:
+	if result >= check.get_influenced_difficulty():
 		Dialogic.set_variable('Result', true)
 	else:
 		Dialogic.set_variable('Result', false)
 
 func do_check2(check: Check):
 	var result = attributes[check.type] + dice_roll()
-	
-	return result >= check.difficulty
+	return result >= check.get_influenced_difficulty()
 
 func get_probability(check: Check):
-	var req_throw: float = check.difficulty - attributes[check.type]
+	var req_throw: float = get_required_roll(check)
 	if (req_throw <= 0): return 100
 	return (20 - req_throw) / 20 * 100
 
+func get_required_roll(check: Check):
+	return check.get_influenced_difficulty() - attributes[check.type]
 
 signal attributes_changed
 func attribute_math():

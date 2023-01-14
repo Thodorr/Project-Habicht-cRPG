@@ -7,11 +7,22 @@
 			"files": [
 				"character-1670243735.json",
 				"character-1672225942.json",
-				"character-1673195716.json",
-				"character-1673201999.json"
+				"character-1673201999.json",
+				"character-1673376683.json"
 			],
 			"folders": {
+				"characters_quest_1": {
+					"files": [
+						"character-1673600632.json"
+					],
+					"folders": {
 
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				}
 			},
 			"metadata": {
 				"color": null,
@@ -20,7 +31,9 @@
 		},
 		"Definitions": {
 			"files": [
-				"1672225795-648"
+				"1672225795-648",
+				"1673504863-648",
+				"1673602740-186"
 			],
 			"folders": {
 				"Check": {
@@ -32,7 +45,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				}
 			},
@@ -56,12 +69,17 @@
 		},
 		"Timelines": {
 			"files": [
-				"timeline-1672227725.json"
+				"timeline-1672227725.json",
+				"timeline-1673199460.json",
+				"timeline-1673190959.json"
 			],
 			"folders": {
-				"Dozent": {
+				"Test Quest": {
 					"files": [
-						"timeline-1673199460.json"
+						"timeline-1671555010.json",
+						"timeline-1671557373.json",
+						"timeline-1672224973.json",
+						"timeline-1672226196.json"
 					],
 					"folders": {
 
@@ -71,27 +89,24 @@
 						"folded": false
 					}
 				},
-				"Intro": {
+				"quests_campus": {
 					"files": [
-						"timeline-1673190959.json"
+
 					],
 					"folders": {
+						"quest_1": {
+							"files": [
+								"timeline-1673600597.json",
+								"timeline-1673602601.json"
+							],
+							"folders": {
 
-					},
-					"metadata": {
-						"color": null,
-						"folded": true
-					}
-				},
-				"Quest1": {
-					"files": [
-						"timeline-1671555010.json",
-						"timeline-1671557373.json",
-						"timeline-1672224973.json",
-						"timeline-1672226196.json"
-					],
-					"folders": {
-
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						}
 					},
 					"metadata": {
 						"color": null,

@@ -1,7 +1,13 @@
 {
 	"events": [
 		{
-			"character": "character-1670243735.json",
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hi, willkommen zurück!"
+		},
+		{
+			"character": "",
 			"event_id": "dialogic_010",
 			"options": [
 
@@ -12,12 +18,12 @@
 		{
 			"choice": "Ja",
 			"condition": "",
-			"definition": "",
+			"definition": "1673504863-648",
 			"event_id": "dialogic_011",
-			"value": ""
+			"value": "true"
 		},
 		{
-			"character": "character-1670243735.json",
+			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Hier ist ein Hut für dich!"
@@ -34,7 +40,7 @@
 			"event_id": "dialogic_042"
 		},
 		{
-			"character": "character-1670243735.json",
+			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Jetzt bringe mir bitte meinen KÄSE!!!!!!!!!!!!"
@@ -63,9 +69,15 @@
 		{
 			"choice": "Nein",
 			"condition": "",
-			"definition": "",
+			"definition": "1673504863-648",
 			"event_id": "dialogic_011",
-			"value": ""
+			"value": "false"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Komm wieder wenn du ihn besucht hast!"
 		},
 		{
 			"event_id": "dialogic_013"
