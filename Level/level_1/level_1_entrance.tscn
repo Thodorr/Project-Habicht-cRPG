@@ -25,6 +25,11 @@ script/source = "extends Node2D
 
 var spawn
 
+var border_left = 0
+var border_right = 1616
+var border_top = 0
+var border_bottom = 528
+
 func _ready():
 	if scenechanger.the_right_spawn == 1: 
 		spawn = $Spawn.get_position()
