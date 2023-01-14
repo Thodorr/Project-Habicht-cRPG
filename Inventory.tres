@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=34 format=2]
 
 [ext_resource path="res://Engine/Blueprints/Inventory.gd" type="Script" id=1]
-[ext_resource path="res://Units/Items/Test_Item.tres" type="Resource" id=2]
+[ext_resource path="res://Units/Items/TempItems/Test_Item.tres" type="Resource" id=2]
 [ext_resource path="res://Units/Items/Equipment/Outfit/BlackSuit.tres" type="Resource" id=3]
 [ext_resource path="res://Units/Items/Equipment/Outfit/ButtonDownShirt.tres" type="Resource" id=4]
 [ext_resource path="res://Units/Items/Equipment/Outfit/BlueSuit.tres" type="Resource" id=5]
