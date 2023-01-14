@@ -153,3 +153,103 @@ func use_item_at(index):
 			else:
 				set_item(index, prev_equip)
 
+func saveInv():
+	var hat = "nothing"
+	var clothing = "nothing"
+	var hand = "nothing"
+	var trinket = "nothing"
+	var face = "nothing"
+	if equipped_hat != null:
+		hat = equipped_hat.name
+	if equipped_clothing != null:
+		clothing = equipped_clothing.name
+	if equipped_hand != null:
+		hand = equipped_hand.name
+	if equipped_trinket != null:
+		trinket = equipped_trinket.name
+	if equipped_face != null:
+		face = equipped_face.name
+	var save_dict = {
+		"filename" : "inventory",
+		"equipped_hat" : hat,
+		"equipped_clothing" : clothing,
+		"equipped_hand" : hand,
+		"equipped_trinket" : trinket,
+		"equipped_face" : face,
+	}
+	for item in items:
+		if item != null:
+			var amount = 1
+			if item.amount > 1:
+				amount = item.amount
+			var inventory_dict = {
+				item.name : amount
+			}
+			save_dict.merge(inventory_dict, false)
+	return save_dict
+
+func loadInv(node_data):
+	equipped_hat = null
+	equipped_clothing = null
+	equipped_hand = null
+	equipped_trinket = null 
+	equipped_face = null
+	for item in items:
+		var amount = 1
+		if item != null:
+			if item.amount > 1:
+				amount = item.amount
+			remove_item(item,amount)
+	var array = [
+		"res://Units/Items/Equipment/Face/",
+		"res://Units/Items/Equipment/Hat/",
+		"res://Units/Items/Equipment/Outfit/",
+		"res://Units/Items/Food/CategoryA/",
+		"res://Units/Items/Food/CategoryB/",
+		"res://Units/Items/Food/CategoryC/",
+		"res://Units/Items/Other/",
+		"res://Units/Items/TempItems/"
+		]
+	for i in array.size():
+		var dir = Directory.new()
+		if dir.open(array[i]) == OK:
+			dir.list_dir_begin()
+			var file_name = dir.get_next()
+			while file_name != "":
+				if !dir.current_is_dir():
+					var item = load(array[i]+ file_name)
+					if item.name in node_data.keys():
+						add_item(item, node_data[item.name])
+					if item.name == node_data["equipped_face"]:
+						equipped_face = item
+						emit_signal("item_equipped", item)
+					if item.name == node_data["equipped_hat"]:
+						equipped_hat = item
+						emit_signal("item_equipped", item)
+					if item.name == node_data["equipped_clothing"]:
+						equipped_clothing = item
+						emit_signal("item_equipped", item)
+					if item.name == node_data["equipped_hand"]:
+						equipped_hand = item
+						emit_signal("item_equipped", item)
+					if item.name == node_data["equipped_trinket"]:
+						equipped_trinket = item
+						emit_signal("item_equipped", item)
+				file_name = dir.get_next()
+
+
+func reset():
+	for item in items:
+		var amount = 1
+		if item != null:
+			if item.amount > 1:
+				amount = item.amount
+			remove_item(item,amount)
+	equipped_hat = null
+	equipped_clothing = null
+	equipped_hand = null
+	equipped_trinket = null 
+	equipped_face = null
+
+func get_items():
+	return items
