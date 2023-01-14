@@ -37,4 +37,3 @@ export(String) var decline_text = "Decline"
 
 var amount = 1
 var text_accepted = false
-
