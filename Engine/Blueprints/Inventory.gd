@@ -189,6 +189,11 @@ func saveInv():
 	return save_dict
 
 func loadInv(node_data):
+	equipped_hat = null
+	equipped_clothing = null
+	equipped_hand = null
+	equipped_trinket = null 
+	equipped_face = null
 	for item in items:
 		var amount = 1
 		if item != null:

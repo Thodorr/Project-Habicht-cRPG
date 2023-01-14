@@ -50,7 +50,7 @@ func saveGame():
 		var node_data = node.call("save")
 		
 		save_game.store_line(to_json(node_data))
-	if get_node("CharacterSheet"):
+	if get_node_or_null("CharacterSheet"):
 		get_node("CharacterSheet").checkInv()
 	save_game.store_line(to_json(get_node("../YSort/Charakter").inventory.saveInv()))
 	save_game.store_line(to_json(scenechanger.save()))
