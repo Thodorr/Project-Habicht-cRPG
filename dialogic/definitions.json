@@ -1,6 +1,13 @@
 {
 	"glossary": [
-
+		{
+			"extra": "",
+			"id": "1673730543-146",
+			"name": "New glossary entry",
+			"text": "",
+			"title": "",
+			"type": 1
+		}
 	],
 	"variables": [
 		{
@@ -26,6 +33,24 @@
 			"name": "check_intermidiate",
 			"type": 0,
 			"value": "true"
+		},
+		{
+			"id": "1673727809-787",
+			"name": "T-Rex",
+			"type": 0,
+			"value": "Dinohut Traeger"
+		},
+		{
+			"id": "1673729568-366",
+			"name": "T-RexChanger",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1673730594-918",
+			"name": "T-RexRep",
+			"type": 0,
+			"value": "0"
 		}
 	]
 }

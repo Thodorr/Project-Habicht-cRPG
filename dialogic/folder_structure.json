@@ -8,9 +8,22 @@
 				"character-1670243735.json",
 				"character-1672225942.json",
 				"character-1673201999.json",
-				"character-1673376683.json"
+				"character-1673376683.json",
+				"character-1673727717.json"
 			],
 			"folders": {
+				"Attributes": {
+					"files": [
+						"character-1673728147.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
 				"characters_quest_1": {
 					"files": [
 						"character-1673600632.json"
@@ -38,7 +51,8 @@
 			"folders": {
 				"Check": {
 					"files": [
-						"1672759872-366"
+						"1672759872-366",
+						"1673730543-146"
 					],
 					"folders": {
 
@@ -46,6 +60,42 @@
 					"metadata": {
 						"color": null,
 						"folded": true
+					}
+				},
+				"DialogChangers": {
+					"files": [
+						"1673729568-366"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Nicknames": {
+					"files": [
+						"1673727809-787"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Reputation": {
+					"files": [
+						"1673730594-918"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
 					}
 				}
 			},
@@ -74,6 +124,18 @@
 				"timeline-1673190959.json"
 			],
 			"folders": {
+				"T-Rex": {
+					"files": [
+						"timeline-1673727886.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
 				"Test Quest": {
 					"files": [
 						"timeline-1671555010.json",

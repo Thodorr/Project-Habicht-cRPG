@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=93 format=2]
 
 [ext_resource path="res://Assets/Effects/ripple_2.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Effects/ripple_3.png" type="Texture" id=2]
@@ -20,7 +20,7 @@
 [ext_resource path="res://Assets/Character/Hair/Hairstyle_01_02.png" type="Texture" id=18]
 [ext_resource path="res://Assets/Character/Body/Body_01.png" type="Texture" id=19]
 [ext_resource path="res://Assets/Character/Outfit/BlackSuit.png" type="Texture" id=20]
-[ext_resource path="res://Assets/Character/Outfit/BlueApron.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Character/Hat/DinoHat.png" type="Texture" id=21]
 [ext_resource path="res://UI/Font/PixelFont.tres" type="DynamicFont" id=22]
 [ext_resource path="res://GUI.gd" type="Script" id=23]
 [ext_resource path="res://UI/Assets/GUI/MediumPressedButton.tres" type="Texture" id=24]
@@ -28,6 +28,7 @@
 [ext_resource path="res://Musi/sounds/mixkit-hotel-lobby-crowd-ambience-and-footsteps-365.ogg" type="AudioStream" id=26]
 [ext_resource path="res://Musi/music/Track 1 (Let's Go).wav" type="AudioStream" id=27]
 [ext_resource path="res://Level/level_1/intro_area.gd" type="Script" id=28]
+[ext_resource path="res://Assets/Character/Outfit/UndefinedOutfit.png" type="Texture" id=29]
 
 [sub_resource type="NavigationPolygon" id=151]
 vertices = PoolVector2Array( 446, 62, 442, 541, 356, 338, 355, 320, 355, 307, 356, 275, 356, 147, 356, 161, 356, 403, 356, 435, 355, 417, 369, 61, 355, 128, 212, 99, 212, 75, 244, 63, 355, 178, 356, 210, 355, 194, 357, 499, 356, 468, 356, 450, 356, 481, 355, 289, 356, 256, 356, 244, 19, 540, 59, 499, 356, 224, 60, 468, 60, 482, 20, 38, 58, 435, 145, 98, 187, 98, 61, 128, 112, 99, 60, 275, 60, 288, 57, 403, 58, 417, 186, 75, 144, 61, 155, 62, 91, 38, 155, 37, 74, 149, 62, 161, 62, 149, 61, 180, 62, 193, 61, 211, 58, 224, 60, 319, 60, 306, 244, 36, 368, 36, 112, 61, 60, 256, 58, 243, 53, 37, 54, 6, 90, 6, 60, 450, 356, 385, 356, 371, 59, 371, 58, 385, 356, 352, 60, 339, 60, 353 )
@@ -1922,11 +1923,14 @@ body = ExtResource( 19 )
 hair = ExtResource( 18 )
 conversation = "Dozent"
 
-[node name="NPC2" parent="YSort" instance=ExtResource( 16 )]
+[node name="T-Rex" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 380, 162 )
-outfit = ExtResource( 21 )
+outfit = ExtResource( 29 )
 body = ExtResource( 19 )
 hair = ExtResource( 18 )
+hat = ExtResource( 21 )
+conversation = "T-RexIntro"
+looking_dir = 2
 
 [node name="NPC3" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 121, 314 )
