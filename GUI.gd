@@ -36,6 +36,7 @@ func saveGame():
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	save_game.store_line(to_json(scenechanger.save()))
 	save_game.store_line(to_json(Attributes.save()))
 	save_game.store_line(to_json(saveQuests()))
 	for node in save_nodes:
@@ -53,7 +54,6 @@ func saveGame():
 	if get_node_or_null("CharacterSheet"):
 		get_node("CharacterSheet").checkInv()
 	save_game.store_line(to_json(get_node("../YSort/Charakter").inventory.saveInv()))
-	save_game.store_line(to_json(scenechanger.save()))
 	save_game.close()
 
 func loadGame():
@@ -76,13 +76,15 @@ func loadGame():
 				"quests":
 					loadQuests(node_data)
 				"inventory":
-					get_node("../YSort/Charakter").inventory.loadInv(node_data)
+					if get_node_or_null("../YSort/Charakter"):
+						get_node("../YSort/Charakter").inventory.loadInv(node_data)
 				"sceneChanger":
 					scenechanger.loadIt(node_data)
 				_:
 					var new_object = load(node_data["filename"]).instance()
 					new_object.add_to_group("Persist")
-					get_node(node_data["parent"]).add_child(new_object)
+					if get_node_or_null(node_data["parent"]):
+						get_node(node_data["parent"]).add_child(new_object)
 					new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
 					
 					for i in node_data.keys():
@@ -158,8 +160,10 @@ func _on_NewGame_pressed():
 	Attributes.reset()
 	resetQuests()
 	scenechanger.reset()
-	get_node("../YSort/Charakter").inventory.reset()
-	var _change_scene = get_tree().change_scene("res://Level/level_1/intro_area.tscn")
+	if get_node_or_null("../YSort/Charakter"):
+		get_node("../YSort/Charakter").inventory.reset()
+	scenechanger.goto_scene("res://Level/level_1/intro_area.tscn")
+	# var _change_scene = get_tree().change_scene("res://Level/level_1/intro_area.tscn")
 
 
 func _on_Save_pressed():
