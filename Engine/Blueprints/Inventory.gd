@@ -114,6 +114,10 @@ signal item_equipped
 signal open_popup
 
 func use_item_at(index):
+	for item in items:
+		if item != null:
+			print(item.name, item.amount)
+	
 	var item = items[index]
 	if item == null: return
 	

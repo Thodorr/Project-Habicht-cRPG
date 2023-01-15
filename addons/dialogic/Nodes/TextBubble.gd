@@ -132,8 +132,8 @@ func update_sizing():
 	chat_bubble.texture = load("res://UI/Assets/GUI/ChatBubble.png")
 	chat_bubble.expand = true
 	chat_bubble.rect_min_size.x = text_container.rect_size.x + 25
-	chat_bubble.rect_min_size.y = $TextContainer/RichTextLabel.get_font("PixelFontSmall").get_string_size($TextContainer/RichTextLabel.bbcode_text).x / 25 + 40
-	chat_bubble.rect_size.y = $TextContainer/RichTextLabel.get_font("PixelFontSmall").get_string_size($TextContainer/RichTextLabel.bbcode_text).x / 25 + 40
+	chat_bubble.rect_min_size.y = $TextContainer/RichTextLabel.get_font("PixelFontSmall").get_string_size($TextContainer/RichTextLabel.bbcode_text).x / 20 + 42
+	chat_bubble.rect_size.y = $TextContainer/RichTextLabel.get_font("PixelFontSmall").get_string_size($TextContainer/RichTextLabel.bbcode_text).x / 20 + 42
 	chat_bubble.rect_position = text_container.rect_position - Vector2(10, 25)
 
 

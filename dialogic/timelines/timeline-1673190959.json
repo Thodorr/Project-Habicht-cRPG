@@ -16,21 +16,21 @@
 			"question": "Liebe Grueße  Mami "
 		},
 		{
-			"choice": "Vielen Dank :-* Ich gebe mein bestes! ;-)",
+			"choice": "Vielen Dank, ich gebe mein bestes!",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
 			"value": ""
 		},
 		{
-			"choice": "Alles klar",
+			"choice": "Alles klar.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
 			"value": ""
 		},
 		{
-			"choice": "Ok....",
+			"choice": "Okay.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",

@@ -7,7 +7,7 @@
 
 			],
 			"portrait": "",
-			"question": "Soll es losgehen? "
+			"question": "Kann es losgehen? "
 		},
 		{
 			"choice": "Ja",
@@ -30,7 +30,13 @@
 			"character": "character-1673201999.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Ich begruesse euch zur Einführungsveranstallunng des Studiengangs Social Media Systems. \nMeine Name ist Dozent und möchte ihnen eine Einführung geben, auf die Dinge, welche für ihre nahe Zukunft wichtig sind. \nErstens:  Jeder ihrer Eigenschaften ist wichtig. Über die Zeit schaffen sie es, in den verschiedenen Bereichen aufzusteigen.\n........ Hier kommt mehr "
+			"text": "Ich begruesse euch zur Einführungsveranstallunng des Studiengangs Social Media Systems. \nMeine Name ist Dozent und möchte ihnen eine Einführung geben, auf die Dinge, welche fuer ihre nahe Zukunft wichtig sind. \nErstens:  Jede ihrer Eigenschaften ist wichtig. Ueber die Zeit schaffen sie es, in den verschiedenen Bereichen aufzusteigen.\nZu Anfang werden sie in einem Modul jeder Saeule unterrichtet.\nFuer IT ist es Webbasierte Programmierung in Raum A10.8.15,\n fuer Medien: Grundlagen und Anwendung Social Media in A20.0.07\n und fuer Management: BWL und Informationsysteme in A10.8.15. "
+		},
+		{
+			"character": "character-1673201999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Viel Erfolg in ihrem Studium!"
 		},
 		{
 			"choice": "Nein",

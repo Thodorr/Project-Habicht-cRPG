@@ -285,6 +285,10 @@ func get_probability(check: Check):
 func get_required_roll(check: Check):
 	return check.get_influenced_difficulty() - attributes[check.type]
 
+func get_attribute_for_dialog(attribute):
+	print(attributes[int(attribute)])
+	Dialogic.set_variable('AttributeValue', attributes[int(attribute)])
+
 signal attributes_changed
 func attribute_math():
 	var attributegroup_bonus = 0

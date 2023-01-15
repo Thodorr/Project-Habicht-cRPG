@@ -9,12 +9,38 @@
 				"character-1672225942.json",
 				"character-1673201999.json",
 				"character-1673376683.json",
-				"character-1673727717.json"
+				"character-1673727717.json",
+				"character-1673737444.json"
 			],
 			"folders": {
 				"Attributes": {
 					"files": [
-						"character-1673728147.json"
+						"character-1673728147.json",
+						"character-1673751244.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"ClutterNPCs": {
+					"files": [
+						"character-1673797925.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Objects": {
+					"files": [
+						"character-1673747980.json"
 					],
 					"folders": {
 
@@ -46,13 +72,15 @@
 			"files": [
 				"1672225795-648",
 				"1673504863-648",
-				"1673602740-186"
+				"1673602740-186",
+				"1673748972-381",
+				"1673750177-746"
 			],
 			"folders": {
 				"Check": {
 					"files": [
 						"1672759872-366",
-						"1673730543-146"
+						"1673748140-142"
 					],
 					"folders": {
 
@@ -64,7 +92,8 @@
 				},
 				"DialogChangers": {
 					"files": [
-						"1673729568-366"
+						"1673729568-366",
+						"1673798849-346"
 					],
 					"folders": {
 
@@ -76,14 +105,15 @@
 				},
 				"Nicknames": {
 					"files": [
-						"1673727809-787"
+						"1673727809-787",
+						"1673737406-948"
 					],
 					"folders": {
 
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				},
 				"Reputation": {
@@ -124,6 +154,53 @@
 				"timeline-1673190959.json"
 			],
 			"folders": {
+				"Caitllyn": {
+					"files": [
+						"timeline-1673737340.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"ClutterDialog": {
+					"files": [
+
+					],
+					"folders": {
+						"Intro": {
+							"files": [
+								"timeline-1673797903.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						}
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"RedHouse": {
+					"files": [
+						"timeline-1673747666.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
 				"T-Rex": {
 					"files": [
 						"timeline-1673727886.json"

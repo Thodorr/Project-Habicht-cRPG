@@ -120,10 +120,25 @@ func _on_interaction_init():
 func _on_Interactable_mouse_entered():
 	player.mouse_mode = player.Mouse.NPC
 
-
 func _on_Interactable_mouse_exited():
 	player.mouse_mode = player.Mouse.REGULAR
-	
+
+func give_item(itemFileName, type = 'Food', extraFolder = ''):
+	var item = load("res://Units/Items/" + type + "/" + extraFolder + "/" + itemFileName + ".tres")
+	inventory.add_item(item, 1)
+
+func finish_quest(questname):
+	questhandler.finish_quest(questname)
+
+func get_quest_progress(questname):
+	questhandler.get_progress_for_dialog(questname)
+
+func advance_quest(questname):
+	questhandler.advance_quest(questname)
+
+func is_quest_active(questname):
+	questhandler.is_quest_active(questname)
+
 func start_quest(questname, questtype):
 	questhandler.start_a_quest(questname, questtype)
 	

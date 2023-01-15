@@ -256,9 +256,6 @@ margin_left = 320.0
 margin_top = 360.0
 margin_right = 320.0
 margin_bottom = 360.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="TextBubble" parent="." instance=ExtResource( 1 )]
 margin_left = 440.0
