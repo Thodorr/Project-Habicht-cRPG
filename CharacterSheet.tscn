@@ -2183,7 +2183,6 @@ align = 1
 valign = 1
 
 [node name="ActiveQuests" type="ScrollContainer" parent="Screen/Layout/Quests"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 45.0
@@ -2291,6 +2290,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="QuestContent" type="VBoxContainer" parent="Screen/Layout/Quests"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -2318,7 +2318,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer"]
-margin_right = 252.0
+margin_right = 264.0
 margin_bottom = 667.0
 size_flags_horizontal = 3
 

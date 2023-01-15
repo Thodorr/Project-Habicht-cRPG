@@ -233,6 +233,8 @@ func loadScene(node_data):
 	if node_data["currentScene"] == get_tree().get_current_scene().name:
 		get_tree().get_current_scene().name = get_tree().get_current_scene().name + "Old"
 	var loaded_scene = ResourceLoader.load(level).instance()
+	if node_data["currentScene"] == "intro_area":
+		search_for_node(loaded_scene,"IntroContainer").loading = true
 	return loaded_scene
 
 func reset():
