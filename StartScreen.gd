@@ -13,3 +13,5 @@ func _ready():
 	var player = get_node("YSort/Charakter")
 	player.nav_agent.set_target_location(spawn)
 	player.set_position(spawn)
+	
+

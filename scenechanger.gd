@@ -46,6 +46,8 @@ func _deferred_goto_scene(path):
 		new_scene.remove_child(items_on_map)
 		var from_dictionary = scenes[new_scene.name]
 		new_scene.add_child(from_dictionary)
+	var fadein = ResourceLoader.load("res://Level/level_1/Fading.tscn").instance()
+	new_scene.add_child(fadein)
 	var root = get_tree().get_root()
 	var old_scene = get_tree().get_current_scene()
 	var old_parent = old_scene.get_parent()
