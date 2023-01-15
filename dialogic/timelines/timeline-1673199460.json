@@ -30,7 +30,7 @@
 			"character": "character-1673201999.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Ich begruesse euch zur Einführungsveranstallunng des Studiengangs Social Media Systems. \nMeine Name ist Dozent und möchte ihnen eine Einführung geben, auf die Dinge, welche für ihre nahe Zukunft wichtig sind. \nErstens:  Jeder ihrer Eigenschaften ist wichtig. Über die Zeit schaffen sie es, in den verschiedenen Bereichen aufzusteigen.\n........ Hier kommt mehr "
+			"text": "Ich begruesse euch zur Einführungsveranstallunng des Studiengangs Social Media Systems. \nMeine Name ist Dozent und möchte ihnen eine Einführung geben, auf die Dinge, welche für ihre nahe Zukunft wichtig sind. \nErstens:  Jeder ihrer Eigenschaften ist wichtig. Über die Zeit schaffen sie es, in den verschiedenen Bereichen aufzusteigen.\nDiese fähigkeiten können sie frei wählen und nach Interessen und stärken verbessern. \nWährend ihres Studiums werden sie verschiedene Charaktäre treffen, welche Aufgaben von ihnen Verlangen. Das können ihre Kommilitonen, Dozenten oder Mitarbeiter der Hochschule sein. \nWenn sie es für richtig halten, können die gestellten Aufgaben vorteile bringen, falls sie sich entscheiden diese zu übernehmen. "
 		},
 		{
 			"choice": "Nein",
