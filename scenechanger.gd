@@ -71,8 +71,10 @@ func loadGame():
 		var node_data = parse_json(save_game.get_line())
 		if node_data != null:
 			match node_data["filename"]:
-				"sceneChangerScene":
+				"dialogic":
+					loadDialogic(node_data)
 					print("step 0")
+				"sceneChangerScene":
 					loaded_scene = loadScene(node_data)
 					print("step 1")
 				"attributes":
@@ -118,6 +120,15 @@ func loadGame():
 	else:
 		print("Error no root or current Scene")
 	save_game.close()
+	Dialogic.load()
+	Dialogic.start('')
+
+func loadDialogic(node_data):
+	var glossary = node_data["glossary"]
+	var variables = node_data["variables"]
+	for variable in variables:
+		print(variable)
+		Dialogic.set_variable(variable.name, variable.value)
 
 func loadPickUps(loaded_scene, node_data):
 	var index = 0
