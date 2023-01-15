@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=2]
+[gd_scene load_steps=131 format=2]
 
 [ext_resource path="res://Assets/Map/Indoor/Interior/17_Visibile_Upstairs_System_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Map/Indoor/Interior/12_Kitchen_16x16.png" type="Texture" id=2]
@@ -19,6 +19,10 @@
 [ext_resource path="res://Assets/Effects/ripple_6.png" type="Texture" id=17]
 [ext_resource path="res://Assets/Effects/ripple_4.png" type="Texture" id=18]
 [ext_resource path="res://Musi/music/Track 4 (The Cafe).wav" type="AudioStream" id=19]
+[ext_resource path="res://Engine/Placeables/NPC.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Assets/Character/Outfit/RedShirt.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Character/Hair/LongHair.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Character/Body/Body_07.png" type="Texture" id=23]
 
 [sub_resource type="GDScript" id=156]
 script/source = "extends Node2D
@@ -3783,6 +3787,13 @@ frames = SubResource( 155 )
 animation = "ripple"
 frame = 5
 speed_scale = 5.0
+
+[node name="NPC" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 348, 282 )
+outfit = ExtResource( 21 )
+body = ExtResource( 23 )
+hair = ExtResource( 22 )
+conversation = "CaitlynStairs"
 
 [node name="Spawn" type="Position2D" parent="YSort"]
 position = Vector2( 344, 25 )
