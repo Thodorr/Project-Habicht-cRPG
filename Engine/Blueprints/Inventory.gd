@@ -17,6 +17,9 @@ var equipped_hand: Resource
 var equipped_trinket: Resource 
 var equipped_face: Resource
 
+func _ready():
+	make_items_unique()
+	
 func add_item(item: Resource, amount, readd = false):
 	var index_counter = 0
 	if !readd:
@@ -201,12 +204,7 @@ func loadInv(node_data):
 		if item != null:
 			if item.amount > 1:
 				amount = item.amount
-			print(item.name)
-			print(amount)
-			print(item.amount)
-			print("loadInvCheck")
 			remove_item(item,amount)
-			print(items)
 	var array = [
 		"res://Units/Items/Equipment/Face/",
 		"res://Units/Items/Equipment/Hat/",

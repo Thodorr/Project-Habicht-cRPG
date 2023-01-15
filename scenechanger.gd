@@ -224,34 +224,6 @@ func loadScene(node_data):
 	var loaded_scene = ResourceLoader.load(level).instance()
 	return loaded_scene
 
-
-#	get_tree().get_root().add_child(loaded_scene)
-#	#get_tree().set_current_scene(loaded_scene)
-#	var root = get_tree().get_root()
-#	current_scene = root.get_child(root.get_child_count() - 1)
-#	the_player()
-#	state_of_scene()
-#	var stop = current_scene.get_node_or_null("music")
-#	if stop != null:
-#		stop.stop()
-#	else:
-#		root.remove_child(get_tree().root.get_child(root.get_child_count() - 1))
-#	current_scene = get_tree().root.get_child(root.get_child_count() - 1)
-#	print(current_scene)
-#
-#	var new_scene = get_tree().get_root()
-#
-#	#current_scene = new_scene.get_child(new_scene.get_child_count()-1)
-#	var new_scene_y = current_scene.get_node("YSort")
-#	if new_scene_y.has_node("Charakter"):
-#		new_scene_y.remove_child(new_scene_y.get_node("Charakter"))
-#	new_scene_y.add_child(keep_player)
-#
-#	if keep_player:
-#		keep_player.set_camera()
-#	spwanswitcher(current_scene.name)
-#
-
 func reset():
 	for key in scenes.keys():
 		scenes.erase(key)

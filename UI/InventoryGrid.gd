@@ -7,7 +7,7 @@ func _ready():
 	render_slots()
 	inventory.connect("items_changed", self, "_on_items_changed")
 	inventory.connect("row_added", self, "render_slots")
-	inventory.make_items_unique()
+
 
 func update_inventory_display():
 	for item_index in inventory.items.size():
