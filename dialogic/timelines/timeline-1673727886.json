@@ -168,7 +168,7 @@
 			"text": "Sehr gut, wir verstehen uns."
 		},
 		{
-			"choice": "Wie wäre es mit Dumbatz, denn den Eindruck macht dein Hut.",
+			"choice": "Wie waere es mit Dumbatz, denn den Eindruck macht dein Hut.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -243,12 +243,18 @@
 		},
 		{
 			"character": "character-1673727717.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Dieser Hut ist ein seltenes Sammelerstueck. "
+		},
+		{
+			"character": "character-1673727717.json",
 			"event_id": "dialogic_010",
 			"options": [
 
 			],
 			"portrait": "",
-			"question": "Dieser Hut ist ein seltenes Sammelerstueck. Ich habe die letzten zwei Exemplare von einem Rübenfarmer in Nord-Estland gekauft."
+			"question": "Ich habe die letzten zwei Exemplare von einem Ruebenfarmer in Nord-Estland gekauft."
 		},
 		{
 			"choice": "Verstehe, aber ich hab noch eine andere Frage.",
@@ -258,7 +264,7 @@
 			"value": ""
 		},
 		{
-			"choice": "Vielleicht können wir zukuenftig einen Handel ausmachen.",
+			"choice": "Vielleicht koennen wir zukuenftig einen Handel ausmachen.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -268,7 +274,7 @@
 			"character": "character-1673727717.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Da musst du schon ordentlich was leisten, um dieses allegante Assessoir zu erhalten."
+			"text": "Da musst du schon ordentlich was leisten, um dieses ellegante Assessoir zu erhalten."
 		},
 		{
 			"choice": "Ist sowieso ein haesslicher Hut.",
@@ -276,6 +282,14 @@
 			"definition": "",
 			"event_id": "dialogic_011",
 			"value": ""
+		},
+		{
+			"definition": "1673730594-918",
+			"event_id": "dialogic_014",
+			"operation": "-",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
 		},
 		{
 			"character": "character-1673727717.json",

@@ -19,8 +19,8 @@
 [ext_resource path="res://PickUpInfoContainer.gd" type="Script" id=17]
 
 [sub_resource type="CapsuleShape2D" id=26]
-radius = 6.0
-height = 8.0
+radius = 5.0
+height = 0.0
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -1976,35 +1976,35 @@ position = Vector2( 0, -15 )
 
 [node name="Body" type="Sprite" parent="SpriteBundle"]
 texture = ExtResource( 3 )
+flip_h = true
 hframes = 58
 vframes = 20
-frame = 122
 region_rect = Rect2( 0, 10, 16, 22 )
 
 [node name="Outfit" type="Sprite" parent="SpriteBundle"]
+flip_h = true
 hframes = 58
 vframes = 20
-frame = 122
 
 [node name="Hair" type="Sprite" parent="SpriteBundle"]
 texture = ExtResource( 4 )
+flip_h = true
 hframes = 58
 vframes = 20
-frame = 122
 
 [node name="Hat" type="Sprite" parent="SpriteBundle"]
 offset = Vector2( -0.3, 0 )
+flip_h = true
 hframes = 58
 vframes = 20
-frame = 122
 
 [node name="Face" type="Sprite" parent="SpriteBundle"]
+flip_h = true
 hframes = 58
 vframes = 20
-frame = 122
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -9 )
+position = Vector2( 0, -5 )
 shape = SubResource( 26 )
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

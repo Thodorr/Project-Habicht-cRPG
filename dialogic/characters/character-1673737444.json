@@ -1,0 +1,21 @@
+{
+	"color": "#ffa43a3a",
+	"description": "",
+	"display_name": "[Caitlyn]",
+	"display_name_bool": true,
+	"id": "character-1673737444.json",
+	"mirror_portraits": false,
+	"name": "Caitlyn",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

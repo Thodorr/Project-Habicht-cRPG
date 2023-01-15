@@ -24,7 +24,7 @@ func _end_intro(context):
 
 func que_end():
 	get_child(0).play("hide_black_screen")
-	var npc_1 = get_node("../../YSort/NPC2")
+	var npc_1 = get_node("../../YSort/T-Rex")
 	#npc_pos1.set_position(Vector2(273, 217))
 	var npc_1_position = npc_1.get_position()
 	

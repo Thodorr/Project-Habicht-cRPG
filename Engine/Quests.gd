@@ -33,7 +33,7 @@ export (int) var reward_amount = 1
 # how much experiance the player gains from the task or quest
 export (int) var amound_exp = 0
 
-var step = 0
+var step = 1
 var quest_item_step = 0
 var reward_item_step = 0
 
@@ -52,6 +52,10 @@ func start_quest():
 			state = Queststate.DONE 
 		else:
 			end_quest()
+
+func finish_quest():
+	state = Queststate.DONE
+	Attributes.add_to_experience(amound_exp)
 
 func end_quest():
 	if state == Queststate.STARTED:

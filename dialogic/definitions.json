@@ -1,13 +1,6 @@
 {
 	"glossary": [
-		{
-			"extra": "",
-			"id": "1673730543-146",
-			"name": "New glossary entry",
-			"text": "",
-			"title": "",
-			"type": 1
-		}
+
 	],
 	"variables": [
 		{
@@ -41,14 +34,44 @@
 			"value": "Dinohut Traeger"
 		},
 		{
-			"id": "1673729568-366",
-			"name": "T-RexChanger",
+			"id": "1673730594-918",
+			"name": "T-RexRep",
 			"type": 0,
 			"value": "0"
 		},
 		{
-			"id": "1673730594-918",
-			"name": "T-RexRep",
+			"id": "1673737406-948",
+			"name": "Caitlyn",
+			"type": 0,
+			"value": "Unbekannte"
+		},
+		{
+			"id": "1673748140-142",
+			"name": "AttributeValue",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1673748972-381",
+			"name": "QuestStep",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1673750177-746",
+			"name": "questIsActive",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1673798849-346",
+			"name": "ChillGuyChanger",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1673729568-366",
+			"name": "T-RexChanger",
 			"type": 0,
 			"value": "0"
 		}

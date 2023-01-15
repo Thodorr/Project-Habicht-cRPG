@@ -236,7 +236,10 @@ func LoadQuestInfo(QuestName):
 			if !dir.current_is_dir():
 				var quest = load("res://Units/Quests/"+ file_name)
 				if quest.questname == QuestName:
-					get_node("Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer/VBoxContainer/QuestInfo").text = quest.description
+					var questDescriptionLabel = get_node("Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer/VBoxContainer/QuestInfo")
+					questDescriptionLabel.text = ''
+					for i in quest.step:
+						questDescriptionLabel.text += quest.description[i] + '\n\n'
 			file_name = dir.get_next()
 	get_node("Screen/Layout/Quests/DoneQuests").hide()
 	get_node("Screen/Layout/Quests/ActiveQuests").hide()
