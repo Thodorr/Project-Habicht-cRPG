@@ -62,6 +62,8 @@ func remove_item(item: Resource, amount):
 	if item_found:
 		if item.amount > 1:
 			item.amount -= amount
+		elif item.amount == amount:
+			items[target_item_index] = null
 		else:
 			items[target_item_index] = null
 		emit_signal("items_changed", [target_item_index])
@@ -194,13 +196,17 @@ func loadInv(node_data):
 	equipped_hand = null
 	equipped_trinket = null 
 	equipped_face = null
-	print(items[0].amount)
 	for item in items:
 		var amount = 1
 		if item != null:
 			if item.amount > 1:
 				amount = item.amount
+			print(item.name)
+			print(amount)
+			print(item.amount)
+			print("loadInvCheck")
 			remove_item(item,amount)
+			print(items)
 	var array = [
 		"res://Units/Items/Equipment/Face/",
 		"res://Units/Items/Equipment/Hat/",
@@ -237,7 +243,7 @@ func loadInv(node_data):
 						equipped_trinket = item
 						emit_signal("item_equipped", item)
 				file_name = dir.get_next()
-	print(items[0].amount)
+
 
 
 func reset():

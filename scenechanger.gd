@@ -36,7 +36,6 @@ func _deferred_goto_scene(path):
 	
 	var new_scene = ResourceLoader.load(path).instance()
 	var new_scene_y = search_for_node(new_scene, "YSort")
-	print(new_scene_y)
 	if keep_player:
 		new_scene_y.add_child(keep_player)
 	spawnswitcher(new_scene.name)
@@ -55,6 +54,7 @@ func _deferred_goto_scene(path):
 		old_parent.add_child(new_scene)
 		get_tree().set_current_scene(new_scene)
 		old_scene.queue_free()
+		new_scene_y.get_node("Charakter").set_camera()
 	else:
 		print("Error no root or current Scene")
 
@@ -121,14 +121,13 @@ func loadGame():
 
 func loadPickUps(loaded_scene, node_data):
 	var index = 0
-	var current_node
+	var current_node = search_for_node(loaded_scene, "PickUps")
+	if search_for_node(loaded_scene, "PickUps"):
+		var node = search_for_node(loaded_scene, "PickUps")
+		node.name = node.name + str(index)
+		node.get_parent().remove_child(node)
+		index = index + 1  
 	for key in node_data["keys"]:
-		if search_for_node(loaded_scene, "PickUps"):
-			var node = search_for_node(loaded_scene, "PickUps")
-			node.name = node.name + str(index)
-			if loaded_scene.name != key:
-				node.queue_free()
-			index = index + 1  
 		var packed_scene = ResourceLoader.load("res://Saves/" + key + ".scn")
 		var new_node = packed_scene.instance()
 		loaded_scene.add_child(new_node)
@@ -139,12 +138,12 @@ func loadPickUps(loaded_scene, node_data):
 		var node = search_for_node(loaded_scene, "PickUps") 
 		node.name = node.name + str(index)
 		if loaded_scene.name != node.get_parent().name:
-			node.queue_free()
+			node.get_parent().remove_child(node)
 		index = index + 1  
-	current_node.name = "PickUps"
-	current_node.get_parent().remove_child(current_node)
-	loaded_scene.add_child(current_node)
-	print(loaded_scene.get_children())
+	if current_node:
+		current_node.name = "PickUps"
+		current_node.get_parent().remove_child(current_node)
+		loaded_scene.add_child(current_node)
 	return loaded_scene
 	
 
@@ -254,7 +253,12 @@ func loadScene(node_data):
 #
 
 func reset():
-	scenes = {} 
+	for key in scenes.keys():
+		scenes.erase(key)
+
+func _reset():
+	call_deferred("reset")
+
 
 func fetchNode(path):
 	return get_node_or_null(path)
