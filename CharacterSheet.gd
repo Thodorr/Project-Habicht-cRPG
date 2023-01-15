@@ -22,7 +22,6 @@ var luck_add = 0
 
 
 func _ready():
-	var _item_equipped_connect = inventory.connect("item_equipped", self,"_on_item_equipped")
 	LoadStats()
 	LoadSkills()
 	LoadActiveOrDoneQuests(1)

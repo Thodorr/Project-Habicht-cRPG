@@ -17,6 +17,9 @@ var equipped_hand: Resource
 var equipped_trinket: Resource 
 var equipped_face: Resource
 
+func _ready():
+	make_items_unique()
+	
 func add_item(item: Resource, amount, readd = false):
 	var index_counter = 0
 	if !readd:
@@ -62,6 +65,8 @@ func remove_item(item: Resource, amount):
 	if item_found:
 		if item.amount > 1:
 			item.amount -= amount
+		elif item.amount == amount:
+			items[target_item_index] = null
 		else:
 			items[target_item_index] = null
 		emit_signal("items_changed", [target_item_index])
@@ -236,6 +241,7 @@ func loadInv(node_data):
 						equipped_trinket = item
 						emit_signal("item_equipped", item)
 				file_name = dir.get_next()
+
 
 
 func reset():
