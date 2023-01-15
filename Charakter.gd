@@ -59,9 +59,15 @@ var skill_5C = false
 var unlockable_skills = []
 var semester = 4
 
+var invCheck = false
+var invContent
+
 export var state = State.IDLE
 
 func _ready():
+	if invCheck:
+		inventory.loadInv(invContent)
+		invCheck = false
 	var _velocity_computed_connect = nav_agent.connect("velocity_computed", self, "_on_velocity_computed")
 	var _item_equipped_connect = inventory.connect("item_equipped", self,"_on_item_equipped")
 	animation_state.start("Idle")
@@ -77,7 +83,7 @@ func _ready():
 func save():
 	var save_dict = {
 		"filename" : get_filename(),
-		"parent" : get_parent().get_path(),
+		"parent" : get_parent().name,
 		"pos_x" : position.x,
 		"pos_y" : position.y,
 		"semester" : semester,

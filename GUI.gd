@@ -36,7 +36,7 @@ func saveGame():
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
-	save_game.store_line(to_json(scenechanger.save()))
+	save_game.store_line(to_json(scenechanger.saveScene()))
 	save_game.store_line(to_json(Attributes.save()))
 	save_game.store_line(to_json(saveQuests()))
 	for node in save_nodes:
@@ -54,44 +54,14 @@ func saveGame():
 	if get_node_or_null("CharacterSheet"):
 		get_node("CharacterSheet").checkInv()
 	save_game.store_line(to_json(get_node("../YSort/Charakter").inventory.saveInv()))
+	save_game.store_line(to_json(scenechanger.savePickUps()))
 	save_game.close()
 
-func loadGame():
-	var save_game = File.new()
-	if not save_game.file_exists("user://savegame.save"):
-		print("Error, we dont have a saved Game.")
-		return 
-	
-	var save_nodes = get_tree().get_nodes_in_group("Persist")
-	for i in save_nodes:
-		i.get_parent().remove_child(i)
-	
-	save_game.open("user://savegame.save", File.READ)
-	while save_game.get_position() < save_game.get_len():
-		var node_data = parse_json(save_game.get_line())
-		if node_data != null:
-			match node_data["filename"]:
-				"attributes":
-					Attributes.load(node_data)
-				"quests":
-					loadQuests(node_data)
-				"inventory":
-					if get_node_or_null("../YSort/Charakter"):
-						get_node("../YSort/Charakter").inventory.loadInv(node_data)
-				"sceneChanger":
-					scenechanger.loadIt(node_data)
-				_:
-					var new_object = load(node_data["filename"]).instance()
-					new_object.add_to_group("Persist")
-					if get_node_or_null(node_data["parent"]):
-						get_node(node_data["parent"]).add_child(new_object)
-					new_object.position = Vector2(node_data["pos_x"], node_data["pos_y"])
-					
-					for i in node_data.keys():
-						if i == "filename" or i == "parent" or i == "pos_x" or i == "pos_y":
-							continue
-						new_object.set(i,node_data[i])
-	save_game.close()
+func search_for_parent_node(instanced_scene, parent_node_name):
+	for node in instanced_scene.get_children():
+		if node.get_parent().get_name() == parent_node_name:
+			return node
+	return null
 
 func saveQuests():
 	var save_dict = {
@@ -112,18 +82,6 @@ func saveQuests():
 				save_dict.merge(quest_dict, false)
 			file_name = dir.get_next()
 	return save_dict
-
-func loadQuests(node_data):
-	var dir = Directory.new()
-	if dir.open("res://Units/Quests/") == OK:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if !dir.current_is_dir():
-				var quest = load("res://Units/Quests/"+ file_name)
-				quest.state = node_data[quest.questname][0]
-				quest.step = node_data[quest.questname][1]
-			file_name = dir.get_next()
 
 func resetQuests():
 	var dir = Directory.new()
@@ -171,4 +129,5 @@ func _on_Save_pressed():
 
 
 func _on_Load_pressed():
-	loadGame()
+	get_tree().paused = false
+	scenechanger.loadGame()
