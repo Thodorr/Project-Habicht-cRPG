@@ -114,7 +114,7 @@ func _physics_process(_delta):
 	animation_player()
 
 func _on_interaction_init():
-	if get_tree().get_current_scene().get_node("GUI/CharacterSheet"):
+	if get_tree().get_current_scene().get_node_or_null("GUI/CharacterSheet"):
 		var characterSheet = get_tree().get_current_scene().get_node("GUI/CharacterSheet")
 		characterSheet.checkInv()
 		characterSheet.queue_free()
