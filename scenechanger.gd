@@ -13,8 +13,7 @@ var scenes = {}
 
 
 func _ready():
-	var root = get_tree().get_root()
-	current_scene = root.get_child(root.get_child_count() - 1)
+	current_scene = get_tree().get_current_scene()
 
 
 func goto_scene(path):
@@ -24,7 +23,7 @@ func goto_scene(path):
 	if characterSheet:
 		characterSheet.checkInv()
 	var root = get_tree().get_root()
-	current_scene = root.get_child(root.get_child_count() - 1)
+	current_scene = get_tree().get_current_scene()
 	the_player()
 	state_of_scene()
 	var stop = current_scene.get_node_or_null("music")
@@ -40,7 +39,7 @@ func _deferred_goto_scene(path):
 	print(new_scene_y)
 	if keep_player:
 		new_scene_y.add_child(keep_player)
-	spwanswitcher(new_scene.name)
+	spawnswitcher(new_scene.name)
 	
 	if scenes.has(new_scene.name) == true:
 		var items_on_map = search_for_node(new_scene, "PickUps") 
@@ -55,7 +54,7 @@ func _deferred_goto_scene(path):
 		old_parent.remove_child(old_scene)
 		old_parent.add_child(new_scene)
 		get_tree().set_current_scene(new_scene)
-		current_scene.queue_free()
+		old_scene.queue_free()
 	else:
 		print("Error no root or current Scene")
 
@@ -175,7 +174,7 @@ func loadQuests(node_data):
 
 
 func the_player():
-	player = current_scene.get_node("YSort/Charakter")
+	player = get_tree().get_current_scene().get_node("YSort/Charakter")
 	keep_player = player
 	keep_player.get_parent().remove_child(keep_player)
 
@@ -260,7 +259,7 @@ func reset():
 func fetchNode(path):
 	return get_node_or_null(path)
 
-func spwanswitcher(name):
+func spawnswitcher(name):
 	match name:
 		"campus": 
 			the_right_spawn = 1

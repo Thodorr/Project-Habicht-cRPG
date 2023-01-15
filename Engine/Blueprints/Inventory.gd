@@ -194,6 +194,7 @@ func loadInv(node_data):
 	equipped_hand = null
 	equipped_trinket = null 
 	equipped_face = null
+	print(items[0].amount)
 	for item in items:
 		var amount = 1
 		if item != null:
@@ -236,6 +237,7 @@ func loadInv(node_data):
 						equipped_trinket = item
 						emit_signal("item_equipped", item)
 				file_name = dir.get_next()
+	print(items[0].amount)
 
 
 func reset():
