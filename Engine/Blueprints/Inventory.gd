@@ -228,7 +228,7 @@ func loadInv(node_data):
 				if !dir.current_is_dir():
 					var item = load(array[i]+ file_name)
 					if item.name in node_data.keys():
-						add_item(item, node_data[item.name])
+						add_item(item, node_data[item.name], true)
 					if item.name == node_data["equipped_face"]:
 						equipped_face = item
 						emit_signal("item_equipped", item)

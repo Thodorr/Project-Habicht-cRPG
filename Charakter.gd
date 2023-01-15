@@ -62,6 +62,7 @@ var semester = 4
 var invCheck = false
 var invContent
 
+
 export var state = State.IDLE
 
 func _ready():
