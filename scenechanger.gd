@@ -15,7 +15,6 @@ var scenes = {}
 func _ready():
 	current_scene = get_tree().get_current_scene()
 
-
 func goto_scene(path):
 	var characterSheet = null
 	if  get_parent().get_child(get_parent().get_child_count()-1).get_node_or_null("GUI/CharacterSheet"):
@@ -30,7 +29,6 @@ func goto_scene(path):
 	if stop != null:
 		stop.stop()
 	call_deferred("_deferred_goto_scene", path)
-
 
 func _deferred_goto_scene(path):
 	
@@ -59,8 +57,6 @@ func _deferred_goto_scene(path):
 		new_scene_y.get_node("Charakter").set_camera()
 	else:
 		print("Error no root or current Scene")
-
-
 
 func loadGame():
 	var save_game = File.new()
@@ -128,6 +124,68 @@ func loadGame():
 	Dialogic.load()
 	Dialogic.start('')
 
+func saveGame():
+	Dialogic.save()
+	var save_game = File.new()
+	save_game.open("user://savegame.save", File.WRITE)
+	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	var diaSave = Dialogic._get_definitions()
+	var fileDic = {
+		"filename" : "dialogic"
+	}
+	diaSave.merge(fileDic)
+	save_game.store_line(to_json(diaSave))
+	save_game.store_line(to_json(scenechanger.saveScene()))
+	save_game.store_line(to_json(Attributes.save()))
+	save_game.store_line(to_json(saveQuests()))
+	save_game.store_line(to_json(CheckHandler.save()))
+	for node in save_nodes:
+		if node.filename.empty():
+			print("persisten node is not an instanced scene, skipped " + node.name)
+			continue
+		
+		if !node.has_method("save"):
+			print("persistent node is missing a save() function, skipped " + node.name)
+			continue
+		
+		var node_data = node.call("save")
+		
+		save_game.store_line(to_json(node_data))
+	if get_tree().get_current_scene().get_node_or_null("GUI/CharacterSheet"):
+		get_tree().get_current_scene().get_node_or_null("GUI/CharacterSheet").checkInv()
+	save_game.store_line(to_json(get_tree().get_current_scene().get_node("YSort/Charakter").inventory.saveInv()))
+	save_game.store_line(to_json(scenechanger.savePickUps()))
+	save_game.close()
+
+func saveQuests():
+	var save_dict = {
+		"filename" : "quests",
+	}
+	var questhandler = load("res://Questhandler.tres")
+	for quest in questhandler.quests:
+		if quest != null:
+			var array = [quest.state, quest.step, quest.quest_item_step, quest.reward_item_step]
+			var quest_dict = {
+				get_ressource_name(quest) : array
+			}
+			save_dict.merge(quest_dict, false)
+	return save_dict
+
+func get_ressource_name(resource: Resource):
+	return resource.resource_path.get_file().trim_suffix('.tres')
+
+func resetQuests():
+	var dir = Directory.new()
+	if dir.open("res://Units/Quests/") == OK:
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while file_name != "":
+			if !dir.current_is_dir():
+				var quest = load("res://Units/Quests/"+ file_name)
+				quest.state = 0
+				quest.step = 0
+			file_name = dir.get_next()
+
 func loadDialogic(node_data):
 	var glossary = node_data["glossary"]
 	var variables = node_data["variables"]
@@ -159,7 +217,6 @@ func loadPickUps(loaded_scene, node_data):
 		current_node.get_parent().remove_child(current_node)
 		loaded_scene.add_child(current_node)
 	return loaded_scene
-	
 
 func search_for_node(instanced_scene, parent_node_name):
 	var parent_node = null
@@ -177,7 +234,10 @@ func loadQuests(node_data):
 	var questhandler = load("res://Questhandler.tres")
 	var loadedQuests = []
 	for questname in node_data.keys():
+		if questname == "filename":
+			continue
 		var questarray = node_data[questname]
+		print(questname)
 		var quest = load("res://Units/Quests/" +questname + ".tres")
 		quest.state = questarray[0]
 		quest.step = questarray[1]
@@ -185,7 +245,6 @@ func loadQuests(node_data):
 		quest.reward_item_step = questarray[3]
 		loadedQuests.append(quest)
 	questhandler.quests = loadedQuests
-
 
 func the_player():
 	player = get_tree().get_current_scene().get_node("YSort/Charakter")
@@ -259,7 +318,6 @@ func reset():
 
 func _reset():
 	call_deferred("reset")
-
 
 func fetchNode(path):
 	return get_node_or_null(path)

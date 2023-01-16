@@ -41,12 +41,14 @@ func save():
 func loadChecks(node_data):
 	var loadedChecks = []
 	for checkname in node_data.keys():
+		if checkname == "filename":
+			continue
 		var check = load("res://Units/Checks/" + checkname + ".tres")
 		var checkarray = node_data[checkname]
 		check.type = checkarray[0]
 		check.difficulty = checkarray[1]
-		check.influence = checkarray[2]
 		check.repeatable = checkarray[3]
 		check.state = checkarray[4]
+		check.influences = checkarray[2]
 		loadedChecks.append(check)
 	checks = loadedChecks
