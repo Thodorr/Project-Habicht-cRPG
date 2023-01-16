@@ -114,21 +114,16 @@ margin_bottom = 1.5
 rect_scale = Vector2( 1.2, 1.2 )
 texture = ExtResource( 5 )
 
-[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="OtherFilterButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 margin_left = 132.0
 margin_right = 152.0
-margin_bottom = 20.0
-custom_constants/separation = 3
-
-[node name="OtherFilterButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
-margin_right = 20.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
 texture_normal = ExtResource( 7 )
 texture_pressed = ExtResource( 8 )
 expand = true
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer/OtherFilterButton"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/OtherFilterButton"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -195,5 +190,5 @@ size_flags_vertical = 3
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/FoodFilterButton" to="." method="_on_FilterButton_released" binds= [ "Food" ]]
 [connection signal="button_down" from="VBoxContainer/HBoxContainer/TemporaryFilterButton" to="." method="_on_FilterButton_pressed" binds= [ "Temporary" ]]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/TemporaryFilterButton" to="." method="_on_FilterButton_released" binds= [ "Temporary" ]]
-[connection signal="button_down" from="VBoxContainer/HBoxContainer/HBoxContainer/OtherFilterButton" to="." method="_on_FilterButton_pressed" binds= [ "Other" ]]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/HBoxContainer/OtherFilterButton" to="." method="_on_FilterButton_released" binds= [ "Other" ]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/OtherFilterButton" to="." method="_on_FilterButton_pressed" binds= [ "Other" ]]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/OtherFilterButton" to="." method="_on_FilterButton_released" binds= [ "Other" ]]
