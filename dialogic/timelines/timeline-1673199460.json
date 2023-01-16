@@ -189,6 +189,12 @@
 			"name": "Main"
 		},
 		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "Ready"
+		},
+		{
 			"character": "character-1673201999.json",
 			"event_id": "dialogic_010",
 			"options": [
@@ -203,12 +209,6 @@
 			"definition": "1673832883-978",
 			"event_id": "dialogic_011",
 			"value": "3"
-		},
-		{
-			"event_id": "dialogic_015",
-			"id": "anchor-1634488067",
-			"index": 0,
-			"name": "Ready"
 		},
 		{
 			"character": "character-1673201999.json",
