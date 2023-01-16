@@ -12,3 +12,4 @@ quest_item = [  ]
 quest_reward = [ ExtResource( 2 ) ]
 reward_amount = 1
 amound_exp = 40
+amount_money = 0

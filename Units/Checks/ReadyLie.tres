@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 name = "ReadyLie"
 type = 4
-difficulty = 11
+difficulty = 25
 influences = {
 }
 repeatable = false
