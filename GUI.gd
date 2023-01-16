@@ -74,3 +74,7 @@ func _on_Load_pressed():
 	get_tree().paused = false
 	get_node('../YSort/Charakter/UiLayer').visible = true
 	scenechanger.loadGame()
+
+
+func _on_Credits_pressed():
+	get_tree().change_scene("res://GodotCredits.tscn")
