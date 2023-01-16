@@ -61,7 +61,7 @@ func finish_quest():
 			inventory.remove_item(quest_item[0], 1)
 			state = Queststate.DONE
 			Attributes.add_to_experience(amound_exp)
-			inventory.currency += amount_money
+			inventory.add_currency(amount_money)
 		else:
 			print('The required item is missing')
 

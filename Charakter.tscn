@@ -2055,6 +2055,7 @@ drag_margin_v_enabled = true
 smoothing_speed = 4.0
 
 [node name="UiLayer" type="CanvasLayer" parent="."]
+layer = 2
 
 [node name="InventoryScene" parent="UiLayer" instance=ExtResource( 5 )]
 visible = false
