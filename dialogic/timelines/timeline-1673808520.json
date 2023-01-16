@@ -1,0 +1,41 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Can I help you? "
+		},
+		{
+			"choice": "Yes, I'm looking for Michaela",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673808474.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh no, sorry my name is Xylophonia!\nMy you can comback later, I have a question for you!"
+		},
+		{
+			"choice": "",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673808520.json",
+		"name": "fake_xylophonia"
+	}
+}

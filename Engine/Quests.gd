@@ -56,6 +56,8 @@ func start_quest():
 func finish_quest():
 	state = Queststate.DONE
 	Attributes.add_to_experience(amound_exp)
+	get_item_reward()
+	
 
 func end_quest():
 	if state == Queststate.STARTED:
@@ -64,19 +66,17 @@ func end_quest():
 			add_exp()
 			state = Queststate.DONE
 		else:
-			print ("Something went very wrong!")
-	else:
-		if quest_item.size() == 0:
-			print("No quest item required!")
-		else:
-			if quest_reward.size() == 0:
-				print("no item as reward")
-				add_exp()
-				state = Queststate.DONE
+			if quest_item.size() == 0:
+				print("No quest item required!")
 			else:
-				state = Queststate.DONE
-				get_item_reward()
-				add_exp()
+				if quest_reward.size() == 0:
+					print("no item as reward")
+					add_exp()
+					state = Queststate.DONE
+				else:
+					state = Queststate.DONE
+					get_item_reward()
+					add_exp()
 
 
 func start_quest_later():
@@ -88,11 +88,6 @@ func add_exp():
 func steps(): 
 	if description.size() > 0:
 		state = Queststate.STARTED
-		if step < description.size():
-			if step > 0:
-				get_item_reward()
-		else:
-			get_item_reward()
 
 func get_step():
 	if step < description.size():

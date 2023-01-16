@@ -1,0 +1,184 @@
+{
+	"events": [
+		{
+			"condition": "==",
+			"definition": "1673805085-648",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1673802657.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hi, my name is Mario. \nDo you know, how important nutrition is? \nIn my spare time, I'm running in the track and field team. \nTo stay in shape, I have to look at all my food. \nBut there is a big difference, if you work out, make competitive sport. \nWhat I was going to say, that sometimes I need something else ...\n\nMy bloodshugar is at an alarming low. \n"
+		},
+		{
+			"character": "character-1673802657.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Would you be so kind and bring me a Donut? "
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673802657.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh very nice! \nWhen you come back with the donut, I tell you all about, how to stay healthy for your brain!"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"marios_quest",
+					"bring"
+				],
+				"method_name": "start_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"quest_mario_end"
+				],
+				"method_name": "change_dialog",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"definition": "1673805085-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673802657.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "That's really sad ...\nIf you change your mind come back later. "
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "part2"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"marios_quest"
+				],
+				"method_name": "check_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"character": "character-1673802657.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Welcom back! \nHow did the search go?"
+		},
+		{
+			"choice": "Well",
+			"condition": "",
+			"definition": "1673602740-186",
+			"event_id": "dialogic_011",
+			"value": "true"
+		},
+		{
+			"character": "character-1673802657.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Nice, i really want this Donut"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"marios_quest",
+					"bring"
+				],
+				"method_name": "start_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"character": "character-1673802657.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I promised I tell you everything I know about food, which benifits the brain when learning. \nOur brain needs 120 to 140 grams of glucose per day to be supplied with sufficient energy. If it receives too little, it goes into overdrive and loses performance. \nIn order to be able to think better again quickly, many people turn to glucose at such times. \nBut this is only an emergency solution, because a stable carbohydrate level is more important for brain function, while a fluctuating energy supply tends to restrict the function of the gray cells."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"END"
+				],
+				"method_name": "change_dialog",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "Bad",
+			"condition": "",
+			"definition": "1673602740-186",
+			"event_id": "dialogic_011",
+			"value": "false"
+		},
+		{
+			"character": "character-1673802657.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Come back with the Donut!"
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673802593.json",
+		"name": "quest_mario_start"
+	}
+}
