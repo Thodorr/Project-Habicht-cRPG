@@ -33,9 +33,16 @@ func _ready():
 #func _process(delta):
 #	pass
 func saveGame():
+	Dialogic.save()
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	var diaSave = Dialogic._get_definitions()
+	var fileDic = {
+		"filename" : "dialogic"
+	}
+	diaSave.merge(fileDic)
+	save_game.store_line(to_json(diaSave))
 	save_game.store_line(to_json(scenechanger.saveScene()))
 	save_game.store_line(to_json(Attributes.save()))
 	save_game.store_line(to_json(saveQuests()))

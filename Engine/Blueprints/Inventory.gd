@@ -231,7 +231,7 @@ func loadInv(node_data):
 				if !dir.current_is_dir():
 					var item = load(array[i]+ file_name)
 					if item.name in node_data.keys():
-						add_item(item, node_data[item.name])
+						add_item(item, node_data[item.name], true)
 					if item.name == node_data["equipped_face"]:
 						equipped_face = item
 						emit_signal("item_equipped", item)
@@ -249,7 +249,17 @@ func loadInv(node_data):
 						emit_signal("item_equipped", item)
 				file_name = dir.get_next()
 
-
+func checkEquip():
+	if equipped_hat:
+		emit_signal("item_equipped", equipped_hat) 
+	if equipped_clothing:
+		emit_signal("item_equipped", equipped_clothing)
+	if equipped_hand:
+		emit_signal("item_equipped", equipped_hand)
+	if equipped_trinket:
+		emit_signal("item_equipped", equipped_trinket) 
+	if equipped_face:
+		emit_signal("item_equipped", equipped_face)
 
 func reset():
 	for item in items:

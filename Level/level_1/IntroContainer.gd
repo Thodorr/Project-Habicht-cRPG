@@ -3,8 +3,14 @@ extends Control
 onready var noise = get_node("../../noise")
 onready var music = get_node("../../music")
 
+var loading = false
+
 func _ready():
-	que_intro()
+	if !loading:
+		que_intro()
+	else: 
+		get_child(0).play("hide_black_screen")
+		loading = false
 
 func que_intro():
 	var dialog = Dialogic.start("Intro")

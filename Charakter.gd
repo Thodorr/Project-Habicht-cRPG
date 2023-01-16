@@ -62,6 +62,7 @@ var semester = 4
 var invCheck = false
 var invContent
 
+
 export var state = State.IDLE
 
 func _ready():
@@ -79,6 +80,7 @@ func _ready():
 	unlockable_skills.append("3A")
 	unlockable_skills.append("4A")
 	set_camera()
+	inventory.checkEquip()
 
 func save():
 	var save_dict = {
