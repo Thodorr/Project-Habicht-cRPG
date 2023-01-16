@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Engine/Quests.gd" type="Script" id=1]
+[ext_resource path="res://Units/Items/TempItems/Coffee.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+questname = "Coffee for the weak"
+item_needed = true
+description = [ "This sleepy guy wants me to bring him a coffee. No idea where I could get one around here tho.", "I gave him a coffee and he rewarded my with 5 bucks." ]
+quest_item = [ ExtResource( 2 ) ]
+quest_reward = [  ]
+reward_amount = 1
+amound_exp = 10
+amount_money = 5

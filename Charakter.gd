@@ -117,12 +117,21 @@ func animation_player():
 		animation_state.travel("Idle")
 		_stop_footsteps()
 
+var target_looking_dir = null
+func move_to(target, looking_dir):
+	may_navigate = true
+	nav_agent.set_target_location(target)
+	target_looking_dir = looking_dir
+
 func turn(turn_direction):
 	animation_tree.set("parameters/Idle/blend_position", turn_direction)
 	animation_tree.set("parameters/PickUp/blend_position", turn_direction)
 
 func _on_navigation_finished():
 	state = State.IDLE
+	if target_looking_dir != null:
+		turn(Vector2(0, -1))
+		target_looking_dir = null
 
 func _on_NavigationAgent2D_target_reached():
 	build_up = 1

@@ -8,6 +8,7 @@ signal item_added(item, amount)
 signal row_added()
 
 export(Array, Resource) var items = []
+export var currency = 0
 
 var hidden_items = []
 
@@ -78,6 +79,13 @@ func remove_item_at(item_index):
 	emit_signal("items_changed", [item_index])
 	return previous_item
 
+func check_for_item(item_name):
+	for item in items:
+		if item is Item:
+			if item.name == item_name:
+				return true
+	return false
+
 func filter_items(type = Item):
 	add_hidden_items()
 	var items_size = items.size()
@@ -91,7 +99,6 @@ func add_hidden_items():
 	for i in hidden_items.size():
 		add_item(hidden_items[i], 1, true)
 	hidden_items.clear()
-	print(hidden_items)
 
 func make_items_unique():
 	var unique_items = []
@@ -114,10 +121,6 @@ signal item_equipped
 signal open_popup
 
 func use_item_at(index):
-	for item in items:
-		if item != null:
-			print(item.name, item.amount)
-	
 	var item = items[index]
 	if item == null: return
 	

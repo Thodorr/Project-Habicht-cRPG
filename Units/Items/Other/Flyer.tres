@@ -1,0 +1,35 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Engine/Blueprints/OtherItem.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Items/Paper/Paper.png" type="Texture" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Flyer"
+texture = ExtResource( 2 )
+description = "A flyer containing information
+about Social Media System."
+item_attributes = {
+0: 0,
+1: 0,
+2: 0,
+3: 0,
+4: 0,
+5: 0,
+6: 0,
+7: 0,
+8: 0,
+9: 0
+}
+stress_relief = 0
+removeable = true
+text_message = "Social media is penetrating ever larger areas of business, technology and society. The Social Media Systems course conveys the ideas, concepts and techniques of social media.
+
+If you want to get involved with the three content areas of social media systems:
+
+the pragmatic area of ​​management,
+the colorful field of media communication,
+the fascinating field of information technology,
+then you will receive a wide range of knowledge in this course in an interdisciplinary course with individual development opportunities, which will make studying fun through exemplary and holistic learning and which should lead our company with you as a sought-after graduate into the world of \"digital natives\"."
+accept_text = ""
+decline_text = "Put it away"

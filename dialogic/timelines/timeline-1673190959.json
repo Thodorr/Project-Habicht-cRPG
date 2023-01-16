@@ -4,7 +4,7 @@
 			"character": "character-1673376683.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Hey mein Kind, \nViel Erfolg bei deiner Studi Einführung! \nMama und ich sind sehr Stolz auf dich.\nVergiss nicht genug zu trinken und zu essen. \nDu wirst sicherlich auf ganz viele neue und interessante Menschen treffen. Du wirst sicherlich keine Probleme haben dich zurecht zu finden. \n"
+			"text": "Hey Honey, good luck with study introduction!\nWe are very proud of you. Don't forget to properly eat!\nYou will most likely meet new and interesting people. Don't be too shy to engage with them!"
 		},
 		{
 			"character": "character-1673376683.json",
@@ -13,17 +13,17 @@
 
 			],
 			"portrait": "",
-			"question": "Liebe Grueße  Mami "
+			"question": "Bye Honey."
 		},
 		{
-			"choice": "Vielen Dank, ich gebe mein bestes!",
+			"choice": "Thanks, I will give my best.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
 			"value": ""
 		},
 		{
-			"choice": "Alles klar.",
+			"choice": "Alright.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -37,7 +37,7 @@
 			"value": ""
 		},
 		{
-			"choice": "(Ignorieren)",
+			"choice": "( Ignore )",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",

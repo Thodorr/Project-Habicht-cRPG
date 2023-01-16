@@ -235,6 +235,39 @@
 			"question": "Was kann der gute [T-Rex] fuer dich tun?"
 		},
 		{
+			"choice": "Are you ready for the presentation?",
+			"condition": "",
+			"definition": "1673834336-650",
+			"event_id": "dialogic_011",
+			"value": "False"
+		},
+		{
+			"definition": "1673834336-650",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "True"
+		},
+		{
+			"definition": "1673832883-978",
+			"event_id": "dialogic_014",
+			"operation": "+",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"character": "character-1673727717.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Not just ready, but exited for it even."
+		},
+		{
+			"anchor_id": "anchor-1673729887",
+			"event_id": "dialogic_016"
+		},
+		{
 			"choice": "Woher hast du diesen Hut?",
 			"condition": "",
 			"definition": "",

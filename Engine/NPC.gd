@@ -39,12 +39,29 @@ export(String) var conversation = ""
 export(Direction) var looking_dir = Direction.DOWN
 export var state = State.IDLE
 
+export(int) var interaction_distance = 15
+export var north_deactivated = false
+export var east_deactivated = false
+export var south_deactivated = false
+export var west_deactivated = false
+
+var target_looking_dir = Vector2(0, 1)
+
 func _ready():
 	var _velocity_computed_connect = nav_agent.connect("velocity_computed", self, "_on_velocity_computed")
 	animation_state.start("Idle")
 	state = State.IDLE
 	set_direction()
 	set_sprites()
+	set_interactable()
+
+func set_interactable():
+	$Interactable.interaction_distance = interaction_distance
+	$Interactable.north_deactivated = north_deactivated
+	$Interactable.east_deactivated = east_deactivated
+	$Interactable.south_deactivated = south_deactivated
+	$Interactable.west_deactivated = west_deactivated
+	$Interactable.set_positions()
 
 func set_sprites():
 	$SpriteBundle/Body.texture = body
@@ -67,8 +84,14 @@ func turn(turn_direction):
 	animation_tree.set("parameters/Idle/blend_position", turn_direction)
 	animation_tree.set("parameters/PickUp/blend_position", turn_direction)
 
+func move_to(target, result_dir):
+	may_navigate = true
+	nav_agent.set_target_location(target)
+	target_looking_dir = result_dir
+
 func _on_navigation_finished():
 	state = State.IDLE
+	turn(target_looking_dir)
 
 func _on_velocity_computed(velocity):
 	if(velocity.x <= 5 && velocity.x >= -5 && velocity.y <= 5 && velocity.y >= -5):
@@ -130,6 +153,17 @@ func _on_Interactable_mouse_exited():
 func give_item(itemFileName, type = 'Food', extraFolder = ''):
 	var item = load("res://Units/Items/" + type + "/" + extraFolder + "/" + itemFileName + ".tres")
 	inventory.add_item(item, 1)
+
+func give_money(amount):
+	inventory.currency += amount
+
+func check_for_item(itemname):
+	Dialogic.set_variable('hasItem', inventory.check_for_item(itemname)) 
+
+func add_influence_to_check(check_name: String, influence_name, influence_value):
+	var check: Check = load("res://Units/Checks/" + check_name + ".tres")
+	var influence : Dictionary = {influence_name: int(influence_value)}
+	check.add_influence(influence)
 
 func finish_quest(questname):
 	questhandler.finish_quest(questname)
