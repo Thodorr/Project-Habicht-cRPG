@@ -10,3 +10,4 @@ data_*/
 
 # Extra ignores
 .DS_Store
+Export/Godot_v3.5.1-stable_export_templates.tpz
