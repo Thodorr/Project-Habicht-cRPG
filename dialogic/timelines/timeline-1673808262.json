@@ -1,0 +1,108 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Can I help you? "
+		},
+		{
+			"choice": "Yes, I'm looking for Michaela",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673807410.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You found me, whats up? "
+		},
+		{
+			"character": "character-1673807410.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "I think I know the answer, you need an information verified?"
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"kevins_quest",
+					"todo"
+				],
+				"method_name": "intermidiate",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"character": "character-1673807410.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "To answer the question of Kevin you need to take your Smartphone and look up the articel about the game engine  Godot!"
+		},
+		{
+			"definition": "1673504863-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "true"
+		},
+		{
+			"character": "character-1673807410.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Good Look!"
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673807410.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ok, Bye!"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "No, thanks",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673808262.json",
+		"name": "michaela_verified"
+	}
+}
