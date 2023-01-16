@@ -85,6 +85,9 @@ func loadGame():
 				"quests":
 					loadQuests(node_data)
 					print("step 3")
+				"checks":
+					CheckHandler.loadChecks(node_data)
+					print("checksloaded")
 				"inventory":
 					var charakter = search_for_node(loaded_scene,"Charakter")
 					charakter.invCheck = true
@@ -171,16 +174,17 @@ func search_for_node(instanced_scene, parent_node_name):
 	return parent_node
 
 func loadQuests(node_data):
-	var dir = Directory.new()
-	if dir.open("res://Units/Quests/") == OK:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if !dir.current_is_dir():
-				var quest = load("res://Units/Quests/"+ file_name)
-				quest.state = node_data[quest.questname][0]
-				quest.step = node_data[quest.questname][1]
-			file_name = dir.get_next()
+	var questhandler = load("res://Questhandler.tres")
+	var loadedQuests = []
+	for questname in node_data.keys():
+		var questarray = node_data[questname]
+		var quest = load("res://Units/Quests/" +questname + ".tres")
+		quest.state = questarray[0]
+		quest.step = questarray[1]
+		quest.quest_item_step = questarray[2]
+		quest.reward_item_step = questarray[3]
+		loadedQuests.append(quest)
+	questhandler.quests = loadedQuests
 
 
 func the_player():

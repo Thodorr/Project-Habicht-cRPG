@@ -46,6 +46,7 @@ func saveGame():
 	save_game.store_line(to_json(scenechanger.saveScene()))
 	save_game.store_line(to_json(Attributes.save()))
 	save_game.store_line(to_json(saveQuests()))
+	save_game.store_line(to_json(CheckHandler.save()))
 	for node in save_nodes:
 		if node.filename.empty():
 			print("persisten node is not an instanced scene, skipped " + node.name)
@@ -74,20 +75,14 @@ func saveQuests():
 	var save_dict = {
 		"filename" : "quests",
 	}
-	
-	var dir = Directory.new()
-	if dir.open("res://Units/Quests/") == OK:
-		dir.list_dir_begin()
-		var file_name = dir.get_next()
-		while file_name != "":
-			if !dir.current_is_dir():
-				var quest = load("res://Units/Quests/"+ file_name)
-				var array = [quest.state, quest.step]
-				var quest_dict = {
-					quest.questname : array
-				}
-				save_dict.merge(quest_dict, false)
-			file_name = dir.get_next()
+	var questhandler = load("res://Questhandler.tres")
+	for quest in questhandler.quests:
+		if quest != null:
+			var array = [quest.state, quest.step, quest.quest_item_step, quest.reward_item_step]
+			var quest_dict = {
+				quest.questname : array
+			}
+			save_dict.merge(quest_dict, false)
 	return save_dict
 
 func resetQuests():
