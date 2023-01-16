@@ -237,10 +237,31 @@ func get_attribute_group(attribute_group):
 func add_to_skillpoint(value):
 	skillpoint += value
 
+signal stressChanged(value)
 func remove_stress(value):
 	nerve_damage -= value
 	if nerve_damage < 0:
 		nerve_damage = 0
+	emit_signal("stressChanged", value)
+	if nerve_damage == nerve:
+		death()
+
+func death():
+	var node = get_name()
+	var start_screen = str ("res://StartScreen.tscn")
+	var fadein = ResourceLoader.load("res://Level/level_1/Fading.tscn").instance()
+	fadein.fadeIn = false
+	get_tree().get_current_scene().add_child(fadein)
+	var timer = Timer.new()
+	timer.wait_time = 2.3
+	timer.connect("timeout", self, "_on_timer_change_level", [start_screen])
+	timer.one_shot = true
+	add_child(timer)
+	timer.start()
+
+
+func _on_timer_change_level(level):
+	scenechanger.goto_scene(level)
 
 func remove_skillpoint(value):
 	skillpoint -= value
@@ -320,12 +341,12 @@ func attribute_math():
 	nerve = 2 + attributes[Attribute.WILL]
 	
 	
-	if nerve_damage >= 1:
-		attributes_extra[Attribute.WILL] -= nerve_damage
-		nerve_damage = 0
-		
-	if nerve_damage <= attributes[Attribute.WILL]:
-		attributes_extra[Attribute.WILL] = -nerve_damage
+#	if nerve_damage >= 1:
+#		attributes_extra[Attribute.WILL] -= nerve_damage
+#		nerve_damage = 0
+#
+#	if nerve_damage <= attributes[Attribute.WILL]:
+#		attributes_extra[Attribute.WILL] = -nerve_damage
 		
 	emit_signal("attributes_changed")
 
@@ -427,6 +448,8 @@ func save():
 		"attributes_face" : attributes_face_array,
 		"attributes_hand" : attributes_hand_array,
 		"attributes_temporary" : attributes_temporary_array,
+		"nerve": nerve,
+		"nerve_damage": nerve_damage
 	}
 	
 	save_dict.merge(timer_dict, false)
@@ -446,6 +469,8 @@ func load(node_data):
 		index += 1
 		arrayIndex += 1
 	skillpoint = node_data["skillpoint"]
+	nerve = node_data["nerve"]
+	nerve_damage = node_data["nerve_damage"]
 	for i in node_data.keys():
 		if "item" in i:
 			var item = loadItem([node_data[i]])

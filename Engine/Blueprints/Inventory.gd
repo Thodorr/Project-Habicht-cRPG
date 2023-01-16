@@ -5,7 +5,7 @@ var drag_data = null
 
 signal items_changed(indexes)
 signal item_added(item, amount)
-signal currency_changed()
+signal currency_changed(value)
 signal row_added()
 
 export(Array, Resource) var items = []
@@ -24,7 +24,7 @@ func _ready():
 
 func add_currency(value):
 	currency += value
-	emit_signal("currency_changed")
+	emit_signal("currency_changed", value)
 	
 func add_item(item: Resource, amount, readd = false):
 	var index_counter = 0

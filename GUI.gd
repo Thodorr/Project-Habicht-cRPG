@@ -122,6 +122,7 @@ func _on_ExitToDesktop_pressed():
 
 func _on_NewGame_pressed():
 	get_tree().paused = false
+	get_node('../YSort/Charakter/UiLayer').visible = true
 	Attributes.reset()
 	resetQuests()
 	scenechanger.reset()
@@ -138,4 +139,5 @@ func _on_Save_pressed():
 
 func _on_Load_pressed():
 	get_tree().paused = false
+	get_node('../YSort/Charakter/UiLayer').visible = true
 	scenechanger.loadGame()
