@@ -1,0 +1,59 @@
+{
+	"events": [
+		{
+			"character": "character-1673376683.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey Honey, good luck with study introduction!\nWe are very proud of you. Don't forget to properly eat!\nYou will most likely meet new and interesting people. Don't be too shy to engage with them!"
+		},
+		{
+			"character": "character-1673376683.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Bye Honey."
+		},
+		{
+			"choice": "Thanks, I will give my best.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "Alright.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "Okay.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "( Ignore )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"emit_signal": "end_intro",
+			"event_id": "dialogic_040"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673190959.json",
+		"name": "Intro"
+	}
+}

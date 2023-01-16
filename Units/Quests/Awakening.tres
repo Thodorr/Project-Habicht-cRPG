@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Engine/Quests.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+questname = "Das Erwachen"
+item_needed = false
+description = [ "Ich muss zum roten Haus am Campus gehen um Jonas zu wecken.", "Die Tür ist verschlossen. Ich muss einen Weg hinein finden.", "Ich bin in seiner Wohnung, jetzt muss ich ihn nur noch wecken.", "Jonas ist geweckt.
+Zum dank hat er mir eine Ananas geschenkt." ]
+quest_item = [  ]
+quest_reward = [  ]
+reward_amount = 1
+amound_exp = 50
+amount_money = 0

@@ -1,0 +1,21 @@
+{
+	"color": "#ff5bff6d",
+	"description": "",
+	"display_name": "[T-Rex]",
+	"display_name_bool": true,
+	"id": "character-1673727717.json",
+	"mirror_portraits": false,
+	"name": "Terence Rex",
+	"nickname": "T-Rex, Terence Rex, der Dinobube",
+	"nickname_bool": true,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

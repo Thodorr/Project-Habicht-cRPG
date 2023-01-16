@@ -1,0 +1,245 @@
+{
+	"events": [
+		{
+			"call_node": {
+				"arguments": [
+					"Das Erwachen"
+				],
+				"method_name": "is_quest_active",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Das Erwachen"
+				],
+				"method_name": "get_quest_progress",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1673750177-746",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"condition": "",
+			"definition": "1673748972-381",
+			"event_id": "dialogic_012",
+			"value": "4"
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Danke für deine Hilfe, du hast was gut bei mir."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Beeil dich!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hey du, warst du gerade in der SMS Einfuerungsveranstaltung?"
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Hast du da eine grosse dunkelhaarige Person gesehen?"
+		},
+		{
+			"choice": "An so jemanden kann ich mich nicht errinnern.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Verdammt, der hat wahrscheinlich wieder verschlafen.\n( Sie denkt kurz angestrengt nach... )"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "QuestPart"
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hoer zu, ich muss jetzt gleich in meine naechste Veranstaltung,\naber ein Freund von mir verschlaeft gerade seinen ersten Unitag."
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "Main"
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Wenn du kurz zu seiner Wohnung gehst und ihn weckst, hast du was gut bei mir."
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Seine Wohnung ist die Rote auf dem Campus."
+		},
+		{
+			"choice": "Wer seid ihr ueberhaupt?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ich bin Caitlyn, Der Sack, den du wecken sollst nennt sich Jonas."
+		},
+		{
+			"definition": "1673737406-948",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "Caitlyn"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "Alles klar, ich versuchs.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Danke, danke, danke! Beeil dich und treff mich dann wieder hier."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Das Erwachen",
+					"todo"
+				],
+				"method_name": "start_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "Auf keinen Fall!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Dann hör auf meine Zeit zu verschwenden."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "Ja, ich hab da so eine Person gesehen.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Reicht mir die Antwort von einen aus?\nNein!"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "( Luegen ) Ich war in keiner Veranstaltung.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673737444.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Dann bist du nutzlos für mich."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Test",
+					"todo"
+				],
+				"method_name": "start_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673737340.json",
+		"name": "CaitlynStairs"
+	}
+}

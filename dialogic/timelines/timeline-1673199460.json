@@ -1,0 +1,344 @@
+{
+	"events": [
+		{
+			"call_node": {
+				"arguments": [
+					"Everybody ready?"
+				],
+				"method_name": "get_quest_progress",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Everybody ready?"
+				],
+				"method_name": "is_quest_active",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1673832883-978",
+			"event_id": "dialogic_012",
+			"value": "2"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"ReadyLie",
+					"Some are ready",
+					"5"
+				],
+				"method_name": "add_influence_to_check",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1673750177-746",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"anchor_id": "anchor-1673833102",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1673201999.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "You are here at the perfect time. Could you make sure everybody is ready?"
+		},
+		{
+			"choice": "Most certainly.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673201999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Splendid, go around and ask everyone if they are ready."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Everybody ready?",
+					"todo"
+				],
+				"method_name": "start_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"choice": "#ReadyLie# Everybody is ready.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Everybody ready?",
+					"todo"
+				],
+				"method_name": "start_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 1
+		},
+		{
+			"condition": "",
+			"definition": "1672759872-366",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1672759872-366",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"character": "character-1673201999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I don't think you asked everybody."
+		},
+		{
+			"character": "character-1673818206.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "He saw right through the lie."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"-1"
+				],
+				"method_name": "add_to_nerve",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "No, I can't.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673201999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I see.\nWell I can only start when everyone is ready."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1673833102",
+			"index": 0,
+			"name": "Main"
+		},
+		{
+			"character": "character-1673201999.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Is everyone ready?"
+		},
+		{
+			"choice": "Everybody is ready!",
+			"condition": ">=",
+			"definition": "1673832883-978",
+			"event_id": "dialogic_011",
+			"value": "3"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "Ready"
+		},
+		{
+			"character": "character-1673201999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Wonderful, I will start immediately."
+		},
+		{
+			"call_node": {
+				"arguments": [
+
+				],
+				"method_name": "que_end",
+				"target_node_path": "/root/intro_area/CanvasLayer/IntroContainer"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Everybody ready?"
+				],
+				"method_name": "finish_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 0.5
+		},
+		{
+			"character": "character-1673201999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello everyone! I welcome you to the introduction of Social Media Systems.\nMy name is [Professor] and following I will guide you through the essentials of your course of studies.\nSince SMS is interdisciplinary, a lot of your skills and talent might become important. \nHopefully after your studies you will find yourself prepared for the job market\nand everything it throws towards you.\nIn your first semester you will take studies in each and every pillar of SMS: IT, Media and Design.\nFor IT you will learn 'web-based programming'  in Room A10.6.06,\nyour media understanding will be sharpened in 'basics and usage of social media' in Room A10.8.20\nand your management skills are to be trained in 'bwl and informationsystems' in A10.8.15."
+		},
+		{
+			"character": "character-1673201999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Good luck with your studies!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"choice": "( Leave ) No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"choice": "#ReadyLie# Everybody is ready.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 1
+		},
+		{
+			"condition": "",
+			"definition": "1672759872-366",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1672759872-366",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"character": "character-1673201999.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I don't think you asked everybody."
+		},
+		{
+			"character": "character-1673818206.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "He saw right through the lie."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"-1"
+				],
+				"method_name": "add_to_nerve",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673199460.json",
+		"name": "Dozent"
+	}
+}

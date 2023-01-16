@@ -1,0 +1,28 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Engine/Blueprints/FoodItem.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Cereal"
+description = "A colourful assembly of different sugary shapes.
+Some people say it's a
+healthy way to start a day.
+Some people are wrong."
+item_attributes = {
+0: 0,
+1: 0,
+2: 0,
+3: 0,
+4: 0,
+5: 0,
+6: -2,
+7: 0,
+8: 1,
+9: 1
+}
+stress_relief = 0
+removeable = true
+text_message = ""
+accept_text = "Accept"
+decline_text = "Decline"

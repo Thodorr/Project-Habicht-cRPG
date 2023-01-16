@@ -6,7 +6,7 @@ enum Type {
 	CLOTHING,
 	TRINKET,
 	HAND,
-	BACKPACK,
+	FACE,
 }
 
 export(Type) var type = Type.CLOTHING

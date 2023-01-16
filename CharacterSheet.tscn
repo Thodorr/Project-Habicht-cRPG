@@ -1,0 +1,2433 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://UI/Assets/GUI/SkillIconDummy2.tres" type="Texture" id=1]
+[ext_resource path="res://CharacterSheet.gd" type="Script" id=2]
+[ext_resource path="res://UI/Assets/GUI/Phone_1.png" type="Texture" id=3]
+[ext_resource path="res://UI/Assets/GUI/NormalConfirmButton.tres" type="Texture" id=4]
+[ext_resource path="res://UI/Assets/GUI/Decrease.tres" type="Texture" id=5]
+[ext_resource path="res://UI/Assets/GUI/GUI.png" type="Texture" id=6]
+[ext_resource path="res://UI/Assets/GUI/NormalButton.tres" type="Texture" id=7]
+[ext_resource path="res://UI/Assets/GUI/DisabledButton.tres" type="Texture" id=8]
+[ext_resource path="res://UI/Assets/GUI/PressedButton.tres" type="Texture" id=9]
+[ext_resource path="res://UI/Assets/GUI/Increase.tres" type="Texture" id=10]
+[ext_resource path="res://UI/Assets/GUI/MediumNormalButton.tres" type="Texture" id=11]
+[ext_resource path="res://UI/Assets/GUI/MediumPressedButton.tres" type="Texture" id=12]
+[ext_resource path="res://UI/Font/PixelFont.tres" type="DynamicFont" id=13]
+[ext_resource path="res://UI/Assets/GUI/PointsToBeGiven.tres" type="Texture" id=14]
+[ext_resource path="res://UI/Assets/GUI/LockedConfirmButton.tres" type="Texture" id=15]
+[ext_resource path="res://UI/Assets/GUI/GradientCircle.png" type="Texture" id=16]
+[ext_resource path="res://UI/Assets/GUI/SkillBackground.tres" type="Texture" id=17]
+[ext_resource path="res://UI/Assets/GUI/SkillIconDummy.tres" type="Texture" id=18]
+[ext_resource path="res://UI/Assets/GUI/bone-white.jpg" type="Texture" id=19]
+[ext_resource path="res://UI/Assets/GUI/SkillDummy3.tres" type="Texture" id=20]
+[ext_resource path="res://UI/Assets/GUI/SinlgeStraightLine.png" type="Texture" id=21]
+[ext_resource path="res://UI/Assets/GUI/MidLeftToRightLine.png" type="Texture" id=22]
+[ext_resource path="res://UI/Assets/GUI/MidRightToLeft.png" type="Texture" id=23]
+[ext_resource path="res://UI/Assets/GUI/MidStraightLine.png" type="Texture" id=24]
+[ext_resource path="res://UI/Assets/GUI/QuestButton.tres" type="Texture" id=25]
+[ext_resource path="res://UI/Font/PixelFontSlightlyBigger.tres" type="DynamicFont" id=26]
+[ext_resource path="res://UI/Assets/GUI/BigPressedButton.tres" type="Texture" id=28]
+[ext_resource path="res://UI/Assets/GUI/BigNormalButton.tres" type="Texture" id=29]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 6 )
+region = Rect2( 133.886, 19.1402, 53.4662, 8.6319 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.843137, 0.843137, 0.843137, 1 )
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color( 0.137255, 0.137255, 0.137255, 1 )
+
+[node name="CharacterSheet" type="Control"]
+anchor_right = 0.5625
+anchor_bottom = 1.77778
+margin_left = 438.0
+margin_right = 438.0
+rect_scale = Vector2( 0.562398, 0.562398 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BackgroundColour" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 30.0
+margin_top = 20.0
+margin_right = -30.0
+margin_bottom = -20.0
+texture = ExtResource( 19 )
+
+[node name="PhoneFrame" type="NinePatchRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -0.000793457
+texture = ExtResource( 3 )
+patch_margin_left = 180
+patch_margin_top = 300
+patch_margin_right = 180
+patch_margin_bottom = 340
+
+[node name="Screen" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 38.0
+margin_top = 60.0
+margin_right = -38.0
+margin_bottom = -89.0
+
+[node name="Layout" type="VBoxContainer" parent="Screen"]
+margin_right = 284.0
+margin_bottom = 491.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Attributes" type="VBoxContainer" parent="Screen/Layout"]
+visible = false
+margin_right = 284.0
+margin_bottom = 417.0
+size_flags_vertical = 3
+
+[node name="Athletics" type="Control" parent="Screen/Layout/Attributes"]
+margin_right = 284.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_horizontal = 3
+
+[node name="StatBackground" type="TextureRect" parent="Screen/Layout/Attributes/Athletics"]
+margin_right = 284.0
+margin_bottom = 35.0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Min" type="TextureButton" parent="Screen/Layout/Attributes/Athletics/StatBackground" groups=["MinusButtons"]]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 35.0
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Athletics/StatBackground/Min"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Max" type="TextureButton" parent="Screen/Layout/Attributes/Athletics/StatBackground" groups=["PlusButtons"]]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -17.5
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Athletics/StatBackground/Max"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Stats" type="HBoxContainer" parent="Screen/Layout/Attributes/Athletics/StatBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -15.0
+margin_right = 100.0
+margin_bottom = 15.0
+
+[node name="Name" type="Label" parent="Screen/Layout/Attributes/Athletics/StatBackground/Stats"]
+margin_top = 6.0
+margin_right = 144.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "Athletics"
+
+[node name="Change" type="Label" parent="Screen/Layout/Attributes/Athletics/StatBackground/Stats" groups=["ChangeLabels"]]
+margin_left = 148.0
+margin_top = 6.0
+margin_right = 188.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 40, 0 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+
+[node name="Value" type="Label" parent="Screen/Layout/Attributes/Athletics/StatBackground/Stats"]
+margin_left = 192.0
+margin_top = 6.0
+margin_right = 200.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="Dexterity" type="Control" parent="Screen/Layout/Attributes"]
+margin_top = 39.0
+margin_right = 284.0
+margin_bottom = 74.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_horizontal = 3
+
+[node name="StatBackground" type="TextureRect" parent="Screen/Layout/Attributes/Dexterity"]
+margin_right = 284.0
+margin_bottom = 35.0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Min" type="TextureButton" parent="Screen/Layout/Attributes/Dexterity/StatBackground" groups=["MinusButtons"]]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 35.0
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Dexterity/StatBackground/Min"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Max" type="TextureButton" parent="Screen/Layout/Attributes/Dexterity/StatBackground" groups=["PlusButtons"]]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -17.5
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Dexterity/StatBackground/Max"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Stats" type="HBoxContainer" parent="Screen/Layout/Attributes/Dexterity/StatBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -15.0
+margin_right = 100.0
+margin_bottom = 15.0
+
+[node name="Name" type="Label" parent="Screen/Layout/Attributes/Dexterity/StatBackground/Stats"]
+margin_top = 6.0
+margin_right = 144.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "Dexterity"
+
+[node name="Change" type="Label" parent="Screen/Layout/Attributes/Dexterity/StatBackground/Stats" groups=["ChangeLabels"]]
+margin_left = 148.0
+margin_top = 6.0
+margin_right = 188.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 40, 0 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+
+[node name="Value" type="Label" parent="Screen/Layout/Attributes/Dexterity/StatBackground/Stats"]
+margin_left = 192.0
+margin_top = 6.0
+margin_right = 200.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="Perception" type="Control" parent="Screen/Layout/Attributes"]
+margin_top = 78.0
+margin_right = 284.0
+margin_bottom = 113.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_horizontal = 3
+
+[node name="StatBackground" type="TextureRect" parent="Screen/Layout/Attributes/Perception"]
+margin_right = 284.0
+margin_bottom = 35.0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Min" type="TextureButton" parent="Screen/Layout/Attributes/Perception/StatBackground" groups=["MinusButtons"]]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 35.0
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Perception/StatBackground/Min"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Max" type="TextureButton" parent="Screen/Layout/Attributes/Perception/StatBackground" groups=["PlusButtons"]]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -17.5
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Perception/StatBackground/Max"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Stats" type="HBoxContainer" parent="Screen/Layout/Attributes/Perception/StatBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -15.0
+margin_right = 100.0
+margin_bottom = 15.0
+
+[node name="Name" type="Label" parent="Screen/Layout/Attributes/Perception/StatBackground/Stats"]
+margin_top = 6.0
+margin_right = 144.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "Perception"
+
+[node name="Change" type="Label" parent="Screen/Layout/Attributes/Perception/StatBackground/Stats" groups=["ChangeLabels"]]
+margin_left = 148.0
+margin_top = 6.0
+margin_right = 188.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 40, 0 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+
+[node name="Value" type="Label" parent="Screen/Layout/Attributes/Perception/StatBackground/Stats"]
+margin_left = 192.0
+margin_top = 6.0
+margin_right = 200.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="Persuasion" type="Control" parent="Screen/Layout/Attributes"]
+margin_top = 117.0
+margin_right = 284.0
+margin_bottom = 152.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_horizontal = 3
+
+[node name="StatBackground" type="TextureRect" parent="Screen/Layout/Attributes/Persuasion"]
+margin_right = 284.0
+margin_bottom = 35.0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Min" type="TextureButton" parent="Screen/Layout/Attributes/Persuasion/StatBackground" groups=["MinusButtons"]]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 35.0
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Persuasion/StatBackground/Min"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Max" type="TextureButton" parent="Screen/Layout/Attributes/Persuasion/StatBackground" groups=["PlusButtons"]]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -17.5
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Persuasion/StatBackground/Max"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Stats" type="HBoxContainer" parent="Screen/Layout/Attributes/Persuasion/StatBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -15.0
+margin_right = 100.0
+margin_bottom = 15.0
+
+[node name="Name" type="Label" parent="Screen/Layout/Attributes/Persuasion/StatBackground/Stats"]
+margin_top = 6.0
+margin_right = 144.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "Persuasion"
+
+[node name="Change" type="Label" parent="Screen/Layout/Attributes/Persuasion/StatBackground/Stats" groups=["ChangeLabels"]]
+margin_left = 148.0
+margin_top = 6.0
+margin_right = 188.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 40, 0 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+
+[node name="Value" type="Label" parent="Screen/Layout/Attributes/Persuasion/StatBackground/Stats"]
+margin_left = 192.0
+margin_top = 6.0
+margin_right = 200.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="Bluff" type="Control" parent="Screen/Layout/Attributes"]
+margin_top = 156.0
+margin_right = 284.0
+margin_bottom = 191.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_horizontal = 3
+
+[node name="StatBackground" type="TextureRect" parent="Screen/Layout/Attributes/Bluff"]
+margin_right = 284.0
+margin_bottom = 35.0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Min" type="TextureButton" parent="Screen/Layout/Attributes/Bluff/StatBackground" groups=["MinusButtons"]]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 35.0
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Bluff/StatBackground/Min"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Max" type="TextureButton" parent="Screen/Layout/Attributes/Bluff/StatBackground" groups=["PlusButtons"]]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -17.5
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Bluff/StatBackground/Max"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Stats" type="HBoxContainer" parent="Screen/Layout/Attributes/Bluff/StatBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -15.0
+margin_right = 100.0
+margin_bottom = 15.0
+
+[node name="Name" type="Label" parent="Screen/Layout/Attributes/Bluff/StatBackground/Stats"]
+margin_top = 6.0
+margin_right = 144.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "Bluff"
+
+[node name="Change" type="Label" parent="Screen/Layout/Attributes/Bluff/StatBackground/Stats" groups=["ChangeLabels"]]
+margin_left = 148.0
+margin_top = 6.0
+margin_right = 188.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 40, 0 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+
+[node name="Value" type="Label" parent="Screen/Layout/Attributes/Bluff/StatBackground/Stats"]
+margin_left = 192.0
+margin_top = 6.0
+margin_right = 200.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="Intimidation" type="Control" parent="Screen/Layout/Attributes"]
+margin_top = 195.0
+margin_right = 284.0
+margin_bottom = 230.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_horizontal = 3
+
+[node name="StatBackground" type="TextureRect" parent="Screen/Layout/Attributes/Intimidation"]
+margin_right = 284.0
+margin_bottom = 35.0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Min" type="TextureButton" parent="Screen/Layout/Attributes/Intimidation/StatBackground" groups=["MinusButtons"]]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 35.0
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Intimidation/StatBackground/Min"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Max" type="TextureButton" parent="Screen/Layout/Attributes/Intimidation/StatBackground" groups=["PlusButtons"]]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -17.5
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Intimidation/StatBackground/Max"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Stats" type="HBoxContainer" parent="Screen/Layout/Attributes/Intimidation/StatBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -15.0
+margin_right = 100.0
+margin_bottom = 15.0
+
+[node name="Name" type="Label" parent="Screen/Layout/Attributes/Intimidation/StatBackground/Stats"]
+margin_top = 6.0
+margin_right = 144.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "Intimidation"
+
+[node name="Change" type="Label" parent="Screen/Layout/Attributes/Intimidation/StatBackground/Stats" groups=["ChangeLabels"]]
+margin_left = 148.0
+margin_top = 6.0
+margin_right = 188.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 40, 0 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+
+[node name="Value" type="Label" parent="Screen/Layout/Attributes/Intimidation/StatBackground/Stats"]
+margin_left = 192.0
+margin_top = 6.0
+margin_right = 200.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="Knowledge" type="Control" parent="Screen/Layout/Attributes"]
+margin_top = 234.0
+margin_right = 284.0
+margin_bottom = 269.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_horizontal = 3
+
+[node name="StatBackground" type="TextureRect" parent="Screen/Layout/Attributes/Knowledge"]
+margin_right = 284.0
+margin_bottom = 35.0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Min" type="TextureButton" parent="Screen/Layout/Attributes/Knowledge/StatBackground" groups=["MinusButtons"]]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 35.0
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Knowledge/StatBackground/Min"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Max" type="TextureButton" parent="Screen/Layout/Attributes/Knowledge/StatBackground" groups=["PlusButtons"]]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -17.5
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Knowledge/StatBackground/Max"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Stats" type="HBoxContainer" parent="Screen/Layout/Attributes/Knowledge/StatBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -15.0
+margin_right = 100.0
+margin_bottom = 15.0
+
+[node name="Name" type="Label" parent="Screen/Layout/Attributes/Knowledge/StatBackground/Stats"]
+margin_top = 6.0
+margin_right = 144.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "Knowledge"
+
+[node name="Change" type="Label" parent="Screen/Layout/Attributes/Knowledge/StatBackground/Stats" groups=["ChangeLabels"]]
+margin_left = 148.0
+margin_top = 6.0
+margin_right = 188.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 40, 0 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+
+[node name="Value" type="Label" parent="Screen/Layout/Attributes/Knowledge/StatBackground/Stats"]
+margin_left = 192.0
+margin_top = 6.0
+margin_right = 200.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="Will" type="Control" parent="Screen/Layout/Attributes"]
+margin_top = 273.0
+margin_right = 284.0
+margin_bottom = 308.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_horizontal = 3
+
+[node name="StatBackground" type="TextureRect" parent="Screen/Layout/Attributes/Will"]
+margin_right = 284.0
+margin_bottom = 35.0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Min" type="TextureButton" parent="Screen/Layout/Attributes/Will/StatBackground" groups=["MinusButtons"]]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 35.0
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Will/StatBackground/Min"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Max" type="TextureButton" parent="Screen/Layout/Attributes/Will/StatBackground" groups=["PlusButtons"]]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -17.5
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Will/StatBackground/Max"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Stats" type="HBoxContainer" parent="Screen/Layout/Attributes/Will/StatBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -15.0
+margin_right = 100.0
+margin_bottom = 15.0
+
+[node name="Name" type="Label" parent="Screen/Layout/Attributes/Will/StatBackground/Stats"]
+margin_top = 6.0
+margin_right = 144.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "Will"
+
+[node name="Change" type="Label" parent="Screen/Layout/Attributes/Will/StatBackground/Stats" groups=["ChangeLabels"]]
+margin_left = 148.0
+margin_top = 6.0
+margin_right = 188.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 40, 0 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+
+[node name="Value" type="Label" parent="Screen/Layout/Attributes/Will/StatBackground/Stats"]
+margin_left = 192.0
+margin_top = 6.0
+margin_right = 200.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="Creativity" type="Control" parent="Screen/Layout/Attributes"]
+margin_top = 312.0
+margin_right = 284.0
+margin_bottom = 347.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_horizontal = 3
+
+[node name="StatBackground" type="TextureRect" parent="Screen/Layout/Attributes/Creativity"]
+margin_right = 284.0
+margin_bottom = 35.0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Min" type="TextureButton" parent="Screen/Layout/Attributes/Creativity/StatBackground" groups=["MinusButtons"]]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 35.0
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Creativity/StatBackground/Min"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Max" type="TextureButton" parent="Screen/Layout/Attributes/Creativity/StatBackground" groups=["PlusButtons"]]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -17.5
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Creativity/StatBackground/Max"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Stats" type="HBoxContainer" parent="Screen/Layout/Attributes/Creativity/StatBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -15.0
+margin_right = 100.0
+margin_bottom = 15.0
+
+[node name="Name" type="Label" parent="Screen/Layout/Attributes/Creativity/StatBackground/Stats"]
+margin_top = 6.0
+margin_right = 144.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "Creativity"
+
+[node name="Change" type="Label" parent="Screen/Layout/Attributes/Creativity/StatBackground/Stats" groups=["ChangeLabels"]]
+margin_left = 148.0
+margin_top = 6.0
+margin_right = 188.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 40, 0 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+
+[node name="Value" type="Label" parent="Screen/Layout/Attributes/Creativity/StatBackground/Stats"]
+margin_left = 192.0
+margin_top = 6.0
+margin_right = 200.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="Luck" type="Control" parent="Screen/Layout/Attributes"]
+margin_top = 351.0
+margin_right = 284.0
+margin_bottom = 386.0
+rect_min_size = Vector2( 0, 35 )
+size_flags_horizontal = 3
+
+[node name="StatBackground" type="TextureRect" parent="Screen/Layout/Attributes/Luck"]
+margin_right = 284.0
+margin_bottom = 35.0
+texture = SubResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="Min" type="TextureButton" parent="Screen/Layout/Attributes/Luck/StatBackground" groups=["MinusButtons"]]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 35.0
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Luck/StatBackground/Min"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Max" type="TextureButton" parent="Screen/Layout/Attributes/Luck/StatBackground" groups=["PlusButtons"]]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -35.0
+margin_top = -17.5
+margin_bottom = 17.5
+disabled = true
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 9 )
+texture_disabled = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Attributes/Luck/StatBackground/Max"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -10.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Stats" type="HBoxContainer" parent="Screen/Layout/Attributes/Luck/StatBackground"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -15.0
+margin_right = 100.0
+margin_bottom = 15.0
+
+[node name="Name" type="Label" parent="Screen/Layout/Attributes/Luck/StatBackground/Stats"]
+margin_top = 6.0
+margin_right = 144.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 13 )
+text = "Luck"
+
+[node name="Change" type="Label" parent="Screen/Layout/Attributes/Luck/StatBackground/Stats" groups=["ChangeLabels"]]
+margin_left = 148.0
+margin_top = 6.0
+margin_right = 188.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 40, 0 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = ExtResource( 13 )
+
+[node name="Value" type="Label" parent="Screen/Layout/Attributes/Luck/StatBackground/Stats"]
+margin_left = 192.0
+margin_top = 6.0
+margin_right = 200.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 13 )
+text = "0"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screen/Layout/Attributes"]
+margin_top = 390.0
+margin_right = 284.0
+margin_bottom = 417.0
+size_flags_vertical = 3
+
+[node name="AvailablePoints" type="TextureRect" parent="Screen/Layout/Attributes/HBoxContainer"]
+margin_right = 228.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Screen/Layout/Attributes/HBoxContainer/AvailablePoints"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -47.0
+margin_top = -12.5
+margin_right = 47.0
+margin_bottom = 12.5
+custom_fonts/font = ExtResource( 13 )
+text = "Points: 0"
+align = 1
+valign = 1
+
+[node name="ConfirmButton" type="TextureButton" parent="Screen/Layout/Attributes/HBoxContainer"]
+margin_left = 232.0
+margin_right = 284.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 52, 0 )
+texture_normal = ExtResource( 4 )
+texture_disabled = ExtResource( 15 )
+expand = true
+stretch_mode = 6
+
+[node name="Skills" type="Control" parent="Screen/Layout"]
+margin_right = 284.0
+margin_bottom = 417.0
+mouse_filter = 2
+size_flags_vertical = 3
+
+[node name="SkillTree" type="VBoxContainer" parent="Screen/Layout/Skills"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+alignment = 2
+
+[node name="TabContainer" type="TabContainer" parent="Screen/Layout/Skills/SkillTree"]
+margin_right = 284.0
+margin_bottom = 378.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="IT" type="Tabs" parent="Screen/Layout/Skills/SkillTree/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="SkillsConnector" type="VBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+alignment = 2
+
+[node name="4to5" type="HBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector"]
+margin_top = 22.0
+margin_right = 276.0
+margin_bottom = 92.0
+rect_min_size = Vector2( 0, 70 )
+custom_constants/separation = 0
+
+[node name="FrontMargin2" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5"]
+margin_right = 31.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="4A" type="Control" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5"]
+margin_left = 31.0
+margin_right = 81.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+
+[node name="5A" type="TextureProgress" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5/4A" groups=["SkillConnectors"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_under = ExtResource( 21 )
+texture_progress = ExtResource( 21 )
+fill_mode = 3
+tint_under = Color( 0.137255, 0.137255, 0.137255, 1 )
+tint_progress = Color( 0.843137, 0.843137, 0.843137, 1 )
+nine_patch_stretch = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5/4A/5A"]
+
+[node name="FrontMargin3" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5"]
+margin_left = 81.0
+margin_right = 112.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="4B" type="Control" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5"]
+margin_left = 112.0
+margin_right = 162.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+
+[node name="5B" type="TextureProgress" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5/4B" groups=["SkillConnectors"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_under = ExtResource( 21 )
+texture_progress = ExtResource( 21 )
+fill_mode = 3
+tint_under = Color( 0.137255, 0.137255, 0.137255, 1 )
+tint_progress = Color( 0.843137, 0.843137, 0.843137, 1 )
+nine_patch_stretch = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5/4B/5B"]
+
+[node name="FrontMargin4" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5"]
+margin_left = 162.0
+margin_right = 193.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="4C" type="Control" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5"]
+margin_left = 193.0
+margin_right = 243.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+
+[node name="5C" type="TextureProgress" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5/4C" groups=["SkillConnectors"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_under = ExtResource( 21 )
+texture_progress = ExtResource( 21 )
+fill_mode = 3
+tint_under = Color( 0.137255, 0.137255, 0.137255, 1 )
+tint_progress = Color( 0.843137, 0.843137, 0.843137, 1 )
+nine_patch_stretch = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5/4C/5C"]
+
+[node name="Backmargine3" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/4to5"]
+margin_left = 243.0
+margin_right = 276.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 33, 0 )
+size_flags_vertical = 3
+
+[node name="3to4" type="HBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector"]
+margin_top = 92.0
+margin_right = 276.0
+margin_bottom = 162.0
+rect_min_size = Vector2( 0, 70 )
+custom_constants/separation = 0
+
+[node name="FrontMargin2" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4"]
+margin_right = 31.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="3A" type="Control" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4"]
+margin_left = 31.0
+margin_right = 81.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+
+[node name="4A" type="TextureProgress" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4/3A" groups=["SkillConnectors"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_under = ExtResource( 21 )
+texture_progress = ExtResource( 21 )
+fill_mode = 3
+tint_under = Color( 0.137255, 0.137255, 0.137255, 1 )
+tint_progress = Color( 0.843137, 0.843137, 0.843137, 1 )
+nine_patch_stretch = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4/3A/4A"]
+
+[node name="FrontMargin3" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4"]
+margin_left = 81.0
+margin_right = 112.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="3B" type="Control" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4"]
+margin_left = 112.0
+margin_right = 162.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+
+[node name="4B" type="TextureProgress" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4/3B" groups=["SkillConnectors"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_under = ExtResource( 21 )
+texture_progress = ExtResource( 21 )
+fill_mode = 3
+tint_under = Color( 0.137255, 0.137255, 0.137255, 1 )
+tint_progress = Color( 0.843137, 0.843137, 0.843137, 1 )
+nine_patch_stretch = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4/3B/4B"]
+
+[node name="FrontMargin4" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4"]
+margin_left = 162.0
+margin_right = 193.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="3C" type="Control" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4"]
+margin_left = 193.0
+margin_right = 243.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+
+[node name="4C" type="TextureProgress" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4/3C" groups=["SkillConnectors"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_under = ExtResource( 21 )
+texture_progress = ExtResource( 21 )
+fill_mode = 3
+tint_under = Color( 0.137255, 0.137255, 0.137255, 1 )
+tint_progress = Color( 0.843137, 0.843137, 0.843137, 1 )
+nine_patch_stretch = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4/3C/4C"]
+
+[node name="Backmargine2" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/3to4"]
+margin_left = 243.0
+margin_right = 276.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 33, 0 )
+size_flags_vertical = 3
+
+[node name="2to3" type="HBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector"]
+margin_top = 162.0
+margin_right = 276.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 0, 70 )
+custom_constants/separation = 0
+
+[node name="FrontMargin" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/2to3"]
+margin_right = 31.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="2A" type="Control" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/2to3"]
+margin_left = 31.0
+margin_right = 243.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+
+[node name="3A" type="TextureProgress" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/2to3/2A" groups=["SkillConnectors"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_under = ExtResource( 23 )
+texture_progress = ExtResource( 23 )
+fill_mode = 3
+tint_under = Color( 0.137255, 0.137255, 0.137255, 1 )
+tint_progress = Color( 0.843137, 0.843137, 0.843137, 1 )
+nine_patch_stretch = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/2to3/2A/3A"]
+
+[node name="3B" type="TextureProgress" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/2to3/2A" groups=["SkillConnectors"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_under = ExtResource( 24 )
+texture_progress = ExtResource( 24 )
+fill_mode = 3
+tint_under = Color( 0.137255, 0.137255, 0.137255, 1 )
+tint_progress = Color( 0.843137, 0.843137, 0.843137, 1 )
+nine_patch_stretch = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/2to3/2A/3B"]
+
+[node name="3C" type="TextureProgress" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/2to3/2A" groups=["SkillConnectors"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_under = ExtResource( 22 )
+texture_progress = ExtResource( 22 )
+fill_mode = 3
+tint_under = Color( 0.137255, 0.137255, 0.137255, 1 )
+tint_progress = Color( 0.843137, 0.843137, 0.843137, 1 )
+nine_patch_stretch = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/2to3/2A/3C"]
+
+[node name="Backmargine" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/2to3"]
+margin_left = 243.0
+margin_right = 276.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 33, 0 )
+size_flags_vertical = 3
+
+[node name="1to2" type="HBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector"]
+margin_top = 232.0
+margin_right = 276.0
+margin_bottom = 302.0
+rect_min_size = Vector2( 0, 70 )
+custom_constants/separation = 0
+
+[node name="FrontMargin" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/1to2"]
+margin_right = 31.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="1A" type="Control" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/1to2"]
+margin_left = 31.0
+margin_right = 243.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+
+[node name="2A" type="TextureProgress" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/1to2/1A" groups=["SkillConnectors"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture_under = ExtResource( 24 )
+texture_progress = ExtResource( 24 )
+fill_mode = 3
+tint_under = Color( 0.137255, 0.137255, 0.137255, 1 )
+tint_progress = Color( 0.843137, 0.843137, 0.843137, 1 )
+nine_patch_stretch = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/1to2/1A/2A"]
+
+[node name="Backmargine2" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector/1to2"]
+margin_left = 243.0
+margin_right = 276.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 33, 0 )
+size_flags_vertical = 3
+
+[node name="BaseMargin" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillsConnector"]
+margin_top = 302.0
+margin_right = 276.0
+margin_bottom = 342.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="SkillTree" type="VBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 0
+alignment = 2
+
+[node name="5" type="HBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree"]
+margin_right = 276.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+custom_constants/separation = 0
+
+[node name="FronMargin" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5"]
+margin_right = 31.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 31, 0 )
+size_flags_vertical = 3
+
+[node name="5A" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5" groups=["Skills"]]
+margin_left = 31.0
+margin_right = 81.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5/5A"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 25, 25 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5/5A/TextureRect"]
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5/5A" groups=["SkillButtons"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Konzepte Moderner Softwareprogrammierung:
+Umsetzung und vertiefung von SCRUM als agilen
+Projektmanagement. 
+Dozent: Linne
+Raum: A10.5.20"
+disabled = true
+texture_normal = ExtResource( 18 )
+texture_disabled = ExtResource( 15 )
+expand = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5"]
+margin_left = 81.0
+margin_right = 112.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="5B" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5" groups=["Skills"]]
+margin_left = 112.0
+margin_right = 162.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5/5B"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 25, 25 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5/5B/TextureRect"]
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5/5B" groups=["SkillButtons"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "IT Sicherheit: 
+Kodierungsgrundlagen und allgemeine Schwachstellenfindung.
+Dozent: Groh
+Raum: A16.2.05"
+disabled = true
+texture_normal = ExtResource( 1 )
+texture_disabled = ExtResource( 15 )
+expand = true
+
+[node name="MarginContainer5" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5"]
+margin_left = 162.0
+margin_right = 193.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="5C" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5" groups=["Skills"]]
+margin_left = 193.0
+margin_right = 243.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5/5C"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 25, 25 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5/5C/TextureRect"]
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/5/5C" groups=["SkillButtons"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Betriebssysteme und Rechnernetze: 
+Aufbau und Struktur von PC-Komponenten und Netzwerken. 
+Dozent: Priefer
+Raum: A10.04.21"
+disabled = true
+texture_normal = ExtResource( 20 )
+texture_disabled = ExtResource( 15 )
+expand = true
+
+[node name="MarginContainer6" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree"]
+margin_top = 50.0
+margin_right = 276.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="4" type="HBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree"]
+margin_top = 70.0
+margin_right = 276.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 0, 50 )
+custom_constants/separation = 0
+
+[node name="FronMargin" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4"]
+margin_right = 31.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 31, 0 )
+size_flags_vertical = 3
+
+[node name="4A" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4" groups=["Skills"]]
+margin_left = 31.0
+margin_right = 81.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4/4A"]
+show_behind_parent = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -25.0
+margin_top = -25.0
+margin_right = 25.0
+margin_bottom = 25.0
+rect_pivot_offset = Vector2( 25, 25 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4/4A/TextureRect"]
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4/4A" groups=["SkillButtons"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Projektentwicklung mit Kotlin:
+Erstelle einer RESTful API für ein Issueboard in Kotlin. 
+Dozent: Käsler
+Raum: A10.5.20"
+disabled = true
+texture_normal = ExtResource( 18 )
+texture_disabled = ExtResource( 15 )
+expand = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4"]
+margin_left = 81.0
+margin_right = 112.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="4B" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4" groups=["Skills"]]
+margin_left = 112.0
+margin_right = 162.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4/4B"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 25, 25 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4/4B/TextureRect"]
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4/4B" groups=["SkillButtons"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Datenbanksysteme: 
+Grundlagen von SQL und Verständniss von UML Diagramen. 
+Dozent: Kammer
+Raum: A10.2.20
+"
+disabled = true
+texture_normal = ExtResource( 1 )
+texture_disabled = ExtResource( 15 )
+expand = true
+
+[node name="MarginContainer5" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4"]
+margin_left = 162.0
+margin_right = 193.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="4C" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4" groups=["Skills"]]
+margin_left = 193.0
+margin_right = 243.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4/4C"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 25, 25 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4/4C/TextureRect"]
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/4/4C" groups=["SkillButtons"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Webbasierte Systeme 2:
+Vertiefendes Modul mit schwerpunkt Angular und Firebase. 
+Dozent: Linne
+Raum: A10.2.12"
+disabled = true
+texture_normal = ExtResource( 20 )
+texture_disabled = ExtResource( 15 )
+expand = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree"]
+margin_top = 120.0
+margin_right = 276.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="3" type="HBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree"]
+margin_top = 140.0
+margin_right = 276.0
+margin_bottom = 190.0
+rect_min_size = Vector2( 0, 50 )
+custom_constants/separation = 0
+
+[node name="FronMargin" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3"]
+margin_right = 31.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 31, 0 )
+size_flags_vertical = 3
+
+[node name="3A" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3" groups=["Skills"]]
+margin_left = 31.0
+margin_right = 81.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3/3A"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 25, 25 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3/3A/TextureRect"]
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3/3A" groups=["SkillButtons"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Recht für Informatiker:
+Urheberrecht und juristische Grundlagenkentnisse.
+Dozent: Puchert.
+Raum: A10.4.21"
+disabled = true
+texture_normal = ExtResource( 18 )
+texture_disabled = ExtResource( 15 )
+expand = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3"]
+margin_left = 81.0
+margin_right = 112.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="3B" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3" groups=["Skills"]]
+margin_left = 112.0
+margin_right = 162.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3/3B"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 25, 25 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3/3B/TextureRect"]
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3/3B" groups=["SkillButtons"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Algorithmen und Datenstrukturen:
+Iterierende und Rekursive Aufrufe, sowie Baumtraversierung. 
+Dozent: Gogoldöring
+Raum: A16.02.05"
+disabled = true
+texture_normal = ExtResource( 1 )
+texture_disabled = ExtResource( 15 )
+expand = true
+
+[node name="MarginContainer5" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3"]
+margin_left = 162.0
+margin_right = 193.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 31, 0 )
+
+[node name="3C" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3" groups=["Skills"]]
+margin_left = 193.0
+margin_right = 243.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3/3C"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 25, 25 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3/3C/TextureRect"]
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/3/3C" groups=["SkillButtons"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Content Management Systeme: 
+Kategorisierung und Bewertung von CMS nach Funktionalität.
+Dozent: Karry
+Raum: A10.07.14"
+disabled = true
+texture_normal = ExtResource( 20 )
+texture_disabled = ExtResource( 15 )
+expand = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree"]
+margin_top = 190.0
+margin_right = 276.0
+margin_bottom = 210.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="2" type="HBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree"]
+margin_top = 210.0
+margin_right = 276.0
+margin_bottom = 260.0
+rect_min_size = Vector2( 0, 50 )
+custom_constants/separation = 0
+
+[node name="FronMargin2" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/2"]
+margin_right = 112.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 112, 0 )
+
+[node name="2A" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/2" groups=["Skills"]]
+margin_left = 112.0
+margin_right = 162.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/2/2A"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 25, 25 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/2/2A/TextureRect"]
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/2/2A" groups=["SkillButtons"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Webbasierte Programmierung 2: 
+Entwicklung eines Client-Serverbasierten Userman. 
+Dozent: Kneisel
+Raum: A10.1.21"
+disabled = true
+texture_normal = ExtResource( 18 )
+texture_disabled = ExtResource( 15 )
+expand = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree"]
+margin_top = 260.0
+margin_right = 276.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 0, 20 )
+
+[node name="1" type="HBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree"]
+margin_top = 280.0
+margin_right = 276.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 0, 50 )
+custom_constants/separation = 0
+
+[node name="FronMargin2" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/1"]
+margin_right = 112.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 112, 0 )
+
+[node name="1A" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/1" groups=["Skills"]]
+margin_left = 112.0
+margin_right = 162.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+texture = ExtResource( 17 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/1/1A"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.77811
+margin_right = -1.77811
+rect_pivot_offset = Vector2( 25, 25 )
+texture = ExtResource( 16 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/1/1A/TextureRect"]
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree/1/1A" groups=["SkillButtons"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 40, 40 )
+hint_tooltip = "Webbasierte Programmierung 1: 
+Ein Einstieg in Client-Serverbasierte Webprogrammierung.
+Dozent: Kneisel
+Raum: A10.1.21"
+disabled = true
+texture_normal = ExtResource( 18 )
+texture_disabled = ExtResource( 15 )
+expand = true
+
+[node name="MarginContainer5" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/IT/SkillTree"]
+margin_top = 330.0
+margin_right = 276.0
+margin_bottom = 345.0
+rect_min_size = Vector2( 0, 15 )
+
+[node name="Medien" type="Tabs" parent="Screen/Layout/Skills/SkillTree/TabContainer"]
+visible = false
+margin_left = 4.0
+margin_top = 32.0
+margin_right = 280.0
+margin_bottom = 399.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/Medien"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Screen/Layout/Skills/SkillTree/TabContainer/Medien/VBoxContainer"]
+margin_top = 176.0
+margin_right = 276.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Not Included in Demo"
+align = 1
+valign = 1
+
+[node name="BWL" type="Tabs" parent="Screen/Layout/Skills/SkillTree/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/BWL"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Screen/Layout/Skills/SkillTree/TabContainer/BWL/VBoxContainer2"]
+margin_top = 176.0
+margin_right = 276.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Not Included in Demo"
+align = 1
+valign = 1
+
+[node name="Others" type="Tabs" parent="Screen/Layout/Skills/SkillTree/TabContainer"]
+visible = false
+margin_left = 4.0
+margin_top = 32.0
+margin_right = 280.0
+margin_bottom = 399.0
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Screen/Layout/Skills/SkillTree/TabContainer/Others"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Screen/Layout/Skills/SkillTree/TabContainer/Others/VBoxContainer3"]
+margin_top = 176.0
+margin_right = 276.0
+margin_bottom = 190.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "Not Included in Demo"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/Layout/Skills/SkillTree"]
+margin_top = 378.0
+margin_right = 284.0
+margin_bottom = 417.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Screen/Layout/Skills/SkillTree/VBoxContainer"]
+margin_right = 284.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 0, 5 )
+
+[node name="SkillPoints" type="Label" parent="Screen/Layout/Skills/SkillTree/VBoxContainer"]
+margin_top = 9.0
+margin_right = 284.0
+margin_bottom = 39.0
+rect_min_size = Vector2( 75, 30 )
+custom_fonts/font = ExtResource( 13 )
+text = "Choose new Modules"
+align = 1
+
+[node name="Inventar" type="Control" parent="Screen/Layout"]
+visible = false
+margin_top = 210.0
+margin_right = 284.0
+margin_bottom = 417.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Screen/Layout/Inventar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Quests" type="Control" parent="Screen/Layout"]
+visible = false
+margin_right = 284.0
+margin_bottom = 417.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Screen/Layout/Quests"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -397.0
+rect_min_size = Vector2( 0, 45 )
+
+[node name="ActiveButton" type="TextureButton" parent="Screen/Layout/Quests/HBoxContainer"]
+margin_right = 140.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 28 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Screen/Layout/Quests/HBoxContainer/ActiveButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.5
+margin_top = -11.0
+margin_right = 30.5
+margin_bottom = 11.0
+custom_fonts/font = ExtResource( 13 )
+text = "Active"
+align = 1
+valign = 1
+
+[node name="DoneButton" type="TextureButton" parent="Screen/Layout/Quests/HBoxContainer"]
+margin_left = 144.0
+margin_right = 284.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+expand = true
+
+[node name="Label" type="Label" parent="Screen/Layout/Quests/HBoxContainer/DoneButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.5
+margin_top = -11.0
+margin_right = 30.5
+margin_bottom = 11.0
+custom_fonts/font = ExtResource( 13 )
+text = "Done"
+align = 1
+valign = 1
+
+[node name="ActiveQuests" type="ScrollContainer" parent="Screen/Layout/Quests"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuestButtons" type="VBoxContainer" parent="Screen/Layout/Quests/ActiveQuests"]
+margin_right = 284.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 4
+
+[node name="1A" type="MarginContainer" parent="Screen/Layout/Quests/ActiveQuests/QuestButtons"]
+visible = false
+margin_right = 284.0
+margin_bottom = 55.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 5
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 5
+
+[node name="1A" type="TextureRect" parent="Screen/Layout/Quests/ActiveQuests/QuestButtons/1A"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 274.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+texture = ExtResource( 25 )
+expand = true
+
+[node name="QuestName" type="Label" parent="Screen/Layout/Quests/ActiveQuests/QuestButtons/1A/1A"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -20.0
+margin_right = 120.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 13 )
+text = "Quest Q1"
+align = 1
+valign = 1
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Quests/ActiveQuests/QuestButtons/1A/1A"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="DoneQuests" type="ScrollContainer" parent="Screen/Layout/Quests"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 45.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuestButtons" type="VBoxContainer" parent="Screen/Layout/Quests/DoneQuests"]
+margin_right = 284.0
+margin_bottom = 372.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 4
+
+[node name="1A" type="MarginContainer" parent="Screen/Layout/Quests/DoneQuests/QuestButtons"]
+visible = false
+margin_right = 284.0
+margin_bottom = 55.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 5
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 5
+
+[node name="1A" type="TextureRect" parent="Screen/Layout/Quests/DoneQuests/QuestButtons/1A"]
+margin_left = 10.0
+margin_top = 5.0
+margin_right = 274.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 45 )
+size_flags_horizontal = 3
+texture = ExtResource( 25 )
+expand = true
+
+[node name="QuestName" type="Label" parent="Screen/Layout/Quests/DoneQuests/QuestButtons/1A/1A"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -120.0
+margin_top = -20.0
+margin_right = 120.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 13 )
+text = "Quest Q1"
+align = 1
+valign = 1
+
+[node name="TextureButton" type="TextureButton" parent="Screen/Layout/Quests/DoneQuests/QuestButtons/1A/1A"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuestContent" type="VBoxContainer" parent="Screen/Layout/Quests"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 50.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="QuestInfoBackground" type="Panel" parent="Screen/Layout/Quests/QuestContent"]
+margin_right = 274.0
+margin_bottom = 362.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 2 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Screen/Layout/Quests/QuestContent/QuestInfoBackground"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -5.0
+margin_bottom = -5.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer"]
+margin_right = 264.0
+margin_bottom = 667.0
+size_flags_horizontal = 3
+
+[node name="QuestInfo" type="RichTextLabel" parent="Screen/Layout/Quests/QuestContent/QuestInfoBackground/ScrollContainer/VBoxContainer"]
+margin_right = 252.0
+margin_bottom = 667.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/normal_font = ExtResource( 26 )
+text = "Hier stehtz dann ganz viel Quest Informationen was der Spierler aleles so wissen muss Was ist wenn hier ganz viel text steht der über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug über denaleles so wissen muss jWas ist wenn hier ganz viel text steht der über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug über den Rand hinaus geht mal schauen ich tippe jetzt einfach mal ganz viel gerum bis genug "
+fit_content_height = true
+
+[node name="Inventory" type="VBoxContainer" parent="Screen/Layout"]
+visible = false
+margin_top = 210.0
+margin_right = 284.0
+margin_bottom = 417.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Buttons" type="HBoxContainer" parent="Screen/Layout"]
+margin_top = 421.0
+margin_right = 284.0
+margin_bottom = 491.0
+rect_min_size = Vector2( 0, 70 )
+
+[node name="StatsSkills" type="VBoxContainer" parent="Screen/Layout/Buttons"]
+margin_right = 140.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+
+[node name="Stats" type="TextureButton" parent="Screen/Layout/Buttons/StatsSkills"]
+margin_right = 140.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 91, 30 )
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 28 )
+expand = true
+
+[node name="Label" type="Label" parent="Screen/Layout/Buttons/StatsSkills/Stats"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 13 )
+text = "Stats"
+align = 1
+valign = 1
+
+[node name="Skills" type="TextureButton" parent="Screen/Layout/Buttons/StatsSkills"]
+margin_top = 34.0
+margin_right = 140.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 91, 30 )
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 28 )
+expand = true
+
+[node name="Label" type="Label" parent="Screen/Layout/Buttons/StatsSkills/Skills"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 13 )
+text = "Skills"
+align = 1
+valign = 1
+
+[node name="QuestsInventory" type="VBoxContainer" parent="Screen/Layout/Buttons"]
+margin_left = 144.0
+margin_right = 284.0
+margin_bottom = 70.0
+size_flags_horizontal = 3
+
+[node name="Quests" type="TextureButton" parent="Screen/Layout/Buttons/QuestsInventory"]
+margin_right = 140.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 91, 30 )
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 28 )
+expand = true
+
+[node name="Label" type="Label" parent="Screen/Layout/Buttons/QuestsInventory/Quests"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1.0
+custom_fonts/font = ExtResource( 13 )
+text = "Quests"
+align = 1
+valign = 1
+
+[node name="Inventory" type="TextureButton" parent="Screen/Layout/Buttons/QuestsInventory"]
+margin_top = 34.0
+margin_right = 140.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 91, 30 )
+texture_normal = ExtResource( 29 )
+texture_pressed = ExtResource( 28 )
+expand = true
+
+[node name="Label" type="Label" parent="Screen/Layout/Buttons/QuestsInventory/Inventory"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1.0
+custom_fonts/font = ExtResource( 13 )
+text = "Inventory"
+align = 1
+valign = 1
+
+[connection signal="pressed" from="Screen/Layout/Attributes/HBoxContainer/ConfirmButton" to="." method="_on_ConfirmButton_pressed"]
+[connection signal="pressed" from="Screen/Layout/Quests/HBoxContainer/ActiveButton" to="." method="_on_ActiveButton_pressed"]
+[connection signal="pressed" from="Screen/Layout/Quests/HBoxContainer/DoneButton" to="." method="_on_DoneButton_pressed"]
+[connection signal="pressed" from="Screen/Layout/Buttons/StatsSkills/Stats" to="." method="_on_Stats_pressed"]
+[connection signal="pressed" from="Screen/Layout/Buttons/StatsSkills/Skills" to="." method="_on_Skills_pressed"]
+[connection signal="pressed" from="Screen/Layout/Buttons/QuestsInventory/Quests" to="." method="_on_Quests_pressed"]
+[connection signal="pressed" from="Screen/Layout/Buttons/QuestsInventory/Inventory" to="." method="_on_Inventory_pressed"]

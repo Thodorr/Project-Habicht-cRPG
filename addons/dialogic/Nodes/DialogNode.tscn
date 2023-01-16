@@ -1,0 +1,452 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://addons/dialogic/Nodes/TextBubble.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/dialogic/Example Assets/backgrounds/GlossaryBackground.tres" type="StyleBox" id=2]
+[ext_resource path="res://addons/dialogic/Nodes/CharacterVoice.gd" type="Script" id=3]
+[ext_resource path="res://addons/dialogic/Example Assets/Fonts/GlossaryFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/dialogic/Nodes/glossary_info.gd" type="Script" id=5]
+[ext_resource path="res://addons/dialogic/Nodes/DialogNode.gd" type="Script" id=6]
+[ext_resource path="res://addons/dialogic/Nodes/BackgroundMusic.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/dialogic/Nodes/random_audio_stream_player.gd" type="Script" id=8]
+[ext_resource path="res://addons/dialogic/Example Assets/Sound Effects/Beep.wav" type="AudioStream" id=9]
+[ext_resource path="res://addons/dialogic/Nodes/DialogicCustomEvents.gd" type="Script" id=10]
+[ext_resource path="res://addons/dialogic/Nodes/History.tscn" type="PackedScene" id=11]
+[ext_resource path="res://UI/Assets/GUI/Check/Watch/clock4.png" type="Texture" id=12]
+[ext_resource path="res://UI/Assets/GUI/Check/Watch/clock0.png" type="Texture" id=13]
+[ext_resource path="res://UI/Assets/GUI/Check/Watch/clock5.png" type="Texture" id=14]
+[ext_resource path="res://UI/Assets/GUI/Check/Watch/clock6.png" type="Texture" id=15]
+[ext_resource path="res://UI/Assets/GUI/Check/Watch/clock7.png" type="Texture" id=16]
+[ext_resource path="res://UI/Assets/GUI/Check/Watch/clock8.png" type="Texture" id=17]
+[ext_resource path="res://UI/Assets/GUI/Check/Watch/clock3.png" type="Texture" id=18]
+[ext_resource path="res://UI/Assets/GUI/Check/Watch/clock1.png" type="Texture" id=19]
+[ext_resource path="res://UI/Assets/GUI/Check/Watch/clock9.png" type="Texture" id=20]
+[ext_resource path="res://UI/Assets/GUI/Check/Watch/clock2.png" type="Texture" id=21]
+[ext_resource path="res://UI/Font/PixelFontVerySmall.tres" type="DynamicFont" id=22]
+[ext_resource path="res://UI/Assets/GUI/Check/Dice/Dice.png" type="Texture" id=23]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 0 )
+expand_margin_left = 10.0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 640, 360 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "CheckFail"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../../ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 0.556863, 0.556863, 0.262745 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Clock"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../TextureRect:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../../ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.8, 0.9, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.262745 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("..:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../TextureRect:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../../ColorRect:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 18 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="DialogNode" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+
+[node name="Portraits" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 320.0
+margin_top = 360.0
+margin_right = 320.0
+margin_bottom = 360.0
+
+[node name="TextBubble" parent="." instance=ExtResource( 1 )]
+margin_left = 440.0
+margin_top = 5.0
+margin_right = 640.0
+margin_bottom = 355.0
+
+[node name="Options" type="VBoxContainer" parent="."]
+visible = false
+margin_left = 470.0
+margin_top = 100.0
+margin_right = 1110.0
+margin_bottom = 460.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FX" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="BackgroundMusic" parent="FX" instance=ExtResource( 7 )]
+
+[node name="CharacterVoice" type="AudioStreamPlayer" parent="FX"]
+script = ExtResource( 3 )
+
+[node name="Audio" type="Node" parent="FX"]
+
+[node name="Typing" type="AudioStreamPlayer" parent="FX/Audio"]
+script = ExtResource( 8 )
+samples = [ ExtResource( 9 ) ]
+random_strategy = 2
+
+[node name="Waiting" type="AudioStreamPlayer" parent="FX/Audio"]
+script = ExtResource( 8 )
+samples = [ ExtResource( 9 ) ]
+random_strategy = 2
+
+[node name="Passing" type="AudioStreamPlayer" parent="FX/Audio"]
+script = ExtResource( 8 )
+samples = [ ExtResource( 9 ) ]
+random_strategy = 2
+
+[node name="Hovering" type="AudioStreamPlayer" parent="FX/Audio"]
+script = ExtResource( 8 )
+samples = [ ExtResource( 9 ) ]
+random_strategy = 2
+
+[node name="Selecting" type="AudioStreamPlayer" parent="FX/Audio"]
+script = ExtResource( 8 )
+samples = [ ExtResource( 9 ) ]
+random_strategy = 2
+
+[node name="DefinitionInfo" type="PanelContainer" parent="."]
+visible = false
+margin_right = 208.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 2 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DefinitionInfo"]
+margin_right = 208.0
+margin_bottom = 143.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="RichTextLabel" parent="DefinitionInfo/VBoxContainer"]
+margin_right = 208.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+size_flags_vertical = 4
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_styles/normal = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "This is the title"
+text = "This is the title"
+fit_content_height = true
+scroll_active = false
+
+[node name="Content" type="RichTextLabel" parent="DefinitionInfo/VBoxContainer"]
+margin_top = 31.0
+margin_right = 208.0
+margin_bottom = 112.0
+size_flags_horizontal = 3
+custom_colors/default_color = Color( 0.756863, 0.756863, 0.756863, 1 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_styles/normal = SubResource( 1 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Extra" type="RichTextLabel" parent="DefinitionInfo/VBoxContainer"]
+margin_top = 116.0
+margin_right = 208.0
+margin_bottom = 143.0
+size_flags_horizontal = 3
+custom_colors/default_color = Color( 0.756863, 0.756863, 0.756863, 1 )
+custom_fonts/normal_font = ExtResource( 4 )
+custom_styles/normal = SubResource( 1 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DefinitionInfo"]
+
+[node name="OptionsDelayedInput" type="Timer" parent="."]
+
+[node name="DialogicTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CustomEvents" type="Node" parent="."]
+script = ExtResource( 10 )
+
+[node name="History" parent="." instance=ExtResource( 11 )]
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+shape = SubResource( 2 )
+shape_visible = false
+action = "dialogic_default_action"
+visibility_mode = 1
+
+[node name="CheckAnim" type="Control" parent="."]
+margin_left = 516.0
+margin_top = 263.0
+margin_right = 556.0
+margin_bottom = 303.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CheckAnim"]
+root_node = NodePath("../AnimatedSprite")
+anims/CheckFail = SubResource( 6 )
+anims/Clock = SubResource( 3 )
+anims/RESET = SubResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CheckAnim"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 21, 19 )
+frames = SubResource( 5 )
+
+[node name="TextureRect" type="TextureRect" parent="CheckAnim"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -19.0
+margin_top = -20.0
+margin_right = 18.0
+margin_bottom = 20.0
+texture = ExtResource( 23 )
+expand = true
+
+[node name="Label" type="Label" parent="CheckAnim/TextureRect"]
+margin_left = 12.0
+margin_top = 16.0
+margin_right = 26.0
+margin_bottom = 25.0
+custom_fonts/font = ExtResource( 22 )
+text = "0"
+align = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_right = 4.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+
+[connection signal="timeout" from="DefinitionInfo/Timer" to="." method="_on_Definition_Timer_timeout"]

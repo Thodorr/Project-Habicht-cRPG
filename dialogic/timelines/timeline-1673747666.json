@@ -1,0 +1,414 @@
+{
+	"events": [
+		{
+			"call_node": {
+				"arguments": [
+					"Das Erwachen"
+				],
+				"method_name": "get_quest_progress",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Das Erwachen"
+				],
+				"method_name": "is_quest_active",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1673750177-746",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"condition": "",
+			"definition": "1673748972-381",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"definition": "1673748972-381",
+			"event_id": "dialogic_014",
+			"operation": "+",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Das Erwachen"
+				],
+				"method_name": "advance_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "==",
+			"definition": "1673748972-381",
+			"event_id": "dialogic_012",
+			"value": "2"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "==",
+			"definition": "1673748972-381",
+			"event_id": "dialogic_012",
+			"value": "3"
+		},
+		{
+			"character": "character-1673747980.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "( DIe Tuer ist offen )"
+		},
+		{
+			"choice": "Geh hinein und weck Jonas.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"definition": "1673748972-381",
+			"event_id": "dialogic_014",
+			"operation": "+",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"character": "character-1673747980.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "(  Jonas springt hastig von seinem Bett auf und rennt zu seiner Vorlesung )\n( Als dank hat er dir erlaubt, dich an seinem Kühlschrank zu bedienen )"
+		},
+		{
+			"character": "character-1673747980.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "( Im Inneren ist jedoch nur eine vereinzelte Ananas )"
+		},
+		{
+			"choice": "( Nimm die Ananas. )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Pineapple",
+					"Food",
+					"CategoryB"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "( Lass die Ananas zurück. )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Das Erwachen"
+				],
+				"method_name": "advance_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Das Erwachen"
+				],
+				"method_name": "finish_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "( Lass die Tuer in Ruhe )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "==",
+			"definition": "1673748972-381",
+			"event_id": "dialogic_012",
+			"value": "4"
+		},
+		{
+			"character": "character-1673747980.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Hier gibt es nichts mehr zu tun."
+		},
+		{
+			"choice": "( Lass die Tür in Ruhe )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "==",
+			"definition": "1673748972-381",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1673747980.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( Vor dir ist eine verschlossene Holztuer )"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "Main"
+		},
+		{
+			"character": "character-1673747980.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "( Vor dir ist eine verschlossene Holztuer )"
+		},
+		{
+			"choice": "( Klopf an )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673747980.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( Nichts passiert )"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "( Versuch die Tuer zu oeffnen )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"9"
+				],
+				"method_name": "get_attribute_for_dialog",
+				"target_node_path": "../../../../../Attributes"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": ">=",
+			"definition": "1673748140-142",
+			"event_id": "dialogic_012",
+			"value": "2"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Das Erwachen",
+					"todo"
+				],
+				"method_name": "start_a_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"character": "character-1673751244.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "<Luck: 2> Scheinbar hat jemand vergessen abzuschliessen."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Das Erwachen"
+				],
+				"method_name": "advance_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "<",
+			"definition": "1673748140-142",
+			"event_id": "dialogic_012",
+			"value": "2"
+		},
+		{
+			"character": "character-1673747980.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Du rüttelst fest an der Klinke, doch nichts passiert.\nDie Tuer bleibt fest verschlossen."
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "#FindKey# ( Schau dich nach dem Schluessel um )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 1
+		},
+		{
+			"condition": "",
+			"definition": "1672759872-366",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1673728147.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( Nach kurzer Suche siehst du eine subtile Delle in der Fussmatte )\n( Scheinbar wurde ein Schluessel darunter versteckt )"
+		},
+		{
+			"definition": "1673748972-381",
+			"event_id": "dialogic_014",
+			"operation": "+",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Das Erwachen"
+				],
+				"method_name": "advance_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1672759872-366",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"character": "character-1673728147.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( Trotz langer Suche findest du nichts )"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Lass die Tuer in Ruhe )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673747666.json",
+		"name": "RedHouseDoor"
+	}
+}

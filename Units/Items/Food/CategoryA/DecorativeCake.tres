@@ -1,0 +1,26 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Engine/Blueprints/FoodItem.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Decorative Cake"
+description = "A very beatiful cake.
+Might be a little bit to beatiful to eat."
+item_attributes = {
+0: -1,
+1: 0,
+2: 0,
+3: 1,
+4: 0,
+5: 0,
+6: 0,
+7: 0,
+8: 3,
+9: 2
+}
+stress_relief = 3
+removeable = true
+text_message = ""
+accept_text = "Accept"
+decline_text = "Decline"

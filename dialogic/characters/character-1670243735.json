@@ -1,0 +1,21 @@
+{
+	"color": "#ffffffff",
+	"description": "This is a test-character.",
+	"display_name": "Unknown Man",
+	"display_name_bool": true,
+	"id": "character-1670243735.json",
+	"mirror_portraits": false,
+	"name": "Testo Testmann",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

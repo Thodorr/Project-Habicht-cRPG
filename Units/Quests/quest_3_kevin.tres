@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Engine/Quests.gd" type="Script" id=1]
+[ext_resource path="res://Units/Items/Food/CategoryB/Chili.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+questname = "kevins_quest"
+item_needed = false
+description = [ "Go to Michaela" ]
+quest_item = [  ]
+quest_reward = [ ExtResource( 2 ) ]
+reward_amount = 1
+amound_exp = 40
+amount_money = 0

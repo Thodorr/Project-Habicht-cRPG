@@ -1,0 +1,354 @@
+{
+	"files": [
+
+	],
+	"folders": {
+		"Characters": {
+			"files": [
+				"character-1670243735.json",
+				"character-1672225942.json",
+				"character-1673201999.json",
+				"character-1673376683.json",
+				"character-1673727717.json",
+				"character-1673737444.json",
+				"character-1673802657.json",
+				"character-1673807157.json",
+				"character-1673807410.json",
+				"character-1673808474.json"
+			],
+			"folders": {
+				"Attributes": {
+					"files": [
+						"character-1673728147.json",
+						"character-1673751244.json",
+						"character-1673818206.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"ClutterNPCs": {
+					"files": [
+						"character-1673797925.json",
+						"character-1673806251.json",
+						"character-1673817978.json",
+						"character-1673828036.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Objects": {
+					"files": [
+						"character-1673747980.json",
+						"character-1673820558.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"characters_quest_1": {
+					"files": [
+						"character-1673600632.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				}
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		},
+		"Definitions": {
+			"files": [
+				"1672225795-648",
+				"1673602740-186",
+				"1673748972-381",
+				"1673750177-746",
+				"1673810967-146"
+			],
+			"folders": {
+				"Check": {
+					"files": [
+						"1672759872-366",
+						"1673748140-142"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"DialogChangers": {
+					"files": [
+						"1673729568-366",
+						"1673798849-346",
+						"1673805085-648",
+						"1673807105-787"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Intermidiates": {
+					"files": [
+						"1673504863-648"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				},
+				"Nicknames": {
+					"files": [
+						"1673727809-787",
+						"1673737406-948",
+						"1673801939-648"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Quest": {
+					"files": [
+
+					],
+					"folders": {
+						"EverybodyReady": {
+							"files": [
+								"1673832883-978",
+								"1673834281-444",
+								"1673834336-650",
+								"1673834365-552"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						}
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Reputation": {
+					"files": [
+						"1673730594-918"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": true
+					}
+				}
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		},
+		"Themes": {
+			"files": [
+				"default-theme.cfg",
+				"theme-1672769907.cfg"
+			],
+			"folders": {
+
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		},
+		"Timelines": {
+			"files": [
+				"timeline-1672227725.json",
+				"timeline-1673199460.json",
+				"timeline-1673190959.json"
+			],
+			"folders": {
+				"Caitllyn": {
+					"files": [
+						"timeline-1673737340.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"ClutterDialog": {
+					"files": [
+
+					],
+					"folders": {
+						"Intro": {
+							"files": [
+								"timeline-1673797903.json",
+								"timeline-1673806201.json",
+								"timeline-1673818002.json",
+								"timeline-1673820537.json",
+								"timeline-1673828014.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						}
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"RedHouse": {
+					"files": [
+						"timeline-1673747666.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"T-Rex": {
+					"files": [
+						"timeline-1673727886.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"Test Quest": {
+					"files": [
+						"timeline-1671555010.json",
+						"timeline-1671557373.json",
+						"timeline-1672224973.json",
+						"timeline-1672226196.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"quest_kevin": {
+					"files": [
+						"timeline-1673806929.json",
+						"timeline-1673808262.json",
+						"timeline-1673808520.json",
+						"timeline-1673878868.json"
+					],
+					"folders": {
+						"kevin_part2": {
+							"files": [
+								"timeline-1673879233.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						}
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"quest_mario": {
+					"files": [
+						"timeline-1673802593.json"
+					],
+					"folders": {
+
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				},
+				"quests_campus": {
+					"files": [
+
+					],
+					"folders": {
+						"quest_1": {
+							"files": [
+								"timeline-1673600597.json",
+								"timeline-1673602601.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						}
+					},
+					"metadata": {
+						"color": null,
+						"folded": false
+					}
+				}
+			},
+			"metadata": {
+				"color": null,
+				"folded": false
+			}
+		}
+	}
+}

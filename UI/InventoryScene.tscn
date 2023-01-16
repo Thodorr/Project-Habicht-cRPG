@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://UI/InventoryScene.gd" type="Script" id=1]
 [ext_resource path="res://UI/InventoryGrid.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Items/Food/Cheese.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Items/Equipment/Hat/DetectiveHat.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Items/PillBottle.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Items/BrownBackpack.png" type="Texture" id=6]
+[ext_resource path="res://UI/Assets/GUI/NormalButton.tres" type="Texture" id=7]
+[ext_resource path="res://UI/Assets/GUI/PressedButton.tres" type="Texture" id=8]
+[ext_resource path="res://Assets/Items/Book.png" type="Texture" id=9]
+[ext_resource path="res://UI/Assets/GUI/QuestButton.tres" type="Texture" id=10]
+[ext_resource path="res://UI/Font/PixelFontSmall.tres" type="DynamicFont" id=11]
 
 [node name="InventoryScene" type="Control"]
 anchor_right = 1.0
@@ -9,18 +18,182 @@ anchor_bottom = 1.0
 mouse_filter = 2
 script = ExtResource( 1 )
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
-margin_left = 25.0
-margin_top = 170.0
-margin_right = 65.0
-margin_bottom = 210.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -177.0
+margin_top = 36.0
+margin_right = -24.0
+margin_bottom = 255.0
+custom_constants/separation = 7
 
-[node name="InventoryGrid" type="GridContainer" parent="CenterContainer"]
-margin_left = 20.0
-margin_top = 20.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 153.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 153, 20 )
+custom_constants/separation = 13
+
+[node name="AllFilterButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
 margin_right = 20.0
 margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/AllFilterButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -5.0
+margin_right = 2.0
+margin_bottom = 1.0
+rect_scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 6 )
+
+[node name="EquipmentFilterButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+margin_left = 33.0
+margin_right = 53.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/EquipmentFilterButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -8.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+texture = ExtResource( 4 )
+
+[node name="FoodFilterButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+margin_left = 66.0
+margin_right = 86.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/FoodFilterButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -5.5
+margin_top = -7.0
+margin_right = 5.5
+margin_bottom = 5.0
+texture = ExtResource( 3 )
+
+[node name="TemporaryFilterButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
+margin_left = 99.0
+margin_right = 119.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/TemporaryFilterButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.5
+margin_top = -7.5
+margin_right = 2.5
+margin_bottom = 1.5
+rect_scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 5 )
+
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 132.0
+margin_right = 152.0
+margin_bottom = 20.0
+custom_constants/separation = 3
+
+[node name="OtherFilterButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/HBoxContainer"]
+margin_right = 20.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/HBoxContainer/OtherFilterButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -9.0
+margin_top = -10.0
+margin_right = 7.0
+margin_bottom = 6.0
+rect_scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 9 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+margin_top = 27.0
+margin_right = 153.0
+margin_bottom = 192.0
+rect_min_size = Vector2( 50, 120 )
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ScrollContainer"]
+
+[node name="InventoryGrid" type="GridContainer" parent="VBoxContainer/ScrollContainer/CenterContainer"]
 custom_constants/vseparation = -1
 custom_constants/hseparation = -1
-columns = 4
+columns = 8
 script = ExtResource( 2 )
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 199.0
+margin_right = 153.0
+margin_bottom = 219.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 90.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 90, 20 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_fonts/font = ExtResource( 11 )
+text = "Currency:"
+align = 1
+valign = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 94.0
+margin_right = 153.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/AllFilterButton" to="." method="_on_FilterButton_pressed" binds= [ "All" ]]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/AllFilterButton" to="." method="_on_FilterButton_released" binds= [ "All" ]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/EquipmentFilterButton" to="." method="_on_FilterButton_pressed" binds= [ "Equipment" ]]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/EquipmentFilterButton" to="." method="_on_FilterButton_released" binds= [ "Equipment" ]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/FoodFilterButton" to="." method="_on_FilterButton_pressed" binds= [ "Food" ]]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/FoodFilterButton" to="." method="_on_FilterButton_released" binds= [ "Food" ]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/TemporaryFilterButton" to="." method="_on_FilterButton_pressed" binds= [ "Temporary" ]]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/TemporaryFilterButton" to="." method="_on_FilterButton_released" binds= [ "Temporary" ]]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/HBoxContainer/OtherFilterButton" to="." method="_on_FilterButton_pressed" binds= [ "Other" ]]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/HBoxContainer/OtherFilterButton" to="." method="_on_FilterButton_released" binds= [ "Other" ]]
