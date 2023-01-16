@@ -155,7 +155,7 @@ func give_item(itemFileName, type = 'Food', extraFolder = ''):
 	inventory.add_item(item, 1)
 
 func give_money(amount):
-	inventory.add_currency()
+	inventory.add_currency(amount)
 
 func check_for_item(itemname):
 	Dialogic.set_variable('hasItem', inventory.check_for_item(itemname)) 
@@ -166,7 +166,7 @@ func add_influence_to_check(check_name: String, influence_name, influence_value)
 	check.add_influence(influence)
 
 func add_to_nerve(value):
-	Attributes.nerve_damage += int(value)
+	Attributes.remove_stress(int(value))
 
 func finish_quest(questname):
 	questhandler.finish_quest(questname)

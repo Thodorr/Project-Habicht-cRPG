@@ -6,7 +6,7 @@ func _ready():
 	inventory.connect('currency_changed', self, '_on_currency_changed')
 	_on_currency_changed()
 
-func _on_currency_changed():
+func _on_currency_changed(_amount = 0):
 	$VBoxContainer/HBoxContainer2/TextureRect/Label.text = 'Currency: ' + str(inventory.currency)
 
 func can_drop_data(_position, data):
