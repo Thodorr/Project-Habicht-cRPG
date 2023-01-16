@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=2]
+[gd_scene load_steps=140 format=2]
 
 [ext_resource path="res://Assets/Map/Indoor/Interior/17_Visibile_Upstairs_System_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Map/Indoor/Interior/12_Kitchen_16x16.png" type="Texture" id=2]
@@ -23,10 +23,19 @@
 [ext_resource path="res://Assets/Character/Outfit/RedShirt.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Character/Hair/LongHair.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Character/Body/Body_07.png" type="Texture" id=23]
-[ext_resource path="res://UI/Font/PixelFont.tres" type="DynamicFont" id=24]
-[ext_resource path="res://GUI.gd" type="Script" id=25]
-[ext_resource path="res://UI/Assets/GUI/MediumNormalButton.tres" type="Texture" id=26]
-[ext_resource path="res://UI/Assets/GUI/MediumPressedButton.tres" type="Texture" id=27]
+[ext_resource path="res://Units/Items/Food/CategoryB/Bread.tres" type="Resource" id=24]
+[ext_resource path="res://Assets/Character/Outfit/JoggingSuit.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Character/Hat/PinkBeanie.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Character/Body/Body_04.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Character/Hair/Hairstyle_01_02.png" type="Texture" id=28]
+[ext_resource path="res://Engine/Placeables/PickUp.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Assets/Character/Outfit/BlueHoodie.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Character/Hat/RedSnapback.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Character/Outfit/Rags.png" type="Texture" id=32]
+[ext_resource path="res://UI/Font/PixelFont.tres" type="DynamicFont" id=33]
+[ext_resource path="res://GUI.gd" type="Script" id=34]
+[ext_resource path="res://UI/Assets/GUI/MediumNormalButton.tres" type="Texture" id=35]
+[ext_resource path="res://UI/Assets/GUI/MediumPressedButton.tres" type="Texture" id=36]
 
 [sub_resource type="GDScript" id=156]
 script/source = "extends Node2D
@@ -3807,6 +3816,38 @@ body = ExtResource( 23 )
 hair = ExtResource( 22 )
 conversation = "CaitlynStairs"
 
+[node name="Mario" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 496, 58 )
+outfit = ExtResource( 25 )
+body = ExtResource( 27 )
+hair = ExtResource( 28 )
+hat = ExtResource( 26 )
+conversation = "quest_mario_start"
+
+[node name="Kevin" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 723, 135 )
+outfit = ExtResource( 30 )
+body = ExtResource( 27 )
+hair = ExtResource( 28 )
+hat = ExtResource( 31 )
+conversation = "quest_kevin"
+
+[node name="Michaela" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( -273, 38 )
+outfit = ExtResource( 32 )
+body = ExtResource( 27 )
+hair = ExtResource( 22 )
+conversation = "michaela_verified"
+looking_dir = 3
+
+[node name="Xylophonia" parent="YSort" instance=ExtResource( 20 )]
+position = Vector2( 18, 120 )
+outfit = ExtResource( 32 )
+body = ExtResource( 27 )
+hair = ExtResource( 22 )
+conversation = "fake_xylophonia"
+looking_dir = 3
+
 [node name="Spawn" type="Position2D" parent="YSort"]
 position = Vector2( 344, 25 )
 
@@ -3860,6 +3901,12 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 327667, 33, 0, 327668, 33, 0, 393203, 33, 0, 393204, 33, 0, 458739, 33, 0, 458740, 33, 0, 393251, 33, 0, 393252, 32, 0, 393253, 32, 0, 393254, 32, 0, 393255, 32, 0, 393256, 32, 0, 524275, 33, 0, 524276, 33, 0, 458787, 33, 0, 458788, 33, 0, 458789, 33, 0, 458790, 33, 0, 458791, 33, 0, 458792, 32, 0, 589811, 33, 0, 589812, 33, 0, 524323, 33, 0, 524324, 33, 0, 524325, 33, 0, 524326, 33, 0, 524327, 33, 0, 524328, 32, 0, 655346, 16, 0, 589859, 32, 0, 589860, 32, 0, 589861, 32, 0, 589862, 32, 0, 589863, 32, 0, 589864, 32, 0, 655395, 26, 0, 655396, 25, 0, 655397, 25, 0, 655398, 25, 0, 655399, 25, 0, 655400, 25, 0, 983027, 5, 0, 983028, 6, 0, 983029, 6, 0, 983030, 6, 0, 983031, 6, 0, 983032, 6, 0, 983033, 6, 0, 983034, 6, 0, 983035, 6, 0, 983036, 6, 0, 983037, 6, 0, 983038, 6, 0, 983039, 7, 0, 917539, 32, 0, 917540, 32, 0, 917541, 32, 0, 917542, 32, 0, 917543, 32, 0, 917544, 32, 0, 1048563, 10, 0, 1048564, 8, 0, 1048565, 8, 0, 1048566, 8, 0, 1048567, 8, 0, 1048568, 8, 0, 1048569, 8, 0, 1048570, 8, 0, 1048571, 8, 0, 1048572, 8, 0, 1048573, 8, 0, 1048574, 8, 0, 1048575, 9, 0, 983075, 32, 0, 983076, 32, 0, 983077, 32, 0, 983078, 32, 0, 983079, 32, 0, 983080, 32, 0, 1114099, 10, 0, 1114100, 8, 0, 1114101, 8, 0, 1114102, 8, 0, 1114103, 8, 0, 1114104, 8, 0, 1114105, 8, 0, 1114106, 8, 0, 1114107, 8, 0, 1114108, 8, 0, 1114109, 8, 0, 1114110, 8, 0, 1114111, 9, 0, 1179635, 10, 0, 1179636, 8, 0, 1179637, 8, 0, 1179638, 8, 0, 1179639, 8, 0, 1179640, 8, 0, 1179641, 8, 0, 1179642, 8, 0, 1179643, 8, 0, 1179644, 8, 0, 1179645, 8, 0, 1179646, 8, 0, 1179647, 9, 0, 1245171, 10, 0, 1245172, 8, 0, 1245173, 8, 0, 1245174, 8, 0, 1245175, 8, 0, 1245176, 8, 0, 1245177, 8, 0, 1245178, 8, 0, 1245179, 8, 0, 1245180, 8, 0, 1245181, 8, 0, 1245182, 8, 0, 1245183, 9, 0, 1310707, 10, 0, 1310708, 8, 0, 1310709, 8, 0, 1310710, 8, 0, 1310711, 8, 0, 1310712, 8, 0, 1310713, 8, 0, 1310714, 8, 0, 1310715, 8, 0, 1310716, 8, 0, 1310717, 8, 0, 1310718, 8, 0, 1310719, 9, 0, 1376243, 10, 0, 1376244, 8, 0, 1376245, 8, 0, 1376246, 8, 0, 1376247, 8, 0, 1376248, 8, 0, 1376249, 8, 0, 1376250, 8, 0, 1376251, 8, 0, 1376252, 8, 0, 1376253, 8, 0, 1376254, 8, 0, 1376255, 9, 0, 1310736, 0, 0, 1310737, 4, 0, 1310738, 4, 0, 1310739, 4, 0, 1310740, 4, 0, 1310741, 4, 0, 1310742, 2, 0, 1441779, 10, 0, 1441780, 8, 0, 1441781, 8, 0, 1441782, 8, 0, 1441783, 8, 0, 1441784, 8, 0, 1441785, 8, 0, 1441786, 8, 0, 1441787, 8, 0, 1441788, 8, 0, 1441789, 8, 0, 1441790, 8, 0, 1441791, 9, 0, 1376272, 3, 0, 1376273, 4, 0, 1376274, 4, 0, 1376275, 4, 0, 1376276, 4, 0, 1376277, 4, 0, 1376278, 4, 0, 1507315, 10, 0, 1507316, 8, 0, 1507317, 8, 0, 1507318, 8, 0, 1507319, 8, 0, 1507320, 8, 0, 1507321, 8, 0, 1507322, 8, 0, 1507323, 8, 0, 1507324, 8, 0, 1507325, 8, 0, 1507326, 8, 0, 1507327, 9, 0, 1441808, 4, 0, 1441809, 4, 0, 1441810, 4, 0, 1441811, 4, 0, 1441812, 4, 0, 1441813, 4, 0, 1441814, 4, 0 )
 
+[node name="PickUps" type="Node2D" parent="."]
+
+[node name="PickUp" parent="PickUps" instance=ExtResource( 29 )]
+position = Vector2( 1051, 338 )
+item = ExtResource( 24 )
+
 [node name="campus" parent="." instance=ExtResource( 11 )]
 position = Vector2( 343, -3 )
 
@@ -3871,7 +3918,7 @@ stream = ExtResource( 19 )
 volume_db = -20.0
 
 [node name="GUI" type="CanvasLayer" parent="."]
-script = ExtResource( 25 )
+script = ExtResource( 34 )
 
 [node name="GameMenu" type="Control" parent="GUI"]
 visible = false
@@ -3901,7 +3948,7 @@ custom_constants/separation = 6
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer"]
 margin_right = 130.0
 margin_bottom = 17.0
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 33 )
 text = "Game Menu"
 align = 1
 
@@ -3919,14 +3966,14 @@ margin_bottom = 64.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 27 )
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 36 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Continue"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 33 )
 text = "Continue"
 align = 1
 valign = 1
@@ -3939,14 +3986,14 @@ margin_bottom = 95.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 27 )
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 36 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/NewGame"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 33 )
 text = "New Game"
 align = 1
 valign = 1
@@ -3959,14 +4006,14 @@ margin_bottom = 126.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 27 )
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 36 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Save"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 33 )
 text = "Save"
 align = 1
 valign = 1
@@ -3979,14 +4026,14 @@ margin_bottom = 157.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 27 )
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 36 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Load"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 33 )
 text = "Load"
 align = 1
 valign = 1
@@ -3999,14 +4046,14 @@ margin_bottom = 188.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 27 )
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 36 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/Options"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 33 )
 text = "Options"
 align = 1
 valign = 1
@@ -4019,14 +4066,14 @@ margin_bottom = 219.0
 rect_min_size = Vector2( 80, 25 )
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 27 )
+texture_normal = ExtResource( 35 )
+texture_pressed = ExtResource( 36 )
 expand = true
 
 [node name="Label" type="Label" parent="GUI/GameMenu/VBoxContainer/ExitToDesktop"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 33 )
 text = "Desktop"
 align = 1
 valign = 1

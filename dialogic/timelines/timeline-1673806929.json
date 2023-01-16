@@ -1,0 +1,146 @@
+{
+	"events": [
+		{
+			"condition": "",
+			"definition": "1673807105-787",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1673807157.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello my name is Kevin, \nmy major is Compute Science and I´m in the second semester. \nYou look like you know stuff. So I wanna ask you something. \nBut before that, I need to be sure, to ask you this. \nSo please go to Michaela and get verified to answer this question!"
+		},
+		{
+			"character": "character-1673807157.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Do you wanna know the question?"
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673807157.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Very nice, please go to Michaela! "
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"kevins_quest"
+				],
+				"method_name": "start_a_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"definition": "1673807105-787",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673807157.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Come back later."
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "next"
+		},
+		{
+			"character": "character-1673807157.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Welcome back my friend! "
+		},
+		{
+			"character": "character-1673807157.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Where you at Michaelas?"
+		},
+		{
+			"choice": "Yes, Sir!",
+			"condition": "",
+			"definition": "1673504863-648",
+			"event_id": "dialogic_011",
+			"value": "true"
+		},
+		{
+			"character": "character-1673807157.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ok, are you willing, to answer me this question?"
+		},
+		{
+			"change_timeline": "timeline-1673878868.json",
+			"event_id": "dialogic_020"
+		},
+		{
+			"choice": "No!",
+			"condition": "",
+			"definition": "1673504863-648",
+			"event_id": "dialogic_011",
+			"value": "false"
+		},
+		{
+			"character": "character-1673807157.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Come back, when you talked to her!"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673806929.json",
+		"name": "quest_kevin"
+	}
+}
