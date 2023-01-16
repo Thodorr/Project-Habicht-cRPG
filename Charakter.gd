@@ -80,6 +80,7 @@ func _ready():
 	unlockable_skills.append("3A")
 	unlockable_skills.append("4A")
 	set_camera()
+	inventory.checkEquip()
 
 func save():
 	var save_dict = {

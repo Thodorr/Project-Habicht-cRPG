@@ -246,7 +246,17 @@ func loadInv(node_data):
 						emit_signal("item_equipped", item)
 				file_name = dir.get_next()
 
-
+func checkEquip():
+	if equipped_hat:
+		emit_signal("item_equipped", equipped_hat) 
+	if equipped_clothing:
+		emit_signal("item_equipped", equipped_clothing)
+	if equipped_hand:
+		emit_signal("item_equipped", equipped_hand)
+	if equipped_trinket:
+		emit_signal("item_equipped", equipped_trinket) 
+	if equipped_face:
+		emit_signal("item_equipped", equipped_face)
 
 func reset():
 	for item in items:
