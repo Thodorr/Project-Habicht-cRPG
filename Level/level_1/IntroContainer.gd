@@ -38,6 +38,8 @@ func que_end():
 	get_node("../../YSort/ChillGuy").move_to(Vector2(293, 157), Vector2(0, -1))
 	get_node("../../YSort/Charakter").move_to(Vector2(150, 157), Vector2(0, -1))
 	get_node("../../YSort/Dozent").turn(Vector2(0, 1))
+	get_node("../../YSort/T-Rex").turn(Vector2(0, -1))
+	get_node("../../YSort/SleepyGuy").turn(Vector2(0, -1))
 	
 	get_node("../../YSort/Charakter").move_to(Vector2(150, 157), Vector2(0, -1))
 	
