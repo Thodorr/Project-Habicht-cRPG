@@ -10,8 +10,6 @@ var the_right_spawn = 0
 
 var scenes = {} 
 
-
-
 func _ready():
 	current_scene = get_tree().get_current_scene()
 
@@ -32,8 +30,7 @@ func goto_scene(path):
 	call_deferred("_deferred_goto_scene", path)
 
 
-func _deferred_goto_scene(path):
-	
+func _deferred_goto_scene(path):	
 	var new_scene = ResourceLoader.load(path).instance()
 	var new_scene_y = search_for_node(new_scene, "YSort")
 	if keep_player:
@@ -129,7 +126,6 @@ func loadDialogic(node_data):
 	var glossary = node_data["glossary"]
 	var variables = node_data["variables"]
 	for variable in variables:
-		print(variable)
 		Dialogic.set_variable(variable.name, variable.value)
 
 func loadPickUps(loaded_scene, node_data):

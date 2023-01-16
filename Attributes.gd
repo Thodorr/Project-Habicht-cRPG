@@ -382,42 +382,33 @@ func save():
 	var timer_dict = {}
 	for children in get_children(): 
 		var index = 0
-		print(children.get_signal_connection_list("timeout")[0].binds[0].name )
 		var my_dict = {
 			"timeleft" + str(index) : children.time_left,
 			"item" + str(index) : children.get_signal_connection_list("timeout")[0].binds[0].name
 		}
 		timer_dict.merge(my_dict,false)
 		index += 1
-
 	var attributes_base_array = []
 	for key in attributes_base:
 		attributes_base_array.append(attributes_base[key])
-
 	var attributes_hat_array = []
 	for key in attributes_hat:
 		attributes_hat_array.append(attributes_hat[key])
-
 	var attributes_clothing_array = []
 	for key in attributes_clothing:
 		attributes_clothing_array.append(attributes_clothing[key])
-
 	var attributes_trinket_array = []
 	for key in attributes_trinket:
 		attributes_trinket_array.append(attributes_trinket[key])
-
 	var attributes_face_array = []
 	for key in attributes_face:
 		attributes_face_array.append(attributes_face[key])
-
 	var attributes_hand_array = []
 	for key in attributes_hand:
 		attributes_hand_array.append(attributes_hand[key])
-
 	var attributes_temporary_array = []
 	for key in attributes_temporary:
 		attributes_temporary_array.append(attributes_temporary[key])
-
 	var save_dict = {
 		"filename" : "attributes",
 		"skillpoint" : skillpoint,
@@ -429,7 +420,6 @@ func save():
 		"attributes_hand" : attributes_hand_array,
 		"attributes_temporary" : attributes_temporary_array,
 	}
-	
 	save_dict.merge(timer_dict, false)
 	return save_dict
 
