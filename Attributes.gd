@@ -265,16 +265,15 @@ func dice_roll():
 
 func do_check(checkName):
 	var check = load("res://Units/Checks/" + str(checkName) + ".tres")
-
-	var result = attributes[check.type] + dice_roll()
-	
-	if result >= check.get_influenced_difficulty():
-		Dialogic.set_variable('Result', true)
-	else:
-		Dialogic.set_variable('Result', false)
+	do_check2(check)
 
 func do_check2(check: Check):
 	var result = attributes[check.type] + dice_roll()
+	var success = result >= check.get_influenced_difficulty()
+	if success:
+		check.state = check.State.SUCCEEDED
+	else:
+		check.state = check.State.FAILED
 	return result >= check.get_influenced_difficulty()
 
 func get_probability(check: Check):

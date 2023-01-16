@@ -4,7 +4,9 @@
 
 [resource]
 script = ExtResource( 1 )
+name = "FindKey"
 type = 2
 difficulty = 8
 influences = {
 }
+repeatable = false

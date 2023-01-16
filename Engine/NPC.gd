@@ -161,9 +161,12 @@ func check_for_item(itemname):
 	Dialogic.set_variable('hasItem', inventory.check_for_item(itemname)) 
 
 func add_influence_to_check(check_name: String, influence_name, influence_value):
-	var check: Check = load("res://Units/Checks/" + check_name + ".tres")
+	var check: Check = CheckHandler.get_check_by_name(check_name)
 	var influence : Dictionary = {influence_name: int(influence_value)}
 	check.add_influence(influence)
+
+func add_to_nerve(value):
+	Attributes.nerve_damage += int(value)
 
 func finish_quest(questname):
 	questhandler.finish_quest(questname)

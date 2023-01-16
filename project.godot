@@ -143,6 +143,7 @@ config/icon="res://icon.png"
 DataImport="*res://Data/DataImport.gd"
 Attributes="*res://Attributes.gd"
 scenechanger="*res://scenechanger.gd"
+CheckHandler="*res://CheckHandler.gd"
 
 [display]
 
