@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+var music = -80
 
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
@@ -117,6 +118,14 @@ func _on_Options_pressed():
 	var options_menu = load("res://OptionsMenu.tscn").instance()
 	add_child(options_menu)
 	var _options_connect = get_node("OptionsMenu").connect("CloseOptionsMenu", self, "CloseOptionsMenu")
+	var _options_connect2 = get_node("OptionsMenu").connect("toggleMusic", self, "toggleMusic")
+
+func toggleMusic():
+	get_tree().get_current_scene().get_node("music").volume_db = music
+	if music > -60:
+		music = -80
+	else:
+		music  = -20
 
 func CloseOptionsMenu():
 	get_node("OptionsMenu").queue_free()
@@ -146,7 +155,6 @@ func _on_Save_pressed():
 func _on_Load_pressed():
 	get_tree().paused = false
 	scenechanger.loadGame()
-
 
 func _on_Credits_pressed():
 	get_tree().change_scene("res://GodotCredits.tscn")
