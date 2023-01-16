@@ -4,9 +4,11 @@
 
 [resource]
 script = ExtResource( 1 )
+name = "TestCheck"
 type = 3
 difficulty = 10
 influences = {
 "Low self esteem": -2,
 "Someone said that you are cool!": 4
 }
+repeatable = false

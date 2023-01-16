@@ -61,6 +61,5 @@ func is_quest_active(questname):
 	for thequest in quests: 
 		if thequest == null: 
 			return
-		print(questname)
 		if thequest.questname == questname:
 			Dialogic.set_variable('questIsActive', thequest.state)

@@ -17,10 +17,19 @@ enum Attribute {
 	LUCK
 }
 
+enum State {
+	OPEN,
+	SUCCEEDED,
+	FAILED
+}
 
+export var name = ''
 export(Attribute) var type 
 export(int) var difficulty = 10
 export(Dictionary) var influences = {}
+export var repeatable = false
+var state = State.OPEN
+
 
 func get_influenced_difficulty():
 	var influenced_difficulty = difficulty
