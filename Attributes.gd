@@ -303,7 +303,7 @@ func get_probability(check: Check):
 	return (20 - req_throw) / 20 * 100
 
 func get_required_roll(check: Check):
-	return check.get_influenced_difficulty() - attributes[check.type]
+	return check.get_influenced_difficulty() - attributes[int(check.type)]
 
 func get_attribute_for_dialog(attribute):
 	print(attributes[int(attribute)])

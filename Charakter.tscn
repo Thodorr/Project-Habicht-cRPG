@@ -2086,6 +2086,7 @@ frame = 5
 speed_scale = 5.0
 
 [node name="BarContainer" type="TextureProgress" parent="UiLayer"]
+visible = false
 margin_left = 34.0
 margin_top = 304.0
 margin_right = 177.0

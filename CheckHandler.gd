@@ -45,8 +45,8 @@ func loadChecks(node_data):
 			continue
 		var check = load("res://Units/Checks/" + checkname + ".tres")
 		var checkarray = node_data[checkname]
-		check.type = checkarray[0]
-		check.difficulty = checkarray[1]
+		check.type = int(checkarray[0])
+		check.difficulty = int(checkarray[1])
 		check.repeatable = checkarray[3]
 		check.state = checkarray[4]
 		check.influences = checkarray[2]
