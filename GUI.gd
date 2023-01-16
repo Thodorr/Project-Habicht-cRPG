@@ -119,8 +119,8 @@ func _on_NewGame_pressed():
 	resetQuests()
 	scenechanger.reset()
 	scenechanger._reset()
-	if get_node_or_null("../YSort/Charakter"):
-		get_node("../YSort/Charakter").inventory.reset()
+#	if get_node_or_null("../YSort/Charakter"):
+#		get_node("../YSort/Charakter").inventory.reset()
 	scenechanger.goto_scene("res://Level/level_1/intro_area.tscn")
 	# var _change_scene = get_tree().change_scene("res://Level/level_1/intro_area.tscn")
 

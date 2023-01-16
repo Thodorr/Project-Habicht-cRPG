@@ -10,40 +10,10 @@
 			"value": "0"
 		},
 		{
-			"id": "1673602740-186",
-			"name": "check_item",
-			"type": 0,
-			"value": "true"
-		},
-		{
-			"id": "1672225795-648",
-			"name": "Question1",
-			"type": 0,
-			"value": "Blau"
-		},
-		{
-			"id": "1673504863-648",
-			"name": "check_intermidiate",
-			"type": 0,
-			"value": "true"
-		},
-		{
-			"id": "1673727809-787",
-			"name": "T-Rex",
-			"type": 0,
-			"value": "Dinohut Traeger"
-		},
-		{
 			"id": "1673730594-918",
 			"name": "T-RexRep",
 			"type": 0,
 			"value": "0"
-		},
-		{
-			"id": "1673737406-948",
-			"name": "Caitlyn",
-			"type": 0,
-			"value": "Unbekannte"
 		},
 		{
 			"id": "1673748140-142",
@@ -52,14 +22,8 @@
 			"value": "0"
 		},
 		{
-			"id": "1673748972-381",
-			"name": "QuestStep",
-			"type": 0,
-			"value": "0"
-		},
-		{
-			"id": "1673750177-746",
-			"name": "questIsActive",
+			"id": "1673729568-366",
+			"name": "T-RexChanger",
 			"type": 0,
 			"value": "0"
 		},
@@ -70,10 +34,94 @@
 			"value": "0"
 		},
 		{
-			"id": "1673729568-366",
-			"name": "T-RexChanger",
+			"id": "1673750177-746",
+			"name": "questIsActive",
 			"type": 0,
 			"value": "0"
+		},
+		{
+			"id": "1672225795-648",
+			"name": "Question1",
+			"type": 0,
+			"value": "Blau"
+		},
+		{
+			"id": "1673801939-648",
+			"name": "Professor",
+			"type": 0,
+			"value": "Manuel Groh"
+		},
+		{
+			"id": "1673727809-787",
+			"name": "T-Rex",
+			"type": 0,
+			"value": "Dinohut Traeger"
+		},
+		{
+			"id": "1673737406-948",
+			"name": "Caitlyn",
+			"type": 0,
+			"value": "Unbekannte"
+		},
+		{
+			"id": "1673808110-787",
+			"name": "hasItem",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1673748972-381",
+			"name": "QuestStep",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1673602740-186",
+			"name": "check_item",
+			"type": 0,
+			"value": "false"
+		},
+		{
+			"id": "1673810958-366",
+			"name": "New value",
+			"type": 0,
+			"value": ""
+		},
+		{
+			"id": "1673504863-648",
+			"name": "check_intermidiate",
+			"type": 0,
+			"value": "true"
+		},
+		{
+			"id": "1673810967-146",
+			"name": "hasItem",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1673832883-978",
+			"name": "Counter",
+			"type": 0,
+			"value": ""
+		},
+		{
+			"id": "1673834281-444",
+			"name": "ChillGuyReady",
+			"type": 0,
+			"value": "False"
+		},
+		{
+			"id": "1673834365-552",
+			"name": "SleepyGuyReady",
+			"type": 0,
+			"value": "False"
+		},
+		{
+			"id": "1673834336-650",
+			"name": "T-RexReady",
+			"type": 0,
+			"value": "False"
 		}
 	]
 }

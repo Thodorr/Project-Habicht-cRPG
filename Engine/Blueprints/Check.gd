@@ -28,3 +28,7 @@ func get_influenced_difficulty():
 		influenced_difficulty -= influences[influence]
 	
 	return influenced_difficulty
+
+func add_influence(influence: Dictionary):
+	influences.merge(influence)
+	print(influences)

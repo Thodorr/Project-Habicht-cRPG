@@ -12,3 +12,4 @@ quest_item = [  ]
 quest_reward = [  ]
 reward_amount = 1
 amound_exp = 50
+amount_money = 0

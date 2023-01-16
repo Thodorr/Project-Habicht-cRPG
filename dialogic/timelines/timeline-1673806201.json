@@ -1,0 +1,406 @@
+{
+	"events": [
+		{
+			"call_node": {
+				"arguments": [
+					"Coffee for the weak"
+				],
+				"method_name": "is_quest_active",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Coffee"
+				],
+				"method_name": "check_for_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1673750177-746",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"anchor_id": "anchor-1673810688",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1673750177-746",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"anchor_id": "anchor-1673810688",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Zzzzzzz...."
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1673810699",
+			"index": 0,
+			"name": "Sleep"
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "( This guy appears to be sleeping. )"
+		},
+		{
+			"choice": "( Shake him )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Jesus?! Whats the matter with you?"
+		},
+		{
+			"anchor_id": "anchor-1673811106",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "Wake up, we'll be starting soon.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Damn, thank you man."
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1673811106",
+			"index": 0,
+			"name": "Waking"
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I am so incredibly tired. How can people be awake at 8 am, this is madness."
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You know what? "
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1673810697",
+			"index": 0,
+			"name": "Quest"
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "I have 5 bucks with your name on them, if you can fetch me coffee."
+		},
+		{
+			"choice": "Let me first ask you if you are ready for the presentation.",
+			"condition": "",
+			"definition": "1673834365-552",
+			"event_id": "dialogic_011",
+			"value": "False"
+		},
+		{
+			"character": "character-1673797925.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "No way. I am not ready. I can't keep my eyes.\nIf you get me the coffee I might become ready."
+		},
+		{
+			"anchor_id": "anchor-1673810697",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "I already have a coffee for you!",
+			"condition": "",
+			"definition": "1673810967-146",
+			"event_id": "dialogic_011",
+			"value": "True"
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Thats like magic. You are incredible dude!\nNow I am ready for the presenation."
+		},
+		{
+			"definition": "1673834365-552",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "True"
+		},
+		{
+			"definition": "1673832883-978",
+			"event_id": "dialogic_014",
+			"operation": "+",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Coffee for the weak",
+					"todo"
+				],
+				"method_name": "start_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Coffee for the weak"
+				],
+				"method_name": "advance_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Coffee for the weak"
+				],
+				"method_name": "finish_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "Where would I get a coffee from?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Dude, just ask around. If I knew, I wouldn't give you the money."
+		},
+		{
+			"anchor_id": "anchor-1673810697",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "Alright, I can do that.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Coffee for the weak",
+					"bring"
+				],
+				"method_name": "start_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "Get your own coffee.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You are no help at all!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "Check his pulse.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( You feel a calm pulsing. )"
+		},
+		{
+			"anchor_id": "anchor-1673810699",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "( Leave him alone. )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1673810688",
+			"index": 0,
+			"name": "Active"
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Do you have my coffee? It's urgent!"
+		},
+		{
+			"choice": "Yes, here it is.",
+			"condition": "",
+			"definition": "1673810967-146",
+			"event_id": "dialogic_011",
+			"value": "True"
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You are a god amongst men, my dude. \nHere is your money! ( He hands you a crumbled 5 euro note )"
+		},
+		{
+			"definition": "1673834365-552",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "True"
+		},
+		{
+			"definition": "1673832883-978",
+			"event_id": "dialogic_014",
+			"operation": "+",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Coffee for the weak"
+				],
+				"method_name": "advance_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Coffee for the weak"
+				],
+				"method_name": "finish_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "Not yet.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Damn, hurry up, please!"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "finished"
+		},
+		{
+			"character": "character-1673806251.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "That you, that stuff is a necessity."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673806201.json",
+		"name": "SleepyGuy"
+	}
+}

@@ -24,17 +24,21 @@ func _end_intro(context):
 
 func que_end():
 	get_child(0).play("hide_black_screen")
-	var npc_1 = get_node("../../YSort/T-Rex")
-	#npc_pos1.set_position(Vector2(273, 217))
-	var npc_1_position = npc_1.get_position()
+	#get_child(0).play("Walk_to_place")
 	
-	#TEST Start
-	var tween = get_node("../../Tween")
-	tween.interpolate_property(npc_1, "position",
-		Vector2(npc_1_position), Vector2(273, 217), 1,
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	tween.start()
-	#TEST ENDE
+	get_node("../../YSort/GroupMember1").move_to(Vector2(233, 217), Vector2(0, -1))
+	get_node("../../YSort/GroupMember2").move_to(Vector2(253, 217), Vector2(0, -1))
+	get_node("../../YSort/GroupMember3").move_to(Vector2(273, 217), Vector2(0, -1))
+	get_node("../../YSort/ChillGuy").move_to(Vector2(293, 157), Vector2(0, -1))
+	get_node("../../YSort/Charakter").move_to(Vector2(150, 157), Vector2(0, -1))
+	get_node("../../YSort/Dozent").turn(Vector2(0, 1))
+	
+	get_node("../../YSort/Charakter").move_to(Vector2(150, 157), Vector2(0, -1))
+	
+	get_node("../../YSort/Blocker1").move_to(Vector2(180, 270), Vector2(0, -1))
+	get_node("../../YSort/Blocker2").move_to(Vector2(200, 270), Vector2(0, -1))
+	get_node("../../YSort/Blocker3").move_to(Vector2(160, 270), Vector2(0, -1))
+	#npc_pos1.set_position(Vector2(273, 217))
 
 	noise.stop()
 	music.play()
