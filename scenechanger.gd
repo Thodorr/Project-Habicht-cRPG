@@ -133,13 +133,13 @@ func loadDialogic(node_data):
 		Dialogic.set_variable(variable.name, variable.value)
 
 func loadPickUps(loaded_scene, node_data):
+	print("loadPickUps started!")
 	var index = 0
 	var current_node = search_for_node(loaded_scene, "PickUps")
+	# Remove PickUp Node if the loaded scene has one 
 	if search_for_node(loaded_scene, "PickUps"):
 		var node = search_for_node(loaded_scene, "PickUps")
-		node.name = node.name + str(index)
 		node.get_parent().remove_child(node)
-		index = index + 1  
 	for key in node_data["keys"]:
 		var packed_scene = ResourceLoader.load("res://Saves/" + key + ".scn")
 		var new_node = packed_scene.instance()
@@ -147,12 +147,10 @@ func loadPickUps(loaded_scene, node_data):
 		scenes[key] = search_for_node(loaded_scene, "PickUps")
 		if loaded_scene.name == key:
 			current_node = new_node
-	if search_for_node(loaded_scene, "PickUps"):
-		var node = search_for_node(loaded_scene, "PickUps") 
-		node.name = node.name + str(index)
-		if loaded_scene.name != node.get_parent().name:
+			current_node.name = "PickUpsTrue"
+		if search_for_node(loaded_scene, "PickUps"):
+			var node = search_for_node(loaded_scene, "PickUps") 
 			node.get_parent().remove_child(node)
-		index = index + 1  
 	if current_node:
 		current_node.name = "PickUps"
 		current_node.get_parent().remove_child(current_node)
@@ -207,14 +205,26 @@ func savePickUps():
 		keep_scene = current_scene.get_node("PickUps")
 		scenes[current_scene.name] = keep_scene
 	for key in scenes.keys():
+		print(key)
+		print(scenes[key].name)
 		var packed_scene = PackedScene.new()
-		var pickup_node = current_scene.get_node("PickUps")
-		current_scene.remove_child(pickup_node)
+		var pickup_node = current_scene.get_node_or_null("PickUps")
+		if(pickup_node):
+			current_scene.remove_child(pickup_node)
 		current_scene.add_child(scenes[key])
+		if current_scene.get_node_or_null("PickUps"):
+			for child in current_scene.get_node("PickUps").get_children():
+				child.owner = current_scene.get_node("PickUps")
+		if(current_scene.get_node_or_null("PickUps")):
+			packed_scene.pack(current_scene.get_node("PickUps"))
+			ResourceSaver.save("res://Saves/" + key + ".scn", packed_scene)
+		if current_scene.get_node_or_null("PickUps"):
+			pickup_node = current_scene.get_node_or_null("PickUps")
+			current_scene.remove_child(pickup_node)
+	if scenes.has(current_scene.name) :
+		current_scene.add_child(scenes[current_scene.name])
 		for child in current_scene.get_node("PickUps").get_children():
 			child.owner = current_scene.get_node("PickUps")
-		packed_scene.pack(current_scene.get_node("PickUps"))
-		ResourceSaver.save("res://Saves/" + key + ".scn", packed_scene)
 	var save_dict = {
 		"filename" : "sceneChangerPickUps",
 		"keys" : scenes.keys()
