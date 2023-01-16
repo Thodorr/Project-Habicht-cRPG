@@ -2,6 +2,11 @@ extends Node2D
 
 var spawn
 
+export var border_left = 0
+export var border_right = 1616
+export var border_top = 0
+export var border_bottom = 528
+
 func _ready():
 	
 	if scenechanger.the_right_spawn == 2: 

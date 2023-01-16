@@ -62,6 +62,7 @@ var semester = 4
 var invCheck = false
 var invContent
 
+
 export var state = State.IDLE
 
 func _ready():
@@ -79,6 +80,7 @@ func _ready():
 	unlockable_skills.append("3A")
 	unlockable_skills.append("4A")
 	set_camera()
+	inventory.checkEquip()
 
 func save():
 	var save_dict = {
@@ -115,12 +117,21 @@ func animation_player():
 		animation_state.travel("Idle")
 		_stop_footsteps()
 
+var target_looking_dir = null
+func move_to(target, looking_dir):
+	may_navigate = true
+	nav_agent.set_target_location(target)
+	target_looking_dir = looking_dir
+
 func turn(turn_direction):
 	animation_tree.set("parameters/Idle/blend_position", turn_direction)
 	animation_tree.set("parameters/PickUp/blend_position", turn_direction)
 
 func _on_navigation_finished():
 	state = State.IDLE
+	if target_looking_dir != null:
+		turn(Vector2(0, -1))
+		target_looking_dir = null
 
 func _on_NavigationAgent2D_target_reached():
 	build_up = 1
@@ -180,13 +191,13 @@ func adapt_cursor():
 			Mouse.NPC:
 				Input.set_custom_mouse_cursor(speech_cursor_clicked)
 
-func _input(_event):
-	var inventoryScene = ui_layer.get_child(0)
-	if Input.is_action_just_pressed("inventory"):
-		if !inventoryScene.visible:
-			inventoryScene.visible = true
-		else:
-			inventoryScene.visible = false
+#func _input(_event):
+#	var inventoryScene = ui_layer.get_child(0)
+#	if Input.is_action_just_pressed("inventory"):
+#		if !inventoryScene.visible:
+#			inventoryScene.visible = true
+#		else:
+#			inventoryScene.visible = false
 
 func directional_input_handler():
 	if movement_blocked: return Vector2(0,0)

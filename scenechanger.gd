@@ -46,6 +46,8 @@ func _deferred_goto_scene(path):
 		new_scene.remove_child(items_on_map)
 		var from_dictionary = scenes[new_scene.name]
 		new_scene.add_child(from_dictionary)
+	var fadein = ResourceLoader.load("res://Level/level_1/Fading.tscn").instance()
+	new_scene.add_child(fadein)
 	var root = get_tree().get_root()
 	var old_scene = get_tree().get_current_scene()
 	var old_parent = old_scene.get_parent()
@@ -71,8 +73,10 @@ func loadGame():
 		var node_data = parse_json(save_game.get_line())
 		if node_data != null:
 			match node_data["filename"]:
-				"sceneChangerScene":
+				"dialogic":
+					loadDialogic(node_data)
 					print("step 0")
+				"sceneChangerScene":
 					loaded_scene = loadScene(node_data)
 					print("step 1")
 				"attributes":
@@ -118,6 +122,15 @@ func loadGame():
 	else:
 		print("Error no root or current Scene")
 	save_game.close()
+	Dialogic.load()
+	Dialogic.start('')
+
+func loadDialogic(node_data):
+	var glossary = node_data["glossary"]
+	var variables = node_data["variables"]
+	for variable in variables:
+		print(variable)
+		Dialogic.set_variable(variable.name, variable.value)
 
 func loadPickUps(loaded_scene, node_data):
 	var index = 0
@@ -222,6 +235,8 @@ func loadScene(node_data):
 	if node_data["currentScene"] == get_tree().get_current_scene().name:
 		get_tree().get_current_scene().name = get_tree().get_current_scene().name + "Old"
 	var loaded_scene = ResourceLoader.load(level).instance()
+	if node_data["currentScene"] == "intro_area":
+		search_for_node(loaded_scene,"IntroContainer").loading = true
 	return loaded_scene
 
 func reset():

@@ -33,9 +33,16 @@ func _ready():
 #func _process(delta):
 #	pass
 func saveGame():
+	Dialogic.save()
 	var save_game = File.new()
 	save_game.open("user://savegame.save", File.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	var diaSave = Dialogic._get_definitions()
+	var fileDic = {
+		"filename" : "dialogic"
+	}
+	diaSave.merge(fileDic)
+	save_game.store_line(to_json(diaSave))
 	save_game.store_line(to_json(scenechanger.saveScene()))
 	save_game.store_line(to_json(Attributes.save()))
 	save_game.store_line(to_json(saveQuests()))
@@ -119,8 +126,8 @@ func _on_NewGame_pressed():
 	resetQuests()
 	scenechanger.reset()
 	scenechanger._reset()
-	if get_node_or_null("../YSort/Charakter"):
-		get_node("../YSort/Charakter").inventory.reset()
+#	if get_node_or_null("../YSort/Charakter"):
+#		get_node("../YSort/Charakter").inventory.reset()
 	scenechanger.goto_scene("res://Level/level_1/intro_area.tscn")
 	# var _change_scene = get_tree().change_scene("res://Level/level_1/intro_area.tscn")
 

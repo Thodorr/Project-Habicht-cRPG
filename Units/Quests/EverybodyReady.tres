@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Engine/Quests.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+questname = "Everybody ready?"
+item_needed = false
+description = [ "I am supposed to ask everybody in the room, whether they are ready to listen.", "Some people are ready,", "Everybody is ready. I should tell the teacher.", "The presentation started." ]
+quest_item = [  ]
+quest_reward = [  ]
+reward_amount = 1
+amound_exp = 0
+amount_money = 0

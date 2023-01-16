@@ -33,6 +33,8 @@ export (int) var reward_amount = 1
 # how much experiance the player gains from the task or quest
 export (int) var amound_exp = 0
 
+export (int) var amount_money = 0
+
 var step = 1
 var quest_item_step = 0
 var reward_item_step = 0
@@ -54,10 +56,15 @@ func start_quest():
 			end_quest()
 
 func finish_quest():
-	state = Queststate.DONE
-	Attributes.add_to_experience(amound_exp)
-	get_item_reward()
-	
+	if item_needed == true:
+		if inventory.check_for_item(quest_item[0].name):
+			inventory.remove_item(quest_item[0], 1)
+			state = Queststate.DONE
+			Attributes.add_to_experience(amound_exp)
+			inventory.add_currency(amount_money)
+      get_item_reward()
+		else:
+			print('The required item is missing')
 
 func end_quest():
 	if state == Queststate.STARTED:

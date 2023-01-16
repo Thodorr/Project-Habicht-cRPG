@@ -15,15 +15,21 @@ func _ready():
 func get_check():
 	if "#" in text:
 		var checkName = text.get_slice('#', 1)
-		check = load("res://Units/Checks/" + checkName + ".tres")
+		check = CheckHandler.get_check_by_name(checkName)
 		text = text.replace('#'+checkName+'#', '[' + str(Attributes.Attribute.keys()[check.type]) + ': '+ str(check.difficulty) + ']')
 
 func _on_mouse_entered():
 	if "[" in labelText:
-		hint_tooltip = 'Probability: ' + str(Attributes.get_probability(check))+'%'
-		hint_tooltip += '\nRequired roll: ' + str(Attributes.get_required_roll(check))
-		hint_tooltip += '\nInfluenced Difficulty: ' + str(check.get_influenced_difficulty())
-		hint_tooltip += '\n\nInfluences: \n' + stringify_influences()
+		if (check.state <= 0):
+			disabled = false
+			hint_tooltip = 'Probability: ' + str(Attributes.get_probability(check))+'%'
+			hint_tooltip += '\nRequired roll: ' + str(Attributes.get_required_roll(check))
+			if check.influences.size() >= 1:
+				hint_tooltip += '\nInfluenced Difficulty: ' + str(check.get_influenced_difficulty())
+				hint_tooltip += '\n\nInfluences: \n' + stringify_influences()
+		else:
+			disabled = true
+			hint_tooltip = 'You can not repeat this check!'
 	else:
 		hint_tooltip = ""
 
@@ -40,8 +46,10 @@ func _on_pressed():
 	var result: String = Dialogic.get_variable('Result')
 	if result == 'True':
 		animPlayer.play('Clock')
+		check.state = 1
 	else:
 		animPlayer.play('CheckFail')
+		check.state = 2
 
 func _change_dice_label(dice):
 	var checkAnim = get_parent().get_parent().get_parent().get_node('CheckAnim')

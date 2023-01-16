@@ -5,9 +5,11 @@ var drag_data = null
 
 signal items_changed(indexes)
 signal item_added(item, amount)
+signal currency_changed()
 signal row_added()
 
 export(Array, Resource) var items = []
+export var currency = 0
 
 var hidden_items = []
 
@@ -19,6 +21,10 @@ var equipped_face: Resource
 
 func _ready():
 	make_items_unique()
+
+func add_currency(value):
+	currency += value
+	emit_signal("currency_changed")
 	
 func add_item(item: Resource, amount, readd = false):
 	var index_counter = 0
@@ -78,6 +84,13 @@ func remove_item_at(item_index):
 	emit_signal("items_changed", [item_index])
 	return previous_item
 
+func check_for_item(item_name):
+	for item in items:
+		if item is Item:
+			if item.name == item_name:
+				return true
+	return false
+
 func filter_items(type = Item):
 	add_hidden_items()
 	var items_size = items.size()
@@ -91,7 +104,6 @@ func add_hidden_items():
 	for i in hidden_items.size():
 		add_item(hidden_items[i], 1, true)
 	hidden_items.clear()
-	print(hidden_items)
 
 func make_items_unique():
 	var unique_items = []
@@ -114,10 +126,6 @@ signal item_equipped
 signal open_popup
 
 func use_item_at(index):
-	for item in items:
-		if item != null:
-			print(item.name, item.amount)
-	
 	var item = items[index]
 	if item == null: return
 	
@@ -228,7 +236,7 @@ func loadInv(node_data):
 				if !dir.current_is_dir():
 					var item = load(array[i]+ file_name)
 					if item.name in node_data.keys():
-						add_item(item, node_data[item.name])
+						add_item(item, node_data[item.name], true)
 					if item.name == node_data["equipped_face"]:
 						equipped_face = item
 						emit_signal("item_equipped", item)
@@ -246,7 +254,17 @@ func loadInv(node_data):
 						emit_signal("item_equipped", item)
 				file_name = dir.get_next()
 
-
+func checkEquip():
+	if equipped_hat:
+		emit_signal("item_equipped", equipped_hat) 
+	if equipped_clothing:
+		emit_signal("item_equipped", equipped_clothing)
+	if equipped_hand:
+		emit_signal("item_equipped", equipped_hand)
+	if equipped_trinket:
+		emit_signal("item_equipped", equipped_trinket) 
+	if equipped_face:
+		emit_signal("item_equipped", equipped_face)
 
 func reset():
 	for item in items:

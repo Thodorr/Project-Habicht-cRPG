@@ -1,0 +1,89 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "Main"
+		},
+		{
+			"character": "character-1673820558.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "( In front of you is a list of modules with some assosiated information.)"
+		},
+		{
+			"choice": "( Look at 'Web-based programming' )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673820558.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Teaching: Prof. Dr. Peter Kneisel and Prof. Dr. Axel Schumann\nDescription: Students learn the essential standards for presenting information on the Internet. They have basic knowledge of web programming and can develop simple client-side programs.\nRoom: A10.6.06\nRecommended attributes: Knowledge and Will"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "( Look at 'Basics and usage of social media' )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673820558.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Teaching: Jelena Volkwein-Mogel and Prof. Dr. Julie Dolores Woletz\nDescription: The course teaches central theories of communication and media research with a focus on digital/social media.\nStudents learn theoretical and methodological principles for the user-centered development of digital media and apply them in a practical media project.\nRoom: A10.8.20\nRecommended attributes: Creativity and Dexterity"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "( Look at 'BWL and informationssystems')",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1673820558.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Teaching: Prof. Prof. Dr. Berren Özergin, Prof. Dr. Armin Wagenknecht and Ingo Nobbers\nDescription: The course covers business functions and processes, as well as their support by enterprise software.\nRoom:  A10.8.15\nRecommended attributes: Persuation and Perception"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "( Leave )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1673820537.json",
+		"name": "IntroComputer"
+	}
+}
