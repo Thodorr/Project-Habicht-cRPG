@@ -10,7 +10,7 @@
 			"character": "character-1673727717.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Lass mich in Ruhe du Banause!"
+			"text": "Leave me alone."
 		},
 		{
 			"event_id": "dialogic_022",
@@ -36,7 +36,7 @@
 			"character": "character-1673728147.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "( Mit tiefen Atemzügen starrt dieser Dinohut Traeger abgelenkt auf die Tafel. )"
+			"text": "( With deep breaths this guy wearing a dino hat stares distractedly at the screen. )"
 		},
 		{
 			"character": "character-1673727717.json",
@@ -45,10 +45,10 @@
 
 			],
 			"portrait": "",
-			"question": "Das erste, was ich machen werde, ist eine Dinowebseite bauen..."
+			"question": "The first thing I'm going to do is build a dino webpage...."
 		},
 		{
-			"choice": "Ist bei dir alles okay?",
+			"choice": "Is everything ok with you?",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -58,10 +58,10 @@
 			"character": "character-1673727717.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Besser als okay! Die unterchiedlichesten Charaktaere werden die Grossartigkeit von Dinosauriern kennenlernen."
+			"text": "Better than okay! The most diverse characters will learn the magnificence of dinosaurs."
 		},
 		{
-			"choice": "Das ist eine grossartige Idee!",
+			"choice": "That is a great idea!",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -71,7 +71,7 @@
 			"character": "character-1673727717.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Ah, ich sehe, du bist eine Person von unfassbarem Geschmack."
+			"text": "Ah, I see you are a person of intangible taste."
 		},
 		{
 			"definition": "1673730594-918",
@@ -82,7 +82,7 @@
 			"set_value": "1"
 		},
 		{
-			"choice": "( Tippe ihn an)",
+			"choice": "( Tap him )",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -92,10 +92,10 @@
 			"character": "character-1673727717.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "( Er dreht sich erschreckt zu dir um ) Oh gott, erschreck mich doch nicht so."
+			"text": "( He turns to you, startled ) Oh God, don't scare me like that."
 		},
 		{
-			"choice": "( Lass ihn in Ruhe )",
+			"choice": "( Leave him alone )",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -115,10 +115,10 @@
 
 			],
 			"portrait": "",
-			"question": "Ich bin Terence Rex, aber viele nennen mich auch T-Rex."
+			"question": "I am Terence Rex, but my friends call me T-Rex."
 		},
 		{
-			"choice": "Ich denke, ich bleibe Terence.",
+			"choice": "I think I'll stick with Terence.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -136,10 +136,10 @@
 			"character": "character-1673727717.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Eigentlich nennt mich nur meine Mutter so, aber was solls."
+			"text": "Actually, only my mother calls me that, but whatever."
 		},
 		{
-			"choice": "T-Rex soll es sein.",
+			"choice": "T-Rex it is.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -165,10 +165,10 @@
 			"character": "character-1673727717.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Sehr gut, wir verstehen uns."
+			"text": "I already see, we'll get along."
 		},
 		{
-			"choice": "Wie waere es mit Dumbatz, denn den Eindruck macht dein Hut.",
+			"choice": "How about dumbass, because that's the impression your hat makes.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -188,13 +188,13 @@
 			"operation": "=",
 			"random_upper_limit": 100,
 			"set_random": false,
-			"set_value": "Dumbatz"
+			"set_value": "dumbass"
 		},
 		{
 			"character": "character-1673727717.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Das war unnoetig aggressiv und unfreundlich.\nAber die pure Dreistigkeit diesen fantastischen Hut schlecht zu reden, ist unentschuldbar.\nGuten Tag, sir."
+			"text": "That was unnecessarily aggressive and unkind.\nBut the sheer audacity of badmouthing this fantastic hat is inexcusable.\nGood day, sir."
 		},
 		{
 			"definition": "1673729568-366",
@@ -232,7 +232,7 @@
 
 			],
 			"portrait": "",
-			"question": "Was kann der gute [T-Rex] fuer dich tun?"
+			"question": "What else can good [T-Rex] do for you?"
 		},
 		{
 			"choice": "Are you ready for the presentation?",
@@ -278,7 +278,7 @@
 			"character": "character-1673727717.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Dieser Hut ist ein seltenes Sammelerstueck. "
+			"text": "Where did you get that hat?"
 		},
 		{
 			"character": "character-1673727717.json",
@@ -287,17 +287,17 @@
 
 			],
 			"portrait": "",
-			"question": "Ich habe die letzten zwei Exemplare von einem Ruebenfarmer in Nord-Estland gekauft."
+			"question": "I bought the last two specimens from a beet farmer in northern Estonia."
 		},
 		{
-			"choice": "Verstehe, aber ich hab noch eine andere Frage.",
+			"choice": "I see, but I still have another question.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
 			"value": ""
 		},
 		{
-			"choice": "Vielleicht koennen wir zukuenftig einen Handel ausmachen.",
+			"choice": "Maybe we can make a deal in the future.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -307,10 +307,10 @@
 			"character": "character-1673727717.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Da musst du schon ordentlich was leisten, um dieses ellegante Assessoir zu erhalten."
+			"text": "You'll have to do some serious work to get this ellegante accessoire."
 		},
 		{
-			"choice": "Ist sowieso ein haesslicher Hut.",
+			"choice": "It's an ugly hat anyway.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -328,7 +328,7 @@
 			"character": "character-1673727717.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Was eine Dreistigkeit!"
+			"text": "What an audacity!"
 		},
 		{
 			"event_id": "dialogic_013"
@@ -338,7 +338,7 @@
 			"event_id": "dialogic_016"
 		},
 		{
-			"choice": "( Gehen ) Ich wollte nur kurz hallo sagen.",
+			"choice": "( Leave ) I just wanted to say hi.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
