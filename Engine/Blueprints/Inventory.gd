@@ -5,6 +5,7 @@ var drag_data = null
 
 signal items_changed(indexes)
 signal item_added(item, amount)
+signal currency_changed()
 signal row_added()
 
 export(Array, Resource) var items = []
@@ -20,6 +21,10 @@ var equipped_face: Resource
 
 func _ready():
 	make_items_unique()
+
+func add_currency(value):
+	currency += value
+	emit_signal("currency_changed")
 	
 func add_item(item: Resource, amount, readd = false):
 	var index_counter = 0

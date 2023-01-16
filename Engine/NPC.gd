@@ -155,7 +155,7 @@ func give_item(itemFileName, type = 'Food', extraFolder = ''):
 	inventory.add_item(item, 1)
 
 func give_money(amount):
-	inventory.currency += amount
+	inventory.add_currency()
 
 func check_for_item(itemname):
 	Dialogic.set_variable('hasItem', inventory.check_for_item(itemname)) 
