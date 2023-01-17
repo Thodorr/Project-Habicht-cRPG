@@ -169,6 +169,7 @@ func add_to_nerve(value):
 	Attributes.remove_stress(int(value))
 
 func finish_quest(questname):
+	print(questname)
 	questhandler.finish_quest(questname)
 
 func get_quest_progress(questname):
