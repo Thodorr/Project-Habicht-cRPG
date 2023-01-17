@@ -10,12 +10,6 @@
 			"value": "0"
 		},
 		{
-			"id": "1673727809-787",
-			"name": "T-Rex",
-			"type": 0,
-			"value": "Dinohut Traeger"
-		},
-    {
 			"id": "1673730594-918",
 			"name": "T-RexRep",
 			"type": 0,
@@ -46,12 +40,6 @@
 			"value": "0"
 		},
 		{
-			"id": "1673737406-948",
-			"name": "Caitlyn",
-			"type": 0,
-			"value": "Unbekannte"
-    },
-    {
 			"id": "1673801939-648",
 			"name": "Professor",
 			"type": 0,
@@ -78,9 +66,9 @@
 		{
 			"id": "1673805085-648",
 			"name": "MarioChanger",
-      "type": 0,
-      "value": "0"
-    },
+			"type": 0,
+			"value": "0"
+		},
 		{
 			"id": "1673504863-648",
 			"name": "check_intermidiate",
@@ -104,8 +92,8 @@
 			"name": "check_intermidiate_kevin",
 			"type": 0,
 			"value": "false"
-    },
-    {
+		},
+		{
 			"id": "1673832883-978",
 			"name": "Counter",
 			"type": 0,
@@ -128,6 +116,18 @@
 			"name": "T-RexReady",
 			"type": 0,
 			"value": "False"
+		},
+		{
+			"id": "1673727809-787",
+			"name": "T-Rex",
+			"type": 0,
+			"value": "Dino hat guy"
+		},
+		{
+			"id": "1673737406-948",
+			"name": "Caitlyn",
+			"type": 0,
+			"value": "Unknown girl"
 		}
 	]
 }
