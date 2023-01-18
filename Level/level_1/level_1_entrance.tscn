@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=136 format=2]
+=======
+[gd_scene load_steps=141 format=2]
+>>>>>>> Stashed changes
 
 [ext_resource path="res://Assets/Map/Indoor/Interior/17_Visibile_Upstairs_System_16x16.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Map/Indoor/Interior/12_Kitchen_16x16.png" type="Texture" id=2]
@@ -23,10 +27,23 @@
 [ext_resource path="res://Assets/Character/Outfit/RedShirt.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Character/Hair/LongHair.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Character/Body/Body_07.png" type="Texture" id=23]
+<<<<<<< Updated upstream
 [ext_resource path="res://UI/Font/PixelFont.tres" type="DynamicFont" id=24]
 [ext_resource path="res://GUI.gd" type="Script" id=25]
 [ext_resource path="res://UI/Assets/GUI/MediumNormalButton.tres" type="Texture" id=26]
 [ext_resource path="res://UI/Assets/GUI/MediumPressedButton.tres" type="Texture" id=27]
+=======
+[ext_resource path="res://Units/Items/Food/CategoryB/Bread.tres" type="Resource" id=24]
+[ext_resource path="res://Assets/Character/Outfit/JoggingSuit.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Character/Hat/PinkBeanie.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Character/Body/Body_04.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Character/Hair/Hairstyle_01_02.png" type="Texture" id=28]
+[ext_resource path="res://Engine/Placeables/PickUp.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Assets/Character/Outfit/BlueHoodie.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Character/Hat/RedSnapback.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Character/Outfit/Rags.png" type="Texture" id=32]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=33]
+>>>>>>> Stashed changes
 
 [sub_resource type="GDScript" id=156]
 script/source = "extends Node2D
@@ -3770,14 +3787,6 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 32, 0, 32 )
 36/shapes = [  ]
 36/z_index = 0
 
-[sub_resource type="StyleBoxFlat" id=253]
-bg_color = Color( 0.843137, 0.843137, 0.843137, 1 )
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color( 0.137255, 0.137255, 0.137255, 1 )
-
 [node name="entrance" type="Node2D"]
 script = SubResource( 156 )
 
@@ -3870,6 +3879,7 @@ position = Vector2( 311, 336 )
 stream = ExtResource( 19 )
 volume_db = -20.0
 
+<<<<<<< Updated upstream
 [node name="GUI" type="CanvasLayer" parent="."]
 script = ExtResource( 25 )
 
@@ -4037,3 +4047,6 @@ valign = 1
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Load" to="GUI" method="_on_Load_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Options" to="GUI" method="_on_Options_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/ExitToDesktop" to="GUI" method="_on_ExitToDesktop_pressed"]
+=======
+[node name="GUI" parent="." instance=ExtResource( 33 )]
+>>>>>>> Stashed changes
