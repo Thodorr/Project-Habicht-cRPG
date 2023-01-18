@@ -87,9 +87,17 @@ func remove_item_at(item_index):
 func check_for_item(item_name):
 	for item in items:
 		if item is Item:
+			print(item.name, item_name)
 			if item.name == item_name:
 				return true
 	return false
+
+func find_item_by_name(item_name):
+	for item in items:
+		if item is Item:
+			if item.name == item_name:
+				return item
+	return null
 
 func filter_items(type = Item):
 	add_hidden_items()

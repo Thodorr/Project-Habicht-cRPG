@@ -1,0 +1,270 @@
+{
+	"events": [
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "Main"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Birthday Cake"
+				],
+				"method_name": "check_for_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1674061634-979",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674058679.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Hey this one stole the cake. ( The person closest aggressivly points at you. )\n( Wild mumbling errupts in the group. )"
+		},
+		{
+			"choice": "I'm sorry. ( Give it back. ) ",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"choice": "Well, it looked really good. I just had to.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1674058679.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Of course it looks good. It's from Steve the Cakemaker! He is the best.\nNow give us the cake back.\n( The cake is violently ripped from your thieving grasp. )"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Birthday Cake"
+				],
+				"method_name": "remove_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "#BirthdayRun# ( Run away. ) You will never catch me alive! ",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 1
+		},
+		{
+			"condition": "",
+			"definition": "1672759872-366",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674059353.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( Your quick actions caught them off guard. The opportunity to flee with the stolen goods arises.)"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1672759872-366",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"character": "character-1674058679.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Not so fast. ( The person closest to you grabs you takes back the cake. )"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Birthday Cake"
+				],
+				"method_name": "remove_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "( Lie ) No, I didn't!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1674058679.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Are you actually trying to hide a huge birthday cake?!\nAre you stupid?"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"BirthdayRun",
+					"Didn't run away immediatly.",
+					"2"
+				],
+				"method_name": "add_influence_to_check",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1674058679.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( This group of people appears to have a birthday party. )"
+		},
+		{
+			"character": "character-1674058679.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "( Whose party exactly it is, is hard to tell. )"
+		},
+		{
+			"choice": "Where did you get a cake like this?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1674058679.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It's from Steve the Cakemaker."
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "Cakemaker"
+		},
+		{
+			"character": "character-1674058679.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "If you want to buy one of his cakes, you have to know his code word."
+		},
+		{
+			"choice": "What is the code word?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1674058679.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Only group members are allowed to know. And group members bring a present.\nDo that and we'll tell you."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"choice": "That is utterly ridicolous!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1674058679.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It is, but his cakes make it worth it."
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "( Leave. ) I see.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Leave. )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1674058623.json",
+		"name": "BirthdayGroup"
+	}
+}

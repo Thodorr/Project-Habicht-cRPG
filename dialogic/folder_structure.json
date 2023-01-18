@@ -21,7 +21,8 @@
 					"files": [
 						"character-1673728147.json",
 						"character-1673751244.json",
-						"character-1673818206.json"
+						"character-1673818206.json",
+						"character-1674059353.json"
 					],
 					"folders": {
 
@@ -36,7 +37,8 @@
 						"character-1673797925.json",
 						"character-1673806251.json",
 						"character-1673817978.json",
-						"character-1673828036.json"
+						"character-1673828036.json",
+						"character-1674058679.json"
 					],
 					"folders": {
 
@@ -83,7 +85,7 @@
 				"1673602740-186",
 				"1673748972-381",
 				"1673750177-746",
-				"1673810967-146"
+				"1674061634-979"
 			],
 			"folders": {
 				"Check": {
@@ -226,7 +228,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				},
 				"ClutterDialog": {
@@ -234,6 +236,18 @@
 
 					],
 					"folders": {
+						"Entrance": {
+							"files": [
+								"timeline-1674058623.json"
+							],
+							"folders": {
+
+							},
+							"metadata": {
+								"color": null,
+								"folded": false
+							}
+						},
 						"Intro": {
 							"files": [
 								"timeline-1673797903.json",
@@ -247,7 +261,7 @@
 							},
 							"metadata": {
 								"color": null,
-								"folded": false
+								"folded": true
 							}
 						}
 					},
@@ -265,7 +279,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				},
 				"T-Rex": {
@@ -277,7 +291,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				},
 				"Test Quest": {
@@ -292,7 +306,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				},
 				"quest_kevin": {
@@ -318,7 +332,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				},
 				"quest_mario": {
@@ -330,7 +344,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				},
 				"quests_campus": {
@@ -354,7 +368,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": false
+						"folded": true
 					}
 				}
 			},

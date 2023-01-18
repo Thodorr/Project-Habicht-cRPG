@@ -34,12 +34,6 @@
 			"value": "0"
 		},
 		{
-			"id": "1673750177-746",
-			"name": "questIsActive",
-			"type": 0,
-			"value": "0"
-		},
-		{
 			"id": "1673801939-648",
 			"name": "Professor",
 			"type": 0,
@@ -74,12 +68,6 @@
 			"name": "check_intermidiate",
 			"type": 0,
 			"value": "true"
-		},
-		{
-			"id": "1673810967-146",
-			"name": "hasItem",
-			"type": 0,
-			"value": "0"
 		},
 		{
 			"id": "1673807105-787",
@@ -118,16 +106,28 @@
 			"value": "False"
 		},
 		{
+			"id": "1673737406-948",
+			"name": "Caitlyn",
+			"type": 0,
+			"value": "Unknown girl"
+		},
+		{
 			"id": "1673727809-787",
 			"name": "T-Rex",
 			"type": 0,
 			"value": "Dino hat guy"
 		},
 		{
-			"id": "1673737406-948",
-			"name": "Caitlyn",
+			"id": "1673750177-746",
+			"name": "questIsActive",
 			"type": 0,
-			"value": "Unknown girl"
+			"value": "0"
+		},
+		{
+			"id": "1674061634-979",
+			"name": "hasItem",
+			"type": 0,
+			"value": "0"
 		}
 	]
 }

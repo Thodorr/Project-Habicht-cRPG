@@ -154,11 +154,14 @@ func give_item(itemFileName, type = 'Food', extraFolder = ''):
 	var item = load("res://Units/Items/" + type + "/" + extraFolder + "/" + itemFileName + ".tres")
 	inventory.add_item(item, 1)
 
+func remove_item(item_name):
+	inventory.remove_item(inventory.find_item_by_name(item_name), 1)
+
 func give_money(amount):
 	inventory.add_currency(amount)
 
-func check_for_item(itemname):
-	Dialogic.set_variable('hasItem', inventory.check_for_item(itemname)) 
+func check_for_item(item_name):
+	Dialogic.set_variable('hasItem', inventory.check_for_item(item_name))
 
 func add_influence_to_check(check_name: String, influence_name, influence_value):
 	var check: Check = CheckHandler.get_check_by_name(check_name)
