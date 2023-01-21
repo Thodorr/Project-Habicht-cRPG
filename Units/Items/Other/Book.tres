@@ -21,7 +21,7 @@ item_attributes = {
 9: 0
 }
 stress_relief = 0
-removeable = true
+removeable = false
 text_message = "There is a lot of text in this book. A fun thing about reading is finding out, about how much text can fit into this message."
 accept_text = ""
 decline_text = "Interesting"

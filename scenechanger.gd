@@ -71,30 +71,23 @@ func loadGame():
 			match node_data["filename"]:
 				"dialogic":
 					loadDialogic(node_data)
-					print("step 0")
 				"sceneChangerScene":
 					loaded_scene = loadScene(node_data)
-					print("step 1")
 				"attributes":
 					Attributes.load(node_data)
-					print("step 2")
+					Attributes.attribute_math()
 				"quests":
 					loadQuests(node_data)
-					print("step 3")
 				"checks":
 					CheckHandler.loadChecks(node_data)
-					print("checksloaded")
 				"inventory":
 					var charakter = search_for_node(loaded_scene,"Charakter")
 					charakter.invCheck = true
 					charakter.invContent = node_data
-					print("step 5")
 				"sceneChangerPickUps":
 					loaded_scene = loadPickUps(loaded_scene, node_data)
 					print(loaded_scene.get_children())
-					print("step 6")
 				_:
-					print("step 4")
 					var save_nodes = []
 					for node in loaded_scene.get_children():
 						if node.has_node("Persist"):

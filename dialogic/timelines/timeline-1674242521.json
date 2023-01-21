@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1673828036.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "That elevator is filled to the brim."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1674242521.json",
+		"name": "ElevatorPeople"
+	}
+}

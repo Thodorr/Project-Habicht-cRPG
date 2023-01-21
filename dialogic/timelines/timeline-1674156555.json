@@ -1,0 +1,627 @@
+{
+	"events": [
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Hello, hello. May I interest you in some of my wares?"
+		},
+		{
+			"choice": "Show me what you got?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1674158864",
+			"index": 0,
+			"name": "Shop"
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "There is equipment for your all day studying needs and some novelty items.\nWe even have some light apperal. "
+		},
+		{
+			"choice": "Let me take a look at your study stuff.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "We have pen and paper of course. "
+		},
+		{
+			"choice": "( Pen: 5 Euro ) I take a pen.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"5"
+				],
+				"method_name": "remove_money",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Very well. ( He hands you your aquired object.)"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Pen",
+					"Equipment",
+					"Trinket"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"anchor_id": "anchor-1674158864",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Paper: 2 Euro ) I want the paper.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"2"
+				],
+				"method_name": "remove_money",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Very well. ( He hands you your aquired object.)"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Paper",
+					"Other"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"anchor_id": "anchor-1674158864",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Flyer: 1 Euro ) I would like a flyer.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"1"
+				],
+				"method_name": "remove_money",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Very well. ( He hands you your aquired object.)"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Flyer",
+					"Other"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"anchor_id": "anchor-1674158864",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Back ) What else do you got?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"anchor_id": "anchor-1674158864",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "( Leave ) I don't need anything at moment.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "I want to see your novelty items.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "I can make you a nice present, like the one here on the counter."
+		},
+		{
+			"choice": "( Present: 15 Euro ) Sure.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"15"
+				],
+				"method_name": "remove_money",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Very well. ( He hands you your aquired object.)"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Present",
+					"Other"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"anchor_id": "anchor-1674158864",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Back ) Show me something else.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"anchor_id": "anchor-1674158864",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "( Leave ) I don't need anything at the moment.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "Show me your clothes.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "We have some branded shirts, masks, beanies for the cold."
+		},
+		{
+			"choice": "( Blue Shirt: 12 Euro ) I take a shirt,",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"12"
+				],
+				"method_name": "remove_money",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Very well. ( He hands you your aquired object.)"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"BlueShirt",
+					"Equipment",
+					"Outfit"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"anchor_id": "anchor-1674158864",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Mask: 5 Euro ) A mask it is.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"5"
+				],
+				"method_name": "remove_money",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Very well. ( He hands you your aquired object.)"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"MedicalMask",
+					"Equipment",
+					"Face"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"anchor_id": "anchor-1674158864",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Black Beanie: 10 Euro ) A beanie sounds good.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"15"
+				],
+				"method_name": "remove_money",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Very well. ( He hands you your aquired object.)"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"BlackBeanie",
+					"Equipment",
+					"Hat"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"anchor_id": "anchor-1674158864",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"anchor_id": "anchor-1634488067",
+			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Back ) Show me something else.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"anchor_id": "anchor-1674158864",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "( Leave ) I don't need anything at the moment.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Leave ) I don't need anything at moment.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Leave ) No, thanks.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1634488067",
+			"index": 0,
+			"name": "NoMoney"
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I am sorry, but you don't seem to have enough money."
+		},
+		{
+			"anchor_id": "anchor-1674158864",
+			"event_id": "dialogic_016"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1674156555.json",
+		"name": "Vendor"
+	}
+}

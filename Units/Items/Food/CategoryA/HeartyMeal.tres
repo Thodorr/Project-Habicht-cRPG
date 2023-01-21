@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "Spicy Meal"
+name = "Hearty Meal"
 texture = ExtResource( 2 )
 description = "An incredibly spicy meal.
 Why are you torturing yourself like this?

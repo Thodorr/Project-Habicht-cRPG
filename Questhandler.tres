@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=9 format=2]
+[gd_resource type="Resource" load_steps=10 format=2]
 
 [ext_resource path="res://Questhandler.gd" type="Script" id=1]
 [ext_resource path="res://Units/Quests/test.tres" type="Resource" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://Units/Quests/quest_3_kevin.tres" type="Resource" id=6]
 [ext_resource path="res://Units/Quests/CoffeeforTheWeak.tres" type="Resource" id=7]
 [ext_resource path="res://Units/Quests/EverybodyReady.tres" type="Resource" id=8]
+[ext_resource path="res://Units/Quests/FindTheLeak.tres" type="Resource" id=9]
 
 [resource]
 script = ExtResource( 1 )
-quests = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ]
+quests = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]

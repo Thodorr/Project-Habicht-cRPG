@@ -32,13 +32,6 @@
 			"question": "Hey this one stole the cake. ( The person closest aggressivly points at you. )\n( Wild mumbling errupts in the group. )"
 		},
 		{
-			"choice": "I'm sorry. ( Give it back. ) ",
-			"condition": "",
-			"definition": "",
-			"event_id": "dialogic_011",
-			"value": ""
-		},
-		{
 			"choice": "Well, it looked really good. I just had to.",
 			"condition": "",
 			"definition": "",
@@ -157,6 +150,16 @@
 			"event_id": "dialogic_013"
 		},
 		{
+			"call_node": {
+				"arguments": [
+					"Present"
+				],
+				"method_name": "check_for_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
 			"character": "character-1674058679.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
@@ -208,9 +211,45 @@
 		},
 		{
 			"character": "character-1674058679.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Only group members are allowed to know. And group members bring a present.\nDo that and we'll tell you."
+		},
+		{
+			"choice": "( Give them the present. ) Here you go.",
+			"condition": "",
+			"definition": "1674061634-979",
+			"event_id": "dialogic_011",
+			"value": "True"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Present"
+				],
+				"method_name": "remove_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"character": "character-1674058679.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Only group members are allowed to know. And group members bring a present.\nDo that and we'll tell you."
+			"text": "Now we are talking. \nThe code word is: Loop!"
+		},
+		{
+			"choice": "( Leave. )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
 		},
 		{
 			"event_id": "dialogic_022",

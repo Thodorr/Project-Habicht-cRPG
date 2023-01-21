@@ -58,12 +58,6 @@
 			"value": "Blau"
 		},
 		{
-			"id": "1673805085-648",
-			"name": "MarioChanger",
-			"type": 0,
-			"value": "0"
-		},
-		{
 			"id": "1673504863-648",
 			"name": "check_intermidiate",
 			"type": 0,
@@ -126,6 +120,30 @@
 		{
 			"id": "1674061634-979",
 			"name": "hasItem",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1674158173-411",
+			"name": "EnoughMoney",
+			"type": 0,
+			"value": "True"
+		},
+		{
+			"id": "1674239701-841",
+			"name": "PaperTaken",
+			"type": 0,
+			"value": "False"
+		},
+		{
+			"id": "1674241034-207",
+			"name": "FlyerGirlTalked",
+			"type": 0,
+			"value": "False"
+		},
+		{
+			"id": "1673805085-648",
+			"name": "MarioChanger",
 			"type": 0,
 			"value": "0"
 		}

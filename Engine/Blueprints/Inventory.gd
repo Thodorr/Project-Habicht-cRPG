@@ -23,7 +23,7 @@ func _ready():
 	make_items_unique()
 
 func add_currency(value):
-	currency += value
+	currency += int(value)
 	emit_signal("currency_changed", value)
 	
 func add_item(item: Resource, amount, readd = false):
@@ -87,7 +87,6 @@ func remove_item_at(item_index):
 func check_for_item(item_name):
 	for item in items:
 		if item is Item:
-			print(item.name, item_name)
 			if item.name == item_name:
 				return true
 	return false
@@ -201,6 +200,7 @@ func saveInv():
 		"equipped_hand" : hand,
 		"equipped_trinket" : trinket,
 		"equipped_face" : face,
+		"currency" : currency
 	}
 	for item in items:
 		if item != null:
@@ -235,6 +235,8 @@ func loadInv(node_data):
 		"res://Units/Items/Other/",
 		"res://Units/Items/TempItems/"
 		]
+	currency = node_data["currency"]
+	emit_signal("currency_changed", node_data["currency"])
 	for i in array.size():
 		var dir = Directory.new()
 		if dir.open(array[i]) == OK:

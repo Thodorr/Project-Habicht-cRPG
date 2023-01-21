@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Engine/Quests.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+questname = "Find the leak"
+item_needed = false
+description = [ "I need to find a water leak in the bathroom for the janitor.", "I found a water leak in the white toilett. 
+I should tell the janitor.", "The janitor congratulated me and gave me his trusty plunger for it." ]
+quest_item = [  ]
+quest_reward = [  ]
+reward_amount = 1
+amound_exp = 20
+amount_money = 10

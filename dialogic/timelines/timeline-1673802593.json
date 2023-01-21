@@ -7,7 +7,7 @@
 			"value": "1"
 		},
 		{
-			"anchor_id": "anchor-1634488067",
+			"anchor_id": "anchor-1674304208",
 			"event_id": "dialogic_016"
 		},
 		{
@@ -42,6 +42,14 @@
 			"text": "Oh very nice! \nWhen you come back with the donut, I tell you all about, how to stay healthy for your brain!"
 		},
 		{
+			"definition": "1673805085-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
 			"call_node": {
 				"arguments": [
 					"marios_quest",
@@ -61,14 +69,6 @@
 				"target_node_path": "../../"
 			},
 			"event_id": "dialogic_042"
-		},
-		{
-			"definition": "1673805085-648",
-			"event_id": "dialogic_014",
-			"operation": "=",
-			"random_upper_limit": 100,
-			"set_random": false,
-			"set_value": "1"
 		},
 		{
 			"event_id": "dialogic_022",
@@ -96,7 +96,7 @@
 		},
 		{
 			"event_id": "dialogic_015",
-			"id": "anchor-1634488067",
+			"id": "anchor-1674304208",
 			"index": 0,
 			"name": "part2"
 		},

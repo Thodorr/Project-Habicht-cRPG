@@ -1,0 +1,98 @@
+{
+	"events": [
+		{
+			"call_node": {
+				"arguments": [
+					"Flyer"
+				],
+				"method_name": "check_for_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1674241034-207",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"character": "character-1674240678.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Yes, I know there is a typo on the damn flyers!!! ( The girl doesn't look at your for a second. )\n( Her eyes are heavily fixated on a gigantic pile of flyers. )\nAll my best people are on the job. We will find them all! We will destroy them and \nalas we will replace them with corrected ones. Nobody will notice.\n( She suddenly looks up.)\nWait... Who are you? Ah don't answer that I don't have time for that. "
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"definition": "1674241034-207",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "True"
+		},
+		{
+			"character": "character-1674240678.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "If you find any of these THM-Flyers, I will buy them off for euro each."
+		},
+		{
+			"choice": "I have a flyer for you.",
+			"condition": "",
+			"definition": "1674061634-979",
+			"event_id": "dialogic_011",
+			"value": "True"
+		},
+		{
+			"character": "character-1674240678.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "And I have this coin for you. "
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"1"
+				],
+				"method_name": "give_money",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Flyer"
+				],
+				"method_name": "remove_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "( Leave ) I see.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1674240693.json",
+		"name": "FlyerGirl"
+	}
+}

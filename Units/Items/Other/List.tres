@@ -21,7 +21,7 @@ item_attributes = {
 9: 0
 }
 stress_relief = 0
-removeable = true
+removeable = false
 text_message = ""
 accept_text = "Accept"
 decline_text = "Decline"
