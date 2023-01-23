@@ -25,7 +25,11 @@ func _ready():
 func add_currency(value):
 	currency += int(value)
 	emit_signal("currency_changed", value)
-	
+
+# Adds items to the inventory.
+# It takes an item and an amount as arguments and adds the specified number of copies of the item to the inventory.
+# If the item already exists in the inventory, the amount of that item is increased, rather than adding a new item.
+# The items_changed signal is emitted when the items in the inventory are modified.
 func add_item(item: Resource, amount, readd = false):
 	var index_counter = 0
 	if !readd:
@@ -52,12 +56,14 @@ func add_item(item: Resource, amount, readd = false):
 		emit_signal("row_added")
 		add_item(item, amount)
 
+# Sets the item at a specific index in the items array to a new item.
 func set_item(item_index, item):
 	var previous_item = items[item_index]
 	items[item_index] = item
 	emit_signal("items_changed", [item_index])
 	return previous_item
 
+# Swaps the positions of two items in the items array. 
 func swap_items(item_index, target_item_index):
 	var target_item = items[target_item_index]
 	var item = items[item_index]
@@ -65,6 +71,9 @@ func swap_items(item_index, target_item_index):
 	items[item_index] = target_item
 	emit_signal("items_changed", [item_index, target_item_index])
 
+# Removes an item from the inventory by first checking for its index.
+# If it is found the the parameter amount is subtracted from items amount.
+# If there is an item found with an amount of one or for some reason less, the item is removed. 
 func remove_item(item: Resource, amount):
 	var target_item_index = items.find(item)
 	var item_found = target_item_index != -1
@@ -78,12 +87,14 @@ func remove_item(item: Resource, amount):
 		emit_signal("items_changed", [target_item_index])
 	return item_found
 
+# Removes the item at a specific index in the items array.
 func remove_item_at(item_index):
 	var previous_item = items[item_index]
 	items[item_index] = null
 	emit_signal("items_changed", [item_index])
 	return previous_item
 
+# Checks if item is in the inventory
 func check_for_item(item_name):
 	for item in items:
 		if item is Item:
@@ -98,6 +109,7 @@ func find_item_by_name(item_name):
 				return item
 	return null
 
+# Filters the items based on a type.
 func filter_items(type = Item):
 	add_hidden_items()
 	var items_size = items.size()
@@ -107,11 +119,15 @@ func filter_items(type = Item):
 			items[i] = null
 			emit_signal("items_changed", [i])
 
+# Readds items that where filtered out
 func add_hidden_items():
 	for i in hidden_items.size():
 		add_item(hidden_items[i], 1, true)
 	hidden_items.clear()
 
+# Creates copies of all the items in the items array, replacing the original references with the new copies.
+# Doing this allows us to store the amount of the item in its resource, circumventing the clunky managing of dictionaries
+# in the editor that are not predefined.
 func make_items_unique():
 	var unique_items = []
 	for item in items:
@@ -121,6 +137,7 @@ func make_items_unique():
 			unique_items.append(null)
 		items = unique_items
 
+# Uses item based on the item as a parameter
 func use_item(item):
 	var index = 0
 	for target_item in items:
@@ -132,6 +149,12 @@ func use_item(item):
 signal item_equipped
 signal open_popup
 
+# Checks if the item has a text message associated with it and, if so, displays a pop-up with the message.
+# It then removes the item from the inventory if it is marked as removable
+# and adds any attributes associated with the item to the player character by calling
+# the corresponding function of the Attribute script.
+# If the item is an EquipmentItem, the item_equipped signal is emitted
+# and the item is equipped in the appropriate slot, depending on its type.
 func use_item_at(index):
 	var item = items[index]
 	if item == null: return
