@@ -20,6 +20,10 @@ var will_add = 0
 var creativity_add = 0
 var luck_add = 0
 
+# 1. Load the attributes from the attributes singelton
+# 2. load the skills that have been unlocked to be visible and unlockable skills aswell 
+# 3. Load active and done quests
+# 4. connect all the buttons in the corresponding group to the corresponding function
 
 func _ready():
 	var _attributes_changed_connect = Attributes.connect("attributes_changed", self, "LoadStats")
@@ -42,8 +46,10 @@ func _ready():
 	for button in get_tree().get_nodes_in_group("QuestButtons"):
 		button.connect("pressed", self, "LoadQuestInfo", [button.get_parent().get_name()])
 
+# Loads the attributes value into the Menu of Attributes 
+# Sets the available skillpoints to the skillpoints managed in the attributes menu
+
 func LoadStats():
-	print(Attributes.attributes)
 	var keys = Attributes.Attribute.keys()
 	var index = 0
 	for key in keys:
@@ -51,6 +57,11 @@ func LoadStats():
 		get_node(path_main_stats + key_name + "/StatBackground/Stats/Value").set_text(str(Attributes.get_attribute(index)))
 		index +=1
 	available_points = Attributes.skillpoint
+
+# Enables the skills that have been unlocked already 
+# Enables the skillbuttons for skills that are unlockable and can be learned
+# Set the connectors between the learned skills to full value 
+# Set the connectors to skills that can be obtained or learned to half value
 
 func LoadSkills():
 	for skill in get_tree().get_nodes_in_group("Skills"):
@@ -77,6 +88,14 @@ func LoadSkills():
 				connector.value = 50
 		# load connectors halfway for skills that meet req- to unlock
 
+# 1. sets the cache value up 
+# 2. update the change value 
+# 3. enable the decrease button for the stat
+# 4. decrease available skillpoints and visually update
+# 5. get current effective score 
+# 6. if current effective score is maxscore disable the PlusButton of this particular skill
+# 7. If no skillpoints are left disable all add buttons
+
 func IncreaseStat(stat):
 	set(stat.to_lower() + "_add", get(stat.to_lower() + "_add") + 1)
 	get_node(path_main_stats + stat + "/StatBackground/Stats/Change").set_text("+" + str(get(stat.to_lower() + "_add")) + " ")
@@ -97,6 +116,12 @@ func IncreaseStat(stat):
 	if(available_points == 0):
 		for button in get_tree().get_nodes_in_group("PlusButtons"):
 			button.set_disabled(true)
+
+# 1. decrease cache value 
+# 2. disable decrease button if cache value = 0
+# 3. update change value
+# 4. increase available skillpoints 
+# 5. enable all Plusbuttons again, except for the attributes where the the effective maxscore is reached
 
 func DecreaseStat(stat):
 	set(stat.to_lower() + "_add", get(stat.to_lower() + "_add") -1 )
@@ -120,6 +145,11 @@ func DecreaseStat(stat):
 		else:
 			button.set_disabled(false)
 
+# 1. Basically set the corresponding skill in the charakter to true 
+# 2. trigger connector animation 
+# 3. after the connector animation start skill flare up animation 
+# 4. Update all connectors so unlockable or obtainable skill connectors are loaded half way
+# 5. modulate and enable the unlockable skills button now to show they are unlockable 
 
 func TakeModul(skill):
 		if player.get("skill_" + skill) == true:
@@ -163,6 +193,12 @@ func TakeModul(skill):
 							texture_button.set_disabled(false)
 							texture_button.set_modulate(Color(0.4, 0.4, 0.4, 1))
 
+# 1. set the path to the quests accordingly to the active or done quests
+# 2. Iterate over the quests directory
+# 3. If a quests is aktive or done (determined in step 1) initialize the quest
+# 4. for each quest: create new GUI Elements, especially the button with their name and 
+# 	 connected function to show content  
+
 func LoadActiveOrDoneQuests(AorD):
 	var path_to_quest_buttons = path_active_quest_buttons
 	if AorD == 2:
@@ -174,10 +210,6 @@ func LoadActiveOrDoneQuests(AorD):
 		while file_name != "":
 			if !dir.current_is_dir():
 				var quest = load("res://Units/Quests/"+ file_name)
-				if quest.questname == "Intro Der Quest":
-					quest.state = quest.Queststate.STARTED
-				if quest.questname == "MainQuest":
-					quest.state = quest.Queststate.DONE
 				if quest.state == AorD:
 					var margin = MarginContainer.new()
 					margin.name = quest.questname
@@ -228,6 +260,12 @@ func LoadActiveOrDoneQuests(AorD):
 					get_node(path_to_quest_buttons + quest.questname + "/" + quest.questname).add_child(texturebutton)
 			file_name = dir.get_next()
 
+# 1. Iterate over the quests and search the quest by name
+# 2. instanciate the quest by their name 
+# 3. get the QuestContent label 
+# 4. set the Description in the QuestContent label to the quest Describtion until the current quest step
+# 5. Hide active and done quests and show the quest content
+
 func LoadQuestInfo(QuestName):
 	var dir = Directory.new()
 	if dir.open("res://Units/Quests/") == OK:
@@ -246,16 +284,26 @@ func LoadQuestInfo(QuestName):
 	get_node("Screen/Layout/Quests/ActiveQuests").hide()
 	get_node("Screen/Layout/Quests/QuestContent").show()
 
+# as the reparent function
+
 func reparent(child: Node, new_parent: Node):
 	if child and new_parent:
 		var old_parent = child.get_parent()
 		old_parent.remove_child(child)
 		new_parent.add_child(child)
 
+# If the inventory is currently reparented to the Charakter Sheet, return it to the player
+
 func checkInv():
 	if get_node_or_null("Screen/Layout/UiLayer") != null:
 		get_node("Screen/Layout/UiLayer").get_child(0).hide()
 		reparent(get_node_or_null("Screen/Layout/UiLayer"), player)
+
+# 1. write the cache values of the Attributes menu into the attributes singleton locking them in 
+# 2. reset cache values
+# 3. reload Stats
+# 4. disable all decrease buttons 
+# 5. reset all change labels
 
 func _on_ConfirmButton_pressed():
 	if athletics_add + dexterity_add + perception_add + persuasion_add + bluff_add + intimidation_add + knowledge_add + will_add + creativity_add  +luck_add == 0:
@@ -288,15 +336,22 @@ func _on_ConfirmButton_pressed():
 		for label in get_tree().get_nodes_in_group("ChangeLabels"):
 			label.set_text("")
 
+# Show Active Quests and hide done Quests and QuestContent
+
 func _on_ActiveButton_pressed():
 	get_node("Screen/Layout/Quests/QuestContent").hide()
 	get_node("Screen/Layout/Quests/DoneQuests").hide()
 	get_node("Screen/Layout/Quests/ActiveQuests").show()
 
+# Show Done Quests and hide aktive Quests and QuestContent
+
 func _on_DoneButton_pressed():
 	get_node("Screen/Layout/Quests/QuestContent").hide()
 	get_node("Screen/Layout/Quests/ActiveQuests").hide()
 	get_node("Screen/Layout/Quests/DoneQuests").show()
+
+# hide all other menues and show attributes menu
+# call checkInv to return the inventory to the charakter
 
 func _on_Stats_pressed():
 	get_node("Screen/Layout/Skills").hide()
@@ -305,6 +360,9 @@ func _on_Stats_pressed():
 	get_node("Screen/Layout/Inventory").hide()
 	checkInv()
 
+# hide all other menues and show skills menu
+# call checkInv to return the inventory to the charakter
+
 func _on_Skills_pressed():
 	get_node("Screen/Layout/Attributes").hide()
 	get_node("Screen/Layout/Quests").hide()
@@ -312,12 +370,18 @@ func _on_Skills_pressed():
 	get_node("Screen/Layout/Inventory").hide()
 	checkInv()
 
+# hide all other menues and show quests menu
+# call checkInv to return the inventory to the charakter
+
 func _on_Quests_pressed():
 	get_node("Screen/Layout/Attributes").hide()
 	get_node("Screen/Layout/Skills").hide()
 	get_node("Screen/Layout/Quests").show()
 	get_node("Screen/Layout/Inventory").hide()
 	checkInv()
+
+# hide all other menues and show inventory menu
+# reparents the inventory from the charakter to the charakter Sheet and shows it 
 
 func _on_Inventory_pressed():
 	get_node("Screen/Layout/Attributes").hide()

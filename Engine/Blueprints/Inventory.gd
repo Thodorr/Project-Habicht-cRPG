@@ -200,6 +200,12 @@ func use_item_at(index):
 			else:
 				set_item(index, prev_equip)
 
+# First saves every name of every equipped item 
+# Second it creates a new dictionary with the saved variables
+# It then iterates over the items and saves each name and amount 
+# These will also be saved to a dictionary and the dictionary will then be merged
+# Then the finaly dictionary will be returned
+
 func saveInv():
 	var hat = "nothing"
 	var clothing = "nothing"
@@ -235,6 +241,12 @@ func saveInv():
 			}
 			save_dict.merge(inventory_dict, false)
 	return save_dict
+
+# 1. resets all Equipment and all items
+# 2. It then iterates over all directory locations of items 
+# 3. in each location it iterates over each item and checks if it is part of the loaded items 
+# 	 If it is part of the loaded items it will be added to the inventory in the saved amount
+# 	 it also checks if the item was saved in an equipment slot and set it to the slot if it was
 
 func loadInv(node_data):
 	equipped_hat = null
@@ -298,6 +310,8 @@ func checkEquip():
 		emit_signal("item_equipped", equipped_trinket) 
 	if equipped_face:
 		emit_signal("item_equipped", equipped_face)
+
+# resets the items in the inventory and all equipment equipped
 
 func reset():
 	for item in items:
