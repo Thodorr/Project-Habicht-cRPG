@@ -82,6 +82,8 @@ func _ready():
 	set_camera()
 	inventory.checkEquip()
 
+# Saves all necessary variables in a dictionary form an returns it so it can later be loaded
+
 func save():
 	var save_dict = {
 		"filename" : get_filename(),

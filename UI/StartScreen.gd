@@ -8,6 +8,8 @@ export var border_right = 464
 export var border_top = 0
 export var border_bottom = 549
 
+# set the setting
+
 func _ready():
 	var spawn = Vector2(0,0)
 	var player = get_node("YSort/Charakter")

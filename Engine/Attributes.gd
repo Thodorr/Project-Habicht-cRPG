@@ -455,6 +455,12 @@ func save():
 	save_dict.merge(timer_dict, false)
 	return save_dict
 
+# loads the current attribute values from the saved data
+# 1. iterates over the Enums, using index as the ENUM key to set the value 
+# 2. sets skillpoints, nerve and nervedamage
+# 3. iterates over the keys in node_data to start a timer for each saved timer with the corresponding time left
+# 4. Then recalculates the attributes
+
 func load(node_data):
 	var index = 0
 	var arrayIndex = 1
@@ -474,7 +480,6 @@ func load(node_data):
 	for i in node_data.keys():
 		if "item" in i:
 			var item = loadItem([node_data[i]])
-			print(item)
 			for k in attributes_temporary:
 				attributes_temporary[k] += item.item_attributes[k]
 			temp_effects.append(item)
@@ -485,19 +490,25 @@ func load(node_data):
 			timer.start(node_data["timeleft"+ str(i).trim_prefix("item")])
 	attribute_math()
 
+# iterates over the temporary items, instanciating each, and searches for a specifiy item by name
+# when found it returns the instanced item 
+
 func loadItem(item):
-	var result
+	var result 
 	var dir = Directory.new() 
 	if dir.open("res://Units/Items/TempItems/") == OK:
 		dir.list_dir_begin()
 		var file_name = dir.get_next()
 		while file_name != "":
 			if !dir.current_is_dir():
-				var quest = load("res://Units/Items/TempItems/"+ file_name)
-				if quest.name == item[0]:
-					result = quest
+				var tempitem = load("res://Units/Items/TempItems/"+ file_name)
+				if tempitem.name == item[0]:
+					result = tempitem
 			file_name = dir.get_next()
 	return result
+
+# resets all necessary variables for a new Game
+# then recalculates the stats to remove every bonus
 
 func reset():
 	skillpoint = 0

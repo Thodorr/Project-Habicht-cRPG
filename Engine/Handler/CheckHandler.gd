@@ -25,6 +25,12 @@ func get_check_by_name(check_name):
 			if target_check.name == check_name:
 				return target_check
 
+# 1. creates a new dictionary with unique identifier
+# 2. saves each check data in an array that is the value
+# 3. add each check to a dictionary where the key is the checkname and the value the array of the check 
+# 4. merges the dictionaries 
+# 5. After all checks are saved this way, returns the Dictionary 
+
 func save():
 	var save_dict = {
 		"filename" : "checks",
@@ -37,6 +43,12 @@ func save():
 			}
 			save_dict.merge(check_dict, false)
 	return save_dict
+
+# 1. creates an array where the loaded checks will be put in 
+# 2. instance each check with the saved data
+# 3. set the instanced check variable value to the saved data values
+# 4. add each check to the array of loaded checks 
+# 5. set the checks array of the checkhandler to the array of loaded checks 
 
 func loadChecks(node_data):
 	var loadedChecks = []
