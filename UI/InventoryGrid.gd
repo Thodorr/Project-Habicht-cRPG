@@ -33,7 +33,7 @@ func display_item_description(slot_index):
 func _unhandled_input(event):
 	if event.is_action_released("left_mouse"):
 		if inventory.drag_data is Dictionary:
-			var character = owner.owner
+			var character = get_tree().get_current_scene().get_node('YSort/Charakter')
 			var drop_position = character.get_global_mouse_position()
 			if drop_position.distance_to(character.position) <= 25:
 				var pickup = load("res://Engine/Placeables/PickUp.tscn")
