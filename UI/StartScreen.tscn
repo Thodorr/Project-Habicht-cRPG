@@ -32,8 +32,6 @@ layer = 0
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 2.0
-margin_right = 2.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect"]
@@ -224,7 +222,6 @@ align = 1
 valign = 1
 
 [node name="Fading" parent="." instance=ExtResource( 3 )]
-visible = false
 
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/NewGame" to="GUI" method="_on_NewGame_pressed"]
 [connection signal="pressed" from="GUI/GameMenu/VBoxContainer/Load" to="GUI" method="_on_Load_pressed"]
