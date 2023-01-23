@@ -1,9 +1,9 @@
 extends Node2D
 
-var border_left = 0
-var border_right = 1616
-var border_top = 0
-var border_bottom = 528
+export var border_left = 0
+export var border_right = 1616
+export var border_top = -160
+export var border_bottom = 528
 
 
 func _ready():

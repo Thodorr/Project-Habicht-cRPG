@@ -199,28 +199,28 @@ func adapt_cursor():
 #		else:
 #			inventoryScene.visible = false
 
-func directional_input_handler():
-	if movement_blocked: return Vector2(0,0)
-	if Input.is_action_pressed("ui_up"):
-		movement.y = max(movement.y - ACCELERATION, -nav_agent.max_speed)
-		may_navigate = false
-	elif Input.is_action_pressed("ui_down"):
-		movement.y = min(movement.y + ACCELERATION, nav_agent.max_speed)
-		may_navigate = false
-	else:
-		movement.y = lerp(movement.y, 0, 0.3)
-
-	if Input.is_action_pressed("ui_right"):
-		movement.x = min(movement.x + ACCELERATION, nav_agent.max_speed)
-		may_navigate = false
-	elif Input.is_action_pressed("ui_left"):
-		movement.x = max(movement.x - ACCELERATION, -nav_agent.max_speed)
-		may_navigate = false
-	else:
-		movement.x = lerp(movement.x, 0, 0.3)
-	
-	direction = movement.normalized()
-	return movement
+#func directional_input_handler():
+#	if movement_blocked: return Vector2(0,0)
+#	if Input.is_action_pressed("ui_up"):
+#		movement.y = max(movement.y - ACCELERATION, -nav_agent.max_speed)
+#		may_navigate = false
+#	elif Input.is_action_pressed("ui_down"):
+#		movement.y = min(movement.y + ACCELERATION, nav_agent.max_speed)
+#		may_navigate = false
+#	else:
+#		movement.y = lerp(movement.y, 0, 0.3)
+#
+#	if Input.is_action_pressed("ui_right"):
+#		movement.x = min(movement.x + ACCELERATION, nav_agent.max_speed)
+#		may_navigate = false
+#	elif Input.is_action_pressed("ui_left"):
+#		movement.x = max(movement.x - ACCELERATION, -nav_agent.max_speed)
+#		may_navigate = false
+#	else:
+#		movement.x = lerp(movement.x, 0, 0.3)
+#
+#	direction = movement.normalized()
+#	return movement
 
 func _on_Timer_timeout():
 	movement_blocked = false
@@ -247,9 +247,9 @@ func set_camera():
 
 func _physics_process(_delta):
 	adapt_cursor()
-	var velocity = directional_input_handler()
-	if velocity.x >= 0.1 || velocity.x <= -0.1 || velocity.y >= 0.1 || velocity.y <= -0.1:
-		_on_velocity_computed(velocity)
+#	var velocity = directional_input_handler()
+#	if velocity.x >= 0.1 || velocity.x <= -0.1 || velocity.y >= 0.1 || velocity.y <= -0.1:
+#		_on_velocity_computed(velocity)
 		#_play_footsteps()
 	if may_navigate:
 		set_velocity()

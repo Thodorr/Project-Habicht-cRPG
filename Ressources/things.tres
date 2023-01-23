@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=251 format=2]
+[gd_resource type="TileSet" load_steps=250 format=2]
 
 [ext_resource path="res://Assets/Map/Dinge/Modern_Exteriors_Singles_Basketball_Basket_3.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Map/Dinge/Modern_Exteriors_Singles_Basketball_Basket_4.png" type="Texture" id=2]
@@ -326,9 +326,6 @@ points = PoolVector2Array( 0, 15, 30, 14, 32, 48, 0, 48 )
 
 [sub_resource type="ConvexPolygonShape2D" id=26]
 points = PoolVector2Array( 0, 13, 32, 13, 32, 48, 0, 48 )
-
-[sub_resource type="ConvexPolygonShape2D" id=27]
-points = PoolVector2Array( 0, 13, 16, 14, 16, 28, 0, 28 )
 
 [sub_resource type="ConvexPolygonShape2D" id=28]
 points = PoolVector2Array( 0, 19, 16, 18, 16, 32, 0, 32 )
@@ -1594,16 +1591,9 @@ points = PoolVector2Array( 0, 12, 16, 13, 16, 22, 3, 22 )
 75/navigation_offset = Vector2( 8, 16 )
 75/shape_offset = Vector2( 0, 0 )
 75/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-75/shape = SubResource( 27 )
 75/shape_one_way = false
-75/shape_one_way_margin = 1.0
-75/shapes = [ {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 27 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-} ]
+75/shape_one_way_margin = 0.0
+75/shapes = [  ]
 75/z_index = 0
 76/name = "ModernExteriorsSinglesHydrant2"
 76/texture = ExtResource( 151 )
@@ -3060,7 +3050,7 @@ points = PoolVector2Array( 0, 12, 16, 13, 16, 22, 3, 22 )
 174/shape_one_way = false
 174/shape_one_way_margin = 0.0
 174/shapes = [  ]
-174/z_index = 0
+174/z_index = -1
 175/name = "ModernExteriorsSinglesTrash2"
 175/texture = ExtResource( 56 )
 175/tex_offset = Vector2( 0, 0 )
@@ -3074,7 +3064,7 @@ points = PoolVector2Array( 0, 12, 16, 13, 16, 22, 3, 22 )
 175/shape_one_way = false
 175/shape_one_way_margin = 0.0
 175/shapes = [  ]
-175/z_index = 0
+175/z_index = -1
 176/name = "ModernExteriorsSinglesTrash3"
 176/texture = ExtResource( 57 )
 176/tex_offset = Vector2( 0, 0 )
@@ -3088,7 +3078,7 @@ points = PoolVector2Array( 0, 12, 16, 13, 16, 22, 3, 22 )
 176/shape_one_way = false
 176/shape_one_way_margin = 0.0
 176/shapes = [  ]
-176/z_index = 0
+176/z_index = -1
 177/name = "ModernExteriorsSinglesTrash4"
 177/texture = ExtResource( 58 )
 177/tex_offset = Vector2( 0, 0 )
@@ -3102,7 +3092,7 @@ points = PoolVector2Array( 0, 12, 16, 13, 16, 22, 3, 22 )
 177/shape_one_way = false
 177/shape_one_way_margin = 0.0
 177/shapes = [  ]
-177/z_index = 0
+177/z_index = -1
 178/name = "ModernExteriorsSinglesTrash5"
 178/texture = ExtResource( 59 )
 178/tex_offset = Vector2( 0, 0 )
@@ -3116,7 +3106,7 @@ points = PoolVector2Array( 0, 12, 16, 13, 16, 22, 3, 22 )
 178/shape_one_way = false
 178/shape_one_way_margin = 0.0
 178/shapes = [  ]
-178/z_index = 0
+178/z_index = -1
 179/name = "ModernExteriorsSinglesTree1"
 179/texture = ExtResource( 60 )
 179/tex_offset = Vector2( 0, 0 )

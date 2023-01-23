@@ -1977,32 +1977,31 @@ position = Vector2( 0, -15 )
 
 [node name="Body" type="Sprite" parent="SpriteBundle"]
 texture = ExtResource( 3 )
-flip_h = true
 hframes = 58
 vframes = 20
+frame = 3
 region_rect = Rect2( 0, 10, 16, 22 )
 
 [node name="Outfit" type="Sprite" parent="SpriteBundle"]
-flip_h = true
 hframes = 58
 vframes = 20
+frame = 3
 
 [node name="Hair" type="Sprite" parent="SpriteBundle"]
 texture = ExtResource( 4 )
-flip_h = true
 hframes = 58
 vframes = 20
+frame = 3
 
 [node name="Hat" type="Sprite" parent="SpriteBundle"]
-offset = Vector2( -0.3, 0 )
-flip_h = true
 hframes = 58
 vframes = 20
+frame = 3
 
 [node name="Face" type="Sprite" parent="SpriteBundle"]
-flip_h = true
 hframes = 58
 vframes = 20
+frame = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -5 )
@@ -2086,6 +2085,7 @@ frame = 5
 speed_scale = 5.0
 
 [node name="BarContainer" type="TextureProgress" parent="UiLayer"]
+visible = false
 margin_left = 34.0
 margin_top = 304.0
 margin_right = 177.0

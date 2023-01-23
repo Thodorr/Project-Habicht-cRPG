@@ -42,7 +42,7 @@ var reward_item_step = 0
 var state = Queststate.OPEN 
 var quest_questtype = Questtype.IDLE
 
-func start_quest(): 
+func start_quest():
 	if state == Queststate.OPEN: 
 		state = Queststate.STARTED 
 	if state == Queststate.DONE:
@@ -65,6 +65,12 @@ func finish_quest():
 			get_item_reward()
 		else:
 			print('The required item is missing')
+	else:
+		state = Queststate.DONE
+		Attributes.add_to_experience(amound_exp)
+		inventory.add_currency(amount_money)
+		get_item_reward()
+		
 
 func end_quest():
 	if state == Queststate.STARTED:
@@ -160,7 +166,7 @@ func goto_npc(questtype):
 		quest_item_step += 1
 
 func check_item_in_inventory():
-	var check_item = inventory.remove_item(quest_item[quest_item_step], 1)
+	var check_item = inventory.remove_item(quest_item[int(quest_item_step)], 1)
 	if check_item == false:
 		Dialogic.set_variable("check_item", "false")
 	else:

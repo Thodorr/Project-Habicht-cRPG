@@ -1,0 +1,99 @@
+{
+	"events": [
+		{
+			"character": "character-1674165349.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Do you want a donut?"
+		},
+		{
+			"choice": "( Donut: 3 ) Yeah, I take one.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"3"
+				],
+				"method_name": "remove_money",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Here you go."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Donut",
+					"Food",
+					"CategoryB"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"character": "character-1674165349.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Can't have one if you don't have the money."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Leave ) No, thanks.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1674165327.json",
+		"name": "DonutLady"
+	}
+}

@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "Test Equipment"
+name = "Blue Shirt"
 texture = ExtResource( 3 )
 description = "A normal short sleeved shirt.
 A nice color with a white pocket."

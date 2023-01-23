@@ -2,7 +2,7 @@
 	"color": "#fffff88c",
 	"description": "",
 	"display_name": "Wahrnehmung",
-	"display_name_bool": true,
+	"display_name_bool": false,
 	"id": "character-1673728147.json",
 	"mirror_portraits": false,
 	"name": "Perception",

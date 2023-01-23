@@ -22,6 +22,7 @@ var luck_add = 0
 
 
 func _ready():
+	var _attributes_changed_connect = Attributes.connect("attributes_changed", self, "LoadStats")
 	LoadStats()
 	LoadSkills()
 	LoadActiveOrDoneQuests(1)
@@ -42,6 +43,7 @@ func _ready():
 		button.connect("pressed", self, "LoadQuestInfo", [button.get_parent().get_name()])
 
 func LoadStats():
+	print(Attributes.attributes)
 	var keys = Attributes.Attribute.keys()
 	var index = 0
 	for key in keys:

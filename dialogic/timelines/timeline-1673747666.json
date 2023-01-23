@@ -3,7 +3,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "get_quest_progress",
 				"target_node_path": "../../"
@@ -13,7 +13,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "is_quest_active",
 				"target_node_path": "../../"
@@ -43,7 +43,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "advance_quest",
 				"target_node_path": "../../"
@@ -82,7 +82,7 @@
 
 			],
 			"portrait": "",
-			"question": "( DIe Tuer ist offen )"
+			"question": "( The door is open ) "
 		},
 		{
 			"choice": "Geh hinein und weck Jonas.",
@@ -103,7 +103,7 @@
 			"character": "character-1673747980.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "(  Jonas springt hastig von seinem Bett auf und rennt zu seiner Vorlesung )\n( Als dank hat er dir erlaubt, dich an seinem Kühlschrank zu bedienen )"
+			"text": "( Jonas jumps up hastily from his bed and runs to his lecture )\n( As a thank you he allowed you to help yourself to his fridge )"
 		},
 		{
 			"character": "character-1673747980.json",
@@ -112,10 +112,10 @@
 
 			],
 			"portrait": "",
-			"question": "( Im Inneren ist jedoch nur eine vereinzelte Ananas )"
+			"question": "( Inside, however, is only one lonely pineapple )"
 		},
 		{
-			"choice": "( Nimm die Ananas. )",
+			"choice": "( Take the pineapple )",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -134,7 +134,7 @@
 			"event_id": "dialogic_042"
 		},
 		{
-			"choice": "( Lass die Ananas zurück. )",
+			"choice": "( Leave it )",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -146,7 +146,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "advance_quest",
 				"target_node_path": "../../"
@@ -156,7 +156,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "finish_quest",
 				"target_node_path": "../../"
@@ -164,7 +164,7 @@
 			"event_id": "dialogic_042"
 		},
 		{
-			"choice": "( Lass die Tuer in Ruhe )",
+			"choice": "( Leave )",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -193,10 +193,10 @@
 
 			],
 			"portrait": "",
-			"question": "Hier gibt es nichts mehr zu tun."
+			"question": "( There is nothing to here anymore )"
 		},
 		{
-			"choice": "( Lass die Tür in Ruhe )",
+			"choice": "( Leave )",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -218,7 +218,7 @@
 			"character": "character-1673747980.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "( Vor dir ist eine verschlossene Holztuer )"
+			"text": "( In front of you is a locked wooden door )"
 		},
 		{
 			"event_id": "dialogic_022",
@@ -240,10 +240,10 @@
 
 			],
 			"portrait": "",
-			"question": "( Vor dir ist eine verschlossene Holztuer )"
+			"question": "( In front of you is a locked wooden door )"
 		},
 		{
-			"choice": "( Klopf an )",
+			"choice": "( Knock )",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -253,14 +253,14 @@
 			"character": "character-1673747980.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "( Nichts passiert )"
+			"text": "( Nothing happens )"
 		},
 		{
 			"anchor_id": "anchor-1634488067",
 			"event_id": "dialogic_016"
 		},
 		{
-			"choice": "( Versuch die Tuer zu oeffnen )",
+			"choice": "( Try to open the door )",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -285,7 +285,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen",
+					"Awakening",
 					"todo"
 				],
 				"method_name": "start_a_quest",
@@ -297,12 +297,12 @@
 			"character": "character-1673751244.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "<Luck: 2> Scheinbar hat jemand vergessen abzuschliessen."
+			"text": "<Luck: 2> Apparently someone forgot to lock up."
 		},
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "advance_quest",
 				"target_node_path": "../../"
@@ -322,13 +322,13 @@
 			"character": "character-1673747980.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Du rüttelst fest an der Klinke, doch nichts passiert.\nDie Tuer bleibt fest verschlossen."
+			"text": "( You shake the handle firmly, but nothing happens. )\n( The door remains tightly closed. )"
 		},
 		{
 			"event_id": "dialogic_013"
 		},
 		{
-			"choice": "#FindKey# ( Schau dich nach dem Schluessel um )",
+			"choice": "#FindKey# ( Look around for the key )",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -349,7 +349,7 @@
 			"character": "character-1673728147.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "( Nach kurzer Suche siehst du eine subtile Delle in der Fussmatte )\n( Scheinbar wurde ein Schluessel darunter versteckt )"
+			"text": "( After a short search you see a subtle dent in the floor mat )\n( Apparently a key was hidden underneath )"
 		},
 		{
 			"definition": "1673748972-381",
@@ -362,7 +362,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "advance_quest",
 				"target_node_path": "../../"
@@ -382,7 +382,7 @@
 			"character": "character-1673728147.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "( Trotz langer Suche findest du nichts )"
+			"text": "( Despite long search you find nothing )"
 		},
 		{
 			"anchor_id": "anchor-1634488067",
@@ -392,7 +392,7 @@
 			"event_id": "dialogic_013"
 		},
 		{
-			"choice": "( Lass die Tuer in Ruhe )",
+			"choice": "( Leave )",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",

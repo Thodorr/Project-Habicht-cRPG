@@ -17,11 +17,11 @@ func drop_data(_position, data):
 	inventory.set_item(data.item_index, data.item)
 
 func _on_FilterButton_pressed(button_definer):
-	var button_image = get_node("HBoxContainer/" + button_definer + "FilterButton/TextureRect")
+	var button_image = get_node("VBoxContainer/HBoxContainer/" + button_definer + "FilterButton/TextureRect")
 	button_image.rect_position.y += 1
 
 func _on_FilterButton_released(button_definer):
-	var button_image = get_node("HBoxContainer/" + button_definer + "FilterButton/TextureRect")
+	var button_image = get_node("VBoxContainer/HBoxContainer/" + button_definer + "FilterButton/TextureRect")
 	button_image.rect_position.y -= 1
 	
 	match(button_definer):

@@ -8,7 +8,7 @@ script = ExtResource( 1 )
 name = "Chocolate Cake"
 texture = ExtResource( 2 )
 description = "A very solid choice for a delicios cake.
-A rather obvious choice."
+Also a rather obvious choice."
 item_attributes = {
 0: -1,
 1: 0,

@@ -3,6 +3,7 @@ extends Node2D
 
 export(Resource) var item
 export(int) var amount = 1
+export(Texture) var replacement_image = null
 
 export(int) var interaction_distance = 10
 export var north_deactivated = false
@@ -17,11 +18,15 @@ onready var player = get_parent().get_parent().get_node("YSort/Charakter")
 var property_names: Array = []
 
 func _ready():
-	sprite.texture = item.texture
+	if replacement_image == null:
+		sprite.texture = item.texture
+	else:
+		sprite.texture = replacement_image
 	var _pick_up_finished_connect = player.connect("loot_anim_finished", self, "on_loot_anim_finished")
 
 func on_loot_anim_finished():
 	if $Interactable.moving_to_target == self:
+		print(item)
 		if item is Item:
 			inventory.add_item(item, amount)
 			if get_node("Interactable").hovering:

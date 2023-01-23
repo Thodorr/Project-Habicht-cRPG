@@ -151,14 +151,27 @@ func _on_Interactable_mouse_exited():
 	player.mouse_mode = player.Mouse.REGULAR
 
 func give_item(itemFileName, type = 'Food', extraFolder = ''):
+	print(itemFileName, type, extraFolder)
 	var item = load("res://Units/Items/" + type + "/" + extraFolder + "/" + itemFileName + ".tres")
-	inventory.add_item(item, 1)
+	if item is Item:
+		inventory.add_item(item, 1)
+	else:
+		print("Item not found,")
+
+func remove_item(item_name):
+	inventory.remove_item(inventory.find_item_by_name(item_name), 1)
 
 func give_money(amount):
 	inventory.add_currency(amount)
 
-func check_for_item(itemname):
-	Dialogic.set_variable('hasItem', inventory.check_for_item(itemname)) 
+func remove_money(amount):
+	amount = int(amount)
+	Dialogic.set_variable('EnoughMoney', inventory.currency >= amount)
+	if inventory.currency >= amount:
+		inventory.add_currency(-amount)
+
+func check_for_item(item_name):
+	Dialogic.set_variable('hasItem', inventory.check_for_item(item_name))
 
 func add_influence_to_check(check_name: String, influence_name, influence_value):
 	var check: Check = CheckHandler.get_check_by_name(check_name)
@@ -180,7 +193,7 @@ func advance_quest(questname):
 func is_quest_active(questname):
 	questhandler.is_quest_active(questname)
 
-func start_quest(questname, questtype):
+func start_quest(questname, questtype = 'todo'):
 	questhandler.start_a_quest(questname, questtype)
 	
 func start_quest_laster():
@@ -190,7 +203,10 @@ func quest_intermidate(questname, questtype):
 	questhandler.intermidiate(questname, questtype)
 
 func change_dialog(new_conversation):
-	conversation = new_conversation
+	print('This function is deptricated')
 
 func check_quest(questname):
 	questhandler.check_quest_item(questname)
+
+func change_area(scene):
+	scenechanger.goto_scene(scene)

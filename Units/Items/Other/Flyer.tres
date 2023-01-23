@@ -22,7 +22,7 @@ item_attributes = {
 9: 0
 }
 stress_relief = 0
-removeable = true
+removeable = false
 text_message = "Social media is penetrating ever larger areas of business, technology and society. The Social Media Systems course conveys the ideas, concepts and techniques of social media.
 
 If you want to get involved with the three content areas of social media systems:

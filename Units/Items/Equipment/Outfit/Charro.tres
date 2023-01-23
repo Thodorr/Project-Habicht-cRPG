@@ -8,8 +8,10 @@
 script = ExtResource( 1 )
 name = "Charro"
 texture = ExtResource( 3 )
-description = "A style of dress originating in Mexico and based on the charro, a type of horseman.
-They are also often worn by members of a mariachi band."
+description = "A style of dress originating in Mexico
+and based on the charro, a type of horseman.
+They are also often
+worn by members of a mariachi band."
 item_attributes = {
 0: 1,
 1: 0,

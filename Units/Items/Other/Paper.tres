@@ -1,13 +1,13 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Engine/Blueprints/OtherItem.gd" type="Script" id=1]
-[ext_resource path="res://Assets/Items/Paper/Paper.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Items/Paper/List.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
-name = "Flyer"
+name = "Paper"
 texture = ExtResource( 2 )
-description = ""
+description = "A nice sheet of paper."
 item_attributes = {
 0: 0,
 1: 0,
@@ -21,7 +21,7 @@ item_attributes = {
 9: 0
 }
 stress_relief = 0
-removeable = true
+removeable = false
 text_message = ""
 accept_text = "Accept"
 decline_text = "Decline"
