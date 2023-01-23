@@ -3,7 +3,7 @@ extends ColorRect
 onready var screen_width = ProjectSettings.get_setting("display/window/size/width")
 onready var screen_height = ProjectSettings.get_setting("display/window/size/height")
 
-onready var inventory = preload("res://Inventory.tres")
+onready var inventory = preload("res://Engine/Handler/Inventory.tres")
 
 onready var accept_button = $AcceptButton
 onready var decline_button = $DeclineButton

@@ -1,6 +1,6 @@
 extends Control
 
-onready var inventory = preload("res://Inventory.tres")
+onready var inventory = preload("res://Engine/Handler/Inventory.tres")
 onready var player = get_node_or_null("../../YSort/Charakter")
 onready var node_stat_points = get_node("Screen/Layout/Attributes/HBoxContainer/AvailablePoints/Label")
 onready var path_main_stats = "Screen/Layout/Attributes/"

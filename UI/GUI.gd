@@ -17,7 +17,7 @@ func _input(event):
 			get_tree().paused = true
 	if event.is_action_pressed("CharacterSheet"):
 		if not has_node("CharacterSheet"):
-			var character_sheet = load("res://CharacterSheet.tscn").instance()
+			var character_sheet = load("res://Engine/CharacterSheet.tscn").instance()
 			add_child(character_sheet)
 		else:
 			get_node("CharacterSheet").checkInv()
@@ -35,7 +35,7 @@ func _ready():
 
 
 func _on_Options_pressed():
-	var options_menu = load("res://OptionsMenu.tscn").instance()
+	var options_menu = load("res://UI/OptionsMenu.tscn").instance()
 	add_child(options_menu)
 	var _options_connect = get_node("OptionsMenu").connect("CloseOptionsMenu", self, "CloseOptionsMenu")
 
@@ -77,4 +77,4 @@ func _on_Load_pressed():
 
 
 func _on_Credits_pressed():
-	get_tree().change_scene("res://GodotCredits.tscn")
+	get_tree().change_scene("res://UI/GodotCredits.tscn")

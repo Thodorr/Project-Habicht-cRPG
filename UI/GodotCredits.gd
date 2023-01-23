@@ -30,20 +30,19 @@ var credits = [
 		"Clemens Hawickenbrauck"
 	],[
 		"Art",
-		"Artist Name"
+		"Limezu"
 	],[
 		"Music",
-		"Musician Name"
-	],[
-		"Sound Effects",
-		"SFX Name"
+		"Zakiro"
 	],[
 		"Testers",
-		"Tims Freundin",
-		"Adrian der Gremlin",
+		"Claudia",
+		"Adrian",
 		"Lucy"
 	],[
 		"Tools used",
+		"Dialogic",
+		"Emilio Coppola",
 		"Developed with Godot Engine",
 		"https://godotengine.org/license",
 		"",
@@ -92,7 +91,7 @@ func _process(delta):
 
 
 func finish():
-	get_tree().change_scene("res://StartScreen.tscn")
+	get_tree().change_scene("res://UI/StartScreen.tscn")
 
 
 func add_line():

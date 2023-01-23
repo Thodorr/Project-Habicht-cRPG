@@ -1,9 +1,10 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://Charakter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/icon.png" type="Texture" id=1]
+[ext_resource path="res://Engine/Charakter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Engine/Placeables/PickUp.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Units/Items/TempItems/Test_Item.tres" type="Resource" id=4]
+
 
 
 [sub_resource type="NavigationPolygon" id=4]

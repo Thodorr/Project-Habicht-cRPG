@@ -17,7 +17,7 @@ signal loot_anim_finished
 
 onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 onready var animation_tree: AnimationTree = $AnimationTree
-onready var inventory = preload("res://Inventory.tres")
+onready var inventory = preload("res://Engine/Handler/Inventory.tres")
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var ui_layer = $UiLayer
 onready var timer = $Timer

@@ -6,9 +6,10 @@
 [ext_resource path="res://Level/level_1/level_1_walkway.gd" type="Script" id=4]
 [ext_resource path="res://Musi/music/Track 7 (Panorama).wav" type="AudioStream" id=5]
 [ext_resource path="res://UI/Font/PixelFont.tres" type="DynamicFont" id=6]
-[ext_resource path="res://GUI.gd" type="Script" id=7]
+[ext_resource path="res://UI/GUI.gd" type="Script" id=7]
 [ext_resource path="res://UI/Assets/GUI/MediumNormalButton.tres" type="Texture" id=8]
 [ext_resource path="res://UI/Assets/GUI/MediumPressedButton.tres" type="Texture" id=9]
+
 
 [sub_resource type="NavigationPolygon" id=104]
 vertices = PoolVector2Array( 49, 32, 48, 32, 95, 31, 95, 32, 16, 33, 624, 32, 626, 351, 16, 351, 572, 32, 501, 32, 412, 32, 341, 32, 301, 32, 229, 32, 100, 32, 172, 31 )

@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 onready var player = owner.get_node("YSort/Charakter")
-onready var inventory = preload("res://Inventory.tres")
+onready var inventory = preload("res://Engine/Handler/Inventory.tres")
 export var destination = "res://Level/level_1/level_1_campus.tscn"
 export var dialogName = 'StorageDoor'
 

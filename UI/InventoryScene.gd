@@ -1,6 +1,6 @@
 extends Control
 
-var inventory = preload("res://Inventory.tres")
+var inventory = preload("res://Engine/Handler/Inventory.tres")
 
 func _ready():
 	inventory.connect('currency_changed', self, '_on_currency_changed')
