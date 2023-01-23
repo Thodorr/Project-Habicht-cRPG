@@ -140,8 +140,8 @@ config/icon="res://UI/icon.png"
 
 [autoload]
 
-DataImport="*res://Data/DataImport.gd"
 Attributes="*res://Engine/Attributes.gd"
+DataImport="*res://Data/DataImport.gd"
 scenechanger="*res://Engine/Handler/scenechanger.gd"
 CheckHandler="*res://Engine/Handler/CheckHandler.gd"
 
