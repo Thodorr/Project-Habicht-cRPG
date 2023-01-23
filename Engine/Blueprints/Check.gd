@@ -30,7 +30,7 @@ export(Dictionary) var influences = {}
 export var repeatable = false
 var state = State.OPEN
 
-
+# Returns the difficulty of the check after being effected by the influences
 func get_influenced_difficulty():
 	var influenced_difficulty = difficulty
 	for influence in influences:
@@ -38,6 +38,6 @@ func get_influenced_difficulty():
 	
 	return influenced_difficulty
 
+# Adds an influence to the dictionary
 func add_influence(influence: Dictionary):
 	influences.merge(influence)
-	print(influences)

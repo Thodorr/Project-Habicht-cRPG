@@ -25,18 +25,25 @@ func _ready():
 	
 	set_positions()
 
+# Sets hovering true if the mouse enters the interactable
 func _on_mouse_entered():
 	hovering = true
 
+# Sets hovering true if the mouse leaves the interactable
 func _on_mouse_exited():
 	hovering = false
 
+# Called when interactable is clicked upon.
+# Moves the character to the the closest of the four interaction positions
 func _input(_event):
 	if (!hovering): return
 	if Input.is_action_just_pressed("left_mouse"):
 		character.set_navigation(get_closest_position())
 		moving_to_target = get_parent()
 
+# Called when the navigation towards the interactable is finished
+# Emits the interaction init signal that can be used by the node parenting the interactable
+# Turns the player towards the interactable 
 func _on_navigation_finished():
 	if moving_to_target:
 		var character_position = character.get_global_position()
@@ -46,10 +53,13 @@ func _on_navigation_finished():
 		if get_parent() is KinematicBody2D:
 			get_parent().turn(-dir)
 
+# Called when the navigation path of the character changes
+# Removes the current interaction target
 func _on_path_changed():
 	if (hovering): return
 	moving_to_target = null
 
+# Returns the positon of the interaction position closest to the character
 func get_closest_position():
 	var shortest_distance = 99999 
 	var closest_position = Vector2(0,0)
@@ -62,6 +72,7 @@ func get_closest_position():
 	
 	return closest_position.get_global_position()
 
+# Adjusts the interaction positions based on their activation status and distance
 func set_positions():
 	var curr_axis = "x"
 	var direction = interaction_distance

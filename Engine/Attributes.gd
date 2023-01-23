@@ -6,6 +6,7 @@ enum AttributeGroup {
 	MIND
 }
 
+# Dictionary that maps attributes to their corresponding group
 var attribute_groups = {
 	Attribute.ATHLETICS : AttributeGroup.BODY,
 	Attribute.DEXTERITY: AttributeGroup.BODY,
@@ -20,6 +21,7 @@ var attribute_groups = {
 	Attribute.CREATIVITY: AttributeGroup.MIND,
 }
 
+# Dictionary that stores the value of each attribute group
 var attribute_group_value = {
 	AttributeGroup.BODY : 0,
 	AttributeGroup.CHARACTER : 0,
@@ -42,6 +44,7 @@ enum Attribute {
 	LUCK
 }
 
+# Dictionary that stores the value of each attribute
 var attributes = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -58,6 +61,7 @@ var attributes = {
 	Attribute.LUCK: 0,
 }
 
+# Dictionary that stores the base value of each attribute
 var attributes_base = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -74,6 +78,7 @@ var attributes_base = {
 	Attribute.LUCK: 0,
 }
 
+# Dictionary that stores the value of attributes that come from equipment
 var attributes_equipment = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -90,6 +95,7 @@ var attributes_equipment = {
 	Attribute.LUCK: 0,
 }
 
+# Dictionary that stores the value of attributes that come from hat
 var attributes_hat = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -106,6 +112,7 @@ var attributes_hat = {
 	Attribute.LUCK: 0,
 }
 
+# Dictionary that stores the value of attributes that come from clothing
 var attributes_clothing = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -122,6 +129,7 @@ var attributes_clothing = {
 	Attribute.LUCK: 0,
 }
 
+# Dictionary that stores the value of attributes that come from trinkets
 var attributes_trinket = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -138,6 +146,7 @@ var attributes_trinket = {
 	Attribute.LUCK: 0,
 }
 
+# Dictionary that stores the value of attributes that come from hand
 var attributes_hand = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -154,6 +163,7 @@ var attributes_hand = {
 	Attribute.LUCK: 0,
 }
 
+# Dictionary that stores the value of attributes that come from face
 var attributes_face = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -170,6 +180,7 @@ var attributes_face = {
 	Attribute.LUCK: 0,
 }
 
+# Dictionary that stores the value of attributes that come from temporary items
 var attributes_temporary = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -186,6 +197,7 @@ var attributes_temporary = {
 	Attribute.LUCK: 0,
 }
 
+# Dictionary that stores the value of attributes that come from food
 var attributes_food = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -202,6 +214,7 @@ var attributes_food = {
 	Attribute.LUCK: 0,
 }
 
+# Dictionary that stores the value of attributes for additional options
 var attributes_extra = {
 	Attribute.ATHLETICS: 0,
 	Attribute.DEXTERITY: 0,
@@ -218,26 +231,35 @@ var attributes_extra = {
 	Attribute.LUCK: 0,
 }
 
+# Initialize nerve and nerve_damge 
 var nerve = 0
 var nerve_damage = 0
 
+# Initialize skillpoint and experience
 var skillpoint = 20
 var experience = 0
 
+# Function to add a value to a specific attribute
 func add_to_attribute(attribute, value):
 	attributes_base[attribute] += value
 	attribute_math()
 
+# Function to get the value of a specific attribute
 func get_attribute(attribute):
 	return attributes[attribute]
-	
+
+# Function to get the value of a specific attribute group
 func get_attribute_group(attribute_group):
 	return attribute_group_value[attribute_group]
 
+# Function to add a value to skillpoints
 func add_to_skillpoint(value):
 	skillpoint += value
 
+# Signal emitted when stress changes used for UI updates
 signal stressChanged(value)
+
+# Function to remove stress
 func remove_stress(value):
 	nerve_damage -= value
 	if nerve_damage < 0:
@@ -246,6 +268,7 @@ func remove_stress(value):
 	if nerve_damage == nerve:
 		death()
 
+# Function to handle death
 func death():
 	var node = get_name()
 	var start_screen = str ("res://StartScreen.tscn")
@@ -259,23 +282,27 @@ func death():
 	add_child(timer)
 	timer.start()
 
-
+# Handels scene change on death
 func _on_timer_change_level(level):
 	scenechanger.goto_scene(level)
 
+# Reduces the skillpoint by the value provided as the parameter
 func remove_skillpoint(value):
 	skillpoint -= value
 
+# Adds the value provided as the parameter to the experience.
 func add_to_experience(value):
 	if !value is int:
 		value = int(value)
 	
 	experience += value
 
+# Adds skill point and removes the experience needed for a level up
 func level_up():
 	add_to_skillpoint(1)
 	experience -= 100
-	
+
+# Generates a random number between 1 and 20 and returns it
 signal dice_rolled(dice)
 func dice_roll():
 	var rng = RandomNumberGenerator.new()
@@ -284,10 +311,12 @@ func dice_roll():
 	emit_signal("dice_rolled", dice)
 	return dice
 
+# Does a check based on a check name
 func do_check(checkName):
 	var check = load("res://Units/Checks/" + str(checkName) + ".tres")
 	do_check2(check)
 
+# Performs check based on a its resource
 func do_check2(check: Check):
 	var result = attributes[check.type] + dice_roll()
 	var success = result >= check.get_influenced_difficulty()
@@ -297,18 +326,21 @@ func do_check2(check: Check):
 		check.state = check.State.FAILED
 	return result >= check.get_influenced_difficulty()
 
+# Returns the probability of success for the provided check
 func get_probability(check: Check):
 	var req_throw: float = get_required_roll(check)
 	if (req_throw <= 0): return 100
 	return (20 - req_throw) / 20 * 100
 
+# Returns the required roll for the provided check
 func get_required_roll(check: Check):
 	return check.get_influenced_difficulty() - attributes[int(check.type)]
 
+# Set the variable "attributeValue" in Dialogic to the value of the attribute
 func get_attribute_for_dialog(attribute):
-	print(attributes[int(attribute)])
 	Dialogic.set_variable('AttributeValue', attributes[int(attribute)])
 
+# Updates the attributes based on various factors, such as equipment, temporary effects and food
 signal attributes_changed
 func attribute_math():
 	var attributegroup_bonus = 0
@@ -350,11 +382,16 @@ func attribute_math():
 		
 	emit_signal("attributes_changed")
 
+# These signals are emited to update the corresponding UI
 signal clothingChanged
 signal hatChanged
 signal effectAdded
+
+# This variable stores the list of temporary items
 var temp_effects = []
+# This variable stores the current food item
 var current_food = null
+# Adds the attributes of the provided item to the corresponding attribute array
 func add_item_stats(item):
 	if item is EquipmentItem:
 		match item.type:
@@ -375,6 +412,8 @@ func add_item_stats(item):
 			item.Type.FACE:
 				for i in attributes_face:
 					attributes_face[i] = item.item_attributes[i]
+	
+	# If the item is a TemporaryItem, a timer is created and added to the children list
 	elif item is TemporaryItem:
 		var timer = Timer.new()
 		timer.connect("timeout", self, "_on_timeout", [item])
@@ -392,12 +431,15 @@ func add_item_stats(item):
 			attributes_food[i] = item.item_attributes[i]
 	attribute_math()
 
+# Called when the timer for a temporary effect times out
+# The attributes of the temporary effect are removed from the attributes_temporary array
 func _on_timeout(item):
 	for i in attributes_temporary:
 		attributes_temporary[i] -= item.item_attributes[i]
 	temp_effects.erase(item)
 	attribute_math()
 
+# Saves the game state by creating a dictionary with various attributes
 func save():
 	var timer_dict = {}
 	for children in get_children(): 
@@ -455,6 +497,7 @@ func save():
 	save_dict.merge(timer_dict, false)
 	return save_dict
 
+# Loads the game state by getting them from the created dictionary
 func load(node_data):
 	var index = 0
 	var arrayIndex = 1
