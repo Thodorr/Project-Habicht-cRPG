@@ -170,7 +170,6 @@ func remove_money(amount):
 	if inventory.currency >= amount:
 		inventory.add_currency(-amount)
 
-
 func check_for_item(item_name):
 	Dialogic.set_variable('hasItem', inventory.check_for_item(item_name))
 
@@ -194,7 +193,7 @@ func advance_quest(questname):
 func is_quest_active(questname):
 	questhandler.is_quest_active(questname)
 
-func start_quest(questname, questtype):
+func start_quest(questname, questtype = 'todo'):
 	questhandler.start_a_quest(questname, questtype)
 	
 func start_quest_laster():
@@ -204,11 +203,10 @@ func quest_intermidate(questname, questtype):
 	questhandler.intermidiate(questname, questtype)
 
 func change_dialog(new_conversation):
-	conversation = new_conversation
+	print('This function is deptricated')
 
 func check_quest(questname):
 	questhandler.check_quest_item(questname)
 
 func change_area(scene):
-	print("Helllloosoosososososo", scene)
 	scenechanger.goto_scene(scene)

@@ -1,14 +1,33 @@
 {
 	"events": [
 		{
-			"condition": "==",
-			"definition": "1673805085-648",
+			"call_node": {
+				"arguments": [
+					"Mario wants a donut"
+				],
+				"method_name": "is_quest_active",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1673750177-746",
 			"event_id": "dialogic_012",
 			"value": "1"
 		},
 		{
 			"anchor_id": "anchor-1674304208",
 			"event_id": "dialogic_016"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "==",
+			"definition": "1673805085-648",
+			"event_id": "dialogic_012",
+			"value": "1"
 		},
 		{
 			"event_id": "dialogic_013"
@@ -52,7 +71,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"marios_quest",
+					"Mario wants a donut",
 					"bring"
 				],
 				"method_name": "start_quest",
@@ -63,7 +82,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"quest_mario_end"
+					"Mario wants a donut"
 				],
 				"method_name": "change_dialog",
 				"target_node_path": "../../"
@@ -103,9 +122,9 @@
 		{
 			"call_node": {
 				"arguments": [
-					"marios_quest"
+					"Donut"
 				],
-				"method_name": "check_quest",
+				"method_name": "check_for_item",
 				"target_node_path": "../../"
 			},
 			"event_id": "dialogic_042"
@@ -117,14 +136,14 @@
 
 			],
 			"portrait": "",
-			"question": "Welcom back! \nHow did the search go?"
+			"question": "Welcome back! \nHow did the search go?"
 		},
 		{
-			"choice": "Well",
+			"choice": "Well.",
 			"condition": "",
-			"definition": "1673602740-186",
+			"definition": "1674061634-979",
 			"event_id": "dialogic_011",
-			"value": "true"
+			"value": "True"
 		},
 		{
 			"character": "character-1673802657.json",
@@ -135,10 +154,9 @@
 		{
 			"call_node": {
 				"arguments": [
-					"marios_quest",
-					"bring"
+					"Mario wants a donut"
 				],
-				"method_name": "start_quest",
+				"method_name": "finish_quest",
 				"target_node_path": "../../"
 			},
 			"event_id": "dialogic_042"
@@ -150,21 +168,11 @@
 			"text": "I promised I tell you everything I know about food, which benifits the brain when learning. \nOur brain needs 120 to 140 grams of glucose per day to be supplied with sufficient energy. If it receives too little, it goes into overdrive and loses performance. \nIn order to be able to think better again quickly, many people turn to glucose at such times. \nBut this is only an emergency solution, because a stable carbohydrate level is more important for brain function, while a fluctuating energy supply tends to restrict the function of the gray cells."
 		},
 		{
-			"call_node": {
-				"arguments": [
-					"END"
-				],
-				"method_name": "change_dialog",
-				"target_node_path": "../../"
-			},
-			"event_id": "dialogic_042"
-		},
-		{
-			"choice": "Bad",
+			"choice": "( Leave. ) I don't have it yet.",
 			"condition": "",
-			"definition": "1673602740-186",
+			"definition": "",
 			"event_id": "dialogic_011",
-			"value": "false"
+			"value": ""
 		},
 		{
 			"character": "character-1673802657.json",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Ressources/railing.tres" type="TileSet" id=1]
 [ext_resource path="res://Ressources/floor.tres" type="TileSet" id=2]
@@ -13,8 +13,6 @@
 [ext_resource path="res://UI/Font/PixelFont.tres" type="DynamicFont" id=11]
 [ext_resource path="res://Engine/Placeables/NPC.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Engine/Placeables/PickUp.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Assets/Character/Outfit/Outfit_01_01.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Character/Hair/Hairstyle_01_02.png" type="Texture" id=15]
 [ext_resource path="res://Assets/Character/Body/Body_04.png" type="Texture" id=16]
 [ext_resource path="res://UI/Assets/GUI/MediumNormalButton.tres" type="Texture" id=17]
 [ext_resource path="res://UI/Assets/GUI/MediumPressedButton.tres" type="Texture" id=18]
@@ -653,22 +651,7 @@ position = Vector2( 240, 53 )
 position = Vector2( 1192, 147 )
 conversation = "RedHouseDoor"
 
-[node name="NPC" parent="YSort" instance=ExtResource( 12 )]
-position = Vector2( 226, 240 )
-outfit = ExtResource( 14 )
-body = ExtResource( 16 )
-hair = ExtResource( 15 )
-conversation = "TesttheQuest"
-looking_dir = 2
-
-[node name="NPC2" parent="YSort" instance=ExtResource( 12 )]
-position = Vector2( 429, 275 )
-outfit = ExtResource( 14 )
-body = ExtResource( 16 )
-hair = ExtResource( 15 )
-conversation = "Falko"
-
-[node name="NPC3" parent="YSort" instance=ExtResource( 12 )]
+[node name="GuyInTrunks" parent="YSort" instance=ExtResource( 12 )]
 position = Vector2( 454, 382 )
 outfit = ExtResource( 28 )
 body = ExtResource( 16 )

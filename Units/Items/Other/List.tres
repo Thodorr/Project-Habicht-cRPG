@@ -7,7 +7,7 @@
 script = ExtResource( 1 )
 name = "List"
 texture = ExtResource( 2 )
-description = ""
+description = "A list of things."
 item_attributes = {
 0: 0,
 1: 0,

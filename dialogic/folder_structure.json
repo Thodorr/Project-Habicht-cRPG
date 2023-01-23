@@ -160,14 +160,16 @@
 					"files": [
 						"1673727809-787",
 						"1673737406-948",
-						"1673801939-648"
+						"1673801939-648",
+						"1674490842-648",
+						"1674491707-787"
 					],
 					"folders": {
 
 					},
 					"metadata": {
 						"color": null,
-						"folded": true
+						"folded": false
 					}
 				},
 				"Quest": {
@@ -371,18 +373,7 @@
 						"timeline-1673878868.json"
 					],
 					"folders": {
-						"kevin_part2": {
-							"files": [
-								"timeline-1673879233.json"
-							],
-							"folders": {
 
-							},
-							"metadata": {
-								"color": null,
-								"folded": false
-							}
-						}
 					},
 					"metadata": {
 						"color": null,

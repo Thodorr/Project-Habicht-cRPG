@@ -6274,7 +6274,7 @@ west_deactivated = true
 [node name="Balloon" type="AnimatedSprite" parent="YSort"]
 position = Vector2( -375, 218 )
 frames = SubResource( 256 )
-frame = 3
+frame = 10
 playing = true
 
 [node name="VendingMachine1" parent="YSort" instance=ExtResource( 20 )]

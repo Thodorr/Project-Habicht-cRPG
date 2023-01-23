@@ -1,20 +1,30 @@
 {
 	"events": [
 		{
-			"character": "",
+			"call_node": {
+				"arguments": [
+					"Godot Language"
+				],
+				"method_name": "is_quest_active",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"character": "character-1673808474.json",
 			"event_id": "dialogic_010",
 			"options": [
 
 			],
 			"portrait": "",
-			"question": "Can I help you? "
+			"question": "Can I help you?"
 		},
 		{
 			"choice": "Yes, I'm looking for Michaela",
 			"condition": "",
-			"definition": "",
+			"definition": "1673750177-746",
 			"event_id": "dialogic_011",
-			"value": ""
+			"value": "1"
 		},
 		{
 			"character": "character-1673808474.json",
@@ -23,7 +33,15 @@
 			"text": "Oh no, sorry my name is Xylophonia!\nMy you can comback later, I have a question for you!"
 		},
 		{
-			"choice": "",
+			"definition": "1674490842-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "Xylophonia"
+		},
+		{
+			"choice": "( Leave. ) Not really.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",

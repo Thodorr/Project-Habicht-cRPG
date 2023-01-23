@@ -45,7 +45,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"kevins_quest"
+					"Godot Language"
 				],
 				"method_name": "finish_quest",
 				"target_node_path": "../../"

@@ -6,9 +6,9 @@
 
 [resource]
 script = ExtResource( 1 )
-questname = "marios_quest"
+questname = "Mario wants a donut"
 item_needed = true
-description = [  ]
+description = [ "Mario wants a donut. Bring him a donut." ]
 quest_item = [ ExtResource( 3 ) ]
 quest_reward = [ ExtResource( 2 ) ]
 reward_amount = 1

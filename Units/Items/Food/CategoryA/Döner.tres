@@ -5,12 +5,11 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "Döner"
+name = "Doener Kebab"
 texture = ExtResource( 2 )
 description = "An absolute classic of a meal.
 It brings people together. 
-No matter the demographic, people eat it.
-Delicious, finally some good fucking food."
+No matter the demographic, people eat it."
 item_attributes = {
 0: 0,
 1: 0,
