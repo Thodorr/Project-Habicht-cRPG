@@ -8,7 +8,8 @@
 script = ExtResource( 1 )
 name = "Sky Sweater"
 texture = ExtResource( 2 )
-description = "A knitted sweater portraing 'The Starry Night' from Vincent van Gogh."
+description = "A knitted sweater portraing 'The Starry Night'
+from Vincent van Gogh."
 item_attributes = {
 0: 0,
 1: 0,

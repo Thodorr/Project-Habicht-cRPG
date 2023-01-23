@@ -1,0 +1,21 @@
+{
+	"color": "#ffff4747",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1674059353.json",
+	"mirror_portraits": false,
+	"name": "Athletics",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100,
+	"theme": ""
+}

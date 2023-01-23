@@ -44,9 +44,9 @@
 		{
 			"call_node": {
 				"arguments": [
-					"kevins_quest"
+					"Godot Language"
 				],
-				"method_name": "start_a_quest",
+				"method_name": "start_quest",
 				"target_node_path": "../../"
 			},
 			"event_id": "dialogic_042"

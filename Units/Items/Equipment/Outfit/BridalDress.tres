@@ -6,7 +6,7 @@
 
 [resource]
 script = ExtResource( 3 )
-name = "BridalDress"
+name = "Bridal Dress"
 texture = ExtResource( 2 )
 description = "A dress usually worn by the bride at
 a wedding.

@@ -3,7 +3,7 @@ extends CollisionObject2D
 
 signal interaction_init
 
-onready var interactable : Node = owner
+onready var interactable : Node = get_parent()
 onready var character : KinematicBody2D = interactable.get_parent().get_parent().get_node("YSort/Charakter")
 onready var positions = $Positions.get_children()
 

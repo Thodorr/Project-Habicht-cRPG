@@ -3,7 +3,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "get_quest_progress",
 				"target_node_path": "../../"
@@ -13,7 +13,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "is_quest_active",
 				"target_node_path": "../../"
@@ -43,7 +43,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "advance_quest",
 				"target_node_path": "../../"
@@ -146,7 +146,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "advance_quest",
 				"target_node_path": "../../"
@@ -156,7 +156,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "finish_quest",
 				"target_node_path": "../../"
@@ -285,7 +285,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen",
+					"Awakening",
 					"todo"
 				],
 				"method_name": "start_a_quest",
@@ -302,7 +302,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "advance_quest",
 				"target_node_path": "../../"
@@ -362,7 +362,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"Das Erwachen"
+					"Awakening"
 				],
 				"method_name": "advance_quest",
 				"target_node_path": "../../"

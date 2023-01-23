@@ -1,0 +1,32 @@
+{
+	"events": [
+		{
+			"character": "character-1674179314.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Today we serve:               \n - Hearty Meal             \n - Healthy Meal            \nAs desert:               \n - Donuts              "
+		},
+		{
+			"choice": "( Leave )",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1674179305.json",
+		"name": "Menu"
+	}
+}

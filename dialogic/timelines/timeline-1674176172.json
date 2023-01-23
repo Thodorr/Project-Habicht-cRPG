@@ -1,0 +1,224 @@
+{
+	"events": [
+		{
+			"call_node": {
+				"arguments": [
+					"Find the leak"
+				],
+				"method_name": "is_quest_active",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Find the leak"
+				],
+				"method_name": "get_quest_progress",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Master Key"
+				],
+				"method_name": "check_for_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1673750177-746",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1674176185.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Have you found the leak yet?"
+		},
+		{
+			"choice": "Yes, it is at the white toilet.",
+			"condition": "",
+			"definition": "1673748972-381",
+			"event_id": "dialogic_011",
+			"value": "2"
+		},
+		{
+			"character": "character-1674176185.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Perfect, thank you young one.\nHere take my 10 Euro and my favorite plunger. May it serve you well."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Plunger",
+					"Other"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"FInd the leak"
+				],
+				"method_name": "advance_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Find the leak"
+				],
+				"method_name": "finish_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "( Leave ) No.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1673748972-381",
+			"event_id": "dialogic_012",
+			"value": "2"
+		},
+		{
+			"character": "character-1674176185.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Thank you for your help, young one."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1674176185.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Ah darnished! There is water coming from somewhere and I just can't find from where."
+		},
+		{
+			"choice": "I can find the leak for you.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1674176185.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "That would be not just great, but incredible."
+		},
+		{
+			"character": "character-1674176185.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I am sure it's coming from the toilets."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Find the leak",
+					"todo"
+				],
+				"method_name": "start_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "I found this key.",
+			"condition": "",
+			"definition": "1674061634-979",
+			"event_id": "dialogic_011",
+			"value": "True"
+		},
+		{
+			"character": "character-1674176185.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Oh dear, this is my master key. I didn't even realize that I lost it.\nThank you very much. You might have saved my job.\nHere I have 40 euro on me. Take them! "
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"40"
+				],
+				"method_name": "give_money",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Master Key"
+				],
+				"method_name": "remove_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "( Leave ) That sucks.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1674176172.json",
+		"name": "Janitor"
+	}
+}

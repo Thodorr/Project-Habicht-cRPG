@@ -1,0 +1,166 @@
+{
+	"events": [
+		{
+			"character": "character-1674168945.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "What can I get ya?"
+		},
+		{
+			"choice": "( Healthy meal: 5 ) A healthy meal.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"5"
+				],
+				"method_name": "remove_money",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Here you go."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"HealthyMeal",
+					"Food",
+					"CategoryA"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"character": "character-1674168945.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ya need to be able to pay! No money, no food."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Hearty meal: 5 ) A hearty meal.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"5"
+				],
+				"method_name": "remove_money",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674156567.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Here you go."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"HeartyMeal",
+					"Food",
+					"CategoryA"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1674158173-411",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"character": "character-1674168945.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ya need to be able to pay! No money, no food."
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Leave ) Nothiing for the moment.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1674168925.json",
+		"name": "MensaPerson"
+	}
+}

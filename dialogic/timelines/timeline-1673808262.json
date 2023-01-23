@@ -1,7 +1,17 @@
 {
 	"events": [
 		{
-			"character": "",
+			"call_node": {
+				"arguments": [
+					"Godot Language"
+				],
+				"method_name": "is_quest_active",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"character": "character-1673807410.json",
 			"event_id": "dialogic_010",
 			"options": [
 
@@ -12,9 +22,9 @@
 		{
 			"choice": "Yes, I'm looking for Michaela",
 			"condition": "",
-			"definition": "",
+			"definition": "1673750177-746",
 			"event_id": "dialogic_011",
-			"value": ""
+			"value": "1"
 		},
 		{
 			"character": "character-1673807410.json",
@@ -41,7 +51,7 @@
 		{
 			"call_node": {
 				"arguments": [
-					"kevins_quest",
+					"Godot Language",
 					"todo"
 				],
 				"method_name": "intermidiate",
@@ -64,13 +74,21 @@
 			"set_value": "true"
 		},
 		{
+			"definition": "1674491707-787",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "Michaela"
+		},
+		{
 			"character": "character-1673807410.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Good Look!"
 		},
 		{
-			"choice": "No",
+			"choice": "No.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",
@@ -86,7 +104,7 @@
 			"event_id": "dialogic_013"
 		},
 		{
-			"choice": "No, thanks",
+			"choice": "( Leave. ) No, thanks.",
 			"condition": "",
 			"definition": "",
 			"event_id": "dialogic_011",

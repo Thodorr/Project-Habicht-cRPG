@@ -1,0 +1,232 @@
+{
+	"events": [
+		{
+			"call_node": {
+				"arguments": [
+					"2"
+				],
+				"method_name": "get_attribute_for_dialog",
+				"target_node_path": "../../../../../Attributes"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Plunger"
+				],
+				"method_name": "check_for_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Find the leak"
+				],
+				"method_name": "is_quest_active",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"character": "character-1674171768.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( A very red toilett towers before you. )\n( There is something stuck in it. )"
+		},
+		{
+			"condition": "",
+			"definition": "1673748140-142",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"character": "character-1673728147.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( Perception: 1 ) It appears to be an object."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"HandInToilett",
+					"It's nothing gross.",
+					"3"
+				],
+				"method_name": "add_influence_to_check",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"character": "character-1673728147.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "( Nobody seems to have noticed yet.)"
+		},
+		{
+			"choice": "#HandInToilett# Push your hand into the toilett to get it out.",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 1
+		},
+		{
+			"condition": "",
+			"definition": "1672759872-366",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674171768.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( Your bite your tongue as you plunge your hand into the cold waters of the red toilett. )\n( After a few seconds your hand meets a metalic object. )\n( It appears you found a key. Someone must have kept it in their back pocket.)"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"MasterKey",
+					"Other"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1672759872-366",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"character": "character-1674171768.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( You just can't do it. It's too gross. )"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"choice": "( Use a plunger to get it out. )",
+			"condition": "",
+			"definition": "1674061634-979",
+			"event_id": "dialogic_011",
+			"value": "True"
+		},
+		{
+			"character": "character-1674171768.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( You plunge the item out of the toilett without a problem. )\n( It appears you found a key. Someone must have kept it in their back pocket.)"
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"MasterKey",
+					"Other"
+				],
+				"method_name": "give_item",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"choice": "#FindLeak# ( Look for the leak. )",
+			"condition": "",
+			"definition": "1673750177-746",
+			"event_id": "dialogic_011",
+			"value": "1"
+		},
+		{
+			"event_id": "dialogic_023",
+			"hide_dialogbox": false,
+			"wait_seconds": 1
+		},
+		{
+			"condition": "",
+			"definition": "1672759872-366",
+			"event_id": "dialogic_012",
+			"value": "True"
+		},
+		{
+			"character": "character-1674171768.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "You don't find anything at the red toilet. But alas you find a leak in the white toilet next to it."
+		},
+		{
+			"call_node": {
+				"arguments": [
+					"Find the leak"
+				],
+				"method_name": "advance_quest",
+				"target_node_path": "../../"
+			},
+			"event_id": "dialogic_042"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1672759872-366",
+			"event_id": "dialogic_012",
+			"value": "False"
+		},
+		{
+			"character": "character-1674171768.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "( No luck, you don't seem to find anything.  )"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"choice": "( Leave ) ",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_013"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.4.5",
+		"file": "timeline-1674171798.json",
+		"name": "RedToilett"
+	}
+}

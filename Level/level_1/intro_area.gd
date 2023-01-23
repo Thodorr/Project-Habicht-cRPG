@@ -1,7 +1,5 @@
 extends Node2D
 
-onready var size_of_map = get_node("camera_area/CollisionShape2D").shape
-onready var camera = get_node("YSort/Charakter/Camera2D")
 onready var inventory = preload("res://Inventory.tres")
 
 export var border_left = 0
@@ -17,3 +15,4 @@ func _ready():
 	var player = get_node("YSort/Charakter")
 	player.nav_agent.set_target_location(spawn)
 	player.set_position(spawn)
+	$music.play()

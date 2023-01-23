@@ -459,13 +459,13 @@ func load(node_data):
 	var index = 0
 	var arrayIndex = 1
 	while index <9:
-		attributes_base[index] = node_data["attributes_base"][arrayIndex]
-		attributes_hat[index] = node_data["attributes_hat"][arrayIndex]
-		attributes_clothing[index] = node_data["attributes_clothing"][arrayIndex]
-		attributes_trinket[index] = node_data["attributes_trinket"][arrayIndex]
-		attributes_face[index] = node_data["attributes_face"][arrayIndex]
-		attributes_hand[index] = node_data["attributes_hand"][arrayIndex]
-		attributes_temporary[index] = node_data["attributes_temporary"][arrayIndex]
+		attributes_base[index] = node_data["attributes_base"][index]
+		attributes_hat[index] = node_data["attributes_hat"][index]
+		attributes_clothing[index] = node_data["attributes_clothing"][index]
+		attributes_trinket[index] = node_data["attributes_trinket"][index]
+		attributes_face[index] = node_data["attributes_face"][index]
+		attributes_hand[index] = node_data["attributes_hand"][index]
+		attributes_temporary[index] = node_data["attributes_temporary"][index]
 		index += 1
 		arrayIndex += 1
 	skillpoint = node_data["skillpoint"]

@@ -1,6 +1,7 @@
 extends Button
 
 var check : Check = null
+var item : Item = null
 var labelText = ''
 
 func _ready():

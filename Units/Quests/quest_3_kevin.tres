@@ -5,11 +5,11 @@
 
 [resource]
 script = ExtResource( 1 )
-questname = "kevins_quest"
+questname = "Godot Language"
 item_needed = false
 description = [ "Go to Michaela" ]
 quest_item = [  ]
 quest_reward = [ ExtResource( 2 ) ]
 reward_amount = 1
 amound_exp = 40
-amount_money = 0
+amount_money = 5

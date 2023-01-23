@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
-questname = "Das Erwachen"
+questname = "Awakening"
 item_needed = false
 description = [ "Ich muss zum roten Haus am Campus gehen um Jonas zu wecken.", "Die Tür ist verschlossen. Ich muss einen Weg hinein finden.", "Ich bin in seiner Wohnung, jetzt muss ich ihn nur noch wecken.", "Jonas ist geweckt.
 Zum dank hat er mir eine Ananas geschenkt." ]
