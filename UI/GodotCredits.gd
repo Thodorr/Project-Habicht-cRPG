@@ -91,7 +91,7 @@ func _process(delta):
 
 
 func finish():
-	get_tree().change_scene("res://StartScreen.tscn")
+	get_tree().change_scene("res://UI/StartScreen.tscn")
 
 
 func add_line():
