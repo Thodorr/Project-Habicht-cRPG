@@ -2,7 +2,7 @@ extends Resource
 
 class_name Quest
 
-var inventory = preload("res://Inventory.tres")
+var inventory = preload("res://Engine/Handler/Inventory.tres")
 
 # State of quest 
 enum Queststate {

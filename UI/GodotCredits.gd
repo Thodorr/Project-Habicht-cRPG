@@ -30,20 +30,19 @@ var credits = [
 		"Clemens Hawickenbrauck"
 	],[
 		"Art",
-		"Artist Name"
+		"Limezu"
 	],[
 		"Music",
-		"Musician Name"
-	],[
-		"Sound Effects",
-		"SFX Name"
+		"Zakiro"
 	],[
 		"Testers",
-		"Tims Freundin",
-		"Adrian der Gremlin",
+		"Claudia",
+		"Adrian",
 		"Lucy"
 	],[
 		"Tools used",
+		"Dialogic",
+		"Emilio Coppola",
 		"Developed with Godot Engine",
 		"https://godotengine.org/license",
 		"",

@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var inventory = preload("res://Inventory.tres")
+onready var inventory = preload("res://Engine/Handler/Inventory.tres")
 
 export var border_left = 0
 export var border_right = 500

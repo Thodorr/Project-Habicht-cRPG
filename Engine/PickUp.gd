@@ -12,7 +12,7 @@ export var south_deactivated = false
 export var west_deactivated = false
 
 onready var sprite = get_node("Sprite")
-onready var inventory = preload("res://Inventory.tres")
+onready var inventory = preload("res://Engine/Handler/Inventory.tres")
 onready var player = get_parent().get_parent().get_node("YSort/Charakter")
 
 var property_names: Array = []

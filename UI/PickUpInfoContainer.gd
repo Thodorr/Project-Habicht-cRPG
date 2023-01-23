@@ -1,7 +1,7 @@
 extends VBoxContainer
 
 
-onready var inventory = preload("res://Inventory.tres")
+onready var inventory = preload("res://Engine/Handler/Inventory.tres")
 onready var font = preload("res://UI/Font/PixelFontSmall.tres")
 
 func _ready():

@@ -18,11 +18,11 @@ signal loot_anim_finished
 
 onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 onready var animation_tree: AnimationTree = $AnimationTree
-onready var inventory = preload("res://Inventory.tres")
+onready var inventory = preload("res://Engine/Handler/Inventory.tres")
 onready var animation_state = animation_tree.get("parameters/playback")
 onready var player = owner.get_node("YSort/Charakter")
 
-var questhandler = preload("res://Questhandler.tres")
+var questhandler = preload("res://Engine/Handler/Questhandler.tres")
 
 var may_navigate = false
 var movement_blocked = false

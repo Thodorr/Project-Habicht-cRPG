@@ -154,7 +154,7 @@ func saveQuests():
 	var save_dict = {
 		"filename" : "quests",
 	}
-	var questhandler = load("res://Questhandler.tres")
+	var questhandler = load("res://Engine/Handler/Questhandler.tres")
 	for quest in questhandler.quests:
 		if quest != null:
 			var array = [quest.state, quest.step, quest.quest_item_step, quest.reward_item_step]
@@ -224,7 +224,7 @@ func search_for_node(instanced_scene, parent_node_name):
 	return parent_node
 
 func loadQuests(node_data):
-	var questhandler = load("res://Questhandler.tres")
+	var questhandler = load("res://Engine/Handler/Questhandler.tres")
 	var loadedQuests = []
 	for questname in node_data.keys():
 		if questname == "filename":

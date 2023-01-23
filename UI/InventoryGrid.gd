@@ -1,7 +1,7 @@
 extends GridContainer
 
 onready var pathHolder = owner.get_child(0)
-var inventory = preload("res://Inventory.tres")
+var inventory = preload("res://Engine/Handler/Inventory.tres")
 
 func _ready():
 	render_slots()

@@ -22,7 +22,7 @@
 [ext_resource path="res://Assets/Character/Outfit/BlackSuit.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Character/Hat/DinoHat.png" type="Texture" id=21]
 [ext_resource path="res://UI/Font/PixelFont.tres" type="DynamicFont" id=22]
-[ext_resource path="res://GUI.gd" type="Script" id=23]
+[ext_resource path="res://UI/GUI.gd" type="Script" id=23]
 [ext_resource path="res://UI/Assets/GUI/MediumPressedButton.tres" type="Texture" id=24]
 [ext_resource path="res://UI/Assets/GUI/MediumNormalButton.tres" type="Texture" id=25]
 [ext_resource path="res://Musi/sounds/mixkit-hotel-lobby-crowd-ambience-and-footsteps-365.ogg" type="AudioStream" id=26]
@@ -2438,6 +2438,8 @@ hair = ExtResource( 18 )
 hat = ExtResource( 21 )
 conversation = "T-RexIntro"
 looking_dir = 0
+north_deactivated = true
+south_deactivated = true
 
 [node name="SleepyGuy" parent="YSort" instance=ExtResource( 16 )]
 position = Vector2( 121, 314 )

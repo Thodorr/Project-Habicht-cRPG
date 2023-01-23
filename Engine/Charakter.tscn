@@ -1,11 +1,11 @@
 [gd_scene load_steps=57 format=2]
 
-[ext_resource path="res://EffectContainer.gd" type="Script" id=1]
-[ext_resource path="res://Charakter.gd" type="Script" id=2]
+[ext_resource path="res://UI/EffectContainer.gd" type="Script" id=1]
+[ext_resource path="res://Engine/Charakter.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Character/Body/Body_01.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Character/Hair/Hairstyle_01_01.png" type="Texture" id=4]
 [ext_resource path="res://UI/InventoryScene.tscn" type="PackedScene" id=5]
-[ext_resource path="res://NerveBar.gd" type="Script" id=6]
+[ext_resource path="res://UI/NerveBar.gd" type="Script" id=6]
 [ext_resource path="res://UI/Assets/GUI/NerveBar.png" type="Texture" id=7]
 [ext_resource path="res://UI/PopUp.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Effects/ripple_1.png" type="Texture" id=9]
@@ -16,7 +16,7 @@
 [ext_resource path="res://Assets/Effects/ripple_2.png" type="Texture" id=14]
 [ext_resource path="res://Assets/Effects/ripple_5.png" type="Texture" id=15]
 [ext_resource path="res://Musi/sounds/indoor-footsteps-6385.mp3" type="AudioStream" id=16]
-[ext_resource path="res://PickUpInfoContainer.gd" type="Script" id=17]
+[ext_resource path="res://UI/PickUpInfoContainer.gd" type="Script" id=17]
 [ext_resource path="res://UI/Assets/GUI/NerveBarContainer.png" type="Texture" id=18]
 
 [sub_resource type="CapsuleShape2D" id=26]

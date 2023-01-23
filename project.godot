@@ -102,7 +102,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "Questhandler",
 "language": "GDScript",
-"path": "res://Questhandler.gd"
+"path": "res://Engine/Handler/Questhandler.gd"
 }, {
 "base": "Item",
 "class": "TemporaryItem",
@@ -135,15 +135,15 @@ _global_script_class_icons={
 [application]
 
 config/name="Project Habicht"
-run/main_scene="res://StartScreen.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://UI/StartScreen.tscn"
+config/icon="res://UI/icon.png"
 
 [autoload]
 
 DataImport="*res://Data/DataImport.gd"
-Attributes="*res://Attributes.gd"
-scenechanger="*res://scenechanger.gd"
-CheckHandler="*res://CheckHandler.gd"
+Attributes="*res://Engine/Attributes.gd"
+scenechanger="*res://Engine/Handler/scenechanger.gd"
+CheckHandler="*res://Engine/Handler/CheckHandler.gd"
 
 [display]
 
