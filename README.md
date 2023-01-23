@@ -31,12 +31,12 @@ Open the project.tscn in Godot and run the scene.
 Welcome to Project Habicht cRPG, a open-source video game project built with the Godot game engine.
 
 
-Contribution
+## Contribution
 
 This project is open-source, and contributions are welcome. If you're interested in contributing, please fork the repository and submit a pull request.
 
-Support
+## Support
 
-If you encounter any issues or have any questions, please open an issue on the GitHub repository or contact the developer at thodorr@gmail.com.
+If you encounter any issues or have any questions, please open an issue on the GitHub repository or contact the developer at GIThub.
 
 Thanks for checking out Project Habicht cRPG! We hope you enjoy the game.
