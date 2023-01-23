@@ -15,6 +15,7 @@ enum Mouse {
 
 signal loot_anim_finished
 
+# Various nodes
 onready var nav_agent: NavigationAgent2D = $NavigationAgent2D
 onready var animation_tree: AnimationTree = $AnimationTree
 onready var inventory = preload("res://Engine/Handler/Inventory.tres")
@@ -23,6 +24,7 @@ onready var ui_layer = $UiLayer
 onready var timer = $Timer
 onready var ripple = get_node("UiLayer/Ripple")
 
+# Cursors images
 onready var regular_cursor = preload("res://Assets/Cursors/Arrow.png")
 onready var regular_cursor_clicked = preload("res://Assets/Cursors/Arrow_Clicked.png")
 onready var hand_cursor = preload("res://Assets/Cursors/Hand.png")
@@ -61,7 +63,6 @@ var semester = 4
 
 var invCheck = false
 var invContent
-
 
 export var state = State.IDLE
 
@@ -104,38 +105,45 @@ func save():
 	}
 	return save_dict
 
+# Changes the animation of the character based on its current state
 func animation_player():
 	if state == State.MOVING:
 		animation_tree.set("parameters/Idle/blend_position", direction)
 		animation_tree.set("parameters/Walk/blend_position", direction)
 		animation_tree.set("parameters/PickUp/blend_position", direction)
 		animation_state.travel("Walk")
-		_play_footsteps()
 	elif state == State.LOOTING:
 		animation_state.travel("PickUp")
 	else:
 		animation_state.travel("Idle")
 		_stop_footsteps()
 
+# Move the player to a specific location. Only used for preplaned sequences
 var target_looking_dir = null
 func move_to(target, looking_dir):
 	may_navigate = true
 	nav_agent.set_target_location(target)
 	target_looking_dir = looking_dir
 
+# Turns the character towards the direction given in the parameter 
 func turn(turn_direction):
 	animation_tree.set("parameters/Idle/blend_position", turn_direction)
 	animation_tree.set("parameters/PickUp/blend_position", turn_direction)
 
+# Called when the navigation is finished. 
+# Sets the state to idle and turns the character towardsan interactable
 func _on_navigation_finished():
 	state = State.IDLE
 	if target_looking_dir != null:
 		turn(Vector2(0, -1))
 		target_looking_dir = null
 
+# Called when a target is reached to reset the speed build up.
 func _on_NavigationAgent2D_target_reached():
 	build_up = 1
 
+# Called when the velocity vector is computed.
+# Moves the character along it's velocity parameter vector.
 func _on_velocity_computed(velocity):
 	if(velocity.x <= 5 && velocity.x >= -5 && velocity.y <= 5 && velocity.y >= -5):
 		state = State.IDLE
@@ -143,6 +151,8 @@ func _on_velocity_computed(velocity):
 		state = State.MOVING
 	var _motion = move_and_slide(velocity)
 
+# This function sets the velocity of the nav_agent based on its current navigation status.
+# If the navigation is not finished, the function gets the next location from nav_agent and calculates the direction towards it using the global_position
 func set_velocity(): 
 	if nav_agent.is_navigation_finished():
 		may_navigate = false
@@ -157,6 +167,7 @@ func set_velocity():
 
 	nav_agent.set_velocity(nav_movement)
 
+# Sets the navigation target and adds a ripple effect at the target position
 func set_navigation(target):
 	if inventory.drag_data != null: return
 	if movement_blocked: return
@@ -167,6 +178,8 @@ func set_navigation(target):
 	nav_agent.set_target_location(target)
 	movement_blocked = true
 
+# Called on input event that is not caught elsewhere
+# Calls set_navigation on mouse position if far enough away from the player
 func _unhandled_input(_event):
 	if Input.is_action_pressed("left_mouse"):
 		var min_dist = get_global_mouse_position().distance_to(position)
@@ -174,6 +187,7 @@ func _unhandled_input(_event):
 			may_navigate = true
 			set_navigation(get_global_mouse_position())
 
+# Changes the cursor based on the current mouse mode
 func adapt_cursor():
 	match(mouse_mode):
 		Mouse.REGULAR:
@@ -225,9 +239,12 @@ func adapt_cursor():
 func _on_Timer_timeout():
 	movement_blocked = false
 
+# Emits signal to inform pick up that the pick up animation is finished
 func _pick_up_finished():
 	emit_signal("loot_anim_finished")
 
+# Changes texture of character based on the item provided as a parameter
+# Called on equipment change
 func _on_item_equipped(item):
 	match item.type:
 		item.Type.HAT:
@@ -237,6 +254,7 @@ func _on_item_equipped(item):
 		item.Type.FACE:
 			$SpriteBundle/Face.texture = item.sprite_sheet
 
+# Sets the camera based on the maps declared limits
 func set_camera():
 	var map = get_parent().get_parent()
 	var camera = get_node("Camera2D")
